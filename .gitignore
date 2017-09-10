@@ -1,0 +1,28 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Yii template
+assets/*
+!assets/.gitignore
+protected/runtime/*
+!protected/runtime/.gitignore
+protected/data/*.db
+themes/classic/views/
+/yii
+.idea
+nbproject
+.buildpath
+.project
+.settings
+Thumbs.db
+/vendor
+composer.lock
+composer.phar
+.DS_Store
+phpunit.phar
+/phpunit.xml
+/.vagrant
+/fordelete.txt
+/done.txt
+/certificates.php
+/backup
+/storage/
+/source/
