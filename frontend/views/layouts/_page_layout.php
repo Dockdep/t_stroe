@@ -1,6 +1,9 @@
 <?php
 use frontend\widgets\MenuWidget;
 use frontend\widgets\BrandWidget;
+use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
+
 $this->beginContent('@app/views/layouts/main.php');
 
 ?>
@@ -18,10 +21,34 @@ $this->beginContent('@app/views/layouts/main.php');
     <div id="list-container" class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12">
-                <ul class="breadcrumb">
-                    <li><a href="/"><span>Интернет-магазин запчастей</span></a></li>
-                    <li><span>ДВИГУН</span></li>
-                </ul>
+                <?php
+
+                echo Breadcrumbs::widget(
+                    [
+                        'encodeLabels'       => false,
+                        'homeLink'           => [
+                            'label'    => Html::tag(
+                                'span',
+                                'Главная',
+                                [
+                                    'itemprop' => 'name',
+                                ]
+                            ),
+                            'url'      => [ 'site/index' ],
+                            'itemprop' => 'item',
+                            'template' => "<li itemscope itemprop='itemListElement' itemtype='http://schema.org/ListItem'>{link}<meta itemprop='position' content='1' /></li>\n",
+                        ],
+                        'links'              => isset( $this->params[ 'breadcrumbs' ] ) ? $this->params[ 'breadcrumbs' ] : [],
+                        'options'            => [
+                            'class'     => 'breadcrumb',
+                            'itemscope' => true,
+                            'itemtype'  => 'http://schema.org/BreadcrumbList',
+                        ],
+                        'itemTemplate'       => "<li itemscope itemprop='itemListElement' itemtype='http://schema.org/ListItem'>{link}</li>\n",
+                        'activeItemTemplate' => "<li class='active' itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>{link}</li>\n",
+                    ]
+                );
+                ?>
             </div>
         </div>
 

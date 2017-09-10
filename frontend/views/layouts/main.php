@@ -7,7 +7,6 @@ use yii\helpers\Url;
 use yii\web\View;
 use frontend\widgets\MenuWidget;
 use artweb\artbox\seo\widgets\Seo;
-use yii\widgets\Breadcrumbs;
 AppAsset::register($this);
 
 ?>
@@ -159,34 +158,11 @@ AppAsset::register($this);
                             </div>
                         </div>
                         <div class="col-xs-10">
-                            <?php
-
-                            echo Breadcrumbs::widget(
-                                [
-                                    'encodeLabels'       => false,
-                                    'homeLink'           => [
-                                        'label'    => Html::tag(
-                                            'span',
-                                            \Yii::t('app', 'Home'),
-                                            [
-                                                'itemprop' => 'name',
-                                            ]
-                                        ),
-                                        'url'      => [ 'site/index' ],
-                                        'itemprop' => 'item',
-                                        'template' => "<li itemscope itemprop='itemListElement' itemtype='http://schema.org/ListItem'>{link}<meta itemprop='position' content='1' /></li>\n",
-                                    ],
-                                    'links'              => isset( $this->params[ 'breadcrumbs' ] ) ? $this->params[ 'breadcrumbs' ] : [],
-                                    'options'            => [
-                                        'class'     => 'breadcrumb',
-                                        'itemscope' => true,
-                                        'itemtype'  => 'http://schema.org/BreadcrumbList',
-                                    ],
-                                    'itemTemplate'       => "<li itemscope itemprop='itemListElement' itemtype='http://schema.org/ListItem'>{link}</li>\n",
-                                    'activeItemTemplate' => "<li class='active' itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>{link}</li>\n",
-                                ]
-                            );
-                            ?>
+                            <div class="style btn-menu-mob">
+                                <a class="basket-btn-menu-mob" href="#"><span></span></a>
+                                <a class="login-btn-menu-mob" href="#"><span></span></a>
+                                <a class="search-btn-menu-mob" href="#"><span></span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
