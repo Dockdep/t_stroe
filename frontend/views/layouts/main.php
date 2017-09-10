@@ -6,6 +6,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 use frontend\widgets\MenuWidget;
+use artweb\artbox\seo\widgets\Seo;
 
 AppAsset::register($this);
 
@@ -16,7 +17,8 @@ AppAsset::register($this);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-
+    <title><?= Seo::widget([ 'row' => 'title' ]) ?></title>
+    <?= Seo::widget([ 'row' => Seo::DESCRIPTION ]) ?>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
     <link type="image/x-icon" href="./favicon.ico" rel="icon">
     <?php $this->head() ?>
