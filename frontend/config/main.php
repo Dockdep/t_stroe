@@ -12,7 +12,7 @@
     return [
         'homeUrl'             => '/',
         'id'                  => 'app-frontend',
-        'name'                => 'Extrem Style',
+        'name'                => 'Truckpost',
         'basePath'            => dirname(__DIR__),
         'bootstrap'           => [ 'log' ],
         'controllerNamespace' => 'frontend\controllers',
