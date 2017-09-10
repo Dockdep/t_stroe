@@ -9,14 +9,6 @@ $this->params[ 'seo' ][ 'title' ] = $product->lang->meta_title;
 $this->params[ 'seo' ][  'h1' ] =  $product->lang->title;
 
 $this->params[ 'breadcrumbs' ][] = [
-    'label' => $product->brand->lang->title,
-    'url'   => [
-        'brand/view',
-        'slug' => $product->brand->lang->alias,
-    ],
-];
-
-$this->params[ 'breadcrumbs' ][] = [
     'label' => $category->lang->title,
     'url'   => [
         'catalog/category',
