@@ -6,8 +6,6 @@ use artweb\artbox\components\artboximage\ArtboxImageHelper;
 use artweb\artbox\ecommerce\models\Product;
 use yii\bootstrap\Html;
 use yii\helpers\ArrayHelper;
-print_r($model->enabledVariants[0]);
-die();
 ?>
 <div class="items_wr">
         <div class="items_">

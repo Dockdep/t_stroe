@@ -139,9 +139,7 @@ class ProductFrontendSearch extends Product
         $query->leftJoin('brand_lang', 'brand.id = brand_lang.brand_id');
         $query->joinWith(
             [
-                'lang',
-                //'brand.lang',
-             //   'options',
+                'lang'
             ]
         );
 
