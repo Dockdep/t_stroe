@@ -13,6 +13,27 @@ use yii\widgets\Pjax;
  * @var Category   $category
  * @var Category[] $siblings
  */
+$this->title = !empty( $category->lang->meta_title ) ? $category->lang->meta_title : $category->lang->title;
+
+$this->params[ 'seo' ][ 'fields' ]['name'] = $category->lang->title;
+$this->params[ 'seo' ][ 'h1' ] = !empty( $category->lang->h1 ) ? $category->lang->h1 : $category->lang->title;
+$this->params[ 'seo' ][ 'title' ] = !empty( $category->lang->meta_title ) ? $category->lang->meta_title : '';
+$this->params[ 'seo' ][ 'seo_text' ] = $category->lang->seo_text;
+$this->params[ 'seo' ][ 'description' ] = $category->lang->meta_description;
+$this->params[ 'seo' ][ 'meta' ] = $category->lang->meta_robots;
+$this->params[ 'seo' ][ 'category_name' ] = $category->lang->title;
+$this->params['seo']['meta'] = $category->lang->meta_robots;
+$this->params[ 'breadcrumbs' ][] = [
+    'label' => Html::tag(
+        'span',
+        $category->lang->title,
+        [
+            'itemprop' => 'name',
+        ]
+    ),
+    'template' => "<li itemscope itemprop='itemListElement' itemtype='http://schema.org/ListItem'>{link}<meta itemprop='position' content='2' /></li>\n",
+];
+
 
 ?>
 <div class="row">
