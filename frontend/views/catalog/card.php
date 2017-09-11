@@ -18,10 +18,10 @@ if($category->parent_id){
     $this->params[ 'breadcrumbs' ][] = [
         'label' => $category->parentAR->lang->title,
         'url'   => [
-            [
+
                 'category/index',
                 'slug' => $category->parentAR->lang->alias,
-            ],
+
         ],
     ];
 }
