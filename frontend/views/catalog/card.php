@@ -14,19 +14,17 @@ $this->params[ 'seo' ][ 'title' ] = $product->lang->meta_title;
 $this->params[ 'seo' ][  'h1' ] =  $product->lang->title;
 
 
-print_r($category->parentAR->lang->title);
-die();
-if($category->parent_id){
-    $this->params[ 'breadcrumbs' ][] = [
-        'label' => $category->parentAR->lang->title,
-        'url'   => [
-            [
-                'category/index',
-                'slug' => $category->parentAR->lang->alias,
-            ],
-        ],
-    ];
-}
+//if($category->parent_id){
+//    $this->params[ 'breadcrumbs' ][] = [
+//        'label' => $category->parentAR->lang->title,
+//        'url'   => [
+//            [
+//                'category/index',
+//                'slug' => $category->parentAR->lang->alias,
+//            ],
+//        ],
+//    ];
+//}
 
 $this->params[ 'breadcrumbs' ][] = [
     'label' => $category->lang->title,
