@@ -1,11 +1,25 @@
 <?php
+use artweb\artbox\components\artboximage\ArtboxImageHelper;
 /**
  * @var \artweb\artbox\ecommerce\models\Brand[] $brands
  */
 ?>
 <div class="style slider-brands">
     <?php foreach ($brands as $brand) { ?>
-    <div class="brands-img"><img src="images/brands/img-brand-2.jpg" alt="<?php echo $brand->lang->title; ?>"></div>
+    <div class="brands-img">
+        <?php
+        ArtboxImageHelper::getImage(
+            $model->imageUrl,
+            'brand_list',
+            [
+                'alt'   => $model->lang->title,
+                'title' => $model->lang->title,
+            ],
+            90,
+            true
+        )
+        ?>
+    </div>
     <?php } ?>
 </div>
 <div style="display: none;" class="btn-l_"></div>
