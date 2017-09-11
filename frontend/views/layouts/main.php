@@ -37,7 +37,7 @@ $pages = Page::find()
                 <div class="col-xs-12 col-sm-12">
                     <ul>
                         <?php
-                            foreach ($pages as $page)
+                            foreach ($pages as $page){
                         ?>
                         <li><?= Html::a(
                                 $page->lang->title,
@@ -46,7 +46,7 @@ $pages = Page::find()
                                     'slug' => $page->lang->alias,
                                 ]
                             ); ?></li>
-                        <?php ?>
+                        <?php }?>
                     </ul>
                 </div>
             </div>
