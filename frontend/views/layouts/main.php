@@ -1,5 +1,6 @@
 ﻿<?php
 
+use artweb\artbox\models\Page;
 use frontend\assets\AppAsset;
 use frontend\models\LoginForm;
 use yii\helpers\Html;
@@ -8,7 +9,10 @@ use yii\web\View;
 use frontend\widgets\MenuWidget;
 use artweb\artbox\seo\widgets\Seo;
 AppAsset::register($this);
-
+$pages = Page::find()
+    ->with('lang')
+    ->indexBy('id')
+    ->all();
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
@@ -32,12 +36,17 @@ AppAsset::register($this);
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
                     <ul>
-                        <li><a href="#">Продукция и бренды</a></li>
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="#">Оплата и доставка</a></li>
-                        <li><a href="#">Новости</a></li>
-                        <li><a href="#">Контакты</a></li>
-
+                        <?php
+                            foreach ($pages as $page)
+                        ?>
+                        <li><?= Html::a(
+                                $page->lang->title,
+                                [
+                                    'site/page',
+                                    'slug' => $page->lang->alias,
+                                ]
+                            ); ?></li>
+                        <?php ?>
                     </ul>
                 </div>
             </div>
