@@ -14,8 +14,8 @@ $this->params[ 'seo' ][ 'title' ] = $product->lang->meta_title;
 $this->params[ 'seo' ][  'h1' ] =  $product->lang->title;
 
 
-if(isset($category->parent_id)){
-    if(isset($category->parentAR->parent_id)){
+if(isset($category->parentAR)){
+    if(isset($category->parentAR->parentAR)){
         $this->params[ 'breadcrumbs' ][] = [
             'label' => $category->parentAR->parentAR->lang->title,
             'url'   => [
