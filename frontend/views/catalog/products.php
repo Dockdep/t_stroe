@@ -23,6 +23,32 @@ $this->params[ 'seo' ][ 'description' ] = $category->lang->meta_description;
 $this->params[ 'seo' ][ 'meta' ] = $category->lang->meta_robots;
 $this->params[ 'seo' ][ 'category_name' ] = $category->lang->title;
 $this->params['seo']['meta'] = $category->lang->meta_robots;
+
+
+if(isset($category->parent_id)){
+    if(isset($category->parentAR->parent_id)){
+        $this->params[ 'breadcrumbs' ][] = [
+            'label' => $category->parentAR->parentAR->lang->title,
+            'url'   => [
+
+                'category/index',
+                'slug' => $category->parentAR->parentAR->lang->alias,
+
+            ],
+        ];
+    }
+    $this->params[ 'breadcrumbs' ][] = [
+        'label' => $category->parentAR->lang->title,
+        'url'   => [
+
+            'category/index',
+            'slug' => $category->parentAR->lang->alias,
+
+        ],
+    ];
+}
+
+
 $this->params[ 'breadcrumbs' ][] = [
     'label' => Html::tag(
         'span',
