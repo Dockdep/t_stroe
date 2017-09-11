@@ -9,11 +9,11 @@ use artweb\artbox\components\artboximage\ArtboxImageHelper;
     <div class="brands-img">
         <?php
         ArtboxImageHelper::getImage(
-            $model->imageUrl,
+            $brand->imageUrl,
             'brand_list',
             [
-                'alt'   => $model->lang->title,
-                'title' => $model->lang->title,
+                'alt'   => $brand->lang->title,
+                'title' => $brand->lang->title,
             ],
             90,
             true
