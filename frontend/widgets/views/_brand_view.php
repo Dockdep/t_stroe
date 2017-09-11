@@ -7,7 +7,7 @@ use artweb\artbox\components\artboximage\ArtboxImageHelper;
 <div class="style slider-brands">
     <?php foreach ($brands as $brand) { ?>
     <div class="brands-img">
-        <?php
+        <?=
         ArtboxImageHelper::getImage(
             $brand->imageUrl,
             'brand_list',
