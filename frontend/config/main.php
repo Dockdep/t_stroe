@@ -80,7 +80,7 @@
                 'showScriptName'  => false,
                 'class'           => 'artweb\artbox\language\components\LanguageUrlManager',
                 'rules'           => [
-                    'product/<product:[\w-]+>/<variant:[\w-]+>'                        => 'catalog/product',
+                    'product/<product:[\w-]+>/<variant:[\w-.]+>'                        => 'catalog/product',
                     [
                         'class'     => 'artweb\artbox\ecommerce\CatalogUrlManager',
                         'route_map' => [
