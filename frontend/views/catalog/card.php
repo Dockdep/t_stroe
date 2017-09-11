@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * @var Product           $product
+ * @var View       $this
+ * @var Category   $category
+ */
+use artweb\artbox\ecommerce\models\Category;
 use artweb\artbox\ecommerce\models\Product;
 
 $this->title = $product->lang->title;
@@ -7,6 +12,26 @@ $this->title = $product->lang->title;
 $this->params[ 'seo' ][ 'fields' ][ 'name' ] =  $product->lang->title;
 $this->params[ 'seo' ][ 'title' ] = $product->lang->meta_title;
 $this->params[ 'seo' ][  'h1' ] =  $product->lang->title;
+
+if($category->parent_id){
+    $this->params[ 'breadcrumbs' ][] = [
+        'label' => $category->parentAR->lang->title,
+        'url'   => [
+            [
+                'category/index',
+                'slug' => $category->parentAR->lang->alias,
+            ],
+        ],
+    ];
+}
+
+$this->params[ 'breadcrumbs' ][] = [
+    'label' => $category->lang->title,
+    'url'   => [
+        'catalog/category',
+        'category' => $category->lang->alias,
+    ],
+];
 
 $this->params[ 'breadcrumbs' ][] = [
     'label' => $category->lang->title,
