@@ -9,7 +9,7 @@ $this->params[ 'seo' ][ Seo::TITLE] = $this->title = 'Ошибка 404'
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 _404_"><img src="/images/img/404.jpg" alt=""></div>
+<!--        <div class="col-xs-12 col-sm-6 _404_"><img src="/images/img/404.jpg" alt=""></div>-->
         <div class="col-xs-12 col-sm-6 404_">
             <h1 class="style txt_404">404</h1>
             <div class="style welcome_404">
