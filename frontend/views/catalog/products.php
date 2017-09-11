@@ -25,8 +25,8 @@ $this->params[ 'seo' ][ 'category_name' ] = $category->lang->title;
 $this->params['seo']['meta'] = $category->lang->meta_robots;
 
 
-if(isset($category->parent_id)){
-    if(isset($category->parentAR->parent_id)){
+if(isset($category->parentAR)){
+    if(isset($category->parentAR->parentAR)){
         $this->params[ 'breadcrumbs' ][] = [
             'label' => $category->parentAR->parentAR->lang->title,
             'url'   => [
