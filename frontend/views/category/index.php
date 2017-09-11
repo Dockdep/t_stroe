@@ -8,6 +8,52 @@ use yii\widgets\LinkSorter;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
 
+$this->title = !empty( $model->lang->meta_title ) ? $model->lang->meta_title : $model->lang->title;
+
+$this->params[ 'seo' ][ 'fields' ]['name'] = $model->lang->title;
+$this->params[ 'seo' ][ 'h1' ] = !empty( $model->lang->h1 ) ? $model->lang->h1 : $model->lang->title;
+$this->params[ 'seo' ][ 'title' ] = !empty( $model->lang->meta_title ) ? $model->lang->meta_title : '';
+$this->params[ 'seo' ][ 'seo_text' ] = $model->lang->seo_text;
+$this->params[ 'seo' ][ 'description' ] = $model->lang->meta_description;
+$this->params[ 'seo' ][ 'meta' ] = $model->lang->meta_robots;
+$this->params[ 'seo' ][ 'category_name' ] = $model->lang->title;
+$this->params['seo']['meta'] = $model->lang->meta_robots;
+
+
+if(isset($model->parentAR)){
+    if(isset($model->parentAR->parentAR)){
+        $this->params[ 'breadcrumbs' ][] = [
+            'label' => $model->parentAR->parentAR->lang->title,
+            'url'   => [
+
+                'category/index',
+                'slug' => $model->parentAR->parentAR->lang->alias,
+
+            ],
+        ];
+    }
+    $this->params[ 'breadcrumbs' ][] = [
+        'label' => $model->parentAR->lang->title,
+        'url'   => [
+
+            'category/index',
+            'slug' => $model->parentAR->lang->alias,
+
+        ],
+    ];
+}
+
+
+$this->params[ 'breadcrumbs' ][] = [
+    'label' => Html::tag(
+        'span',
+        $model->lang->title,
+        [
+            'itemprop' => 'name',
+        ]
+    ),
+    'template' => "<li itemscope itemprop='itemListElement' itemtype='http://schema.org/ListItem'>{link}<meta itemprop='position' content='2' /></li>\n",
+];
 
 ?>
 <div class="row">
