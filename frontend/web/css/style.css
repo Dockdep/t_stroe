@@ -386,7 +386,7 @@ a:active {
   font-size: 13px;
   cursor: pointer;
   float: right;
-  position: relative;
+  position: absolute;
   display: block;
   border: 1px solid #c82319;
   transition: 0.1s;
@@ -394,7 +394,10 @@ a:active {
   -moz-transition: 0.1s;
   -ms-transition: 0.1s;
   -o-transition: 0.1s;
-  border-radius: 4px; }
+  border-radius: 4px;
+  top: 50%;
+  right: 15px;
+  margin-top: -20px; }
 .modal-callback i {
   font-style: normal;
   position: relative;
@@ -438,22 +441,29 @@ a:active {
 
 .header-phones {
   line-height: 14px;
-  margin-top: -2px; }
+  display: table-cell;
+  height: 112px;
+  vertical-align: middle;
+  float: none; }
 .header-phones a {
   color: inherit !important; }
 .header-phones p {
   float: left;
   font-size: 18px;
   font-weight: 700;
-  margin-left: 10px;
   color: inherit; }
-.header-phones p:first-child {
-  margin-left: 0; }
+.header-phones p span {
+  padding-right: 5px; }
+.header-phones p.header-city {
+  font-size: 16px;
+  width: 100%;
+  float: left;
+  margin-top: 20px; }
 
 /***end phones***/
 /***login***/
 .login-wr {
-  text-align: center;
+  text-align: right;
   overflow: hidden;
   white-space: nowrap;
   position: relative; }
@@ -556,8 +566,8 @@ a:active {
   margin-top: 23px;
   height: 38px;
   position: relative;
-  float: left;
-  width: 100%;
+  float: right;
+  width: auto;
   text-decoration: none !important; }
 .header-basket-wr table {
   margin: 0 auto; }
@@ -1064,6 +1074,12 @@ a.login-btn-menu-mob span:before {
 .close-seach-mobiles {
   display: none; }
 
+@media (min-width: 992px) {
+  .header-last-column {
+    width: 182px !important; } }
+@media (min-width: 1200px) {
+  .header-last-column {
+    width: 249px !important; } }
 @media (max-width: 1200px) {
   /*****╨╝╨╡╨╜╤О ╨│╨╗╨░╨▓╨╜╨░╤П****/
   .main-menu.full ul li ul li {
@@ -1080,6 +1096,20 @@ a.login-btn-menu-mob span:before {
   .price-header-basket {
     font-size: 16px; } }
 @media (max-width: 991px) {
+  .header-phones {
+    text-align: right; }
+  .header-phones p {
+    width: 100%;
+    float: left;
+    margin-top: 10px !important; }
+  .header-phones p:first-child {
+    margin-top: 0; }
+  .header-phones p span {
+    display: none; }
+
+  .header-box .header-phones-wrapper {
+    float: right; }
+
   .search-menu.mob-active-search {
     display: block !important;
     position: fixed;
@@ -1151,19 +1181,22 @@ a.login-btn-menu-mob span:before {
   .cities-wr {
     text-align: left; }
 
+  .header-phones-wrapper {
+    padding-left: 0 !important; }
+
   .header-phones {
-    height: 60px;
-    vertical-align: middle;
-    display: table-cell;
-    float: none;
-    line-height: normal; }
+    height: auto;
+    display: block;
+    float: left; }
   .header-phones p {
-    font-size: 18px !important;
-    width: 100%;
-    text-align: right;
-    margin-left: 0; }
-  .header-phones p:first-child {
-    margin-left: 0; }
+    font-size: 16px;
+    margin-top: 3px !important; }
+  .header-phones p.header-city {
+    font-size: 13px; }
+  .header-phones p span {
+    display: none; }
+  .header-phones p br {
+    display: block; }
 
   .hidden_shops {
     left: 0;
@@ -1294,19 +1327,18 @@ label {
   font-size: 16px; }
 .forms_ form {
   width: 100%;
-  background: #fff;
+  background: #f5f5f5;
   padding-bottom: 30px;
   float: left;
   padding-top: 29px; }
 
 .form-title {
   height: 72px;
-  color: #fff;
   line-height: 72px;
-  background: #c82319;
+  background: #f5f5f5;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 32px;
   text-align: center; }
 
 .input-wr, .button-wr {
@@ -1321,8 +1353,11 @@ label {
   margin: 0 auto;
   float: none;
   border: 1px solid #c82319;
-  font-size: 11px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  height: 45px;
+  line-height: 45px; }
 .button-wr button:hover {
   border: 1px solid #c82319; }
 
@@ -1429,12 +1464,16 @@ label {
     padding: 0 15px; }
   .forms_ label {
     font-size: 16px; }
+  .forms_ button {
+    width: 100%; }
+  .forms_ form {
+    padding-top: 0; }
 
   #modal_close {
     right: 15px; }
 
   .form-title {
-    font-size: 20px; } }
+    font-size: 24px; } }
 @media (max-height: 550px) {
   .txt-forms_overflow {
     height: 350px; } }
@@ -4233,10 +4272,7 @@ a.banner-img:hover img {
     z-index: 2; }
 
   .padding-r-none-1200 {
-    padding-right: 0 !important; }
-
-  .header-phones p {
-    font-size: 16px; } }
+    padding-right: 0 !important; } }
 @media (max-width: 991px) {
   .tile-wr.one-tile:before {
     display: none; } }
@@ -5654,4 +5690,4 @@ a.artweb-link:before {
   padding-left: 10px;
   width: 20%; }
 
-/*# sourceMappingURL=style.css.map
+/*# sourceMappingURL=style.css.map */

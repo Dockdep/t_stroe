@@ -55,26 +55,28 @@ $pages = Page::find()
     <div class="header-box section-box">
         <div class="container">
             <div class="row">
-                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2" style="max-width: 141px;">
+                <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2" style="max-width: 141px;">
                     <div class="logo-wr style">
                         <a href="/"><img src="/images/logo.png" alt=""></a>
                     </div>
                 </div>
-                <div class="hidden-xs col-md-4 col-lg-2 slogan">
+                <div class="hidden-xs col-sm-3 col-md-2 col-lg-2 slogan">
                     <div>
                         Запчасти<br>для грузовых<br>и легковых авто
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-7 col-md-5 col-lg-6" style="display: table;">
+                <div class="col-xs-8 col-sm-5 col-md-6 col-lg-6 header-phones-wrapper" style="display: table;">
                     <div class="style header-phones">
-                        <p>(067) 440-95-00</p>
+                        <p>(067) 440-95-00<span>,</span></p>
                         <p>(067) 442-15-50</p>
+                        <p class="header-city">Киев, ул. Гната Хоткевича 22в</p>
+                        <p class="header-city">Бровары, ул. Лесная 2</p>
 
-                        <span class="modal-link modal-callback hidden-xs" data-form="callback"><i>заказать<br />звонок</i></span>
+                        <span class="modal-link modal-callback hidden-xs hidden-sm" data-form="callback"><i>заказать<br />звонок</i></span>
                     </div>
                 </div>
 
-                <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                <div class="hidden-xs hidden-sm col-md-2 col-lg-2 header-last-column">
                     <div class="style login-wr">
                         <?php if (Yii::$app->user->isGuest): ?>
                             <a class="modal-link login_link" data-form="login_modal" rel="nofollow">
