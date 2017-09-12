@@ -765,7 +765,6 @@ $js = <<< JS
 
                 pic.on('click', 'figure', function(event) {
                     event.preventDefault();
-                    //                var $index = $(this).index();
                     var options = {
                         index: indexMinimg,
                         bgOpacity: 0.7,
