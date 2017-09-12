@@ -1295,7 +1295,7 @@ class IntegrationController extends Controller{
 
 
         } catch (Exception $e) {
-            echo 'Выброшено исключение: ',  $e->getFile(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
+            echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
         }
     }
 
