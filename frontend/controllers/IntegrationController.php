@@ -1456,7 +1456,6 @@ class IntegrationController extends Controller{
             $variant  = $model->variant;
             $variant->lang->title = $item->name;
         }
-
         $variant->sku = $item->sku;
         $variant->price = $item->price;
         $variant->remote_id = $item->model;

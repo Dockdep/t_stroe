@@ -32,6 +32,7 @@ use yii\web\Request;
  * @property ProductVariant[]     $productVariants
  * @property boolean              $is_top
  * @property boolean              $is_new
+ * @property boolean              $status
  * @property boolean              $is_discount
  * @property TaxGroup[]           $properties
  * @property ProductVariant       $enabledVariant
@@ -166,6 +167,7 @@ class Product extends ActiveRecord
             [
                 [
                     'video',
+                    'status'
                 ],
                 'safe',
             ],
