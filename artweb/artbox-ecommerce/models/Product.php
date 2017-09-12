@@ -204,6 +204,8 @@ class Product extends ActiveRecord
             'is_new'      => Yii::t('product', 'Is new'),
             'is_discount' => Yii::t('product', 'Is promo'),
             'size_image'  => Yii::t('product', 'Sizes table'),
+            'status'  => 'status',
+
         ];
     }
 
