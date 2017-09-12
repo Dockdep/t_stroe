@@ -4,6 +4,7 @@
  * @var View       $this
  * @var Category   $category
  */
+use artweb\artbox\components\artboximage\ArtboxImageHelper;
 use artweb\artbox\ecommerce\models\Category;
 use artweb\artbox\ecommerce\models\Product;
 
@@ -70,39 +71,30 @@ $this->params[ 'breadcrumbs' ][] =  $product->lang->title;
                         </div>
                         <!--в data-size выводить оригинальный размер картинки-->
                         <figure class="help_class">
+                            <?php
+                            echo Html::a(
+                                ArtboxImageHelper::getImage(
+                                    $product->imageUrl,
+                                    'product',
+                                    [
+                                        'alt'   => $product->lang->title,
+                                        'title' => $product->lang->title,
+                                        'itemprop' =>'thumbnail',
 
-                            <a style="display: none;" href="images/img/gallery/img-1-full.jpg" itemprop="contentUrl"
-                               data-size="1920x1080">
-                                <!--420x350-->
-                                <img class="item_myimage" src="images/img/gallery/img-1.jpg" itemprop="thumbnail"
-                                     alt=""/>
-                            </a>
-                            <a style="display: none;" href="images/img/gallery/img-2-full.jpg" itemprop="contentUrl"
-                               data-size="1920x1080">
-                                <!--420x350-->
-                                <img src="images/img/gallery/img-2.jpg" itemprop="thumbnail" alt=""/>
-                            </a>
+                                    ],
+                                    90,
+                                    true
+                                ),
+                                [$product->imageUrl],
+                                [
+                                    'itemprop' => 'contentUrl',
+                                    'data-size' => '920x1080'
+                                ]
+                            );
+                            ?>
+
                         </figure>
 
-                    </div>
-
-                    <div class="style gallery_min">
-                        <!--миниатюры выводить в том же порядке что и большие картинки-->
-                        <div class="row">
-                            <div>
-                                <a href="#">
-                                    <!--143x88-->
-                                    <img src="images/img/gallery/img-1-min.jpg" alt="">
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <!--143x88-->
-                                    <img src="images/img/gallery/img-2-min.jpg" alt="">
-                                </a>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
             </div>
@@ -386,6 +378,7 @@ $this->params[ 'breadcrumbs' ][] =  $product->lang->title;
     </div>
     <?php
 
+    use yii\helpers\Html;
     use yii\web\View;
 
     $js = "    /**
