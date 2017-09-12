@@ -33,6 +33,7 @@ use yii\web\Request;
  * @property boolean              $is_top
  * @property boolean              $is_new
  * @property boolean              $status
+ * @property integer              $discount_rate
  * @property boolean              $is_discount
  * @property TaxGroup[]           $properties
  * @property ProductVariant       $enabledVariant
@@ -167,7 +168,8 @@ class Product extends ActiveRecord
             [
                 [
                     'video',
-                    'status'
+                    'status',
+                    'discount_rate'
                 ],
                 'safe',
             ],
@@ -205,6 +207,7 @@ class Product extends ActiveRecord
             'is_discount' => Yii::t('product', 'Is promo'),
             'size_image'  => Yii::t('product', 'Sizes table'),
             'status'  => 'status',
+            'discount_rate'  => 'discount rate',
 
         ];
     }

@@ -1387,6 +1387,7 @@ class IntegrationController extends Controller{
             $model->lang->title = $item->name;
         }
         $model->status = $item->status;
+        $model->discount_rate = $item->discount_rate;
         $model->is_discount = $item->discount;
         $model->is_top = $item->top;
         $model->is_new = $item->new;
