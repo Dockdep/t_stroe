@@ -723,24 +723,24 @@ $js = <<< JS
 (function($) {
             var indexMinimg = 0;
 
-            var $pswp = $('.pswp')[0];
+            var pswp = $('.pswp')[0];
             var image = [];
 
             $('.my-gallery').each(function() {
-                var $pic = $(this),
+                var pic = $(this),
                     getItems = function() {
                         var items = [];
-                        $pic.find('a').each(function() {
-                            var $href = $(this).attr('href'),
-                                $size = $(this).data('size').split('x'),
-                                $width = $size[0],
-                                $height = $size[1];
+                        pic.find('a').each(function() {
+                            var href = $(this).attr('href'),
+                                size = $(this).data('size').split('x'),
+                                width = size[0],
+                                height = size[1];
 
                             if (!($(this).data('type') == 'video')) {
                                 var item = {
-                                    src: $href,
-                                    w: $width,
-                                    h: $height
+                                    src: href,
+                                    w: width,
+                                    h: height
                                 }
                             } else {
                                 item = {
@@ -763,7 +763,7 @@ $js = <<< JS
                     image[index].src = value['src'];
                 });
 
-                $pic.on('click', 'figure', function(event) {
+                pic.on('click', 'figure', function(event) {
                     event.preventDefault();
                     //                var $index = $(this).index();
                     var options = {
@@ -772,7 +772,7 @@ $js = <<< JS
                         showHideOpacity: true
                     }
 
-                    var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+                    var lightBox = new PhotoSwipe(pswp, PhotoSwipeUI_Default, items, options);
                     lightBox.init();
                 });
             });
