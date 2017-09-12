@@ -7,7 +7,8 @@
 use artweb\artbox\components\artboximage\ArtboxImageHelper;
 use artweb\artbox\ecommerce\models\Category;
 use artweb\artbox\ecommerce\models\Product;
-
+use yii\helpers\Html;
+use yii\web\View;
 $this->title = $product->lang->title;
 
 $this->params[ 'seo' ][ 'fields' ][ 'name' ] =  $product->lang->title;
@@ -378,8 +379,7 @@ $this->params[ 'breadcrumbs' ][] =  $product->lang->title;
     </div>
     <?php
 
-    use yii\helpers\Html;
-    use yii\web\View;
+
 
     $js = "    /**
          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
