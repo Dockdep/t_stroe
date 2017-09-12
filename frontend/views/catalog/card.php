@@ -55,6 +55,24 @@ $this->params[ 'breadcrumbs' ][] =  $product->lang->title;
  * @var $product Product
  */
 
+$this->registerCssFile(Yii::getAlias('@web/css/photoswipe.css'));
+$this->registerCssFile(Yii::getAlias('@web/css/default-skin.css'));
+$this->registerJsFile(
+    Yii::getAlias('@web/js/photoswipe.min.js'),
+    [
+        'position' => View::POS_END,
+        'depends'  => [ 'yii\web\JqueryAsset' ],
+    ]
+);
+
+$this->registerJsFile(
+    Yii::getAlias('@web/js/photoswipe-ui-default.min.js'),
+    [
+        'position' => View::POS_END,
+        'depends'  => [ 'yii\web\JqueryAsset' ],
+    ]
+);
+
 ?>
 <div class="col-xs-12 col-sm-12">
 
@@ -628,3 +646,160 @@ $this->params[ 'breadcrumbs' ][] =  $product->lang->title;
     </div>
 
 </div>
+
+<!-----------------gallery------------------>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+     It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+        PhotoSwipe keeps only 3 of them in the DOM to save memory.
+        Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<?php
+
+
+
+$js = "     
+            (function($) {
+            var indexMinimg = 0;
+
+            var $pswp = $('.pswp')[0];
+            var image = [];
+
+            $('.my-gallery').each(function() {
+                var $pic = $(this),
+                    getItems = function() {
+                        var items = [];
+                        $pic.find('a').each(function() {
+                            var $href = $(this).attr('href'),
+                                $size = $(this).data('size').split('x'),
+                                $width = $size[0],
+                                $height = $size[1];
+
+                            if (!($(this).data('type') == 'video')) {
+                                var item = {
+                                    src: $href,
+                                    w: $width,
+                                    h: $height
+                                }
+                            } else {
+                                item = {
+                                    html: '<div class=\"wrapper\">' + $(this).data('video') + '</div>'
+                                };
+
+                            }
+
+
+
+                            items.push(item);
+                        });
+                        return items;
+                    }
+
+                var items = getItems();
+
+                $.each(items, function(index, value) {
+                    image[index] = new Image();
+                    image[index].src = value['src'];
+                });
+
+                $pic.on('click', 'figure', function(event) {
+                    event.preventDefault();
+                    //                var $index = $(this).index();
+                    var options = {
+                        index: indexMinimg,
+                        bgOpacity: 0.7,
+                        showHideOpacity: true
+                    }
+
+                    var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+                    lightBox.init();
+                });
+            });
+
+            $('body').on('click', '.gallery_min .row div', function(event) {
+                event.preventDefault();
+                indexMinimg = $(this).index();
+
+                var showImg = $('.my-gallery figure a');
+                showImg.css({
+                    display: 'none'
+                });
+                $(showImg[indexMinimg]).animate({
+                    opacity: 'toggle'
+                }, {
+                    duration: 400,
+                    start: function() {
+                        $(this).css('display', 'table-cell');
+                    }
+                });
+                $('.help_class').removeClass('help_class')
+            })
+
+
+        })(jQuery);";
+$this->registerJs(
+    $js,
+    View::POS_READY
+);
+?>
