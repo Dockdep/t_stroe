@@ -1387,6 +1387,9 @@ class IntegrationController extends Controller{
             $model->lang->title = $item->name;
         }
         $model->status = $item->status;
+        $model->is_discount = $item->discount;
+        $model->is_top = $item->top;
+        $model->is_new = $item->new;
         $model->remote_id = $item->model;
         if(isset($item->brand) && !empty($item->brand)){
             $model->brand_id = $item->brand;
@@ -1460,6 +1463,14 @@ class IntegrationController extends Controller{
         $variant->price = $item->price;
         $variant->remote_id = $item->model;
         $variant->stock = $item->quantity;
+        if($item->quantity == 0){
+            if(empty($variant->sold_date)){
+                $sold_date = new \DateTime('NOW');
+                $variant->sold_date  = $sold_date->getTimestamp();
+            }
+        }else {
+            $variant->sold_date  = '';
+        }
         if(!$variant->validate()){
             throw new Exception(print_r($variant->getErrors()));
         }
