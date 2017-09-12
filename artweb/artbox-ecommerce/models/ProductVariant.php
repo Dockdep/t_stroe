@@ -19,6 +19,7 @@
      * @property integer              $product_id
      * @property integer              $remote_id
      * @property string               $sku
+     * @property string               $sold_date
      * @property double               $price
      * @property double               $price_old
      * @property double               $stock
@@ -156,6 +157,7 @@
                 [
                     [
                         'options',
+                        'sold_date'
                     ],
                     'safe',
                 ],
