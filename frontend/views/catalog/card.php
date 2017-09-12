@@ -9,6 +9,7 @@ use artweb\artbox\ecommerce\models\Category;
 use artweb\artbox\ecommerce\models\Product;
 use yii\helpers\Html;
 use yii\web\View;
+
 $this->title = $product->lang->title;
 
 $this->params[ 'seo' ][ 'fields' ][ 'name' ] =  $product->lang->title;
@@ -72,27 +73,24 @@ $this->params[ 'breadcrumbs' ][] =  $product->lang->title;
                         </div>
                         <!--в data-size выводить оригинальный размер картинки-->
                         <figure class="help_class">
-                            <?php
-                            echo Html::a(
-                                ArtboxImageHelper::getImage(
-                                    $product->imageUrl,
-                                    'product',
-                                    [
-                                        'alt'   => $product->lang->title,
-                                        'title' => $product->lang->title,
-                                        'itemprop' =>'thumbnail',
+                            <a style="display: none;" href="<?= $product->imageUrl ?>" itemprop="contentUrl"
+                               data-size="1920x1080">
+                                <!--420x350-->
+                                <?=
+                                    ArtboxImageHelper::getImage(
+                                        $product->imageUrl,
+                                        'product',
+                                        [
+                                            'alt'   => $product->lang->title,
+                                            'title' => $product->lang->title,
+                                            'itemprop' =>'thumbnail',
 
-                                    ],
-                                    90,
-                                    true
-                                ),
-                                [$product->imageUrl],
-                                [
-                                    'itemprop' => 'contentUrl',
-                                    'data-size' => '920x1080'
-                                ]
-                            );
-                            ?>
+                                        ],
+                                        90,
+                                        true
+                                    )
+                                ?>
+                            </a>
 
                         </figure>
 
