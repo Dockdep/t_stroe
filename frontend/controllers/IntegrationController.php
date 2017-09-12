@@ -1386,7 +1386,7 @@ class IntegrationController extends Controller{
         } else {
             $model->lang->title = $item->name;
         }
-
+        $model->status = $item->status;
         $model->remote_id = $item->model;
         if(isset($item->brand) && !empty($item->brand)){
             $model->brand_id = $item->brand;
