@@ -719,8 +719,8 @@ $this->registerJsFile(
 
 
 
-$js = "     
-            (function($) {
+$js = <<< JS
+(function($) {
             var indexMinimg = 0;
 
             var $pswp = $('.pswp')[0];
@@ -797,7 +797,8 @@ $js = "
             })
 
 
-        })(jQuery);";
+        })(jQuery);
+JS;
 $this->registerJs(
     $js,
     View::POS_READY
