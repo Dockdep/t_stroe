@@ -37,7 +37,7 @@ use yii\helpers\Url;
 
                             <a  class="filter-link <?= isset($option['count']) && $option['count'] == 0 ? 'disabled-link' : ''  ?>"  href="<?= $option_url?>">
                                 <label for="<?= $option['tax_option_id']?>">
-                                    <span class="features-option"><?= $option['value']?></span>
+                                    <span class="features-option"></span><?= $option['value']?>
                                 </label>
                             </a>
 
