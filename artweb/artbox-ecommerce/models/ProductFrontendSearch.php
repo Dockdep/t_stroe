@@ -108,7 +108,7 @@ class ProductFrontendSearch extends Product
                         ]
                     ),
                 'pagination' => [
-                    'pageSize' => 9,
+                    'pageSize' => 12,
                 ],
                 'sort'       => $sort,
             ]
