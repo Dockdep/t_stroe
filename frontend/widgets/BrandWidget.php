@@ -25,7 +25,7 @@ use artweb\artbox\ecommerce\models\Category;
             $brands = Brand::find()
                                   ->joinWith('lang')
                                   ->indexBy('id')
-                                  ->limit(10)
+                                  ->limit(20)
                                   ->all();
 
 
