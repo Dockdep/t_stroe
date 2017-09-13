@@ -59,8 +59,23 @@ $this->params[ 'breadcrumbs' ][] = [
     ),
     'template' => "<li itemscope itemprop='itemListElement' itemtype='http://schema.org/ListItem'>{link}<meta itemprop='position' content='2' /></li>\n",
 ];
+$this->registerJsFile(
+    Yii::getAlias('@web/js/filter.js'),
+    [
+        'position' => View::POS_END,
+        'depends'  => [ 'yii\web\JqueryAsset' ],
+    ]
+);
 
-
+?>
+<?php
+    Pjax::begin(
+        [
+            'timeout' => 20000,
+            'id'      => 'list-container',
+            'scrollTo' => false
+        ]
+    )
 ?>
 <div class="row">
 
@@ -380,3 +395,4 @@ $this->params[ 'breadcrumbs' ][] = [
         </div>
     </div>
 </div>
+<?php Pjax::end() ?>

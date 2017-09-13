@@ -34,13 +34,11 @@ use yii\helpers\Url;
                     ?>
                     <div class="sidebar_checks" data-checked="<?= $checked ? ' true' : 'false'?>">
                         <input <?= isset($option['count']) && $option['count'] == 0 ? 'disabled' : ''  ?>  id="<?= $option['tax_option_id']?>"  class="custom-check" type="checkbox" <?= $checked ? ' checked' : ''?>  value="1">
-
+                        <label for="<?= $option['tax_option_id']?>"><span class="features-option"></span>
                             <a  class="filter-link <?= isset($option['count']) && $option['count'] == 0 ? 'disabled-link' : ''  ?>"  href="<?= $option_url?>">
-                                <label for="<?= $option['tax_option_id']?>">
-                                    <span class="features-option"></span><?= $option['value']?>
-                                </label>
+                                <?= $option['value']?>
                             </a>
-
+                        </label>
                     </div>
                 <?php } ?>
 
