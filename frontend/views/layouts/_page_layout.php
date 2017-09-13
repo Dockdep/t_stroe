@@ -18,7 +18,7 @@ $this->beginContent('@app/views/layouts/main.php');
             </div>
         </div>
     </div>
-    <div id="list-container" class="container">
+    <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12">
                 <?php
