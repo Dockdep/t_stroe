@@ -25,8 +25,6 @@ $pages = Page::find()
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
     <link type="image/x-icon" href="./favicon.ico" rel="icon">
     <?php $this->head() ?>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/simplecartjs/3.0.5/simplecart.min.js"></script>
-
 </head>
 <body>
 <?php $this->beginBody(); ?>
