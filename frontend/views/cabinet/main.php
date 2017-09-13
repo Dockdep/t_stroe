@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
+
 ?>
 <div class="row cabinet-row">
     <div class="hidden-xs col-xs-12 col-sm-3 cabinet-list-wrapper">
@@ -26,62 +28,47 @@ use yii\helpers\Url;
         <ul class="cabinet-forms-list">
             <li style="display: none;" class="active">
                 <a class="cab-mob-link"><span>Личные данные</span></a>
-                <form action="">
+                <?php $form = ActiveForm::begin([]); ?>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-5 input-wr">
-                            <div class="form-group required">
-                                <label class="control-label" for="">Имя</label>
-                                <input type="text" id="">
-                            </div>
+                            <?= $form->field($model, 'username')->textInput() ?>
                         </div>
 
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-5 input-wr">
-                            <div class="form-group required">
-                                <label class="control-label" for="">Фамилия</label>
-                                <input type="text" id="">
-                            </div>
+                            <?= $form->field($model, 'surname')->textInput() ?>
+
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 sm-12 col-md-5 input-wr">
-                            <div class="form-group field-signupform-email required">
-                                <label class="control-label" for="signupform-email">Ваш e-mail</label>
-                                <input type="text" id="signupform-email" class="form-control" name="SignupForm[email]">
+                            <?= $form->field($model, 'email')->textInput() ?>
 
-
-                            </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 sm-12 col-md-5 input-wr  phones_mask">
-                            <div class="form-group ">
-                                <label>Ваш мобильный телефон</label>
-                                <input type="text" id="signupform-phone" class="form-control" name="SignupForm[phone]" placeholder="+38(_ _ _) _ _ _- _ _ - _ _">
-                            </div>
+                            <?= $form->field($model, 'phone')->textInput() ?>
+
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 sm-12 col-md-5 input-wr ">
-                            <div class="form-group">
-                                <label>Город</label>
-                                <input type="text">
-                            </div>
+                            <?= $form->field($model, 'city')->textInput() ?>
+
                         </div>
 
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 sm-12 col-md-5 input-wr ">
-                            <div class="form-group">
-                                <label>Ваш адрес</label>
-                                <input type="text">
-                            </div>
+                            <?= $form->field($model, 'address')->textInput() ?>
+
                         </div>
                     </div>
 
@@ -97,7 +84,9 @@ use yii\helpers\Url;
                             <button type="submit">Сохранить</button>
                         </div>
                     </div>
-                </form>
+                <?php
+                ActiveForm::end();
+                ?>
             </li>
             <li style="display: none;"><a class="cab-mob-link" href="cabinet-history.html"><span>История заказов</span></a></li>
             <li style="display: none;"><a class="cab-mob-link" href="cabinet-history-payment.html"><span>Платежи</span></a></li>
