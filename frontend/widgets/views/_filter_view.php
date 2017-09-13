@@ -35,7 +35,7 @@ use yii\helpers\Url;
                     <div class="sidebar_checks" data-checked="<?= $checked ? ' true' : 'false'?>">
                         <input <?= isset($option['count']) && $option['count'] == 0 ? 'disabled' : ''  ?>  id="<?= $option['tax_option_id']?>"  class="custom-check" type="checkbox" <?= $checked ? ' checked' : ''?>  value="1">
                         <label class="features-option" for="<?= $option['tax_option_id']?>">
-                            <a  class="filter-link <?= isset($option['count']) && $option['count'] == 0 ? 'disabled-link' : ''  ?>"  href="<?= $option_url?>">
+                            <a  class="filter-link"  href="<?= $option_url?>">
                                 <?= $option['value']?>
                             </a>
                         </label>
