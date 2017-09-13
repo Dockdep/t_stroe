@@ -1322,7 +1322,9 @@ label {
   top: 0;
   opacity: 0;
   border-radius: 5px;
-  overflow: hidden; }
+  overflow: hidden;
+  background: #f5f5f5;
+}
 .forms_ label {
   font-size: 16px; }
 .forms_ form {
