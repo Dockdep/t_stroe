@@ -17,6 +17,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         '/js/script.js',
+        '/js/artbox_basket.js',
         '/js/owl.carousel.min.js',
         '/js/jquery.mask.min.js'
     ];
