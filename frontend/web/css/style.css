@@ -3077,7 +3077,9 @@ ul.pagination li:active.prev.disabled:before, ul.pagination li:active.next.disab
   float: left;
   overflow: hidden;
   border-radius: 4px; }
-
+.card-num-wr input {
+  border-radius: 0;
+}
 .card-num-wr {
   margin-right: 15px; }
 .card-num-wr input, .card-num-wr textarea, .card-num-wr select {
