@@ -73,10 +73,12 @@ use yii\widgets\ActiveForm;
                     </div>
 
                     <div class="row">
-                        <div class="col-xs-12 sm-12  ">
-                            <a class="cab-restore-pass" href="#">Сменить пароль</a>
+                        <div class="col-xs-12 sm-12 col-md-5 input-wr ">
+                            <?= $form->field($model, 'password')->passwordInput() ?>
                         </div>
-
+                        <div class="col-xs-12 sm-12 col-md-5 input-wr ">
+                            <?= $form->field($model, 'password_repeat')->passwordInput() ?>
+                        </div>
                     </div>
 
                     <div class="row">
