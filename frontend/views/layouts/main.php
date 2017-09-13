@@ -454,67 +454,6 @@ $livechat = "(function(){ var widget_id = '01bvplgFpa';var d=document;var w=wind
 ?>
 
 
-<script>
-
-    simpleCart.bind( 'beforeSave' , function(){
-        // Update price
-        $('.simpleCart_items table').addClass('basket-tb');
-    });
-    simpleCart.currency({
-        code: "UAH" ,
-        name: "грн" ,
-        symbol: " грн" ,
-        delimiter: " " ,
-        decimal: "," ,
-        after: true ,
-        accuracy: 3
-    });
-
-
-    simpleCart({
-
-        checkout: {
-            type: "SendForm" ,
-            url: "#",
-            // http method for form, "POST" or "GET", default is "POST"
-            method: "POST" ,
-            // url to return to on successful checkout, default is null
-            success: "index.html" ,
-            // url to return to on cancelled checkout, default is null
-            cancel: "cancel.html" ,
-            // an option list of extra name/value pairs that can
-            // be sent along with the checkout data
-           // extra_data: {}
-        } ,
-        // set the currency, see the currency reference for more info
-        // currency: "UAH",
-        // checkout: {
-        //   type: "PayPal",
-        //   email: "fducom@gmail.com"
-        // },
-        cartColumns: [
-
-            { view: function(item, column){
-                return"<img src='"+item.get('myimage')+"'>";
-            },
-                attr: 'myimage' },
-            { attr: "name" , label: "name", view: 'name' } ,
-//            {view: function(item, column){
-//                return item.get('size');
-//            }, attr: "size", label: "size"},
-            { attr: "price" , label: "Price", view: 'currency' } ,
-            { view: "decrement" , label: false , text: "<i class='fa fa-minus-circle'>-</i>" } ,
-            { attr: "quantity" , label: "Qty" } ,
-            { view: "increment" , label: false , text: "<i class='fa fa-plus-circle'>+</i>" } ,
-            { attr: "total" , label: "SubTotal", view: 'currency' } ,
-            { view: "remove" , text: "Remove" , label: false }
-        ],
-        cartStyle: "table"
-    });
-
-
-</script>
-
 
 </body>
 </html>
