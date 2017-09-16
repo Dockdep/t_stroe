@@ -31,8 +31,7 @@
                     echo $this->render(
                         ( \Yii::$app->user->isGuest ? '_form_guest' : '_form' ),
                         [
-                            'order'      => $order,
-                            'deliveries' => $deliveries,
+                            'order'      => $order
                         ]
                     );
                     ?>
