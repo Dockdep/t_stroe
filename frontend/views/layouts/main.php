@@ -16,7 +16,7 @@ $pages = Page::find()
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="<?php echo \Yii::$app->language; ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
