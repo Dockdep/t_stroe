@@ -123,7 +123,7 @@ var ArtboxBasket = (function () {
     });
     return ArtboxBasket;
 }());
-// var basket = new ArtboxBasket();
+var basket = new ArtboxBasket();
 //
 // $(document)
 //     .on(
