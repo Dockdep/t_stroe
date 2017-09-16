@@ -49,30 +49,17 @@ use yii\web\View;
                 <?php
                 echo $form->field(
                     $order,
-                    'email',
-                    [
-                        'errorOptions' => [
-                            'encode' => false,
-                        ],
-                        'options'      => [
-                            'class' => 'col-xs-12 col-sm-5 col-md-3',
-                        ],
-                    ]
+                    'email'
                 )
                     ->textInput();
                 ?>
             </div>
 
-            <div class="col-xs-12 col-sm-5 col-md-3 input-wr  phones_mask">
+            <div class="col-xs-12 col-sm-5 col-md-3 input-wr ">
                 <?php
                 echo $form->field(
                     $order,
-                    'phone',
-                    [
-                        'options' => [
-                            'class' => 'col-xs-12 col-sm-5 col-md-3',
-                        ],
-                    ]
+                    'phone'
                 )
                     ->textInput(
                         [
