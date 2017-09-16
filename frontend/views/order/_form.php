@@ -55,7 +55,7 @@ use yii\web\View;
                 ?>
             </div>
 
-            <div class="col-xs-12 col-sm-5 col-md-3 input-wr ">
+            <div class="col-xs-12 col-sm-5 col-md-3 input-wr phones_mask">
                 <?php
                 echo $form->field(
                     $order,
