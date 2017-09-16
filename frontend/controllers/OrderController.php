@@ -46,9 +46,9 @@
                 $order->city = $user->city;
                 $order->adress = $user->address;
             }
-//            $order->validate();
-//            print_r($order->getErrors());
-//            die();
+            $order->validate();
+            print_r($order->getErrors());
+            die();
             if (!empty( $models ) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
                 if (\Yii::$app->user->isGuest && !empty( $order->email )) {
                     $password = \Yii::$app->security->generateRandomString(6);
