@@ -316,9 +316,6 @@
             return $this->hasMany(OrderProduct::className(), [ 'order_id' => 'id' ]);
         }
         
-        public function getLabelModel()
-        {
-            return $this->hasOne(Label::className(), [ 'id' => 'label' ]);
-        }
+
     }
     
