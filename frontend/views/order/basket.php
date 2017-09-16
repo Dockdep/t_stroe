@@ -12,59 +12,13 @@
         <!-------------------------------->
 
         <div class="col-xs-12 col-sm-12 basket_page">
-            <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
-                <tr>
-                    <td>Фото</td>
-                    <td>Товар</td>
-                    <td>Цена за один</td>
-                    <td>Количество</td>
-                    <td>За весь товар</td>
-                    <td></td>
-                </tr>
-                <tr class="variant_tr" data-variant="138478">
-                    <td>
-                        <a href="" target="_blank"><img src="images/img/img-165x140.jpg" alt="(" title=""></a>
-                    </td>
-                    <td>
-                        <a class="title" href="#" target="_blank">
-                            <span>(E459L) GEL-GAMEPOINT'17 4920-INDIGO BLUE/DIVA PINK/WHITE</span>
-                        </a>
-                        <span class="code">код: 8718833891536</span>
-                    </td>
-                    <td>
-                        <p class="price">
-                            1359<span> грн.</span>
-                            <span class="hidden-sm hidden-md hidden-lg price-one-item"> (цена за 1 товар)</span>
-                        </p>
-                    </td>
-                    <td>
-                        <div class="quantity-wr">
-                            <span class="minus">-</span>
-                            <input type="text" value="2" class="prod_count">
-                            <span class="plus">+</span>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="new_price">
-                            2718<span>  грн.</span>
-                        </p>
-                    </td>
-                    <td>
-                        <span class="remove_ico"></span>
-                        <div class="remove_confirm">
-                            <a class="remove-yes" href="#">да</a>
-                            <span class="lang_sep"></span>
-                            <a class="remove-no" href="#">нет</a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+
         </div>
 
         <div class="col-xs-12 col-sm-12">
             <div class="style price-total-wr">
                 <div class="hidden-xs col-sm-6"><span class="total_txt">итого</span></div>
-                <div class="col-sm-12 col-sm-6 price-total">4817<span>  грн.</span></div>
+                <div class="col-sm-12 col-sm-6 price-total"><span>  грн.</span></div>
             </div>
         </div>
 
