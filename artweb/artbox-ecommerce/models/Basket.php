@@ -56,8 +56,6 @@
         public function add(int $product_variant_id, int $count)
         {
             $data = $this->getData();
-            print_r($data);
-            die();
             if (array_key_exists($product_variant_id, $data)) {
                 if ($data[ $product_variant_id ][ 'count' ] <= 0) {
                     $data[ $product_variant_id ][ 'count' ] = $count;
