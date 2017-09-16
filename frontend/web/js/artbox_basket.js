@@ -72,18 +72,18 @@ var ArtboxBasket = (function () {
     };
     ArtboxBasket.prototype.updateModal = function (modal, cart_html, show) {
         if (show === void 0) { show = false; }
-        var modalBox = $('.basket_modal');
-        modalBox.html(modal);
-        this.updatePage(modal);
-        if (cart_html) {
-            this.updateCart(cart_html);
-        }
-        if (this.count < 1) {
-            this.hideBasket();
-        }
-        if (show) {
-            return show;
-        }
+        // var modalBox = $('.basket_modal');
+        // modalBox.html(modal);
+        // this.updatePage(modal);
+        // if (cart_html) {
+        //     this.updateCart(cart_html);
+        // }
+        // if(this.count < 1) {
+        //     this.hideBasket();
+        // }
+        // if (show) {
+        //     return show;
+        // }
     };
     ArtboxBasket.prototype.updateCart = function (cart_html) {
         var cart = $('.basket-wrapper, .basket-wrapper2');

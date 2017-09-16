@@ -32,9 +32,9 @@ class ArtboxBasket {
         $.get('/' + this.language + '/basket', function (data) {
             console.log('/' + this.language + '/basket');
             this._items = data.basket;
-            // if (update_modal) {
-            //     this.updateModal(data.modal, false);
-            // }
+            if (update_modal) {
+                this.updateModal(data.modal, false);
+            }
             if (update_cart) {
                 this.updateCart(data.cart);
             }
@@ -71,18 +71,18 @@ class ArtboxBasket {
     }
 
     public updateModal(modal, cart_html, show = false) {
-        var modalBox = $('.basket_modal');
-        modalBox.html(modal);
-        this.updatePage(modal);
-        if (cart_html) {
-            this.updateCart(cart_html);
-        }
-        if(this.count < 1) {
-            this.hideBasket();
-        }
-        if (show) {
-            return show;
-        }
+        // var modalBox = $('.basket_modal');
+        // modalBox.html(modal);
+        // this.updatePage(modal);
+        // if (cart_html) {
+        //     this.updateCart(cart_html);
+        // }
+        // if(this.count < 1) {
+        //     this.hideBasket();
+        // }
+        // if (show) {
+        //     return show;
+        // }
     }
 
     public updateCart(cart_html) {
