@@ -36,9 +36,9 @@ var ArtboxBasket = (function () {
         $.get('/' + this.language + '/basket', function (data) {
             console.log('/' + this.language + '/basket');
             this._items = data.basket;
-            // if (update_modal) {
-            //     this.updateModal(data.modal, false);
-            // }
+            if (update_modal) {
+                this.updateModal(data.modal, false);
+            }
             if (update_cart) {
                 this.updateCart(data.cart);
             }
