@@ -101,10 +101,12 @@ $pages = Page::find()
                         <?php endif; ?>
 
                     </div>
+                    <div class="basket-wrapper">
+                        <?php
+                            echo $this->render('@frontend/views/basket/cart', [ 'count' => 0, ]);
+                        ?>
+                    </div>
 
-                    <?php
-                    echo $this->render('@frontend/views/basket/cart', [ 'count' => 0, ]);
-                    ?>
                 </div>
             </div>
         </div>

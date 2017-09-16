@@ -86,7 +86,7 @@ class ArtboxBasket {
     }
 
     public updateCart(cart_html) {
-        var cart = $('.basket-wrapper, .basket-wrapper2');
+        var cart = $('.basket-wrapper');
         cart.html(cart_html);
     }
 

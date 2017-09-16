@@ -86,7 +86,7 @@ var ArtboxBasket = (function () {
         }
     };
     ArtboxBasket.prototype.updateCart = function (cart_html) {
-        var cart = $('.basket-wrapper, .basket-wrapper2');
+        var cart = $('.basket-wrapper');
         cart.html(cart_html);
     };
     ArtboxBasket.prototype.updatePage = function (modal) {
