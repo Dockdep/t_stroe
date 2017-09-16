@@ -8,7 +8,7 @@
      */
 ?>
 
-<a href="<?php echo Url::to(['order/basket']); ?>">
+<a href="<?php echo Url::to(['order/basket']); ?>" class="header-basket-wr">
     <table cellpadding="0" cellspacing="0" border="0">
         <tr>
             <td align="center">
