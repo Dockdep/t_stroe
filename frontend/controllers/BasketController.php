@@ -21,6 +21,9 @@
              * @var Basket $basket
              */
             $basket = \Yii::$app->basket;
+            print_r($basket->getData());
+            die();
+
             $result = [
                 'basket' => $basket->getData(),
                 'modal'  => $this->getModal($basket),

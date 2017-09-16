@@ -14,8 +14,6 @@ use yii\widgets\ActiveForm;
  * @var array            $data
  */
 $data = $basket->getData();
-print_r($data);
-die();
 ?>
 <div class="container">
     <div class="row">

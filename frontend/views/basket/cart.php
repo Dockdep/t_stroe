@@ -13,13 +13,13 @@
             <td align="center">
                                     <span class="header-basket-ico">
                                         <i class="proucts-num-header-basket">
-                                            <span class="simpleCart_quantity"><?php echo $count; ?></span>
+                                            <?php echo $count; ?>
                                         </i>
                                     </span>
             </td>
             <td>
                 <!--если пустая то по нулям(0грн) -->
-                <div class="price-header-basket"><span id="simpleCart_grandTotal" class="simpleCart_grandTotal"></span></div>
+                <div class="price-header-basket"></div>
 
             </td>
         </tr>
