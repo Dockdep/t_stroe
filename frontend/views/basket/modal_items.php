@@ -1,12 +1,36 @@
+<?php
+use artweb\artbox\ecommerce\models\Basket;
+use artweb\artbox\ecommerce\models\ProductVariant;
+use frontend\models\OrderCredit;
+use yii\bootstrap\Html;
+use yii\helpers\Url;
+use yii\web\View;
+use yii\widgets\ActiveForm;
+
+/**
+ * @var View             $this
+ * @var ProductVariant[] $models
+ * @var Basket           $basket
+ * @var array            $data
+ */
+$data = $basket->getData();
+?>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12">
             <div class="style basket-modal-bg">
                 <span id="modal_close"></span>
                 <div class="style model-name-test">ТОВАР В КОРЗИНЕ</div>
-
-                <div class="simpleCart_items"></div>
-
+                <?php
+                echo $this->render(
+                    '@frontend/views/basket/basket_table',
+                    [
+                        'models' => $models,
+                        'basket' => $basket,
+                        'data'   => $data,
+                    ]
+                );
+                ?>
 
 
 
