@@ -36,12 +36,12 @@ var ArtboxBasket = (function () {
         $.get('/' + this.language + '/basket', function (data) {
             console.log('/' + this.language + '/basket');
             this._items = data.basket;
-            if (update_modal) {
-                this.updateModal(data.modal, false);
-            }
-            if (update_cart) {
-                this.updateCart(data.cart);
-            }
+            // if (update_modal) {
+            //     this.updateModal(data.modal, false);
+            // }
+            // if (update_cart) {
+            //     this.updateCart(data.cart);
+            // }
         }.bind(this), 'json').fail(function () {
             console.error('Basket cannot be init');
         });
