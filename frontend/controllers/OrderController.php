@@ -32,20 +32,8 @@
                     'scenario' => ( \Yii::$app->user->isGuest ? OrderFrontend::SCENARIO_GUEST : OrderFrontend::SCENARIO_CUSTOMER ),
                 ]
             );
-            $order->validators->append(
-                new NumberValidator(
-                    [
-                        'attributes' => 'credit_sum',
-                        'max'        => $basket_sum - CreditHelper::MIN_CREDIT_SUM,
-                        'min'        => $basket_sum - CreditHelper::MAX_CREDIT_SUM,
-                    ]
-                )
-            );
-            $deliveries = Delivery::find()
-                                  ->with('children.lang', 'lang')
-                                  ->where([ 'parent_id' => null ])
-                                  ->orderBy([ 'sort' => SORT_ASC ])
-                                  ->all();
+
+
             if ($order->scenario == OrderFrontend::SCENARIO_CUSTOMER) {
                 /**
                  * @var Customer $user
@@ -58,9 +46,9 @@
                 $order->city = $user->city;
                 $order->adress = $user->address;
             }
-            if ($order->load(\Yii::$app->request->post(), 'OrderCredit')) {
-                $order->payment = 10;
-            }
+            $order->validate();
+            print_r($order->getErrors());
+            die();
             if (!empty( $models ) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
                 if (\Yii::$app->user->isGuest && !empty( $order->email )) {
                     $password = \Yii::$app->security->generateRandomString(6);
@@ -174,8 +162,7 @@
                     'basket'     => $basket,
                     'data'       => $data,
                     'models'     => $models,
-                    'order'      => $order,
-                    'deliveries' => $deliveries,
+                    'order'      => $order
                 ]
             );
         }
