@@ -30,6 +30,7 @@ class ArtboxBasket {
 
     public init(update_modal, update_cart) {
         $.get('/' + this.language + '/basket', function (data) {
+            console.log('/' + this.language + '/basket');
             this._items = data.basket;
             if (update_modal) {
                 this.updateModal(data.modal, false);
