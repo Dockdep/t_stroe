@@ -183,7 +183,6 @@
                     [
                         'name',
                         'phone',
-                        'confirm',
                     ],
                     'required',
                 ],
