@@ -24,9 +24,9 @@ class ArtboxBasket {
         return this._language;
     }
 
-    constructor() {
-        this.init(true, true);
-    }
+    // constructor() {
+    //     this.init(true, true);
+    // }
 
     public init(update_modal, update_cart) {
         $.get('/' + this.language + '/basket', function (data) {
