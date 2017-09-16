@@ -1,5 +1,6 @@
 var ArtboxBasket = (function () {
     function ArtboxBasket() {
+        this.init(true, true);
     }
     Object.defineProperty(ArtboxBasket.prototype, "items", {
         get: function () {
@@ -31,9 +32,6 @@ var ArtboxBasket = (function () {
         enumerable: true,
         configurable: true
     });
-    // constructor() {
-    //     this.init(true, true);
-    // }
     ArtboxBasket.prototype.init = function (update_modal, update_cart) {
         $.get('/' + this.language + '/basket', function (data) {
             this._items = data.basket;
