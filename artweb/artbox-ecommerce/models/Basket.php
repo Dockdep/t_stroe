@@ -202,13 +202,12 @@
              */
             $model = ProductVariant::find()
                                    ->where([ 'product_variant.id' => $product_variant_id ])
-//                                   ->andWhere(
-//                                       [
-//                                           '>',
-//                                           'product_variant.stock',
-//                                           0,
-//                                       ]
-//                                   )
+                                   ->andWhere(
+                                       [
+                                           'product_variant.status',
+                                           0,
+                                       ]
+                                   )
                                    ->joinWith('lang')
                                    ->one();
             if (empty( $model )) {
