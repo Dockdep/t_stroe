@@ -261,45 +261,6 @@
                     },
                 ],
                 [
-                    [ 'delivery' ],
-                    'exist',
-                    'skipOnError'     => true,
-                    'targetClass'     => Delivery::className(),
-                    'targetAttribute' => [ 'delivery' => 'id' ],
-                    'filter'          => function ($query) {
-                        /**
-                         * @var ActiveQuery $query
-                         */
-                        $query->leftJoin(
-                            'order_delivery as children_delivery',
-                            'order_delivery.id = children_delivery.parent_id'
-                        )
-                              ->where([ 'order_delivery.id' => $this->delivery ])
-                              ->groupBy('order_delivery.id')
-                              ->having('count(children_delivery.id) = 0');
-                    },
-                ],
-                [
-                    [ 'payment' ],
-                    'exist',
-                    'skipOnError'     => true,
-                    'targetClass'     => OrderPayment::className(),
-                    'targetAttribute' => [ 'payment' => 'id' ],
-                    'filter'          => function ($query) {
-                        /**
-                         * @var ActiveQuery $query
-                         */
-                        $query->where([ 'status' => OrderPayment::ACTIVE ]);
-                    },
-                ],
-                //                [
-                //                    [
-                //                        'subscribe',
-                //                        'notRegister',
-                //                    ],
-                //                    'boolean',
-                //                ],
-                [
                     [
                         'confirm',
                     ],
@@ -307,28 +268,6 @@
                     'range'      => [ 1 ],
                     'allowArray' => false,
                 ],
-                //                [
-                //                    [
-                //                        'phone',
-                //                    ],
-                //                    'unique',
-                //                    'targetClass'     => Customer::className(),
-                //                    'targetAttribute' => 'phone',
-                //                    'message'         => \Yii::t(
-                //                        'app',
-                //                        'Данный номер телефона пренадлежит одному из пользователей, либо авторизируйтесь, либо укажите другой номер телефона'
-                //                    ),
-                //                    'when'            => function ($model) {
-                //                        /**
-                //                         * @var OrderFrontend $model
-                //                         */
-                //                        if (!\Yii::$app->user->isGuest && $model->phone == \Yii::$app->user->identity->phone) {
-                //                            return false;
-                //                        } else {
-                //                            return true;
-                //                        }
-                //                    },
-                //                ],
                 [
                     [
                         'email',
