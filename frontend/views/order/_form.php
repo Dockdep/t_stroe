@@ -162,8 +162,6 @@
                           ->textInput();
             ?>
         </div>
-        
-
 
         <div class="row delivery-wrapper">
             <div class="col-xs-12 col-sm-12 input-wr required">
@@ -208,8 +206,6 @@
 
             </div>
         </div>
-
-
 
         <div class="row">
             <?php
