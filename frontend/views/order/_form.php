@@ -105,18 +105,18 @@ use yii\web\View;
 
             <div class="col-xs-12">
                 <div class="style radio_custom">
-                    <input type="radio" id="radio-1-1" name="group-1">
+                    <input type="radio" id="radio-1-1" name="delivery">
                     <label for="radio-1-1">Доставка по Киеву и области</label>
 
                 </div>
 
                 <div class="style radio_custom">
-                    <input type="radio" id="radio-1-2"  name="group-1">
+                    <input type="radio" id="radio-1-2"  name="delivery">
                     <label for="radio-1-2">Доставка по Украине</label>
                 </div>
 
                 <div class="style radio_custom">
-                    <input type="radio" id="radio-1-3"  name="group-1">
+                    <input type="radio" id="radio-1-3"  name="delivery">
                     <label for="radio-1-3">Самовывоз</label>
                 </div>
 
@@ -130,12 +130,12 @@ use yii\web\View;
 
             <div class="col-xs-12">
                 <div class="style radio_custom">
-                    <input type="radio" id="radio-2-1" name="group-2">
+                    <input type="radio" id="radio-2-1" name="payment">
                     <label for="radio-2-1">Оплата наличными</label>
                 </div>
 
                 <div class="style radio_custom">
-                    <input type="radio" id="radio-2-2"  name="group-2">
+                    <input type="radio" id="radio-2-2"  name="payment">
                     <label for="radio-2-2">Оплата по безналичному расчету</label>
                 </div>
 
