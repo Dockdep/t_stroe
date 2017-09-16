@@ -35,7 +35,7 @@
      * @property int    $label
      * @property int    $pay
      * @property int    $numbercard
-     * @property int    $delivery
+     * @property string    $delivery
      * @property string $declaration
      * @property string $stock
      * @property string $consignment
@@ -304,11 +304,8 @@
             ];
         }
         
-        public function getDelivery()
-        {
-            return $this->hasOne(Delivery::className(), [ 'id' => 'delivery' ]);
-        }
-        
+
+
         public function getUser()
         {
             return $this->hasOne(Customer::className(), [ 'id' => 'user_id' ]);
