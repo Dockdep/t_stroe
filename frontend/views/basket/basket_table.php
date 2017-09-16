@@ -11,27 +11,6 @@
     use yii\helpers\ArrayHelper;
     use yii\helpers\Html;
     use yii\web\View;
-    
-    $ids = '[';
-    foreach ($models as $model) {
-        $ids .= '"' . $model->id . '",';
-    }
-    $ids .= ']';
-    
-    $conversions = <<< JS
-var google_tag_params = {
-    dynx_itemid: {$ids},
-    dynx_pagetype: "conversionintent",
-    dynx_totalvalue: {$basket->sum}
-};
-/* <![CDATA[ */
-    var google_conversion_id = 881201405;
-    var google_custom_params = window.google_tag_params;
-    var google_remarketing_only = true;
-    /* ]]> */
-JS;
-    
-    $this->registerJs($conversions, View::POS_BEGIN);
 
 ?>
 <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
