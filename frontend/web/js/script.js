@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    var basket = new ArtboxBasket();
     footerBottom();
     callMobile();
     openMobMenu();
@@ -644,73 +643,13 @@ $(document).ready(function(){
         })
     }
 
-    $(document).on('click', '.remove_ico', confirmRemove);
-    $(document).on('click', '.remove_confirm a', removeBasket);
-    $(document).on('click', '.quantity-wr span', changeBasket);
-    $(document).on('change', '.quantity-wr input', setBasket);
-    $(document).on('keypress', '.quantity-wr input', setControl);
 
 
-    $(document).on('click', '.card-btn-buy', addBasket);
-    $(document).on('click', '.analogs-buy', addBasket);
 
-    function addBasket() {
-        $.post("basket-modal.html", function (data) {
-            $(".basket_modal").empty().append(data);
-        });
-    }
 
 
     $(document).on('click', '.basket-modal-bg #modal_close, #modal_close-2, #overlay', closeHideBasket);
 
-    function confirmRemove(e) {
-        e.preventDefault();
-        $(this).parent().addClass('confirm');
-    }
-
-    function removeBasket(e) {
-        e.preventDefault();
-        if ($(this).hasClass('remove-yes')) {
-            var variant = $(this).parents('tr.variant_tr').data('variant');
-            //удаление ячейки "tr" в корзине
-            basket.remove(variant);
-            $(this).parents('.confirm').parent().remove()
-        } else {
-            $(this)
-                .parents('.confirm').removeClass('confirm')
-        }
-    }
-
-    function changeBasket(e) {
-        e.preventDefault();
-        var variant = $(this).parents('tr.variant_tr').data('variant');
-        var input = $(this).parent().find('input');
-        var oldVal = input.val();
-        if ($(this).hasClass('minus')) {
-            if (oldVal > 1) {
-                basket.add(variant, -1);
-            }
-        } else {
-            basket.add(variant, 1);
-        }
-    }
-
-    function setBasket(e) {
-        e.preventDefault();
-        var variant = $(this).parents('tr.variant_tr').data('variant');
-        var count = $(this).val();
-        basket.set(variant, count);
-    }
-
-    function setControl(e) {
-        if (e.which == 13) {
-            $(this)
-                .trigger('change');
-            return false;
-        } else if (!(e.which == 8 || (e.which > 47 && e.which < 58))) {
-            return false;
-        }
-    }
 
     function closeHideBasket() {
         $('#overlay').fadeOut(400);
@@ -733,19 +672,6 @@ $(document).ready(function(){
             });
         });
     }
-    //после удачной отправки формы запускать success()
-    // success()
-    function success() {
-        var pos = ($(window).scrollTop()) + 30;
-        $('.forms_').animate({opacity: 0, top: '0'}, 200,function(){
-            $(this).css('display', 'none');
-        });
-        setTimeout(function () {
-            $('#overlay').fadeIn(400);
-            $('#success_form').css('display', 'block').animate({opacity: 1, top: pos}, 700);
-        },400)
-    }
-
 
 
 
