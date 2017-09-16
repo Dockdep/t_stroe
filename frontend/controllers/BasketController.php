@@ -31,6 +31,7 @@
         
         public function actionAdd(int $product_variant_id, int $count)
         {
+            die('here');
             $response = \Yii::$app->response;
             $response->format = Response::FORMAT_JSON;
             /**
