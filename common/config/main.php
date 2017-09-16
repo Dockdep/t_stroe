@@ -23,9 +23,9 @@
 //                'class' => 'yii\caching\MemCache',
 //                'keyPrefix' => 'extrem_'
 //            ],
-            'sender' => [
-                'class' => 'artweb\artbox\components\SmsSender',
-            ],
+//            'sender' => [
+//                'class' => 'artweb\artbox\components\SmsSender',
+//            ],
             'artboximage' => [
                 'class'    => 'artweb\artbox\components\artboximage\ArtboxImage',
                 'driver'   => 'GD',

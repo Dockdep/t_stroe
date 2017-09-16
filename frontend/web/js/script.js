@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    //var basket = new ArtboxBasket();
+    var basket = new ArtboxBasket();
     footerBottom();
     callMobile();
     openMobMenu();
