@@ -55,7 +55,7 @@ use yii\web\View;
                             'encode' => false,
                         ],
                         'options'      => [
-                            'class' => 'col-xs-12 col-sm-5 col-md-3 input-wr medium-label',
+                            'class' => 'col-xs-12 col-sm-5 col-md-3',
                         ],
                     ]
                 )
@@ -70,7 +70,7 @@ use yii\web\View;
                     'phone',
                     [
                         'options' => [
-                            'class' => 'col-xs-12 col-sm-5 col-md-3 input-wr medium-label',
+                            'class' => 'col-xs-12 col-sm-5 col-md-3',
                         ],
                     ]
                 )
