@@ -12,28 +12,33 @@
             <?php
         } else {
             ?>
-            <div class="col-xs-12 col-sm-12 basket_page">
-                <?php echo $this->render(
-                    '@frontend/views/basket/basket_table',
-                    [
-                        'models' => $models,
-                        'basket' => $basket,
-                        'data'   => $data,
-                    ]
-                );
-                ?>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 basket_page">
+                    <?php echo $this->render(
+                        '@frontend/views/basket/basket_table',
+                        [
+                            'models' => $models,
+                            'basket' => $basket,
+                            'data'   => $data,
+                        ]
+                    );
+                    ?>
+                </div>
             </div>
-            <div class="col-xs-12 col-sm-12">
-                <?php
-                echo $this->render(
-                    ( \Yii::$app->user->isGuest ? '_form_guest' : '_form' ),
-                    [
-                        'order'      => $order,
-                        'deliveries' => $deliveries,
-                    ]
-                );
-                ?>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <?php
+                    echo $this->render(
+                        ( \Yii::$app->user->isGuest ? '_form_guest' : '_form' ),
+                        [
+                            'order'      => $order,
+                            'deliveries' => $deliveries,
+                        ]
+                    );
+                    ?>
+                </div>
             </div>
+
             <?php
         }
         ?>
