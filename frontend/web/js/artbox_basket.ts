@@ -123,7 +123,7 @@ class ArtboxBasket {
         return Object.keys(this._items).length;
     }
 }
-// var basket = new ArtboxBasket();
+var basket = new ArtboxBasket();
 //
 // $(document)
 //     .on(
