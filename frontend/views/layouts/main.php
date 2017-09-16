@@ -102,22 +102,9 @@ $pages = Page::find()
 
                     </div>
 
-                    <a href="basket.html" class="header-basket-wr">
-                        <table cellpadding="0" cellspacing="0" border="0">
-                            <tr>
-                                <td align="center">
-                                    <span class="header-basket-ico">
-                                        <i class="proucts-num-header-basket"><span class="simpleCart_quantity"></span></i>
-                                    </span>
-                                </td>
-                                <td>
-                                    <!--если пустая то по нулям(0грн) -->
-                                    <div class="price-header-basket"><span id="simpleCart_grandTotal" class="simpleCart_grandTotal"></span></div>
-
-                                </td>
-                            </tr>
-                        </table>
-                    </a>
+                    <?php
+                    echo $this->render('@frontend/views/basket/cart', [ 'count' => 0, ]);
+                    ?>
                 </div>
             </div>
         </div>
