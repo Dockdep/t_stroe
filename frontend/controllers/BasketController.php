@@ -55,8 +55,6 @@
              */
             $basket = \Yii::$app->basket;
             $basket->set($product_variant_id, $count);
-            print_r('here');
-            die();
             $result = [
                 'basket' => $basket->getData(),
                 'modal'  => $this->getModal($basket),
