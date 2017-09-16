@@ -163,187 +163,54 @@
             ?>
         </div>
         
-        <div class="delivery-wrapper">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 input-wr required medium-label">
-                    <label for=""><?= \Yii::t('app', 'Вариант') ?> доставки</label>
-                </div>
+
+
+        <div class="row delivery-wrapper">
+            <div class="col-xs-12 col-sm-12 input-wr required">
+                <label for="">Вариант доставки</label>
             </div>
-            
-            <div class="row">
-                <?php
-                    $deliveries = Delivery::find()
-                                          ->with('children.lang', 'lang')
-                                          ->where([ 'parent_id' => null ])
-                                          ->orderBy([ 'sort' => SORT_ASC ])
-                                          ->all();
-                    foreach ($deliveries as $delivery) {
-                        if (empty( $delivery->children )) {
-                            echo $form->field(
-                                $order,
-                                'delivery',
-                                [
-                                    'enableClientValidation' => false,
-                                    'options'                => [
-                                        'class' => 'col-xs-12 col-sm-12 input-wr field-orderfrontend-delivery check-box-form hidden_txt',
-                                    ],
-                                    'template'               => "{input}\n{label}\n{hint}\n{error}",
-                                ]
-                            )
-                                      ->radio(
-                                          [
-                                              'uncheck' => null,
-                                              'value'   => $delivery->id,
-                                              'class'   => 'custom-radio root-radio',
-                                              'id'      => 'orderfrontend-delivery-' . $delivery->id,
-                                          ],
-                                          false
-                                      )
-                                      ->label(
-                                          Html::tag('span') . Html::a(
-                                              $delivery->lang->title,
-                                              [
-                                                  '',
-                                                  '#' => '',
-                                              ]
-                                          )
-                                      )
-                                      ->hint(
-                                          $delivery->lang->text,
-                                          [
-                                              'class' => 'hidden_form_txt',
-                                          ]
-                                      );
-                        } else {
-                            ?>
-                            <div class="col-xs-12 col-sm-12 input-wr check-box-form  hidden_txt">
-                                <input class="custom-radio parent_radio" id="parent_radio_<?php echo $delivery->id; ?>" type="radio" name="parent_radio">
-                                <label for="parent_radio_<?php echo $delivery->id; ?>"><span></span><a href="#"><?php echo $delivery->lang->title; ?></a></label>
-                                
-                                <div class="hidden_form_txt">
-                                    <?php
-                                        echo $delivery->lang->text;
-                                    ?>
-                                    <div class="style medium-label">
-                                        <label for=""><?= \Yii::t('app', 'chosepunkt') ?>:</label>
-                                    </div>
-                                    <div class="hidden_form_radio">
-                                        <?php
-                                            foreach ($delivery->children as $child) {
-                                                echo $form->field(
-                                                    $order,
-                                                    'delivery',
-                                                    [
-                                                        'enableClientValidation' => false,
-                                                        'options'                => [
-                                                            'class' => 'col-xs-12 col-sm-12 input-wr field-orderfrontend-delivery check-box-form hidden_txt',
-                                                        ],
-                                                        'template'               => "{input}\n{label}\n{hint}\n{error}",
-                                                    ]
-                                                )
-                                                          ->radio(
-                                                              [
-                                                                  'uncheck' => null,
-                                                                  'value'   => $child->id,
-                                                                  'class'   => 'custom-radio',
-                                                                  'id'      => 'orderfrontend-delivery-' . $child->id,
-                                                              ],
-                                                              false
-                                                          )
-                                                          ->label(
-                                                              Html::tag('span') . Html::a(
-                                                                  $child->lang->title,
-                                                                  [
-                                                                      '',
-                                                                      '#' => '',
-                                                                  ]
-                                                              )
-                                                          )
-                                                          ->hint(
-                                                              $child->lang->text,
-                                                              [
-                                                                  'class' => 'hidden_form_txt',
-                                                              ]
-                                                          );
-                                            }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                    }
-                ?>
+
+            <div class="col-xs-12">
+                <div class="style radio_custom">
+                    <input type="radio" id="radio-1-1" name="group-1">
+                    <label for="radio-1-1">Доставка по Киеву и области</label>
+
+                </div>
+
+                <div class="style radio_custom">
+                    <input type="radio" id="radio-1-2"  name="group-1">
+                    <label for="radio-1-2">Доставка по Украине</label>
+                </div>
+
+                <div class="style radio_custom">
+                    <input type="radio" id="radio-1-3"  name="group-1">
+                    <label for="radio-1-3">Самовывоз</label>
+                </div>
+
             </div>
         </div>
-        
-        <div class="payment-wrapper">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 input-wr required medium-label">
-                    <label for=""><?= \Yii::t('app', 'Способы оплаты') ?></label>
-                </div>
+
+        <div class="row payment-wrapper">
+            <div class="col-xs-12 col-sm-12 input-wr required">
+                <label for="">Способы оплаты</label>
             </div>
-            <div class="row">
-                <?php
-                    foreach (ArrayHelper::index(
-                        OrderPayment::find()
-                                    ->where([ 'status' => OrderPayment::ACTIVE ])
-                                    ->with('lang')
-                                    ->asArray()
-                                    ->all(),
-                        "id"
-                    ) as $index => $item) {
-                        if($index == 10 && \Yii::$app->basket->getSum() < CreditHelper::MIN_CREDIT_SUM) {
-                            continue;
-                        }
-                        echo $form->field(
-                            $order,
-                            'payment',
-                            [
-                                'options'                => [
-                                    'class' => 'col-xs-12 col-sm-12 input-wr field-orderfrontend-payment check-box-form' . ( ( $index == 8 ) ? ' hidden' : '' ),
-                                    'id'    => 'payment-wrapper-' . $index,
-                                ],
-                                'enableClientValidation' => false,
-                                'template'               => "{input}\n{label}\n{hint}\n{error}",
-                            ]
-                        )
-                                  ->radio(
-                                      [
-                                          'uncheck' => null,
-                                          'class'   => 'custom-radio',
-                                          'value'   => $index,
-                                          'id'      => 'orderfrontend-payment-' . $index,
-                                      ],
-                                      false
-                                  )
-                                  ->label(
-                                      Html::tag('span') . Html::a(
-                                          $item[ 'lang' ][ 'title' ],
-                                          [
-                                              '',
-                                              '#' => '',
-                                          ]
-                                      )
-                                  )
-                                  ->hint(
-                                      ( $index == 10 ) ? $this->render(
-                                          '_credit_form',
-                                          [
-                                              'order' => $order,
-                                              'form' => $form,
-                                          ]
-                                      ) : $item[ 'lang' ][ 'text' ],
-                                      [
-                                          'tag'   => 'div',
-                                          'class' => 'hint_block'.(($order->payment == 10)?'':' hidden_form_txt'),
-                                      ]
-                                  );
-                    }
-                ?>
+
+            <div class="col-xs-12">
+                <div class="style radio_custom">
+                    <input type="radio" id="radio-2-1" name="group-2">
+                    <label for="radio-2-1">Оплата наличными</label>
+                </div>
+
+                <div class="style radio_custom">
+                    <input type="radio" id="radio-2-2"  name="group-2">
+                    <label for="radio-2-2">Оплата по безналичному расчету</label>
+                </div>
+
             </div>
         </div>
-        
+
+
+
         <div class="row">
             <?php
                 echo $form->field(
