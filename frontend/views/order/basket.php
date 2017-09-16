@@ -1,208 +1,270 @@
-<?php
-    use artweb\artbox\ecommerce\models\Basket;
-    use artweb\artbox\ecommerce\models\Delivery;
-    use frontend\models\OrderFrontend;
-    use artweb\artbox\ecommerce\models\ProductVariant;
-    use yii\helpers\Url;
-    use yii\web\View;
-    
-    /**
-     * @var View             $this
-     * @var Basket           $basket
-     * @var array            $data
-     * @var ProductVariant[] $models
-     * @var OrderFrontend    $order
-     * @var Delivery[]       $deliveries
-     */
-    
-    $this->title = \Yii::t('app', 'basket');
-?>
-<div class="container">
+<div class="col-xs-12 col-sm-12">
+
     <div class="row">
-        <div class="col-xs-12 col-sm-12 title_card"><?= \Yii::t('app','your_basket')?></div>
-    </div>
-    <div class="row delivery-row">
-        <!-- если корзина пустая-->
-        <?php if (empty( $models )) {
-            ?>
-            <div class="col-xs-12 col-sm-12 title_empty_basket">
-                <?php echo \Yii::t('app', 'basket_empty'); ?><br/>
-<!--                <span>Вы можете выбрать товар в <a href="--><?php //echo Url::to([ 'catalog/index' ]); ?><!--">нашем каталоге</a></span>-->
-            </div>
-            <?php
-        } else {
-            ?>
-            <div class="col-xs-12 col-sm-12 basket_page">
-                <?php echo $this->render(
-                    '@frontend/views/basket/basket_table',
-                    [
-                        'models' => $models,
-                        'basket' => $basket,
-                        'data'   => $data,
-                    ]
-                );
-                ?>
-            </div>
-            <div class="col-xs-12 col-sm-12">
-                <?php
-                    echo $this->render(
-                        ( \Yii::$app->user->isGuest ? '_form_guest' : '_form' ),
-                        [
-                            'order'      => $order,
-                            'deliveries' => $deliveries,
-                        ]
-                    );
-                ?>
-            </div>
-            <?php
-        }
-        ?>
-        <!------------------------>
-    </div>
-    
-    <div id="terms_of_use" class="forms_reg">
-        <span id="modal_close"></span>
-        <div style="font-size: 22px;font-weight: 700" class="style"><?= \Yii::t('app','basket1')?></div>
-        <div style="font-size: 18px;font-weight: 700;margin-top: 10px;" class="style"><?= \Yii::t('app','basket2')?></div>
-        <div style="margin-top: 10px;" class="style"><?= \Yii::t('app','basket3')?></div>
-        <div style="margin-top: 10px;" class="style"><?= \Yii::t('app','basket4')?></div>
-        <div style="font-size: 18px;font-weight: 700;margin-top: 10px;" class="style"><?= \Yii::t('app','basket5')?></div>
-        <div style="margin-top: 10px;" class="style"><?= \Yii::t('app','basket6')?>
-            <a href="/">extremstyle.ua</a><?= \Yii::t('app','basket7')?>
-            <a href="/">extremstyle.ua</a> <?= \Yii::t('app','basket8')?>
-        </div>
-        <div style="margin-top: 10px;" class="style"><?= \Yii::t('app','basket9')?>
-            <a href="/">extremstyle.ua</a> <?= \Yii::t('app','basket10')?>
-            <a href="/">extremstyle.ua</a> <?= \Yii::t('app','basket11')?>
-        </div>
-        <div style="margin-top: 10px;" class="style"><?= \Yii::t('app','basket12')?>
-            <a href="/">extremstyle.ua</a><?= \Yii::t('app','basket13')?>
-        </div>
-    </div>
-    
-    <div id="rules_of" class="forms_reg">
-        <span id="modal_close"></span>
-        <div style="font-size: 20px;font-weight: 700" class="style"><?= \Yii::t('app','basket14')?></div>
-        <div style="font-size: 18px;font-weight: 700" class="style"><?= \Yii::t('app','basket15')?></div>
-        <div class="style">
-            <?= \Yii::t('app','basket16')?><br/>
-            <?= \Yii::t('app','basket17')?>
-        </div>
-        <div style="font-weight: 700" class="style"><?= \Yii::t('app','basket18')?></div>
-        <div class="style"><?= \Yii::t('app','basket19')?></div>
-        <div class="style"><?= \Yii::t('app','basket20')?></div>
-        <div class="style"><?= \Yii::t('app','basket21')?></div>
-        <div class="style"><?= \Yii::t('app','basket22')?></div>
-        <div class="style"><?= \Yii::t('app','basket23')?></div>
-        <div class="style">
-            <span style="color: #f26522;"><?= \Yii::t('app','basket24')?></span></span> <?= \Yii::t('app','basket25')?>
-        </div>
-        <div class="style"><?= \Yii::t('app','basket26')?></div>
-        <div class="style"><?= \Yii::t('app','basket27')?><br/><?= \Yii::t('app','basket28')?>
-        </div>
-        <div style="font-weight: 700" class="style"><?= \Yii::t('app','basket29')?></div>
-        <div class="style"><?= \Yii::t('app','basket30')?></div>
-        <div class="style"><?= \Yii::t('app','basket31')?><br/><?= \Yii::t('app','basket32')?>
-        </div>
-        <div class="style"><?= \Yii::t('app','basket33')?></div>
-        <div class="style"><?= \Yii::t('app','basket34')?><br/><?= \Yii::t('app','basket86')?><br/><?= \Yii::t('app','basket35')?>
-            <a href="mailto:shop@eltrade.com.ua">shop@eltrade.com.ua</a> <?= \Yii::t('app','basket36')?><br/>
-        </div>
-        <div style="font-weight: 700" class="style"><?= \Yii::t('app','basket37')?></div>
-        <div class="style"><?= \Yii::t('app','basket38')?><br/><?= \Yii::t('app','basket39')?>
-        </div>
-        <div class="style tb_rules">
-            <table border="0" cellpadding="0" cellspacing="0">
-                <tbody>
+        <div class="col-xs-12 col-sm-12 title-card">Товары в вашей корзина</div>
+
+        <!--если корзина пустая выводить-->
+
+        <!--<div class="col-xs-12 col-sm-12 title_empty_basket">-->
+        <!--Ваша корзина пуста-->
+        <!--</div>-->
+
+        <!-------------------------------->
+
+        <div class="col-xs-12 col-sm-12 basket_page">
+            <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
                 <tr>
-                    <td><span style="font-weight: 700;"><?= \Yii::t('app','basket40')?></span></td>
-                    <td><span style="font-weight: 700;"><?= \Yii::t('app','basket41')?></span></td>
+                    <td>Фото</td>
+                    <td>Товар</td>
+                    <td>Цена за один</td>
+                    <td>Количество</td>
+                    <td>За весь товар</td>
+                    <td></td>
                 </tr>
-                <tr>
-                    <td><?= \Yii::t('app','basket42')?></td>
-                    <td>30 грн.</td>
-                </tr>
-                <tr>
-                    <td><?= \Yii::t('app','basket43')?><span style="color: #f26522">*</span> <?= \Yii::t('app','basket44')?>
+                <tr class="variant_tr" data-variant="138478">
+                    <td>
+                        <a href="" target="_blank"><img src="images/img/img-165x140.jpg" alt="(" title=""></a>
                     </td>
-                    <td>50 грн.</td>
+                    <td>
+                        <a class="title" href="#" target="_blank">
+                            <span>(E459L) GEL-GAMEPOINT'17 4920-INDIGO BLUE/DIVA PINK/WHITE</span>
+                        </a>
+                        <span class="code">код: 8718833891536</span>
+                    </td>
+                    <td>
+                        <p class="price">
+                            1359<span> грн.</span>
+                            <span class="hidden-sm hidden-md hidden-lg price-one-item"> (цена за 1 товар)</span>
+                        </p>
+                    </td>
+                    <td>
+                        <div class="quantity-wr">
+                            <span class="minus">-</span>
+                            <input type="text" value="2" class="prod_count">
+                            <span class="plus">+</span>
+                        </div>
+                    </td>
+                    <td>
+                        <p class="new_price">
+                            2718<span>  грн.</span>
+                        </p>
+                    </td>
+                    <td>
+                        <span class="remove_ico"></span>
+                        <div class="remove_confirm">
+                            <a class="remove-yes" href="#">да</a>
+                            <span class="lang_sep"></span>
+                            <a class="remove-no" href="#">нет</a>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <td><?= \Yii::t('app','basket45')?><span style="color: #f26522">**</span></td>
-                    <td>70 грн.</td>
-                </tr>
-                <tr>
-                    <td><?= \Yii::t('app','basket46')?></td>
-                    <td><?= \Yii::t('app','basket47')?></td>
-                </tr>
-                </tbody>
             </table>
         </div>
-        <div class="style">
-            <span style="color: #959595"><span style="color: #f26522">*</span> <?= \Yii::t('app','basket48')?><br/> <span style="color: #f26522">**</span> <?= \Yii::t('app','basket49')?></span>
+
+        <div class="col-xs-12 col-sm-12">
+            <div class="style price-total-wr">
+                <div class="hidden-xs col-sm-6"><span class="total_txt">итого</span></div>
+                <div class="col-sm-12 col-sm-6 price-total">4817<span>  грн.</span></div>
+            </div>
         </div>
-        <div class="style"><?= \Yii::t('app','basket50')?></div>
-        <div class="style">
-            <span style="color: #f26522;"><?= \Yii::t('app','basket51')?></span> <?= \Yii::t('app','basket52')?>
-        </div>
-        <div class="style"><?= \Yii::t('app','basket53')?></div>
-        <div class="style"><?= \Yii::t('app','basket54')?>
-            <?= \Yii::t('app','basket55')?>
-        </div>
-        <div class="style">
-            <span style="color: #f26522;"><?= \Yii::t('app','basket51')?></span> <?= \Yii::t('app','basket56')?>
-        </div>
-        <div class="style"><?= \Yii::t('app','basket57')?></div>
-        <div style="font-weight: 700" class="style"><?= \Yii::t('app','basket58')?></div>
-        <div class="style">
-            <?= \Yii::t('app','basket59')?><br/><span style="font-weight: 700"><?= \Yii::t('app','basket60')?></span><br/><?= \Yii::t('app','basket61')?><br/><span style="font-weight: 700"><?= \Yii::t('app','basket62')?></span><br/><?= \Yii::t('app','basket63')?><br/><?= \Yii::t('app','basket64')?><br/><span style="font-weight: 700"><?= \Yii::t('app','basket65')?></span><br/><?= \Yii::t('app','basket66')?><br/><span style="font-weight: 700"><?= \Yii::t('app','basket67')?></span><br/><?= \Yii::t('app','basket68')?><br/><span style="font-weight: 700"><?= \Yii::t('app','basket69')?></span><br/><?= \Yii::t('app','basket70')?>
-        </div>
-        <div class="style">
-            <?= \Yii::t('app','basket71')?><br/><?= \Yii::t('app','basket72')?><br/><?= \Yii::t('app','basket73')?>
-        </div>
-        <div class="style">
-            <span style="color: #f26522;"><?= \Yii::t('app','basket51')?></span> <?= \Yii::t('app','basket74')?>
-            <span style="font-weight: 700"><?= \Yii::t('app','basket75')?></span>
-        </div>
-        <div class="style"><?= \Yii::t('app','basket76')?></div>
-        <div class="style"><?= \Yii::t('app','basket77')?></div>
-        <div class="style"><?= \Yii::t('app','basket78')?></div>
-        <div class="style"><?= \Yii::t('app','basket79')?></div>
-        <div class="style"><?= \Yii::t('app','basket80')?></div>
-        <div class="style"><?= \Yii::t('app','basket81')?></div>
-        <div class="style"><span style="font-weight: 700;"><?= \Yii::t('app','basket82')?>
-                <br/><span style="color: #f26522;"><?= \Yii::t('app','basket51')?></span> <?= \Yii::t('app','basket83')?></span>
-        </div>
-        <div class="style"><?= \Yii::t('app','basket84')?><br/><?= \Yii::t('app','basket85')?>
-        </div>
-        <div class="style"><?= \Yii::t('app','basket87')?></div>
-        <div class="style">
-            <?= \Yii::t('app','basket88')?><br/>
-            <?= \Yii::t('app','basket89')?><br/>
-            <?= \Yii::t('app','basket90')?>
-        </div>
-        <div class="style">
-            <?= \Yii::t('app','basket91')?><br/>
-            <?= \Yii::t('app','basket92')?><br/>
-            <?= \Yii::t('app','basket93')?><br/>
-            <?= \Yii::t('app','basket94')?><br/>
-            <?= \Yii::t('app','basket95')?>
-        </div>
-        <div class="style" style="font-weight: 700"><?= \Yii::t('app','basket96')?></div>
-        <div class="style">
-            <?= \Yii::t('app','basket97')?><br/>
-            <?= \Yii::t('app','basket98')?>
-        </div>
-        <div class="style" style="position: relative;"><span id="modal_close" class="btn-modal-close"><?= \Yii::t('app','close')?></span>
-        </div>
-        <div class="style"></div>
-        <div class="style"></div>
-        <div class="style"></div>
-        <div class="style"></div>
-        <div class="style"></div>
-        <div class="style"></div>
-        <div class="style"></div>
-        <div class="style"></div>
-        <div class="style"></div>
+
     </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="style basket-tabs_list-wr hidden-xs">
+                <ul>
+                    <li class="active">
+                        <a href="#">Новый покупатель</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Я уже зарегестрирован</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!------------------------>
+            <div class="style tabs_basket-blocks">
+                <div class="style tabs_basket-mobile active-mobile">
+                    <a class="btn_mobil_show_desk style hidden-sm hidden-md hidden-lg" href="#">Новый покупатель</a>
+                    <div class="style hidden_tabs">
+                        <div class="forms_pages form-new-customer">
+                            <form action="">
+                                <form  action="" method="post">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-5 col-md-3 input-wr">
+                                            <div class="form-group required">
+                                                <label class="control-label" for="">Имя</label>
+                                                <input type="text" id="">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-5 col-md-3 input-wr">
+                                            <div class="form-group required">
+                                                <label class="control-label" for="">Фамилия</label>
+                                                <input type="text" id="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-5 col-md-3 input-wr">
+                                            <div class="form-group field-signupform-email required">
+                                                <label class="control-label" for="signupform-email">Ваш e-mail</label>
+                                                <input type="text" id="signupform-email" class="form-control" name="SignupForm[email]">
+
+
+                                            </div>                        </div>
+
+                                        <div class="col-xs-12 col-sm-5 col-md-3 input-wr  phones_mask">
+                                            <div class="form-group ">
+                                                <label>Ваш мобильный телефон</label>
+                                                <input type="text" id="signupform-phone" class="form-control" name="SignupForm[phone]" placeholder="+38(_ _ _) _ _ _- _ _ - _ _">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-5 col-md-3 input-wr ">
+                                            <div class="form-group">
+                                                <label>Город</label>
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-5 col-md-3 input-wr ">
+                                            <div class="form-group">
+                                                <label >Ваш адрес</label>
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row delivery-wrapper">
+                                        <div class="col-xs-12 col-sm-12 input-wr required">
+                                            <label for="">Вариант доставки</label>
+                                        </div>
+
+                                        <div class="col-xs-12">
+                                            <div class="style radio_custom">
+                                                <input type="radio" id="radio-1-1" name="group-1">
+                                                <label for="radio-1-1">Доставка по Киеву и области</label>
+
+                                            </div>
+
+                                            <div class="style radio_custom">
+                                                <input type="radio" id="radio-1-2"  name="group-1">
+                                                <label for="radio-1-2">Доставка по Украине</label>
+                                            </div>
+
+                                            <div class="style radio_custom">
+                                                <input type="radio" id="radio-1-3"  name="group-1">
+                                                <label for="radio-1-3">Самовывоз</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row payment-wrapper">
+                                        <div class="col-xs-12 col-sm-12 input-wr required">
+                                            <label for="">Способы оплаты</label>
+                                        </div>
+
+                                        <div class="col-xs-12">
+                                            <div class="style radio_custom">
+                                                <input type="radio" id="radio-2-1" name="group-2">
+                                                <label for="radio-2-1">Оплата наличными</label>
+                                            </div>
+
+                                            <div class="style radio_custom">
+                                                <input type="radio" id="radio-2-2"  name="group-2">
+                                                <label for="radio-2-2">Оплата по безналичному расчету</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6 input-wr">
+                                            <div class="form-group ">
+                                                <label>Комментарий</label>
+                                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 button-wr button-left">
+                                            <button type="submit">ОФОРМИТЬ ЗАКАЗ</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="style tabs_basket-mobile">
+                    <a class="btn_mobil_show_desk style hidden-sm hidden-md hidden-lg" href="#">Я уже зарегестрирован</a>
+                    <div class="style hidden_tabs">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <form action="#">
+                                    <form id="w2" action="" method="post">
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 input-wr medium-label">
+                                                <div class="form-group required">
+                                                    <label class="control-label">Email</label>
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 input-wr medium-label">
+                                                <div class="form-group required">
+                                                    <label class="control-label">Пароль</label>
+                                                    <input type="password">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 input-wr sidebar_checks">
+                                                <div class="form-group field-loginform-rememberme">
+                                                    <input type="checkbox" id="loginform-rememberme" name="LoginForm[rememberMe]" value="1" checked="">
+                                                    <label class="control-label" for="loginform-rememberme"><a>Запомнить меня</a></label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-12 button-wr button-left">
+
+                                                <button type="submit">Войти</button>
+                                                <div class="btns_reg">
+                                                    <a class="restore_password_" href="restore.html">Забыли пароль?</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!------------------------>
+
+        </div>
+    </div>
+
 </div>
