@@ -1,37 +1,85 @@
+<?php
+/**
+ * @var View          $this
+ * @var OrderFrontend $order
+ * @var Delivery[]    $deliveries
+ */
+use artweb\artbox\ecommerce\models\Delivery;
+use artweb\artbox\ecommerce\models\OrderPayment;
+use common\components\CreditHelper;
+use frontend\models\OrderFrontend;
+use yii\bootstrap\ActiveForm;
+use yii\bootstrap\Html;
+use yii\helpers\ArrayHelper;
+use yii\web\View;
+
+?>
 <div class="forms_pages form-new-customer">
-    <form  action="" method="post">
+    <?php
+    $form = ActiveForm::begin(
+        [
+            'id' => 'basket-form',
+        ]
+    );
+    ?>
 
+    <?php
+    if (\Yii::$app->user->isGuest) {
+        ?>
         <div class="row">
-            <div class="col-xs-12 col-sm-5 col-md-3 input-wr">
-                <div class="form-group required">
-                    <label class="control-label" for="">Имя</label>
-                    <input type="text" id="">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-5 col-md-3 input-wr">
-                <div class="form-group required">
-                    <label class="control-label" for="">Фамилия</label>
-                    <input type="text" id="">
-                </div>
-            </div>
-
+            <?php
+            echo $form->field(
+                $order,
+                'name',
+                [
+                    'options' => [
+                        'class' => 'col-xs-12 col-sm-6 col-md-6 input-wr medium-label',
+                    ],
+                ]
+            )
+                ->textInput();
+            ?>
         </div>
+        <?php
+    }
+    ?>
 
-        <div class="row">
+    <div class="row">
             <div class="col-xs-12 col-sm-5 col-md-3 input-wr">
-                <div class="form-group field-signupform-email required">
-                    <label class="control-label" for="signupform-email">Ваш e-mail</label>
-                    <input type="text" id="signupform-email" class="form-control" name="SignupForm[email]">
-
-
-                </div>                        </div>
+                <?php
+                echo $form->field(
+                    $order,
+                    'email',
+                    [
+                        'errorOptions' => [
+                            'encode' => false,
+                        ],
+                        'options'      => [
+                            'class' => 'col-xs-12 col-sm-5 col-md-3 input-wr medium-label',
+                        ],
+                    ]
+                )
+                    ->textInput();
+                ?>
+            </div>
 
             <div class="col-xs-12 col-sm-5 col-md-3 input-wr  phones_mask">
-                <div class="form-group ">
-                    <label>Ваш мобильный телефон</label>
-                    <input type="text" id="signupform-phone" class="form-control" name="SignupForm[phone]" placeholder="+38(_ _ _) _ _ _- _ _ - _ _">
-                </div>
+                <?php
+                echo $form->field(
+                    $order,
+                    'phone',
+                    [
+                        'options' => [
+                            'class' => 'col-xs-12 col-sm-5 col-md-3 input-wr medium-label',
+                        ],
+                    ]
+                )
+                    ->textInput(
+                        [
+                            "placeholder" => "+38(_ _ _) _ _ _- _ _ - _ _",
+                        ]
+                    );
+                ?>
             </div>
         </div>
 
@@ -39,18 +87,28 @@
 
 
         <div class="row">
-            <div class="col-xs-12 col-sm-5 col-md-3 input-wr ">
-                <div class="form-group">
-                    <label>Город</label>
-                    <input type="text">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-5 col-md-3 input-wr ">
-                <div class="form-group">
-                    <label >Ваш адрес</label>
-                    <input type="text">
-                </div>
-            </div>
+            <?php
+            echo $form->field(
+                $order,
+                'city',
+                [
+                    'options' => [
+                        'class' => 'col-xs-12 col-sm-5 col-md-3 input-wr medium-label',
+                    ],
+                ]
+            )
+                ->textInput();
+            echo $form->field(
+                $order,
+                'adress',
+                [
+                    'options' => [
+                        'class' => 'col-xs-12 col-sm-5 col-md-3 input-wr medium-label',
+                    ],
+                ]
+            )
+                ->textInput();
+            ?>
         </div>
 
         <div class="row delivery-wrapper">
@@ -99,10 +157,23 @@
 
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 input-wr">
-                <div class="form-group ">
-                    <label>Комментарий</label>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                </div>
+                <?php
+                echo $form->field(
+                    $order,
+                    'comment',
+                    [
+                        'options' => [
+                            'class' => 'col-xs-12 col-sm-10 col-md-6 input-wr medium-label _area_',
+                        ],
+                    ]
+                )
+                    ->textarea(
+                        [
+                            'cols' => 30,
+                            'rows' => 10,
+                        ]
+                    );
+                ?>
             </div>
         </div>
 
@@ -111,5 +182,7 @@
                 <button type="submit">ОФОРМИТЬ ЗАКАЗ</button>
             </div>
         </div>
-    </form>
+    <?php
+    $form::end();
+    ?>
 </div>
