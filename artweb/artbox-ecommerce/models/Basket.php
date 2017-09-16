@@ -84,6 +84,8 @@
         public function set(int $product_variant_id, int $count)
         {
             $data = $this->getData();
+            print_r($data);
+            die();
             if (array_key_exists($product_variant_id, $data)) {
                 $data[ $product_variant_id ][ 'count' ] = $count;
                 if ($data[ $product_variant_id ][ 'count' ] <= 0) {
