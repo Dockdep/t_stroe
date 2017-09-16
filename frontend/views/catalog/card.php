@@ -149,7 +149,7 @@ $this->registerJsFile(
 
                     <!---если овара нет в наличии добавлять для card-btn-buy класс "disabled"-->
                     <div class="card-btn-buy">
-                        <a class="modal-link item_add card-btn-buy" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
+                        <a class="modal-link item_add btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
                     </div>
 
                 </div>
