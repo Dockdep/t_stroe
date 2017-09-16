@@ -178,19 +178,18 @@ var basket = new ArtboxBasket();
 //     )
 // }
 //
-//
-// $(document)
-//     .on('click', '.remove_ico', confirmRemove);
-// $(document)
-//     .on('click', '.remove_confirm a', removeBasket);
-// $(document)
-//     .on('click', '.quantity-wr span', changeBasket);
-// $(document)
-//     .on('change', '.quantity-wr input', setBasket);
-// $(document)
-//     .on('keypress', '.quantity-wr input', setControl);
-// $(document)
-//     .on('click', 'a.btn_buy_cat', addBasket);
+$(document)
+    .on('click', '.remove_ico', confirmRemove);
+$(document)
+    .on('click', '.remove_confirm a', removeBasket);
+$(document)
+    .on('click', '.quantity-wr span', changeBasket);
+$(document)
+    .on('change', '.quantity-wr input', setBasket);
+$(document)
+    .on('keypress', '.quantity-wr input', setControl);
+$(document)
+    .on('click', 'a.btn_buy_cat', addBasket);
 //
 // // Delivery to payment custom manipulation
 // $(document)
@@ -273,94 +272,86 @@ var basket = new ArtboxBasket();
 // $('#feedback-header').on('submit', function(e) {
 //     e.preventDefault();
 // });
-//
-// function confirmRemove(e) {
-//     e.preventDefault();
-//     $(this)
-//         .parent()
-//         .addClass('confirm');
-// }
-//
-// function changeBasket(e) {
-//     var variant = $(this)
-//         .parents('tr.variant_tr')
-//         .data('variant');
-//     var input = $(this)
-//         .parent()
-//         .find('input');
-//     var oldVal = input.val();
-//     if ($(this)
-//             .hasClass('minus')) {
-//         if (oldVal > 1) {
-//             basket.add(variant, -1);
-//         }
-//     } else {
-//         basket.add(variant, 1);
-//     }
-// }
-//
-// function removeBasket(e) {
-//     e.preventDefault();
-//     if ($(this)
-//             .hasClass('remove-yes')) {
-//         var variant = $(this)
-//             .parents('tr.variant_tr')
-//             .data('variant');
-//         //удаление ячейки "tr" в корзине
-//         basket.remove(variant);
-//         $(this)
-//             .parents('.confirm')
-//             .parent()
-//             .remove()
-//     } else {
-//         $(this)
-//             .parents('.confirm')
-//             .removeClass('confirm')
-//     }
-// }
-//
-// function setBasket(e) {
-//     e.preventDefault();
-//     var variant = $(this)
-//         .parents('tr.variant_tr')
-//         .data('variant');
-//     var count = $(this)
-//         .val();
-//     basket.set(variant, count);
-// }
-//
-// function setControl(e) {
-//     if (e.which == 13) {
-//         $(this)
-//             .trigger('change');
-//         return false;
-//     } else if (!(e.which == 8 || (e.which > 47 && e.which < 58))) {
-//         return false;
-//     }
-// }
-//
-// function showBasket() {
-//     var pos = ($(window)
-//             .scrollTop()) + 30;
-//     $('#overlay')
-//         .fadeIn(
-//             400, function() {
-//                 $('.basket_modal')
-//                     .css('display', 'block')
-//                     .animate(
-//                         {
-//                             opacity: 1,
-//                             top: pos
-//                         }, 200
-//                     );
-//             }
-//         );
-// }
-//
-// function addBasket(e) {
-//     e.preventDefault();
-//     var variant = $(this)
-//         .data('variant');
-//     basket.add(variant, 1);
-//     showBasket();
-// }
+function confirmRemove(e) {
+    e.preventDefault();
+    $(this)
+        .parent()
+        .addClass('confirm');
+}
+function changeBasket(e) {
+    var variant = $(this)
+        .parents('tr.variant_tr')
+        .data('variant');
+    var input = $(this)
+        .parent()
+        .find('input');
+    var oldVal = input.val();
+    if ($(this)
+        .hasClass('minus')) {
+        if (oldVal > 1) {
+            basket.add(variant, -1);
+        }
+    }
+    else {
+        basket.add(variant, 1);
+    }
+}
+function removeBasket(e) {
+    e.preventDefault();
+    if ($(this)
+        .hasClass('remove-yes')) {
+        var variant = $(this)
+            .parents('tr.variant_tr')
+            .data('variant');
+        //удаление ячейки "tr" в корзине
+        basket.remove(variant);
+        $(this)
+            .parents('.confirm')
+            .parent()
+            .remove();
+    }
+    else {
+        $(this)
+            .parents('.confirm')
+            .removeClass('confirm');
+    }
+}
+function setBasket(e) {
+    e.preventDefault();
+    var variant = $(this)
+        .parents('tr.variant_tr')
+        .data('variant');
+    var count = $(this)
+        .val();
+    basket.set(variant, count);
+}
+function setControl(e) {
+    if (e.which == 13) {
+        $(this)
+            .trigger('change');
+        return false;
+    }
+    else if (!(e.which == 8 || (e.which > 47 && e.which < 58))) {
+        return false;
+    }
+}
+function showBasket() {
+    var pos = ($(window)
+        .scrollTop()) + 30;
+    $('#overlay')
+        .fadeIn(400, function () {
+        $('.basket_modal')
+            .css('display', 'block')
+            .animate({
+            opacity: 1,
+            top: pos
+        }, 200);
+    });
+}
+function addBasket(e) {
+    e.preventDefault();
+    var variant = $(this)
+        .data('variant');
+    basket.add(variant, 1);
+    showBasket();
+}
