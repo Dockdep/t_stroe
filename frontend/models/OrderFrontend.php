@@ -68,13 +68,7 @@
         {
             return 'order';
         }
-        
-        public function beforeSave($insert)
-        {
-            $this->published = true;
-            return parent::beforeSave($insert);
-        }
-        
+
         public function afterSave($insert, $changedAttributes)
         {
             if ($insert) {
