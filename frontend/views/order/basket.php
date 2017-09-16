@@ -3,24 +3,29 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 title-card">Товары в вашей корзина</div>
 
-        <!--если корзина пустая выводить-->
-
-        <!--<div class="col-xs-12 col-sm-12 title_empty_basket">-->
-        <!--Ваша корзина пуста-->
-        <!--</div>-->
-
-        <!-------------------------------->
-
-        <div class="col-xs-12 col-sm-12 basket_page">
-
-        </div>
-
-        <div class="col-xs-12 col-sm-12">
-            <div class="style price-total-wr">
-                <div class="hidden-xs col-sm-6"><span class="total_txt">итого</span></div>
-                <div class="col-sm-12 col-sm-6 price-total"><span>  грн.</span></div>
+        <?php if (empty( $models )) {
+            ?>
+            <div class="col-xs-12 col-sm-12 title_empty_basket">
+                <?php echo \Yii::t('app', 'basket_empty'); ?><br/>
+                <!--                <span>Вы можете выбрать товар в <a href="--><?php //echo Url::to([ 'catalog/index' ]); ?><!--">нашем каталоге</a></span>-->
             </div>
-        </div>
+            <?php
+        } else {
+            ?>
+            <div class="col-xs-12 col-sm-12 basket_page">
+                <?php echo $this->render(
+                    '@frontend/views/basket/basket_table',
+                    [
+                        'models' => $models,
+                        'basket' => $basket,
+                        'data'   => $data,
+                    ]
+                );
+                ?>
+            </div>
+            <?php
+        }
+        ?>
 
     </div>
 
