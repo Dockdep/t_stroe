@@ -2,6 +2,7 @@
 namespace frontend\widgets;
 
 use artweb\artbox\models\Customer;
+use common\models\CustomerCategoryDiscount;
 use yii\base\Widget;
 use yii\web\User;
 
@@ -10,7 +11,10 @@ class PriceWidget extends Widget
     public $price;
     public $discount;
     public $category;
-
+    /**
+     * @var $discountCategory CustomerCategoryDiscount
+     */
+    public $discountCategory;
 
     public function init(){
 
@@ -42,9 +46,17 @@ class PriceWidget extends Widget
                 }
 
 
+                if($this->discountCategory != null){
+                    $percent = $this->discount > $this->discountCategory->discount ? $this->discount : $this->discountCategory->discount;
+                }
+
+            }
+
+            if($percent > 0){
+                $this->price = ((100-$percent)/100) * $this->price;
             }
         }
-        return 1000;
+        return $this->price;
 
 
     }

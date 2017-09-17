@@ -146,6 +146,7 @@ $this->registerJsFile(
                     <?= ListView::widget(
                         [
                             'dataProvider' => $productProvider,
+                            'viewParams' => ['discountCategory' => $discountCategory],
                             'layout'       => "{items}  {pager}",
                             'options'      => [
                                 'class' => 'list-view style catalog-wrapp-all',

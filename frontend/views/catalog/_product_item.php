@@ -70,7 +70,8 @@ use yii\helpers\ArrayHelper;
                     round(\frontend\widgets\PriceWidget::widget([
                             'price' => $model->enabledVariants[0]->price,
                             'discount' => $model->discount_rate,
-                            'category' => $model->category
+                            'category' => $model->category,
+                            'discountCategory' =>$discountCategory
                     ]), 2)
                     ?><span class="currency"> грн.</span></div>
                 <div class="btn_buy_basket-fix">
