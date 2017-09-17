@@ -130,16 +130,8 @@ $this->registerJsFile(
                 <div class="card-quantity">(<?= $product->enabledVariant->quantity ?> <span>шт.)</span></div>
 
                 <div class="cat-price-more cat_new_price item_price">
-
                     <?php
-
-                        $PriceData = \frontend\widgets\PriceWidget::widget([
-                            'price' => $product->enabledVariants[0]->price,
-                            'discount' => $product->discount_rate,
-                            'category' => $product->category,
-                            'discountCategory' =>$discountCategory
-                        ]);
-
+                    $PriceData = $product->discountPrice($discountCategory);
                     ?>
 
                     <?php if ($PriceData['discount'] > 0) { ?>
