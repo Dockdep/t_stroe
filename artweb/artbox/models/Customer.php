@@ -24,7 +24,7 @@
      * @property integer $status
      * @property integer $created_at
      * @property integer $updated_at
-     * @property integer $remote_id
+     * @property string $remote_id
      * @property integer $discount_rate
      */
     class Customer extends User implements IdentityInterface
@@ -66,7 +66,7 @@
                         'status',
                         'created_at',
                         'updated_at',
-                        'remote_id',
+
                         'discount_rate'
                     ],
                     'integer',
@@ -90,6 +90,7 @@
                         'password_reset_token',
                         'city',
                         'address',
+                        'remote_id',
                     ],
                     'string',
                     'max' => 255,
