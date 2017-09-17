@@ -66,7 +66,9 @@ use yii\helpers\ArrayHelper;
             </div>
             <!--если есть новая цена добавить для (.cat-price-more) класс cat_new_price-->
             <div class="cat-price-more cat_new_price">
-                <div class="cat_price"> <?=  round($model->enabledVariants[0]->price, 2) ?><span class="currency"> грн.</span></div>
+                <div class="cat_price"> <?=  //$model->enabledVariants[0]->price
+                    round(\frontend\widgets\PriceWidget::widget(), 2)
+                    ?><span class="currency"> грн.</span></div>
                 <div class="btn_buy_basket-fix">
                     <?php
                     echo Html::a(
