@@ -3,6 +3,7 @@
     
     use artweb\artbox\ecommerce\models\Delivery;
     use artweb\artbox\ecommerce\models\Label;
+    use artweb\artbox\ecommerce\models\Order;
     use artweb\artbox\ecommerce\models\OrderLabelHistory;
     use artweb\artbox\ecommerce\models\OrderPayment;
     use artweb\artbox\ecommerce\models\OrderProduct;
@@ -13,7 +14,8 @@
     use yii\behaviors\TimestampBehavior;
     use yii\db\ActiveQuery;
     use yii\db\ActiveRecord;
-    
+    use yii\helpers\ArrayHelper;
+
     /**
      * Class Order
      *
@@ -32,6 +34,7 @@
      * @property string $reserve
      * @property string $status
      * @property string $comment
+     * @property string $remote_id
      * @property int    $label
      * @property int    $pay
      * @property int    $numbercard
@@ -220,6 +223,7 @@
                         'email',
                         'city',
                         'name',
+                        'remote_id'
                     ],
                     'string',
                     'max' => 255,
@@ -314,6 +318,29 @@
         public function getProducts()
         {
             return $this->hasMany(OrderProduct::className(), [ 'order_id' => 'id' ]);
+        }
+
+        public function sync()
+        {
+            $data = ArrayHelper::toArray(Order::find()->where(['id'=> $this->id])->with('products')->all());
+            $data = \GuzzleHttp\json_encode($data);
+            print_r($data);
+            die();
+
+//            $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/InCounterparties');
+//            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+//            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+//            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+//                    'Content-Type: application/json',
+//                    'Content-Length: ' . strlen($data))
+//            );
+//
+//            $result = json_decode(curl_exec($ch));
+//            if(isset($result->remote_id)){
+//                $this->remote_id = $result->remote_id;
+//            }
+
         }
         
 

@@ -118,6 +118,7 @@
 //                        ]
 //                    )
 //                );
+                $order->sync();
                 return $this->redirect([ 'site/index' ]);
             }
             return $this->render(
