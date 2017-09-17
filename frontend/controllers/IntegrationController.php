@@ -39,8 +39,8 @@ class IntegrationController extends Controller{
 
     public function actionImportCustomers(){
         try{
-           // if($data = \Yii::$app->request->post("data")){
-                $data = $this->getItemData();
+           if($data = \Yii::$app->request->post("data")){
+               // $data = $this->getItemData();
                 $data = json_decode($data);
                 if(is_array($data)){
                     foreach ($data as $item){
@@ -50,9 +50,9 @@ class IntegrationController extends Controller{
                     throw new Exception("Данные о пользователях ожидаются в виде массива.");
                 }
                 die(\GuzzleHttp\json_encode($this->result));
-//            }else {
-//                throw new Exception("Отсутствует data");
-//            }
+            }else {
+                throw new Exception("Отсутствует data");
+            }
 
 
         } catch (Exception $e) {
