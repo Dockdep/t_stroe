@@ -17,13 +17,25 @@ class IntegrationController extends Controller{
 
     public $result = [];
     public function getItemData(){
-      return '';
+      return '[
+{
+"id": 0,
+"YurfizLizso": "Юр. лицо",
+"Code": "000001943",
+"username": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ГЛОБАЛ ЮНІВЕРСАЛ ЛОДЖИСТІК ЛІМІТЕД\"",
+"Discount": [],
+"discount_rate": 0,
+"Phone": "+38 (041) 241-26-26",
+"Email": "irina.zavorotnuk@gmail.com",
+"password": "9MDkYW3"
+}
+]';
     }
 
     public function ImportCustomers(){
         try{
-            if($data = \Yii::$app->request->post("data")){
-                //$data = $this->getItemData();
+           // if($data = \Yii::$app->request->post("data")){
+                $data = $this->getItemData();
                 $data = json_decode($data);
                 if(is_array($data)){
                     foreach ($data as $item){
@@ -33,9 +45,9 @@ class IntegrationController extends Controller{
                     throw new Exception("Данные о пользователях ожидаются в виде массива.");
                 }
                 die(\GuzzleHttp\json_encode($this->result));
-            }else {
-                throw new Exception("Отсутствует data");
-            }
+//            }else {
+//                throw new Exception("Отсутствует data");
+//            }
 
 
         } catch (Exception $e) {
