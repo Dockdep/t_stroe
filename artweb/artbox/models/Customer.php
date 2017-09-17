@@ -218,7 +218,8 @@
 
         public function afterSave($insert, $changedAttributes)
         {
-            $data = \GuzzleHttp\json_encode($this);
+            $data = Customer::findOne($this->id);
+            $data = \GuzzleHttp\json_encode($data);
             print_r($data);
             die();
             parent::afterSave($insert, $changedAttributes);
