@@ -215,6 +215,14 @@
             }
 
         }
+
+        public function afterSave($insert, $changedAttributes)
+        {
+            $data = \GuzzleHttp\json_encode($this);
+            print_r($data);
+            die();
+            parent::afterSave($insert, $changedAttributes);
+        }
         
         public function getPassword()
         {
