@@ -1,7 +1,7 @@
 <?php
 namespace frontend\controllers;
 
-use app\models\CustomerCategoryDiscount;
+use common\models\CustomerCategoryDiscount;
 use artweb\artbox\ecommerce\models\Brand;
 use artweb\artbox\ecommerce\models\Category;
 use artweb\artbox\ecommerce\models\Product;
