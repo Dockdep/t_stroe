@@ -21,13 +21,13 @@ class PriceWidget extends Widget
         /**
          * @var $user User
          */
-        $user = \Yii::$app->user;
-        if($user->isGuest){
-            return  200;
-        } else {
-            $identity = $user->identity;
+//        $user = \Yii::$app->user;
+//        if($user->isGuest){
+//            return  200;
+//        } else {
+//            //$identity = $user->identity;
             return 300;
-        }
+ //       }
 
 
     }
