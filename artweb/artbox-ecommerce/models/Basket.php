@@ -2,6 +2,7 @@
     
     namespace artweb\artbox\ecommerce\models;
     
+    use common\models\CustomerCategoryDiscount;
     use yii\base\Component;
     use yii\helpers\Json;
     use yii\web\Cookie;
@@ -225,17 +226,43 @@
             if (empty( $product_variant_ids )) {
                 return [];
             }
-            return ProductVariant::find()
-                                 ->where([ 'product_variant.id' => $product_variant_ids ])
-                                 ->joinWith('lang', 'product')
-                                 ->with(
-                                     [
-                                         'product.lang',
-                                         'image',
-                                     ]
-                                 )
-                                 ->indexBy('id')
-                                 ->all();
+
+            $variants =  ProductVariant::find()
+                ->where([ 'product_variant.id' => $product_variant_ids ])
+                ->joinWith('lang', 'product')
+                ->with(
+                    [
+                        'product.lang',
+                        'image',
+                    ]
+                )
+                ->indexBy('id')
+                ->all();
+            /**
+             * @var $variant ProductVariant
+             */
+            foreach($variants as $variant){
+                if(!\Yii::$app->user->isGuest){
+                    $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$variant->product->category->id,'customer_id'=>\Yii::$app->user->identity->id])->one();
+                    if(!$discountCategory instanceof CustomerCategoryDiscount && isset($variant->product->parentAR))
+                    {
+                        $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$variant->product->parentAR->id,'customer_id'=>\Yii::$app->user->identity->id])->one();
+                        if(!$discountCategory instanceof CustomerCategoryDiscount && isset($variant->product->parentAR->parentAR)){
+                            $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$variant->product->parentAR->parentAR->id,'customer_id'=>\Yii::$app->user->identity->id])->one();
+                        }
+
+                    }
+                } else {
+                    $discountCategory = null;
+                }
+                $discountData = $variant->product->discountPrice($discountCategory);
+                $variant->price = $discountData['price'];
+                $variant->discount = $discountData['discount'];
+            }
+
+            return $variants;
+
+
         }
         
         /**

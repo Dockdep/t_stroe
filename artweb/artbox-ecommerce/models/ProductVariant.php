@@ -71,6 +71,7 @@
      */
     class ProductVariant extends ActiveRecord
     {
+        public $discount;
         
         public $customOption = [];
 
