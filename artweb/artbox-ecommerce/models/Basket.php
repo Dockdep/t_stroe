@@ -221,6 +221,7 @@
          */
         public function findModels(array $product_variant_ids)
         {
+
             if (empty( $product_variant_ids )) {
                 return [];
             }

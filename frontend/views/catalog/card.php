@@ -130,13 +130,23 @@ $this->registerJsFile(
                 <div class="card-quantity">(<?= $product->enabledVariant->quantity ?> <span>шт.)</span></div>
 
                 <div class="cat-price-more cat_new_price item_price">
-                    <div class="cat_price item_price"><?= round(\frontend\widgets\PriceWidget::widget([
+
+                    <?php
+
+                        $PriceData = \frontend\widgets\PriceWidget::widget([
                             'price' => $product->enabledVariants[0]->price,
                             'discount' => $product->discount_rate,
                             'category' => $product->category,
                             'discountCategory' =>$discountCategory
-                        ]), 2)
-                        ?><span
+                        ]);
+
+                    ?>
+
+                    <?php if ($PriceData['discount'] > 0) { ?>
+                        <div class="cat_old_price"><?= round($product->enabledVariant->price, 2) ?><span
+                                    class="currency"> грн.</span></div>
+                    <?php } ?>
+                    <div class="cat_price item_price"><?= round($PriceData['price'], 2) ?><span
                                 class="currency"> грн.</span></div>
                 </div>
 

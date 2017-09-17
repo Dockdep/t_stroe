@@ -25,12 +25,13 @@ class PriceWidget extends Widget
 
     public function run()
     {
+        $percent = 0;
         /**
          * @var $user User
          */
         if($this->price != 0 ){
             $user = \Yii::$app->user;
-            $percent = 0;
+
             if($this->discount){
                 $percent = $this->discount;
             }
@@ -56,7 +57,8 @@ class PriceWidget extends Widget
                 $this->price = ((100-$percent)/100) * $this->price;
             }
         }
-        return $this->price;
+
+        return ['price'=>$this->price, 'discount' => $percent];
 
 
     }
