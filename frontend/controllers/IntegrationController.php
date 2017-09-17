@@ -64,6 +64,8 @@ class IntegrationController extends Controller{
             throw new Exception(print_r($user->getErrors()));
         }
         $user->save();
+
+        $this->result[$item->Code] = $user->id;
     }
 
 
