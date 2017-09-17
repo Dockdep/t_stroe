@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
 use artweb\artbox\ecommerce\models\Category;
 use artweb\artbox\models\Customer;
