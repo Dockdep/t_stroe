@@ -6,13 +6,17 @@ use artweb\artbox\components\artboximage\ArtboxImageHelper;
 use artweb\artbox\ecommerce\models\Product;
 use yii\bootstrap\Html;
 use yii\helpers\ArrayHelper;
+$PriceData = $model->discountPrice($discountCategory);
+
 ?>
 <div class="items_wr">
         <div class="items_">
+
             <div class="status_items-wr">
                 <!--порядок вывода если несколько статусов оставить как тут-->
-                <div><p class="staus_sale">сКидка -25%<span></span></p></div>
-                <div><p class="staus_hit">custom name<span></span></p></div>
+                <?php if($PriceData['discount'] > 0){?>
+                <div><p class="staus_sale">сКидка -<?=$PriceData['discount']?>%<span></span></p></div>
+                <?php } ?>
                 <!----------------------------------->
             </div>
 
@@ -66,9 +70,7 @@ use yii\helpers\ArrayHelper;
             </div>
             <!--если есть новая цена добавить для (.cat-price-more) класс cat_new_price-->
             <div class="cat-price-more cat_new_price">
-                <?php
-                $PriceData = $model->discountPrice($discountCategory);
-                ?>
+
                 <?php if($PriceData['discount'] > 0){?>
                     <div class="cat_old_price"><?= round($model->enabledVariants[0]->price) ?><span class="currency"> грн.</span></div>
                 <?php } ?>
