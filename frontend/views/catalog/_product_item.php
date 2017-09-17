@@ -67,12 +67,7 @@ use yii\helpers\ArrayHelper;
             <!--если есть новая цена добавить для (.cat-price-more) класс cat_new_price-->
             <div class="cat-price-more cat_new_price">
                 <?php
-                $PriceData = \frontend\widgets\PriceWidget::widget([
-                    'price' => $model->enabledVariants[0]->price,
-                    'discount' => $model->discount_rate,
-                    'category' => $model->category,
-                    'discountCategory' =>$discountCategory
-                ])
+                $PriceData = $model->discountPrice($discountCategory);
                 ?>
                 <?php if($PriceData['discount'] > 0){?>
                     <div class="cat_old_price"><?= $model->enabledVariants[0]->price ?><span class="currency"> грн.</span></div>

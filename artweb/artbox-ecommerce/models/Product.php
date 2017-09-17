@@ -8,6 +8,7 @@ use artweb\artbox\behaviors\MultipleImgBehavior;
 use artweb\artbox\behaviors\SaveMultipleFileBehavior;
 use artweb\artbox\event\models\Event;
 use artweb\artbox\language\behaviors\LanguageBehavior;
+use artweb\artbox\models\Customer;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\db\ActiveQuery;
@@ -16,6 +17,7 @@ use yii\db\Query;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
+use yii\web\User;
 
 /**
  * This is the model class for table "{{%product}}".
@@ -620,5 +622,44 @@ class Product extends ActiveRecord
     public function setOptions($values)
     {
         $this->options = $values;
+    }
+
+
+    public function discountPrice($discountCategory){
+        $percent = 0;
+        /**
+         * @var $user User
+         */
+        if($this->variant->price != 0 ){
+            $user = \Yii::$app->user;
+
+            if($this->discount_rate){
+                $percent = $this->discount_rate;
+            }
+
+
+            if(!$user->isGuest){
+                /**
+                 * @var $identity Customer
+                 */
+                $identity = $user->identity;
+                if(!empty($identity->discount_rate)){
+                    $percent = $identity->discount_rate > $this->discount_rate ? $identity->discount_rate : $this->discount_rate;
+                }
+
+
+                if($$discountCategory != null){
+                    $percent = $this->discount_rate > $discountCategory->discount ? $this->discount_rate : $discountCategory->discount;
+                }
+
+            }
+
+            if($percent > 0){
+                $this->variant->price = ((100-$percent)/100) * $this->variant->price;
+            }
+        }
+
+        return ['price'=>$this->variant->price, 'discount' => $percent];
+
     }
 }
