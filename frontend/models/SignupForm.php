@@ -19,6 +19,7 @@ class SignupForm extends Model
     public $phone;
     public $city;
     public $address;
+    public $remote_id;
 
     /**
      * @inheritdoc
@@ -51,6 +52,7 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+            ['remote_id', 'integer']
         ];
     }
 
@@ -71,6 +73,7 @@ class SignupForm extends Model
             'address'              => Yii::t('app', 'Ваш адрес'),
             'password'             => Yii::t('app', 'Пароль'),
             'password_repeat'      => Yii::t('app', 'Пароль повторно'),
+            'remote_id'            => Yii::t('app', 'remote_id'),
         ];
     }
 
@@ -93,6 +96,7 @@ class SignupForm extends Model
         $user->phone = $this->phone;
         $user->city = $this->city;
         $user->address = $this->address;
+        $user->remote_id = $this->remote_id;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->status = 10;

@@ -48,41 +48,6 @@
             }
 
             if (!empty( $models ) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
-                if (\Yii::$app->user->isGuest && !empty( $order->email )) {
-                    $password = \Yii::$app->security->generateRandomString(6);
-                    $signup = new SignupForm(
-                        [
-                            'username'        => $order->name,
-                            'email'           => $order->email,
-                            'password'        => $password,
-                            'password_repeat' => $password,
-                            'phone'           => $order->phone,
-                            'city'            => $order->city,
-                            'address'         => $order->adress,
-                        ]
-                    );
-                    $customer = $signup->signup();
-                    if ($customer) {
-                        $order->user_id = $customer->id;
-                        \Yii::$app->mailer->compose(
-                            [ 'html' => 'order_register' ],
-                            [
-                                'model'    => $customer,
-                                'password' => $password,
-                            ]
-                        )
-                                          ->setFrom(
-                                              [ \Yii::$app->params[ 'supportEmail' ] => \Yii::$app->name . ' robot' ]
-                                          )
-                                          ->setTo($order->email)
-                                          ->setSubject(
-                                              \Yii::t('app', 'Вы успешно зарегистрированы, пройдите активацию!')
-                                          )
-                                          ->send();
-                    } else {
-                        \Yii::$app->session->addFlash('error', \Yii::t('app', 'Ошибка регистрации'));
-                    }
-                }
                 $order->save(false);
                 $order_products = [];
                 $total = 0;
@@ -142,16 +107,16 @@
                 /**
                  * @var SmsSender $sender
                  */
-                $sender = \Yii::$app->sender;
-                $sender->send(
-                    $order->phone,
-                    $this->renderPartial(
-                        '@common/mail/smsorder',
-                        [
-                            'order_id' => $order->id,
-                        ]
-                    )
-                );
+//                $sender = \Yii::$app->sender;
+//                $sender->send(
+//                    $order->phone,
+//                    $this->renderPartial(
+//                        '@common/mail/smsorder',
+//                        [
+//                            'order_id' => $order->id,
+//                        ]
+//                    )
+//                );
                 return $this->redirect([ 'site/index' ]);
             }
             return $this->render(
