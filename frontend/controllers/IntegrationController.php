@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use app\models\CustomerCategoryDiscount;
 use artweb\artbox\ecommerce\models\Brand;
 use artweb\artbox\ecommerce\models\Category;
 use artweb\artbox\ecommerce\models\Product;
@@ -64,11 +65,32 @@ class IntegrationController extends Controller{
             throw new Exception(print_r($user->getErrors()));
         }
         $user->save();
+        if(isset($item->Discount) && !empty($item->Discount)){
+            $this->SaveDiscount($item->Discount, $user);
+        }
+
+
 
         $this->result[$item->Code] = $user->id;
+
+
+
     }
 
-
+    private function SaveDiscount($discounts, $customer){
+        CustomerCategoryDiscount::deleteAll(['customer_id'=>$customer->id]);
+        foreach ($discounts as $discount){
+            $category = Category::find()->where(['remote_id'=>$discount->Group])->one();
+            if($category instanceof Category){
+                $discountModel = new CustomerCategoryDiscount();
+                $discountModel->category_id = $category->id;
+                $discountModel->customer_id = $customer->id;
+                $discountModel->save();
+            } else {
+                throw new \Exception("Категории ".$discount->Group." указаной в Discount у пользователя ".$customer->remote_id." нет в базе");
+            }
+        }
+    }
 
 
 
