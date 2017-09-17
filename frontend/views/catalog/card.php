@@ -89,7 +89,7 @@ $PriceData = $product->discountPrice($discountCategory);
                     <div class="style my-gallery">
                         <div class="status_items-wr">
                             <?php if($PriceData['discount'] > 0){?>
-                            <div><p class="staus_sale">сКидка -<?= $PriceData['price'] ?>%<span></span></p></div>
+                            <div><p class="staus_sale">сКидка -<?= $PriceData['discount'] ?>%<span></span></p></div>
                             <?php } ?>
                         </div>
                         <!--в data-size выводить оригинальный размер картинки-->
