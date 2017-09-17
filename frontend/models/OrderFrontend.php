@@ -328,8 +328,8 @@
             $data = Order::find()->where(['order.id'=> $this->id])->joinWith('products')->one();
             $array = ArrayHelper::toArray($data);
             $array['items'] = ArrayHelper::toArray($data->products);
-//            print_r($data->products);
-            print_r($array);
+            $order = json_encode($array);
+            print_r($order);
             die();
 
 //            $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/InCounterparties');
