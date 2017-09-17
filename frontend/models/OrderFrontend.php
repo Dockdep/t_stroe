@@ -322,7 +322,7 @@
 
         public function sync()
         {
-            $data = ArrayHelper::toArray(Order::find()->select('order.*,order_product.*')->where(['order.id'=> $this->id])->joinWith('products')->all());
+            $data = ArrayHelper::toArray(Order::find()->select('order.*,order_product.*')->where(['order.id'=> $this->id])->leftJoin('products')->all());
             $data = json_encode($data);
             print_r($data);
             die();
