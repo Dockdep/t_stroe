@@ -68,7 +68,7 @@ use yii\helpers\ArrayHelper;
             <div class="cat-price-more cat_new_price">
                 <div class="cat_price"> <?=  //$model->enabledVariants[0]->price
                     round(\frontend\widgets\PriceWidget::widget([
-                            'product' => $model->enabledVariants[0]->price,
+                            'price' => $model->enabledVariants[0]->price,
                             'discount' => $model->discount_rate,
                             'category' => $model->category
                     ]), 2)
