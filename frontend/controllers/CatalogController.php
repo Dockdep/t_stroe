@@ -340,8 +340,6 @@
                 $discountCategory = null;
             }
 
-            var_dump($discountCategory);
-            die();
             return $this->render(
                 'card',
                 [
