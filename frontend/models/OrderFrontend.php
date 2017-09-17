@@ -322,11 +322,14 @@
 
         public function sync()
         {
-            $data = ArrayHelper::toArray(Order::find()->select('order.*,order_product.*')->where(['order.id'=> $this->id])->leftJoin('products')->all());
-            $data = json_encode($data);
-            print_r($data);
+            /**
+             * @var $data Order
+             */
+            $data = Order::find()->select('order.*,order_product.*')->where(['order.id'=> $this->id])->joinWith('products')->all();
+            $array = ArrayHelper::toArray($data);
+            $array['items'] = $data->products;
+            print_r($array);
             die();
-
 
 //            $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/InCounterparties');
 //            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
