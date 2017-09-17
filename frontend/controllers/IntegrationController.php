@@ -68,7 +68,7 @@ class IntegrationController extends Controller{
             $user->setPassword($item->password);
             $user->generateAuthKey();
         }
-        $user->username = $item->FullName;
+        $user->username = $item->username;
         $user->email = $item->Email;
         $user->phone = $item->Phone;
         $user->discount_rate = $item->discount_rate;
