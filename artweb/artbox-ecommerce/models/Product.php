@@ -648,7 +648,7 @@ class Product extends ActiveRecord
                 }
 
 
-                if($$discountCategory != null){
+                if($discountCategory != null){
                     $percent = $this->discount_rate > $discountCategory->discount ? $this->discount_rate : $discountCategory->discount;
                 }
 
