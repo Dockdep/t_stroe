@@ -70,7 +70,7 @@ use yii\helpers\ArrayHelper;
                 $PriceData = $model->discountPrice($discountCategory);
                 ?>
                 <?php if($PriceData['discount'] > 0){?>
-                    <div class="cat_old_price"><?= $model->enabledVariants[0]->price ?><span class="currency"> грн.</span></div>
+                    <div class="cat_old_price"><?= round($model->enabledVariants[0]->price) ?><span class="currency"> грн.</span></div>
                 <?php } ?>
                 <div class="cat_price"> <?=  //$model->enabledVariants[0]->price
                     round($PriceData['price'], 2)
