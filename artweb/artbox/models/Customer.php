@@ -220,7 +220,19 @@
         {
 
             $data = \GuzzleHttp\json_encode($this->toArray());
-            print_r($data);
+
+
+            $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/InCounterparties');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Content-Type: application/json',
+                    'Content-Length: ' . strlen($data))
+            );
+
+            $result = curl_exec($ch);
+            print_r($result);
             die();
             parent::afterSave($insert, $changedAttributes);
         }
