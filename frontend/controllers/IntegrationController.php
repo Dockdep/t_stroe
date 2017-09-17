@@ -85,6 +85,7 @@ class IntegrationController extends Controller{
                 $discountModel = new CustomerCategoryDiscount();
                 $discountModel->category_id = $category->id;
                 $discountModel->customer_id = $customer->id;
+                $discountModel->discount = $discount->Discount;
                 $discountModel->save();
             } else {
                 throw new \Exception("Категории ".$discount->Group." указаной в Discount у пользователя ".$customer->remote_id." нет в базе");
