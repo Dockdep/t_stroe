@@ -325,7 +325,7 @@
             /**
              * @var $data Order
              */
-            $data = Order::find()->select('order.*,order_product.*')->where(['order.id'=> $this->id])->joinWith('products')->all();
+            $data = Order::find()->select('order.*,order_product.*')->where(['order.id'=> $this->id])->joinWith('products')->one();
             $array = ArrayHelper::toArray($data);
             $array['items'] = $data->products;
             print_r($array);
