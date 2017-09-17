@@ -1,12 +1,15 @@
 <?php
 namespace frontend\widgets;
 
+use artweb\artbox\models\Customer;
 use yii\base\Widget;
 use yii\web\User;
 
 class PriceWidget extends Widget
 {
-    public $user;
+    public $price;
+    public $discount;
+    public $category;
 
 
     public function init(){
@@ -21,13 +24,26 @@ class PriceWidget extends Widget
         /**
          * @var $user User
          */
-//        $user = \Yii::$app->user;
-//        if($user->isGuest){
-//            return  200;
-//        } else {
-//            //$identity = $user->identity;
-            return 300;
- //       }
+        if($this->price != 0 ){
+            $user = \Yii::$app->user;
+            $percent = 0;
+            if($this->discount){
+                $percent = $this->discount;
+            }
+
+
+            if(!$user->isGuest){
+                /**
+                 * @var $identity Customer
+                 */
+                $identity = $user->identity;
+                if(!empty($identity->discount_rate)){
+                    $percent = $identity->discount_rate > $this->discount ? $identity->discount_rate : $this->discount;
+                }
+
+            }
+        }
+        return 1000;
 
 
     }
