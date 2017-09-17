@@ -9,6 +9,7 @@
     use artweb\artbox\ecommerce\models\ProductVariant;
     use artweb\artbox\ecommerce\models\ProductFrontendSearch;
     use artweb\artbox\models\Page;
+    use common\models\CustomerCategoryDiscount;
     use mihaildev\elfinder\InputFile;
     use Yii;
     use artweb\artbox\ecommerce\models\Brand;
@@ -46,24 +47,6 @@
             ProductHelper::addLastCategory($category->id);
 
             $params = [];
-
-
-
-            if (!empty( $filter[ 'special' ] )) {
-                unset( $filterCheck[ 'special' ] );
-                if (!is_array($filter[ 'special' ])) {
-                    $filter[ 'special' ] = [ $filter[ 'special' ] ];
-                }
-                if (in_array('new', $filter[ 'special' ])) {
-                    $params[ 'special' ][ 'is_new' ] = true;
-                }
-                if (in_array('top', $filter[ 'special' ])) {
-                    $params[ 'special' ][ 'is_top' ] = true;
-                }
-                if (in_array('promo', $filter[ 'special' ])) {
-                    $params[ 'special' ][ 'is_discount' ] = true;
-                }
-            }
 
 
             $activeFiltersParams = $filterCheck;
@@ -106,12 +89,6 @@
 
             $productProvider = $productModel->search($category, $params);
 
-            $cacheKey = [
-                'FilterBlock',
-                'variations' => [ \Yii::$app->language ],
-                'category'   => $category->id,
-            ];
-
 
             $brands = $category->brands;
 
@@ -153,6 +130,21 @@
 
             $priceLimits = $productModel->priceLimits($category, $params);
 
+            if(!\Yii::$app->user->isGuest){
+                $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$category->id,'customer_id'=>\Yii::$app->user->identity->id]);
+                if(!$discountCategory instanceof CustomerCategoryDiscount && isset($category->parentAR))
+                {
+                    $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$category->parentAR->id,'customer_id'=>\Yii::$app->user->identity->id]);
+                    if(!$discountCategory instanceof CustomerCategoryDiscount && isset($category->parentAR->parentAR)){
+                        $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$category->parentAR->parentAR->id,'customer_id'=>\Yii::$app->user->identity->id]);
+                    }
+
+                }
+            } else {
+                $discountCategory = null;
+            }
+
+
             return $this->render(
                 'products',
                 [
@@ -162,7 +154,8 @@
                     'productModel'    => $productModel,
                     'productProvider' => $productProvider,
                     'groups'          => $groups,
-                    'priceLimits'     => $priceLimits
+                    'priceLimits'     => $priceLimits,
+                    'discountCategory'=> $discountCategory
                 ]
             );
             

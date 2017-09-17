@@ -41,6 +41,7 @@ class PriceWidget extends Widget
                     $percent = $identity->discount_rate > $this->discount ? $identity->discount_rate : $this->discount;
                 }
 
+
             }
         }
         return 1000;
