@@ -32,7 +32,7 @@ class IntegrationController extends Controller{
 ]';
     }
 
-    public function ImportCustomers(){
+    public function actionImportCustomers(){
         try{
            // if($data = \Yii::$app->request->post("data")){
                 $data = $this->getItemData();
