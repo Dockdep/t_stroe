@@ -132,12 +132,12 @@
 
             if(!\Yii::$app->user->isGuest){
                 if(isset($category->parentAR->parentAR)){
-                    $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$category->parentAR->parentAR->id,'customer_id'=>\Yii::$app->user->identity->id]);
+                    $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$category->parentAR->parentAR->id,'customer_id'=>\Yii::$app->user->identity->id])->one();
                     if(!$discountCategory instanceof CustomerCategoryDiscount && isset($category->parentAR))
                     {
-                        $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$category->parentAR->id,'customer_id'=>\Yii::$app->user->identity->id]);
+                        $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$category->parentAR->id,'customer_id'=>\Yii::$app->user->identity->id])->one();
                         if(!$discountCategory instanceof CustomerCategoryDiscount ){
-                            $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$category->id,'customer_id'=>\Yii::$app->user->identity->id]);
+                            $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$category->id,'customer_id'=>\Yii::$app->user->identity->id])->one();
                         }
 
                     }
