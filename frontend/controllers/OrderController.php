@@ -64,6 +64,7 @@
                             'price'              => $model->price,
                             'count'              => $data[ $model->id ][ 'count' ],
                             'sum_cost'           => $sum_cost,
+                            'discount'           => $model->discount,
                         ]
                     );
                     $order_product->save();
@@ -82,28 +83,28 @@
                         ]
                     )
                 );
-                if (!empty( $order->email )) {
-                    \Yii::$app->mailer->compose(
-                        [ 'html' => 'order' ],
-                        [
-                            'order'          => $order,
-                            'order_products' => $order_products,
-                            'models'         => $models,
-                        ]
-                    )
-                                      ->setFrom([ \Yii::$app->params[ 'supportEmail' ] => \Yii::$app->name . ' robot' ])
-                                      ->setTo($order->email)
-                                      ->setSubject(
-                                          \Yii::t(
-                                              'app',
-                                              'Заказ №{order_id}!',
-                                              [
-                                                  'order_id' => $order->id,
-                                              ]
-                                          )
-                                      )
-                                      ->send();
-                }
+//                if (!empty( $order->email )) {
+//                    \Yii::$app->mailer->compose(
+//                        [ 'html' => 'order' ],
+//                        [
+//                            'order'          => $order,
+//                            'order_products' => $order_products,
+//                            'models'         => $models,
+//                        ]
+//                    )
+//                                      ->setFrom([ \Yii::$app->params[ 'supportEmail' ] => \Yii::$app->name . ' robot' ])
+//                                      ->setTo($order->email)
+//                                      ->setSubject(
+//                                          \Yii::t(
+//                                              'app',
+//                                              'Заказ №{order_id}!',
+//                                              [
+//                                                  'order_id' => $order->id,
+//                                              ]
+//                                          )
+//                                      )
+//                                      ->send();
+//                }
                 /**
                  * @var SmsSender $sender
                  */

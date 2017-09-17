@@ -15,6 +15,7 @@
      * @property string            $booking
      * @property string            $status
      * @property boolean           $return
+     * @property integer           $discount
      * @property string            $product_name
      * @property string            $name
      * @property string            $sku
@@ -80,6 +81,7 @@
                         'sum_cost',
                         'product_variant_id',
                         'sku',
+                        'discount'
                     ],
                     'safe',
                 ],
