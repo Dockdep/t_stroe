@@ -73,6 +73,7 @@ $this->registerJsFile(
     ]
 );
 
+$PriceData = $product->discountPrice($discountCategory);
 ?>
 <div class="col-xs-12 col-sm-12">
 
@@ -87,7 +88,9 @@ $this->registerJsFile(
                 <div class="style big_small_img-wr">
                     <div class="style my-gallery">
                         <div class="status_items-wr">
-                            <div><p class="staus_sale">сКидка -50%<span></span></p></div>
+                            <?php if($PriceData['discount'] > 0){?>
+                            <div><p class="staus_sale">сКидка -<?= $PriceData['price'] ?>%<span></span></p></div>
+                            <?php } ?>
                         </div>
                         <!--в data-size выводить оригинальный размер картинки-->
                         <figure class="help_class">
@@ -130,9 +133,6 @@ $this->registerJsFile(
                 <div class="card-quantity">(<?= $product->enabledVariant->quantity ?> <span>шт.)</span></div>
 
                 <div class="cat-price-more cat_new_price item_price">
-                    <?php
-                    $PriceData = $product->discountPrice($discountCategory);
-                    ?>
 
                     <?php if ($PriceData['discount'] > 0) { ?>
                         <div class="cat_old_price"><?= round($product->enabledVariant->price, 2) ?><span
