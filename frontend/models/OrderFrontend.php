@@ -327,7 +327,7 @@
              */
             $data = Order::find()->where(['order.id'=> $this->id])->joinWith('products')->one();
             $array = ArrayHelper::toArray($data);
-            $array['items'] = $data->products;
+            $array['items'] = ArrayHelper::toArray($data->products);
 //            print_r($data->products);
             print_r($array);
             die();
