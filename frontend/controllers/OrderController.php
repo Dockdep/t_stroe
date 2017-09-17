@@ -71,7 +71,7 @@
                     $order_products[] = $order_product;
                     unset( $sum_cost );
                 }
-                $basket->clear();
+               // $basket->clear();
                 $order->total = $total;
                 $order->update(true, [ 'total' ]);
                 \Yii::$app->session->setFlash(
