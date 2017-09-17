@@ -15,30 +15,10 @@ class PriceWidget extends Widget
      * @var $discountCategory CustomerCategoryDiscount
      */
     public $discountCategory;
-    private $inited = false;
 
     public function init(){
 
         parent::init();
-        if(! $this->inited ){
-            if(!\Yii::$app->user->isGuest){
-                if(isset($this->category->parentAR->parentAR)){
-                    $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$this->category->parentAR->parentAR->id,'customer_id'=>\Yii::$app->user->identity->id])->one();
-                    if(!$discountCategory instanceof CustomerCategoryDiscount && isset($this->category->parentAR))
-                    {
-                        $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$this->category->parentAR->id,'customer_id'=>\Yii::$app->user->identity->id])->one();
-                        if(!$discountCategory instanceof CustomerCategoryDiscount ){
-                            $discountCategory = CustomerCategoryDiscount::find()->where(['category_id'=>$this->category->id,'customer_id'=>\Yii::$app->user->identity->id])->one();
-                        }
-
-                    }
-                }
-
-            } else {
-                $discountCategory = null;
-            }
-            $this->inited = true;
-        }
 
     }
 
