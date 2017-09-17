@@ -323,7 +323,7 @@
         public function sync()
         {
             $data = ArrayHelper::toArray(Order::find()->where(['id'=> $this->id])->joinWith('products')->all());
-            $data = \GuzzleHttp\json_encode($data);
+            $data = json_encode($data);
             print_r($data);
             die();
 
