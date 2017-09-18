@@ -5,6 +5,7 @@
     use artweb\artbox\ecommerce\models\Brand;
     use artweb\artbox\ecommerce\models\BrandLang;
     use artweb\artbox\ecommerce\models\Product;
+    use artweb\artbox\ecommerce\models\ProductLang;
     use artweb\artbox\language\models\Language;
     use frontend\models\SearchForm;
     use yii\helpers\ArrayHelper;
@@ -35,7 +36,16 @@
                         )->all();
                     break;
                 case 2:
-                    print_r("по названию товара");
+                    $data = Product::find()
+                        ->joinWith(['lang','variants','variants.lang'])
+                        ->where(['product.status'=>0])
+                        ->andWhere(
+                            [
+                                'ilike',
+                                ProductLang::tableName() . '.title',
+                                $word,
+                            ]
+                        )->all();
                     break;
                 default:
                     throw new HttpException(404, 'Page not found');
