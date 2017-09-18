@@ -10,10 +10,10 @@
 
     class SearchController extends \yii\web\Controller
     {
-        public function actionMain($word,$query)
+        public function actionMain($word,$action)
         {
             print_r($word);
-            print_r($query);
+            print_r($action);
             die();
         }
 

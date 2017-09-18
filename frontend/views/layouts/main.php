@@ -123,10 +123,10 @@ $pages = Page::find()
                 <div class="hidden-xs hidden-sm col-md-9 search-menu">
                     <form action="/search/main" method="get">
                         <div class="search_input_wr style">
-                            <input value="word" name="query" type="text">
+                            <input value="" name="word" type="text">
                         </div>
 
-                        <input type="hidden" value="0" name="action">
+                        <input type="hidden"  value="0" name="action">
 
                         <button type="submit" value=""></button>
                         <div class="search-list">
