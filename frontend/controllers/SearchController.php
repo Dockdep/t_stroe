@@ -24,7 +24,7 @@
                 case 1:
                     $data = Product::find()
                         ->joinWith(['lang','variants','variants.lang','brand','brand.lang'])
-                        ->where(['status'=>0])
+                        ->where(['product.status'=>0])
                         ->andWhere(
                             [
                                 'ilike',
