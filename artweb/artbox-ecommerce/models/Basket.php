@@ -256,7 +256,9 @@
                     $discountCategory = null;
                 }
                 $discountData = $variant->product->discountPrice($discountCategory);
+                $variant->price_normal = $variant->price;
                 $variant->price = $discountData['price'];
+
                 $variant->discount = $discountData['discount'];
             }
 

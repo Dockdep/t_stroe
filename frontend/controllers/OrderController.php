@@ -52,7 +52,7 @@
                 $order_products = [];
                 $total = 0;
                 foreach ($models as $model) {
-                    $sum_cost = $model->price * $data[ $model->id ][ 'count' ];
+                    $sum_cost = $model->price_normal * $data[ $model->id ][ 'count' ];
                     $total += $sum_cost;
                     $order_product = new OrderProduct(
                         [
@@ -61,7 +61,7 @@
                             'name'               => $model->lang->title,
                             'product_name'       => $model->product->lang->title,
                             'sku'                => $model->sku,
-                            'price'              => $model->price,
+                            'price'              => $model->price_normal,
                             'count'              => $data[ $model->id ][ 'count' ],
                             'sum_cost'           => $sum_cost,
                             'discount'           => $model->discount,
