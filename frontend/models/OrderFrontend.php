@@ -37,6 +37,7 @@
      * @property string $remote_id
      * @property int    $label
      * @property int    $pay
+     * @property double    $discount_total
      * @property int    $numbercard
      * @property string    $delivery
      * @property string $declaration

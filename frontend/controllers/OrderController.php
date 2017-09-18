@@ -51,9 +51,12 @@
                 $order->save(false);
                 $order_products = [];
                 $total = 0;
+                $discount_total= 0;
                 foreach ($models as $model) {
                     $sum_cost = $model->price_normal * $data[ $model->id ][ 'count' ];
+                    $discount_sum_cost = $model->price * $data[ $model->id ][ 'count' ];
                     $total += $sum_cost;
+                    $discount_total += $discount_sum_cost;
                     $order_product = new OrderProduct(
                         [
                             'order_id'           => $order->id,
@@ -62,6 +65,7 @@
                             'product_name'       => $model->product->lang->title,
                             'sku'                => $model->sku,
                             'price'              => $model->price_normal,
+                            'discount_price'     => $model->price,
                             'count'              => $data[ $model->id ][ 'count' ],
                             'sum_cost'           => $sum_cost,
                             'discount'           => $model->discount,
@@ -74,6 +78,7 @@
                 }
                // $basket->clear();
                 $order->total = $total;
+                $order->discount_total = $discount_total;
                 $order->update(true, [ 'total' ]);
                 \Yii::$app->session->setFlash(
                     'success',

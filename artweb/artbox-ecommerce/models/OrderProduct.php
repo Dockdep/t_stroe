@@ -21,6 +21,7 @@
      * @property string            $name
      * @property string            $sku
      * @property double            $price
+     * @property double            $discount_price
      * @property int               $count
      * @property double            $sum_cost
      * @property Order             $order
