@@ -12,6 +12,7 @@
      * @property int               $id
      * @property int               $order_id
      * @property int               $product_variant_id
+     * @property string            $remote_id
      * @property string            $booking
      * @property string            $status
      * @property boolean           $return
@@ -81,7 +82,8 @@
                         'sum_cost',
                         'product_variant_id',
                         'sku',
-                        'discount'
+                        'discount',
+                        'remote_id'
                     ],
                     'safe',
                 ],
@@ -102,10 +104,11 @@
                 'return'       => Yii::t('app', 'Возврат'),
                 'sku'          => Yii::t('app', 'Артикул'),
                 'price'        => Yii::t('app', 'Цена'),
-                'order_id' => Yii::t('app', 'Id заказа'),
+                'order_id'      => Yii::t('app', 'Id заказа'),
                 'product_variant_id' => Yii::t('app', 'Id товара'),
-                'id' => Yii::t('app', 'Id'),
-                'removed' => Yii::t('app', 'Удален'),
+                'id'            => Yii::t('app', 'Id'),
+                'removed'       => Yii::t('app', 'Удален'),
+                'remote_id'     => 'Remote Id'
             ];
         }
         

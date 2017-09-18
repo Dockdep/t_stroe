@@ -65,6 +65,7 @@
                             'count'              => $data[ $model->id ][ 'count' ],
                             'sum_cost'           => $sum_cost,
                             'discount'           => $model->discount,
+                            'remote_id'          => $model->remote_id
                         ]
                     );
                     $order_product->save();
