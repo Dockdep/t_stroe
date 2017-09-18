@@ -30,7 +30,7 @@
                         ->andWhere(
                             [
                                 'ilike',
-                                BrandLang::tableName() . '.title',
+                                BrandLang::tableName() . ".title",
                                 $word,
                             ]
                         )->all();
@@ -42,8 +42,8 @@
                         ->andWhere(
                             [
                                 'ilike',
-                                ProductLang::tableName() . '.title',
-                                $word,
+                                "REPLACE(".ProductLang::tableName() . ".title), ' ', ''",
+                                str_replace(' ', '',$word),
                             ]
                         )->all();
                     break;
