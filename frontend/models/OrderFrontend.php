@@ -180,6 +180,7 @@
                     [
                         'name',
                         'phone',
+                        'email'
                     ],
                     'required',
                 ],
