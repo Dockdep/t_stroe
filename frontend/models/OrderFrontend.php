@@ -265,28 +265,6 @@
                     'range'      => [ 1 ],
                     'allowArray' => false,
                 ],
-                [
-                    [
-                        'email',
-                    ],
-                    'unique',
-                    'targetClass'     => Customer::className(),
-                    'targetAttribute' => 'email',
-                    'message'         => \Yii::t(
-                        'app',
-                        'Данный email пренадлежит одному из пользователей, либо <a href="#" data-form="register">авторизируйтесь</a>, либо укажите другой email'
-                    ),
-                    'when'            => function ($model) {
-                        /**
-                         * @var OrderFrontend $model
-                         */
-                        if (!\Yii::$app->user->isGuest && $model->email == \Yii::$app->user->identity->email) {
-                            return false;
-                        } else {
-                            return true;
-                        }
-                    },
-                ],
             ];
         }
         
