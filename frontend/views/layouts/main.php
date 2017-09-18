@@ -8,6 +8,8 @@ use yii\helpers\Url;
 use yii\web\View;
 use frontend\widgets\MenuWidget;
 use artweb\artbox\seo\widgets\Seo;
+use yii\widgets\ActiveForm;
+
 AppAsset::register($this);
 $pages = Page::find()
     ->with('lang')
@@ -119,24 +121,22 @@ $pages = Page::find()
                     <span class="<?php echo isset( $this->params[ 'isHome' ] ) ? '' : 'arrow-catalog' ?>" >Каталог<i></i><i></i></span>
                 </div>
                 <div class="hidden-xs hidden-sm col-md-9 search-menu">
-                    <form action="">
-                        <form action="/search/common" method="get">
-                            <div class="search_input_wr style">
-                                <input value="" name="query" type="text">
-                            </div>
+                    <form action="/search/main" method="get">
+                        <div class="search_input_wr style">
+                            <input value="word" name="query" type="text">
+                        </div>
 
-                            <input type="hidden" value="0" name="action">
+                        <input type="hidden" value="0" name="action">
 
-                            <button type="submit" value=""></button>
-                            <div class="search-list">
-                                <span>по номеру товара</span>
-                                <ul class="search-ul">
-                                    <li><i>по номеру товара</i></li>
-                                    <li><i>по бренду</i></li>
-                                    <li><i>по названию товара</i></li>
-                                </ul>
-                            </div>
-                        </form>
+                        <button type="submit" value=""></button>
+                        <div class="search-list">
+                            <span>по номеру товара</span>
+                            <ul class="search-ul">
+                                <li><i>по номеру товара</i></li>
+                                <li><i>по бренду</i></li>
+                                <li><i>по названию товара</i></li>
+                            </ul>
+                        </div>
                     </form>
                 </div>
 
