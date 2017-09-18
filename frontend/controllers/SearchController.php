@@ -23,7 +23,7 @@
                     break;
                 case 1:
                     $data = Product::find()
-                        ->joinWith(['lang','product_variant','product_variant.lang','brand','brand.lang'])
+                        ->joinWith(['lang','variants','variants.lang','brand','brand.lang'])
                         ->andWhere(
                             [
                                 'ilike',
