@@ -7,6 +7,7 @@
     use artweb\artbox\ecommerce\models\Product;
     use artweb\artbox\language\models\Language;
     use frontend\models\SearchForm;
+    use yii\helpers\ArrayHelper;
     use yii\helpers\Url;
     use yii\data\ArrayDataProvider;
     use yii\data\Pagination;
@@ -41,7 +42,7 @@
                     break;
             }
             return $this->render('search', [
-                'data' => $data
+                'data' => ArrayHelper::toArray($data)
             ]);
         }
 
