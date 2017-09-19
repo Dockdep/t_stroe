@@ -19,7 +19,9 @@ class AppAsset extends AssetBundle
         '/js/script.js',
         '/js/artbox_basket.js',
         '/js/owl.carousel.min.js',
-        '/js/jquery.mask.min.js'
+        '/js/jquery.mask.min.js',
+        '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js'
+
     ];
 
     public $depends = [
