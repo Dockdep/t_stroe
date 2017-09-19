@@ -190,13 +190,13 @@ use yii\web\View;
 $js = <<< JS
         $(function() {
             function getNpNum(arr){
-                $('#address').val('');
-                $('#address').autocomplete({
+                $('#orderfrontend-adress').val('');
+                $('#orderfrontend-adress').autocomplete({
                     delay: 100,
                     source: arr
                 });
             }
-            $('#city').autocomplete({
+            $('#orderfrontend-city').autocomplete({
                 delay: 100,
                 source: function (request, response) {
                     var query = {
@@ -232,7 +232,7 @@ $js = <<< JS
                     });
                 },
                 select: function(event, ui) {
-                    $('#city').val(ui.item.label); // display the selected text
+                    $('#orderfrontend-city').val(ui.item.label); // display the selected text
                     var query = {
                         "apiKey": "b6aa4ad6135db0bcaa01777fd9ce039b",
                         "modelName": "AddressGeneral",
