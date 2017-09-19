@@ -1,5 +1,7 @@
 <?php
-print_r($data);
+
+use yii\widgets\ListView;
+
 ?>
 <div class="row">
     <div class="col-xs-12 col-sm-12">
@@ -20,21 +22,12 @@ print_r($data);
                 </thead>
 
                 <tbody>
-
-                    <tr>
-                        <td class="img-analogs">
-                            <!--100x100-->
-                            <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
-                            <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
-                        </td>
-                        <td class="title-analog-td">
-                            <p>Аварійне з'єднання тройник пласт.SP10101012</p>
-                            <span>Код: 12345678910</span>
-                        </td>
-                        <td>10 шт.</td>
-                        <td class="analog-price-td">2000 грн.</td>
-                        <td><a class="analogs-buy modal-link" data-form="basket_modal" href="#" title="Купить"></a></td>
-                    </tr>
+                <?= ListView::widget(
+                    [
+                        'dataProvider' => $productProvider,
+                        'itemView'     => '../search/_product_item',
+                    ]
+                ) ?>
 
                 </tbody>
             </table>
