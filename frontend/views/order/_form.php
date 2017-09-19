@@ -179,10 +179,16 @@ use yii\web\View;
     $form::end();
     ?>
 
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.7.1.js"></script>
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
-    <script>
+
+
+
+<?php
+
+
+
+$js = <<< JS
         $(function() {
             function getNpNum(arr){
                 $('#address').val('');
@@ -257,7 +263,12 @@ use yii\web\View;
                 }
             });
         });
-    </script>
+JS;
+$this->registerJs(
+    $js,
+    View::POS_READY
+);
+?>
 
     <style type="text/css">
         input {
