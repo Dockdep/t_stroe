@@ -180,9 +180,6 @@ use yii\web\View;
     ?>
 
 
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
-
-
 
 <?php
 
