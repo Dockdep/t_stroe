@@ -80,6 +80,7 @@ use yii\web\View;
                 'city',
                 [
                     'options' => [
+                        'id' => 'city',
                         'class' => 'col-xs-12 col-sm-5 col-md-3 input-wr medium-label',
                     ],
                 ]
@@ -90,6 +91,7 @@ use yii\web\View;
                 'adress',
                 [
                     'options' => [
+                        'id' => 'adress',
                         'class' => 'col-xs-12 col-sm-5 col-md-3 input-wr medium-label',
                     ],
                 ]
@@ -105,18 +107,22 @@ use yii\web\View;
 
             <div class="col-xs-12">
                 <div class="style radio_custom">
-                    <input type="radio" id="radio-1-1" name="OrderFrontend[delivery]">
+                    <input type="radio" id="radio-1-0" value="Доставка новой почтой"  name="OrderFrontend[delivery]">
+                    <label for="radio-1-0">Доставка новой почтой</label>
+                </div>
+                <div class="style radio_custom">
+                    <input type="radio" id="radio-1-1" value="Доставка по Киеву и области" name="OrderFrontend[delivery]">
                     <label for="radio-1-1">Доставка по Киеву и области</label>
 
                 </div>
 
                 <div class="style radio_custom">
-                    <input type="radio" id="radio-1-2"  name="OrderFrontend[delivery]">
+                    <input type="radio" id="radio-1-2" value="Доставка по Украине"  name="OrderFrontend[delivery]">
                     <label for="radio-1-2">Доставка по Украине</label>
                 </div>
 
                 <div class="style radio_custom">
-                    <input type="radio" id="radio-1-3"  name="OrderFrontend[delivery]">
+                    <input type="radio" id="radio-1-3" value="Самовывоз" name="OrderFrontend[delivery]">
                     <label for="radio-1-3">Самовывоз</label>
                 </div>
 
@@ -172,4 +178,131 @@ use yii\web\View;
     <?php
     $form::end();
     ?>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.7.1.js"></script>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            function getNpNum(arr){
+                $('#address').val('');
+                $('#address').autocomplete({
+                    delay: 100,
+                    source: arr
+                });
+            }
+            $('#city').autocomplete({
+                delay: 100,
+                source: function (request, response) {
+                    var query = {
+                        "apiKey": "b6aa4ad6135db0bcaa01777fd9ce039b",
+                        "modelName": "Address",
+                        "calledMethod":"searchSettlements",
+                        "methodProperties": {
+                            "CityName": request.term,
+                            "Limit": "5"
+                        }
+
+                    };
+                    $.ajax({
+                        url: 'https://api.novaposhta.ua/v2.0/json/',// json data
+                        data:query,
+                        contentType: 'application/json',
+                        dataType: 'jsonp', // jsonp only beause it is a cross org. req.
+                        contentType: 'json',
+                        success: function(json) {
+                            //console.log(json);
+                            // console.log(json);
+                            console.log(json.data[0].Addresses)
+
+                            var array = $.map(json.data[0].Addresses, function(m) {
+                                console.log(m)
+                                return {
+                                    label: m.MainDescription,
+                                    ref: m.Ref,
+                                };
+                            });
+                            return response(array);
+                        }
+                    });
+                },
+                select: function(event, ui) {
+                    $('#city').val(ui.item.label); // display the selected text
+                    var query = {
+                        "apiKey": "b6aa4ad6135db0bcaa01777fd9ce039b",
+                        "modelName": "AddressGeneral",
+                        "calledMethod": "getWarehouses",
+                        "methodProperties": {
+                            "CityName": ui.item.label,
+                        }
+                    };
+
+                    $.ajax({
+                        url: 'https://api.novaposhta.ua/v2.0/json/',// json data
+                        data:query,
+                        contentType: 'application/json',
+                        dataType: 'jsonp', // Киjsonp only beause it is a cross org. req.
+                        contentType: 'json',
+                        success: function(json) {
+                            var array = $.map(json.data, function(m) {
+                                return {
+                                    label: m.Description,
+                                };
+                            });
+                            getNpNum(array);
+                        }
+
+                    });
+                    return false;
+                }
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        input {
+            border:1px solid #cccccc;
+            border-radius: 3px 3px 3px 3px;
+            width: 370px;
+            padding: 9px 9px 9px 9px;
+            margin: 3px 0px 3px 3px;
+            color: #e1e1e1;
+        }
+
+        input:focus {
+            border-color:#00cc33;
+            box-shadow:0 0 10px #d5d5d9;
+            -webkit-box-shadow:outset 0 1px 9px #d5d5d9;
+            -moz-box-shadow:outset 0 1px 9px #d5d5d9;
+            color:  #676767;
+        }
+
+        /* min Jquery CSS elements for autocomplete */
+        .ui-autocomplete { position: absolute; cursor: default; }
+        .ui-menu { list-style:none; padding: 2px; margin: 0; display:block; float: left; background-color:#f9f9f9; border: 1px solid #efefef; border-radius: 3px 3px 3px 3px; }
+
+        .ui-menu .ui-menu {
+            margin-top: -3px;
+        }
+        .ui-menu .ui-menu-item {
+            margin:0;
+            padding: 0;
+            zoom: 1;
+            float: left;
+            clear: left;
+            width: 100%;
+            font-family:arial;
+        }
+        .ui-menu .ui-menu-item a {
+            text-decoration:none;
+            display:block;
+            padding:.1em .3em;
+            line-height:1.5;
+            zoom:1;
+        }
+        .ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
+            font-weight: bold;
+        }
+    </style>
+
 </div>
