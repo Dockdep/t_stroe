@@ -79,7 +79,7 @@
 
                 $order->total = $total;
                 $order->discount_total = $discount_total;
-                $order->update(true, [ 'total' ]);
+                $order->save();
                 \Yii::$app->session->setFlash(
                     'success',
                     $this->renderPartial(
