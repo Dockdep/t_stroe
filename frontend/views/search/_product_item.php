@@ -5,7 +5,7 @@
         <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
     </td>
     <td class="title-analog-td">
-        <p>Аварійне з'єднання тройник пласт.SP10101012</p>
+        <p><?= $model->lang->title ?></p>
         <span>Код: 12345678910</span>
     </td>
     <td>10 шт.</td>

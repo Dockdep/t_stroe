@@ -5,7 +5,7 @@ use yii\widgets\ListView;
 ?>
 <div class="row">
     <div class="col-xs-12 col-sm-12">
-        <h3 class="title-blocks-home title-block-analogs">Аналоги</h3>
+        <h3 class="title-blocks-home title-block-analogs">Результат поиска</h3>
     </div>
 
     <div class="col-xs-12 col-sm-12">
