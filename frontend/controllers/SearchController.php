@@ -8,6 +8,7 @@
     use artweb\artbox\ecommerce\models\ProductLang;
     use artweb\artbox\language\models\Language;
     use frontend\models\SearchForm;
+    use yii\data\ActiveDataProvider;
     use yii\helpers\ArrayHelper;
     use yii\helpers\Url;
     use yii\data\ArrayDataProvider;
@@ -33,7 +34,7 @@
                                 BrandLang::tableName() . ".title",
                                 $word,
                             ]
-                        )->all();
+                        );
                     break;
                 case 2:
                     $data = Product::find()
@@ -45,14 +46,19 @@
                                 "REPLACE(".ProductLang::tableName() . ".title, ' ', '')",
                                 str_replace(' ', '',$word),
                             ]
-                        )->all();
+                        );
                     break;
                 default:
                     throw new HttpException(404, 'Page not found');
                     break;
             }
+
+            $productProvider =  new ActiveDataProvider([
+                'query' => $data
+            ]);
+
             return $this->render('search', [
-                'data' => ArrayHelper::toArray($data)
+                'productProvider' => $productProvider
             ]);
         }
 
