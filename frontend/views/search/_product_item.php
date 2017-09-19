@@ -60,9 +60,9 @@ $discountData = $model->discountPrice($discountCategory);
         <span>Код: <?= $model->variant->lang->title ?></span>
     </td>
     <td><?= $model->variant->stock ?> шт.</td>
-    <td class="analog-price-td"><?= $discountData['discount'] ?> грн.</td>
+    <td class="analog-price-td"><?= round($discountData['discount'],2) ?> грн.</td>
     <td>
 
-        <a class="analogs-buy modal-link" data-form="basket_modal" href="#" title="Купить"></a>
+        <a class="analogs-buy modal-link btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" title="Купить"></a>
     </td>
 </tr>
