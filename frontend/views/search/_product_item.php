@@ -43,7 +43,7 @@ $discountData = $model->discountPrice($discountCategory);
         ?>
     </td>
     <td class="title-analog-td">
-        <?php
+        <p><?php
         echo Html::a(
             $model->lang->title,
             [
@@ -56,7 +56,7 @@ $discountData = $model->discountPrice($discountCategory);
                 'title'     => $model->lang->title,
             ]
         );
-        ?>
+            ?></p>
         <span>Код: <?= $model->variant->lang->title ?></span>
     </td>
     <td><?= $model->variant->stock ?> шт.</td>
