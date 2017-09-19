@@ -79,6 +79,12 @@
                 'height' => 100,
                 'width'  => 100,
             ],
+        ],
+        'search_list'  => [
+            'resize' => [
+                'height' => 100,
+                'width'  => 100,
+            ],
         ]
     ];
         
