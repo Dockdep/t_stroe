@@ -76,6 +76,8 @@
                     unset( $sum_cost );
                 }
                // $basket->clear();
+                print_r($discount_total);
+                die();
                 $order->total = $total;
                 $order->discount_total = $discount_total;
                 $order->update(true, [ 'total' ]);
