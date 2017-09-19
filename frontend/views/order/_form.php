@@ -262,6 +262,9 @@ $js = <<< JS
                 }
             });
         });
+        jQuery.curCSS = function(element, prop, val) {
+            return jQuery(element).css(prop, val);
+        };
 JS;
 $this->registerJs(
     $js,
@@ -270,23 +273,6 @@ $this->registerJs(
 ?>
 
     <style type="text/css">
-        input {
-            border:1px solid #cccccc;
-            border-radius: 3px 3px 3px 3px;
-            width: 370px;
-            padding: 9px 9px 9px 9px;
-            margin: 3px 0px 3px 3px;
-            color: #e1e1e1;
-        }
-
-        input:focus {
-            border-color:#00cc33;
-            box-shadow:0 0 10px #d5d5d9;
-            -webkit-box-shadow:outset 0 1px 9px #d5d5d9;
-            -moz-box-shadow:outset 0 1px 9px #d5d5d9;
-            color:  #676767;
-        }
-
         /* min Jquery CSS elements for autocomplete */
         .ui-autocomplete { position: absolute; cursor: default; }
         .ui-menu { list-style:none; padding: 2px; margin: 0; display:block; float: left; background-color:#f9f9f9; border: 1px solid #efefef; border-radius: 3px 3px 3px 3px; }
