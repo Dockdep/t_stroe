@@ -88,7 +88,7 @@
                             ) . ': ' . $variant->sku; ?></span>
                 </td>
                 <td>
-                    <p class="price"><?php echo $variant->price; ?>
+                    <p class="price"><?php echo round($variant->price,2); ?>
                         <span> грн.</span><span class="hidden-sm hidden-md hidden-lg price-one-item"> (<?php echo \Yii::t(
                                 'app',
                                 'price_1_item'
@@ -103,7 +103,7 @@
                     </div>
                 </td>
                 <td>
-                    <p class="new_price"><?php echo $item[ 'count' ] * $variant->price; ?>
+                    <p class="new_price"><?php echo round($item[ 'count' ] * $variant->price,2); ?>
                         <span> <?= \Yii::t('app', 'hrn') ?></span></p>
                 </td>
                 <td>

@@ -361,6 +361,7 @@ function addBasket(e) {
     e.preventDefault();
     var variant = $(this)
         .data('variant');
-    basket.add(variant, 1);
+    var $item_Quantity = $('.item_Quantity').find();
+    basket.add(variant, $item_Quantity.innerHTML);
     showBasket();
 }
