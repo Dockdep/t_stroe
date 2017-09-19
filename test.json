@@ -1,13 +1,13 @@
 {
-  "id": 22,
+  "id": 23,
   "user_id": null,
-  "name": "dfsgsd fgsdfg",
-  "phone": "+38(032)423-42-34",
+  "name": "jhkhkfhkh",
+  "phone": "+38(009)999-99-99",
   "phone2": null,
   "email": "sdfgsdgds@fdgdfs.gfh1",
   "adress": "",
   "body": null,
-  "total": 1784.9808,
+  "total": 106.4016,
   "date_time": null,
   "date_dedline": null,
   "reserve": null,
@@ -24,7 +24,7 @@
   "amount_imposed": null,
   "shipping_by": null,
   "city": "",
-  "created_at": 1505759117,
+  "created_at": 1505840743,
   "updated_at": null,
   "deleted_at": null,
   "deadline": "",
@@ -37,11 +37,12 @@
   "credit_sum": null,
   "credit_month": null,
   "delivery": "on",
-  "remote_id": nul,
+  "remote_id": null,
+  "discount_total": null,
   "items": [
     {
-      "id": 49,
-      "order_id": 22,
+      "id": 51,
+      "order_id": 23,
       "product_variant_id": 40830,
       "product_name": "Пружина 070.124",
       "name": "Пружина 070.124",
@@ -55,17 +56,7 @@
       "removed": null,
       "discount": 25,
       "remote_id": "000034328",
-    {
-      "id": 50,
-      "order_id": 22,
-      "product_variant_id": 53113,
-      "product_name": "Ремкомплект (набір ущільнень гумовий) 04479-60060",
-      "name": "Ремкомплект (набір ущільнень гумовий) 04479-60060",
-      "sku": "04479-60060",
-      "price": 839.2896,
-      "count": 2,
-      "sum_cost": 1678.5792,
-      "status": null,
-      "booking": null,
-      "return": null
-      "removed":
+      "discount_price": 79.8012
+    }
+  ]
+}
