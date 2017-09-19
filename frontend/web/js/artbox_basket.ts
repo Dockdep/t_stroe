@@ -363,6 +363,7 @@ function addBasket(e) {
     var variant = $(this)
         .data('variant');
     var $item_Quantity = $('.item_Quantity').find();
+    console.log($item_Quantity);
     if($item_Quantity !== null){
         count = $item_Quantity.innerHTML;
     }
