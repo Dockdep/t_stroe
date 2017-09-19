@@ -230,6 +230,7 @@
                     'string',
                     'max' => 255,
                 ],
+                ['discount_total', 'safe'],
                 [
                     [ 'comment' ],
                     'string',
