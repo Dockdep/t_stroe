@@ -63,6 +63,6 @@ $discountData = $model->discountPrice($discountCategory);
     <td class="analog-price-td"><?= round($discountData['discount'],2) ?> грн.</td>
     <td>
 
-        <a class="analogs-buy modal-link btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" title="Купить"></a>
+        <a class="analogs-buy modal-link btn_buy_cat" data-variant="<?= $model->enabledVariant->id; ?>"  data-form="basket_modal" title="Купить"></a>
     </td>
 </tr>
