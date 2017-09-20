@@ -258,14 +258,14 @@ $(document).ready(function(){
 
 
     function sortList() {
-        $('.sort-cat>a').click(function (e) {
+        $('body').on('click','.sort-cat>a',function (e) {
             if($(this).hasClass('category-sort')){
                 e.preventDefault();
                 $('.sort-cat').toggleClass('active')
             }
         })
 
-        $('.sort-cat ul li a').click(function () {
+        $('body').on('click','.sort-cat ul li a',function () {
             $('.category-sort').html($(this).text())
             $('.sort-cat ul li a').removeClass('desc')
             $(this).addClass('desc')

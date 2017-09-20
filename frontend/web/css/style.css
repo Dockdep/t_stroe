@@ -1321,10 +1321,9 @@ label {
   margin-left: -277px;
   top: 0;
   opacity: 0;
-  border-radius: 5px;
-  overflow: hidden;
   background: #f5f5f5;
-}
+  border-radius: 5px;
+  overflow: hidden; }
 .forms_ label {
   font-size: 16px; }
 .forms_ form {
@@ -1364,7 +1363,6 @@ label {
   border: 1px solid #c82319; }
 
 .login-wrapper {
-  background: #fff;
   width: 100%;
   float: left;
   border-radius: 5px; }
@@ -3079,9 +3077,7 @@ ul.pagination li:active.prev.disabled:before, ul.pagination li:active.next.disab
   float: left;
   overflow: hidden;
   border-radius: 4px; }
-.card-num-wr input {
-  border-radius: 0;
-}
+
 .card-num-wr {
   margin-right: 15px; }
 .card-num-wr input, .card-num-wr textarea, .card-num-wr select {
@@ -3093,7 +3089,8 @@ ul.pagination li:active.prev.disabled:before, ul.pagination li:active.next.disab
   margin: 0;
   border: 0 !important;
   box-shadow: none !important;
-  background: #ffdd36; }
+  background: #ffdd36;
+  border-radius: 0; }
 .card-num-wr i {
   float: left;
   height: 40px;
