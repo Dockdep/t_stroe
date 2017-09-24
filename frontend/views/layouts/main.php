@@ -353,6 +353,13 @@ $js = ' $(document).ready(function () {
                     items: 3,
                     slideBy: 1
                 }
+                
+                <!--если не главная выводить-->
+                ,980: {
+                    items: 4,
+                    slideBy: 1
+                }
+                <!----------------------------->
             },
 //            navSpeed:150,
             smartSpeed:150,
