@@ -286,23 +286,21 @@ $pages = Page::find()
 <div id="callback" class="forms_" style="display: none;">
     <span id="modal_close"></span>
     <div class="style form-title">Обратный звонок</div>
-    <form action="">
+    <?php $form = ActiveForm::begin([
+        "action" =>  Url::to(['site/аeedback'])
+    ]); ?>
         <div class="input-wr">
-            <label for="inp-11">Имя</label>
-            <input id="inp-11" type="text">
+            <?= $form->field(new \artweb\artbox\models\Feedback(), 'name')->textInput(['autofocus' => true]) ?>
         </div>
         <div class="input-wr phones_mask">
-            <label for="inp-22">Телефон</label>
-            <input id="inp-22" type="text" placeholder="+38(000)000-00-00">
-        </div>
-        <div class="input-wr">
-            <label for="inp-33">Сообщение</label>
-            <textarea id="inp-33" name="" cols="30" rows="10"></textarea>
+            <?= $form->field(new \artweb\artbox\models\Feedback(), 'phone')->textInput() ?>
         </div>
         <div class="button-wr">
             <button type="submit">отправить</button>
         </div>
-    </form>
+    <?php
+    ActiveForm::end();
+    ?>
 </div>
 <div id="success_form" style="display: none;">
     <span id="modal_close"></span>

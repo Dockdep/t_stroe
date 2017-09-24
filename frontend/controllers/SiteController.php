@@ -543,17 +543,7 @@ class SiteController extends Controller
     public function actionFeedback()
     {
         $request = \Yii::$app->request;
-        $response = \Yii::$app->response;
-        if (!$request->isAjax) {
-            throw new BadRequestHttpException('Available via Ajax only');
-        }
-        $response->format = $response::FORMAT_JSON;
-        $model = new Feedback(
-            [
-                'scenario' => Feedback::SCENARIO_CALLBACK,
-                'name'     => 'Обратная связь',
-            ]
-        );
+        $model = new Feedback();
         if ($model->load($request->post()) && $model->save()) {
             \Yii::$app->session->setFlash(
                 'success',

@@ -19,9 +19,6 @@
     class Feedback extends ActiveRecord
     {
         
-        const SCENARIO_FEEDBACK = 'feedback';
-        const SCENARIO_CALLBACK = 'callback';
-        
         /**
          * @inheritdoc
          */
@@ -29,47 +26,7 @@
         {
             return 'feedback';
         }
-        
-        /**
-         * @inheritdoc
-         */
-        public function scenarios()
-        {
-            $scenarios = parent::scenarios();
-            $scenarios = array_merge(
-                $scenarios,
-                [
-                    self::SCENARIO_FEEDBACK => [
-                        'name',
-                        'phone',
-                    ],
-                    self::SCENARIO_CALLBACK => [ 'phone' ],
-                ]
-            );
-            return $scenarios;
-        }
-        
-        /**
-         * @inheritdoc
-         */
-        public function behaviors()
-        {
-            return [
-                [
-                    'class'              => TimestampBehavior::className(),
-                    'updatedAtAttribute' => false,
-                ],
-                [
-                    'class'      => AttributeBehavior::className(),
-                    'attributes' => [
-                        ActiveRecord::EVENT_BEFORE_INSERT => 'ip',
-                    ],
-                    'value'      => function ($event) {
-                        return \Yii::$app->request->userIP;
-                    },
-                ],
-            ];
-        }
+
         
         /**
          * @inheritdoc
@@ -83,11 +40,6 @@
                         'name',
                     ],
                     'required',
-                ],
-                [
-                    [ 'phone' ],
-                    'match',
-                    'pattern' => '/^\+38\(\d{3}\)\d{3}-\d{2}-\d{2}$/',
                 ],
                 [
                     [
