@@ -1,6 +1,6 @@
 <?php
     return [
-        'language'   => 'ru',
+        'language' => 'ru-RU',
         'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
         'controllerMap'       => [
             'siteMap' => [
