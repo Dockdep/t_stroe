@@ -51,10 +51,10 @@
                 <td class="cab-history-name">
                     <!--название выводить или в "a" или в "<p></p>" если нету ссылки-->
                     <a href="#"><?= $product->productVariant->product->lang->title ?></a>
-                    <span><?= $product->discount_price ?> грн.</span>
+                    <span><?= round($product->discount_price,2) ?> грн.</span>
                 </td>
                 <td class="cab-history-num"><?= $product->count ?> шт.</td>
-                <td class="cab-history-price"><?= ($product->count * $product->discount_price) ?> грн.</td>
+                <td class="cab-history-price"><?= round(($product->count * $product->discount_price),2) ?> грн.</td>
             </tr>
             <?php } ?>
         </table>
@@ -64,7 +64,7 @@
     <table cellpadding="0" cellspacing="0" border="0" class="td-cab-all-price">
         <tr>
             <td align="right">
-                <div class="style">Итого: <?= $model->discount_total ?> грн.</div>
+                <div class="style">Итого: <?= round($model->discount_total,2) ?> грн.</div>
             </td>
         </tr>
     </table>
