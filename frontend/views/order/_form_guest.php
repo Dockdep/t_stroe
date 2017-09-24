@@ -49,49 +49,60 @@
             <div class="style hidden_tabs">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-4">
-                        <form action="#">
-                            <form id="w2" action="" method="post">
+                        <?php $form = ActiveForm::begin([
+                            "action" =>  Url::to(['site/login'])
+                        ]); ?>
 
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 input-wr medium-label">
-                                        <div class="form-group required">
-                                            <label class="control-label">Email</label>
-                                            <input type="text">
-                                        </div>
-                                    </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 input-wr medium-label">
+                                <div class="form-group field-loginform-email required">
+                                    <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
                                 </div>
+                            </div>
+                        </div>
 
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 input-wr medium-label">
-                                        <div class="form-group required">
-                                            <label class="control-label">Пароль</label>
-                                            <input type="password">
-                                        </div>
-                                    </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 input-wr medium-label">
+                                <div class="form-group field-loginform-password required">
+                                    <?= $form->field($model, 'password')->passwordInput() ?>
                                 </div>
+                            </div>
+                        </div>
 
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 input-wr sidebar_checks">
-                                        <div class="form-group field-loginform-rememberme">
-                                            <input type="checkbox" id="loginform-rememberme" name="LoginForm[rememberMe]" value="1" checked="">
-                                            <label class="control-label" for="loginform-rememberme"><a>Запомнить меня</a></label>
-                                        </div>
-                                    </div>
-
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 input-wr sidebar_checks">
+                                <div class="form-group field-loginform-rememberme">
+                                    <?= $form->field($model, 'rememberMe', [ 'template' => "{input}\n{label}\n{error}" ])
+                                        ->label('<a>Запомнить меня</a>')
+                                        ->checkbox([
+                                            'class'    => 'custom-check',
+                                            'checked' => 'checked',
+                                        ],false) ?>
                                 </div>
+                            </div>
 
-                                <div class="row">
+                        </div>
 
-                                    <div class="col-xs-12 col-sm-12 button-wr button-left">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 button-wr button-left" >
+                                <button type="submit">Войти</button>
+                                <div class="btns_reg modal_login_reg_btns">
 
-                                        <button type="submit">Войти</button>
-                                        <div class="btns_reg">
-                                            <a class="restore_password_" href="restore.html">Забыли пароль?</a>
-                                        </div>
-                                    </div>
+                                    <?=
+
+                                    Html::a('Забыли пароль?', [ 'site/request-password-reset' ],
+                                        [
+                                            'class'=>'restore_password_'
+                                        ]) ?>
+                                    <?= Html::a('Зарегистрироваться', [ 'site/signup' ],[
+                                        'class'=>'to-register-link'
+                                    ]) ?>
                                 </div>
-                            </form>
-                        </form>
+                            </div>
+                        </div>
+                        <?php
+                        ActiveForm::end();
+                        ?>
                     </div>
                 </div>
             </div>
