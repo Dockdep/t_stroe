@@ -75,29 +75,30 @@ $this->registerJsFile(
 
 $PriceData = $product->discountPrice($discountCategory);
 ?>
-<div class="col-xs-12 col-sm-12">
+<div class="row">
+    <div class="col-xs-12 col-sm-12">
 
-    <div class="simpleCart_shelfItem">
-        <div class="row">
-            <h1 class="col-xs-12 col-sm-12 title-card item_name"><?= $product->enabledVariant->lang->title ?></h1>
-        </div>
+        <div class="simpleCart_shelfItem">
+            <div class="row">
+                <h1 class="col-xs-12 col-sm-12 title-card item_name"><?= $product->enabledVariant->lang->title ?></h1>
+            </div>
 
-        <div class="row card-blocks-wr">
+            <div class="row card-blocks-wr">
 
-            <div class="col-xs-12 col-sm-4 col-md-5 col-lg-5">
-                <div class="style big_small_img-wr">
-                    <div class="style my-gallery">
-                        <div class="status_items-wr">
-                            <?php if($PriceData['discount'] > 0){?>
-                            <div><p class="staus_sale">сКидка -<?= $PriceData['discount'] ?>%<span></span></p></div>
-                            <?php } ?>
-                        </div>
-                        <!--в data-size выводить оригинальный размер картинки-->
-                        <figure class="help_class">
-                            <a style="display: none;" href="<?= $product->imageUrl ?>" itemprop="contentUrl"
-                               data-size="1920x1080">
-                                <!--420x350-->
-                                <?=
+                <div class="col-xs-12 col-sm-4 col-md-5 col-lg-5">
+                    <div class="style big_small_img-wr">
+                        <div class="style my-gallery">
+                            <div class="status_items-wr">
+                                <?php if($PriceData['discount'] > 0){?>
+                                    <div><p class="staus_sale">сКидка -<?= $PriceData['discount'] ?>%<span></span></p></div>
+                                <?php } ?>
+                            </div>
+                            <!--в data-size выводить оригинальный размер картинки-->
+                            <figure class="help_class">
+                                <a style="display: none;" href="<?= $product->imageUrl ?>" itemprop="contentUrl"
+                                   data-size="1920x1080">
+                                    <!--420x350-->
+                                    <?=
                                     ArtboxImageHelper::getImage(
                                         $product->imageUrl,
                                         'product',
@@ -110,298 +111,298 @@ $PriceData = $product->discountPrice($discountCategory);
                                         90,
                                         true
                                     )
-                                ?>
-                            </a>
+                                    ?>
+                                </a>
 
-                        </figure>
+                            </figure>
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 card-code-price-wr">
-                <div class="style code-card-wr">
-                    <div class="code-card"><span>Код: </span><?= $product->enabledVariant->sku ?></div>
-                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 card-code-price-wr">
+                    <div class="style code-card-wr">
+                        <div class="code-card"><span>Код: </span><?= $product->enabledVariant->sku ?></div>
+                    </div>
 
-                <!--если овара нет в наличии для card-in-stock добавить класс "no-stock"-->
-                <div class="style card-in-stock">
-                    <!--нет в наличии-->
-                    <span>есть в наличии</span>
-                </div>
+                    <!--если овара нет в наличии для card-in-stock добавить класс "no-stock"-->
+                    <div class="style card-in-stock">
+                        <!--нет в наличии-->
+                        <span>есть в наличии</span>
+                    </div>
 
-                <div class="card-quantity">(<?= $product->enabledVariant->quantity ?> <span>шт.)</span></div>
+                    <div class="card-quantity">(<?= $product->enabledVariant->quantity ?> <span>шт.)</span></div>
 
-                <div class="cat-price-more cat_new_price item_price">
+                    <div class="cat-price-more cat_new_price item_price">
 
-                    <?php if ($PriceData['discount'] > 0) { ?>
-                        <div class="cat_old_price"><?= round($product->enabledVariant->price, 2) ?><span
+                        <?php if ($PriceData['discount'] > 0) { ?>
+                            <div class="cat_old_price"><?= round($product->enabledVariant->price, 2) ?><span
                                     class="currency"> грн.</span></div>
-                    <?php } ?>
-                    <div class="cat_price item_price"><?= round($PriceData['price'], 2) ?><span
+                        <?php } ?>
+                        <div class="cat_price item_price"><?= round($PriceData['price'], 2) ?><span
                                 class="currency"> грн.</span></div>
-                </div>
-
-                <div class="style card-buy-wrapper">
-                    <!--если овара нет в наличии не выводить-->
-                    <div class="card-num-wr">
-                        <i class="min"></i>
-                        <input type="text" value="1" max="999" class="item_Quantity">
-                        <i class="pluse"></i>
-                    </div>
-                    <!----------------------------------------->
-
-                    <!---если овара нет в наличии добавлять для card-btn-buy класс "disabled"-->
-                    <div class="card-btn-buy">
-                        <a class="modal-link item_add btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
                     </div>
 
-                </div>
+                    <div class="style card-buy-wrapper">
+                        <!--если овара нет в наличии не выводить-->
+                        <div class="card-num-wr">
+                            <i class="min"></i>
+                            <input type="text" value="1" max="999" class="item_Quantity">
+                            <i class="pluse"></i>
+                        </div>
+                        <!----------------------------------------->
 
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-4 card_sale-bl-wr">
-                <div class="style delivery-card">
-                    <div class="style title-del-card-big">Самовывоз</div>
-                    <div class="style title-del-card">Вы можете забрать этот товар самостоятельно:</div>
-
-                    <div class="style del-card-yourself-wr">
-                        <div class="style del-card-yourself">
-                            <span>Киев ул.Гната Хоткевича 22в</span>
+                        <!---если овара нет в наличии добавлять для card-btn-buy класс "disabled"-->
+                        <div class="card-btn-buy">
+                            <a class="modal-link item_add btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
                         </div>
 
-                        <div class="style del-card-yourself">
-                            <span>Бровары ул.Лесная 2 1этаж</span>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-4 card_sale-bl-wr">
+                    <div class="style delivery-card">
+                        <div class="style title-del-card-big">Самовывоз</div>
+                        <div class="style title-del-card">Вы можете забрать этот товар самостоятельно:</div>
+
+                        <div class="style del-card-yourself-wr">
+                            <div class="style del-card-yourself">
+                                <span>Киев ул.Гната Хоткевича 22в</span>
+                            </div>
+
+                            <div class="style del-card-yourself">
+                                <span>Бровары ул.Лесная 2 1этаж</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="style delivery-card">
-                    <div class="style title-del-card-big">Доставка</div>
-                    <div class="style title-del-card">Способы доставки:</div>
+                    <div class="style delivery-card">
+                        <div class="style title-del-card-big">Доставка</div>
+                        <div class="style title-del-card">Способы доставки:</div>
 
-                    <div class="style del-card-yourself-wr">
-                        <div class="style del-card-yourself">
-                            <span>Курьер нашей компании</span>
-                        </div>
+                        <div class="style del-card-yourself-wr">
+                            <div class="style del-card-yourself">
+                                <span>Курьер нашей компании</span>
+                            </div>
 
-                        <div class="style del-card-yourself">
-                            <span>Службой "Новая почта"</span>
-                        </div>
+                            <div class="style del-card-yourself">
+                                <span>Службой "Новая почта"</span>
+                            </div>
 
-                        <div class="style del-card-yourself">
-                            <span>Транспортной компанией «САТ»</span>
+                            <div class="style del-card-yourself">
+                                <span>Транспортной компанией «САТ»</span>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="style delivery-card">
+                        <div class="style title-del-card-big">Оплата</div>
+                        <div class="style title-del-card">Наличными, Безналичными</div>
+                    </div>
+
+                    <div class="style delivery-card">
+                        <div class="style title-del-card-big">Обмен/возврат</div>
+                        <div class="style title-del-card">Обмен/возврат в течение 14 дней после покупки</div>
+                    </div>
                 </div>
-
-                <div class="style delivery-card">
-                    <div class="style title-del-card-big">Оплата</div>
-                    <div class="style title-del-card">Наличными, Безналичными</div>
-                </div>
-
-                <div class="style delivery-card">
-                    <div class="style title-del-card-big">Обмен/возврат</div>
-                    <div class="style title-del-card">Обмен/возврат в течение 14 дней после покупки</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-12">
-            <h3 class="title-blocks-home title-block-analogs">Аналоги</h3>
-        </div>
-
-        <div class="col-xs-12 col-sm-12">
-            <div class="tables_analogs">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <thead>
-                    <tr>
-                        <th class="img-analogs-title">Фото</th>
-                        <th class="title-analog-th">Название</th>
-                        <th>Наличие</th>
-                        <th>Цена</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-
-                    <tr>
-                        <td class="img-analogs">
-                            <!--100x100-->
-                            <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
-                            <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
-                        </td>
-                        <td class="title-analog-td">
-                            <p>Аварійне з'єднання тройник пласт.SP10101012</p>
-                            <span>Код: 12345678910</span>
-                        </td>
-                        <td>10 шт.</td>
-                        <td class="analog-price-td">2000 грн.</td>
-                        <td><a class="analogs-buy modal-link" data-form="basket_modal" href="#" title="Купить"></a></td>
-                    </tr>
-
-                    <tr>
-                        <td class="img-analogs">
-                            <img src="images/no-img-80.png" alt="">
-                        </td>
-                        <td class="title-analog-td">
-                            <p>Аварійне з'єднання тройник пласт</p>
-                            <span>Код: 12345678910</span>
-                        </td>
-                        <td>1000 шт.</td>
-                        <td class="analog-price-td">956090 грн.</td>
-                        <td><a class="analogs-buy modal-link" data-form="basket_modal" href="#" title="Купить"></a></td>
-                    </tr>
-
-                    <tr>
-                        <td class="img-analogs">
-                            <!--100x100-->
-                            <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
-                            <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
-                        </td>
-                        <td class="title-analog-td">
-                            <p>Аварійне з'єднання</p>
-                            <p>Код: 12345678910</p>
-                        </td>
-                        <td>10 шт.</td>
-                        <td class="analog-price-td">999 грн.</td>
-                        <td><a class="analogs-buy" href="#" title="Купить"></a></td>
-                    </tr>
-
-                    <tr>
-                        <td class="img-analogs">
-                            <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
-                        </td>
-                        <td class="title-analog-td">
-                            <p> Аварійне з'єднання тройник пласт Аварійне з'єднання тройник пласт </p>
-                            <span>Код: 123456780</span>
-                        </td>
-                        <td>5 шт.</td>
-                        <td class="analog-price-td">890 грн.</td>
-                        <td><a class="analogs-buy modal-link" data-form="basket_modal" href="#" title="Купить"></a></td>
-                    </tr>
-
-
-                    </tbody>
-                </table>
             </div>
         </div>
 
-        <div class="col-xs-12 col-sm-12">
-            <h3 class="title-blocks-home title-block-analogs">Аналоги 3</h3>
-        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <h3 class="title-blocks-home title-block-analogs">Аналоги</h3>
+            </div>
 
-        <div class="col-xs-12 col-sm-12">
-            <div class="tables_analogs tables_analogs3">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <thead>
-                    <tr>
-                        <th class="img-analogs-title">Фото</th>
-                        <th class="title-analog-th">Название</th>
-                        <th>Наличие</th>
-                        <th>Цена</th>
-                    </tr>
-                    </thead>
+            <div class="col-xs-12 col-sm-12">
+                <div class="tables_analogs">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                        <tr>
+                            <th class="img-analogs-title">Фото</th>
+                            <th class="title-analog-th">Название</th>
+                            <th>Наличие</th>
+                            <th>Цена</th>
+                            <th></th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
+                        <tbody>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="analog-modal-td">
-                            <a href="#" class="modal-link analog_call" data-form="analog-callback"><span>узнать подробней</span></a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td class="img-analogs">
+                                <!--100x100-->
+                                <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
+                                <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
+                            </td>
+                            <td class="title-analog-td">
+                                <p>Аварійне з'єднання тройник пласт.SP10101012</p>
+                                <span>Код: 12345678910</span>
+                            </td>
+                            <td>10 шт.</td>
+                            <td class="analog-price-td">2000 грн.</td>
+                            <td><a class="analogs-buy modal-link" data-form="basket_modal" href="#" title="Купить"></a></td>
+                        </tr>
 
-                    <tr>
-                        <td class="img-analogs">
-                            <!--100x100-->
-                            <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
-                            <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
-                        </td>
-                        <td class="title-analog-td">
-                            <p>Аварійне з'єднання тройник пласт.SP10101012</p>
-                            <span>Код: 12345678910</span>
-                        </td>
-                        <td>10 шт.</td>
-                        <td class="analog-price-td">2000 грн.</td>
-                    </tr>
+                        <tr>
+                            <td class="img-analogs">
+                                <img src="images/no-img-80.png" alt="">
+                            </td>
+                            <td class="title-analog-td">
+                                <p>Аварійне з'єднання тройник пласт</p>
+                                <span>Код: 12345678910</span>
+                            </td>
+                            <td>1000 шт.</td>
+                            <td class="analog-price-td">956090 грн.</td>
+                            <td><a class="analogs-buy modal-link" data-form="basket_modal" href="#" title="Купить"></a></td>
+                        </tr>
 
-                    <tr>
-                        <td class="img-analogs">
-                            <!--100x100-->
-                            <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
-                            <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
-                        </td>
-                        <td class="title-analog-td">
-                            <p>Аварійне з'єднання тройник пласт.SP10101012</p>
-                            <span>Код: 12345678910</span>
-                        </td>
-                        <td>10 шт.</td>
-                        <td class="analog-price-td">2000 грн.</td>
-                    </tr>
+                        <tr>
+                            <td class="img-analogs">
+                                <!--100x100-->
+                                <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
+                                <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
+                            </td>
+                            <td class="title-analog-td">
+                                <p>Аварійне з'єднання</p>
+                                <p>Код: 12345678910</p>
+                            </td>
+                            <td>10 шт.</td>
+                            <td class="analog-price-td">999 грн.</td>
+                            <td><a class="analogs-buy" href="#" title="Купить"></a></td>
+                        </tr>
 
-                    <tr>
-                        <td class="img-analogs">
-                            <!--100x100-->
-                            <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
-                            <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
-                        </td>
-                        <td class="title-analog-td">
-                            <p>Аварійне з'єднання тройник пласт.SP10101012</p>
-                            <span>Код: 12345678910</span>
-                        </td>
-                        <td>10 шт.</td>
-                        <td class="analog-price-td">2000 грн.</td>
-                    </tr>
+                        <tr>
+                            <td class="img-analogs">
+                                <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
+                            </td>
+                            <td class="title-analog-td">
+                                <p> Аварійне з'єднання тройник пласт Аварійне з'єднання тройник пласт </p>
+                                <span>Код: 123456780</span>
+                            </td>
+                            <td>5 шт.</td>
+                            <td class="analog-price-td">890 грн.</td>
+                            <td><a class="analogs-buy modal-link" data-form="basket_modal" href="#" title="Купить"></a></td>
+                        </tr>
 
-                    <tr>
-                        <td class="img-analogs">
-                            <!--100x100-->
-                            <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
-                            <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
-                        </td>
-                        <td class="title-analog-td">
-                            <p>Аварійне з'єднання тройник пласт.SP10101012</p>
-                            <span>Код: 12345678910</span>
-                        </td>
-                        <td>10 шт.</td>
-                        <td class="analog-price-td">2000 грн.</td>
-                    </tr>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="analog-modal-td">
-                            <a href="#" class="modal-link analog_call" data-form="analog-callback"><span>узнать подробней</span></a>
-                        </td>
-                    </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                    </tbody>
-                </table>
+            <div class="col-xs-12 col-sm-12">
+                <h3 class="title-blocks-home title-block-analogs">Аналоги 3</h3>
+            </div>
+
+            <div class="col-xs-12 col-sm-12">
+                <div class="tables_analogs tables_analogs3">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                        <tr>
+                            <th class="img-analogs-title">Фото</th>
+                            <th class="title-analog-th">Название</th>
+                            <th>Наличие</th>
+                            <th>Цена</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="analog-modal-td">
+                                <a href="#" class="modal-link analog_call" data-form="analog-callback"><span>узнать подробней</span></a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="img-analogs">
+                                <!--100x100-->
+                                <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
+                                <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
+                            </td>
+                            <td class="title-analog-td">
+                                <p>Аварійне з'єднання тройник пласт.SP10101012</p>
+                                <span>Код: 12345678910</span>
+                            </td>
+                            <td>10 шт.</td>
+                            <td class="analog-price-td">2000 грн.</td>
+                        </tr>
+
+                        <tr>
+                            <td class="img-analogs">
+                                <!--100x100-->
+                                <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
+                                <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
+                            </td>
+                            <td class="title-analog-td">
+                                <p>Аварійне з'єднання тройник пласт.SP10101012</p>
+                                <span>Код: 12345678910</span>
+                            </td>
+                            <td>10 шт.</td>
+                            <td class="analog-price-td">2000 грн.</td>
+                        </tr>
+
+                        <tr>
+                            <td class="img-analogs">
+                                <!--100x100-->
+                                <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
+                                <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
+                            </td>
+                            <td class="title-analog-td">
+                                <p>Аварійне з'єднання тройник пласт.SP10101012</p>
+                                <span>Код: 12345678910</span>
+                            </td>
+                            <td>10 шт.</td>
+                            <td class="analog-price-td">2000 грн.</td>
+                        </tr>
+
+                        <tr>
+                            <td class="img-analogs">
+                                <!--100x100-->
+                                <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
+                                <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
+                            </td>
+                            <td class="title-analog-td">
+                                <p>Аварійне з'єднання тройник пласт.SP10101012</p>
+                                <span>Код: 12345678910</span>
+                            </td>
+                            <td>10 шт.</td>
+                            <td class="analog-price-td">2000 грн.</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="analog-modal-td">
+                                <a href="#" class="modal-link analog_call" data-form="analog-callback"><span>узнать подробней</span></a>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div id="disqus_thread"></div>
-        <script>
-
-
-        </script>
+        <div class="row">
+            <div id="disqus_thread"></div>
+            <script>
 
 
-    </div>
-    <?php
+            </script>
+
+
+        </div>
+        <?php
 
 
 
-    $js = "    /**
+        $js = "    /**
          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
@@ -415,12 +416,13 @@ $PriceData = $product->discountPrice($discountCategory);
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
         })();";
-    $this->registerJs(
-        $js,
-        View::POS_READY
-    );
-    ?>
+        $this->registerJs(
+            $js,
+            View::POS_READY
+        );
+        ?>
 
+    </div>
 </div>
 
 <!-----------------gallery------------------>
