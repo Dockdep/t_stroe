@@ -412,7 +412,11 @@ $livechat = "(function(){ var widget_id = '01bvplgFpa';var d=document;var w=wind
 //);
 
 ?>
+<?php
+if(isset( $this->params[ 'isHome' ] )){
 
+}
+?>
 
 
 </body>
