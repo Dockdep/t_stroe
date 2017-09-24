@@ -117,7 +117,7 @@ class CabinetController extends Controller
          * @var $user Customer
          */
         $user = Yii::$app->user->identity;
-        $data = $user->getCategoryDiscount()->joinWith('category');
+        $data = $user->getCategoryDiscount()->joinWith('category')->all();
         return $this->render('discount',[
             'categories' => $data
         ]);
