@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ListView;
+
 ?>
 <div class="row cabinet-row">
     <div class="hidden-xs col-xs-12 col-sm-3 cabinet-list-wrapper">
@@ -31,98 +33,13 @@ use yii\helpers\Url;
                 <a class="cab-mob-link" href="cabinet-history.html"><span>История заказов</span></a>
 
                 <div class="style cab-history-wrapp">
-
-                    <div class="style cab-history-">
-                        <table cellspacing="0" border="0" cellpadding="0" class="tb-cab-history-title">
-                            <tr>
-                                <td>№461221235</td>
-                                <td>31 дек. 2017 г.</td>
-                            </tr>
-                        </table>
-
-                        <table cellpadding="0" cellspacing="0" border="0" class="tb-cab-history">
-                            <tr>
-                                <td class="cab-history-img">
-                                    <a href="#">
-                                        <!--100x100-->
-                                        <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
-                                        <img class="gallery-analog" src="images/img/analog-min-1.png" alt="">
-                                    </a>
-                                </td>
-                                <td class="cab-history-name">
-                                    <!--название выводить или в "a" или в "<p></p>" если нету ссылки-->
-                                    <a href="#">АВАРІЙНЕ З'ЄДНАННЯ ТРОЙНИК ПЛАСТ.SP10101012</a>
-                                    <span>2000 грн.</span>
-                                </td>
-                                <td class="cab-history-num">2 шт.</td>
-                                <td class="cab-history-price">4000 грн.</td>
-                            </tr>
-
-                            <tr>
-                                <td class="cab-history-img">
-                                    <a href="#">
-                                        <!--100x100-->
-                                        <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
-                                        <img src="images/no-img-80.png" alt="">
-                                    </a>
-                                </td>
-                                <td class="cab-history-name">
-                                    <!--название выводить или в "a" или в "<p></p>" если нету ссылки-->
-                                    <p>АВАРІЙНЕ З'ЄДНАННЯ</p>
-                                    <span>1000 грн.</span>
-                                </td>
-                                <td class="cab-history-num">1 шт.</td>
-                                <td class="cab-history-price">1000 грн.</td>
-                            </tr>
-                        </table>
-
-                        <table cellpadding="0" cellspacing="0" border="0" class="td-cab-all-price">
-                            <tr>
-                                <td align="right">
-                                    <div class="style">Итого: 5000 грн.</div>
-                                </td>
-                            </tr>
-                        </table>
-
-                    </div>
-
-                    <div class="style cab-history-">
-                        <table cellspacing="0" border="0" cellpadding="0" class="tb-cab-history-title">
-                            <tr>
-                                <td>№461221235</td>
-                                <td>01 дек. 2017 г.</td>
-                            </tr>
-                        </table>
-
-                        <table cellpadding="0" cellspacing="0" border="0" class="tb-cab-history">
-
-                            <tr>
-                                <td class="cab-history-img">
-                                    <a href="#">
-                                        <!--100x100-->
-                                        <!--если нет картинки выводить <img src="images/no-img-80.png" alt="">-->
-                                        <img src="images/no-img-80.png" alt="">
-                                    </a>
-                                </td>
-                                <td class="cab-history-name">
-                                    <!--название выводить или в "a" или в "<p></p>" если нету ссылки-->
-                                    <p>АВАРІЙНЕ З'ЄДНАННЯ</p>
-                                    <span>1000 грн.</span>
-                                </td>
-                                <td class="cab-history-num">1 шт.</td>
-                                <td class="cab-history-price">1000 грн.</td>
-                            </tr>
-                        </table>
-
-                        <table cellpadding="0" cellspacing="0" border="0" class="td-cab-all-price">
-                            <tr>
-                                <td align="right">
-                                    <div class="style">Итого: 5000 грн.</div>
-                                </td>
-                            </tr>
-                        </table>
-
-                    </div>
+                    <?= ListView::widget(
+                        [
+                            'dataProvider' => $dataProvider,
+                            'summary' =>false,
+                            'itemView'     => '_order',
+                        ]
+                    ) ?>
 
                     <!--выводить максимум 6-->
                     <ul class="pagination">
