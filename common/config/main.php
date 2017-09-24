@@ -9,15 +9,15 @@
         ],
         'components' => [
             'mailer' => [
-               # 'class' => 'yii\swiftmailer\Mailer',
-               # 'transport' => [
-               #     'class' => 'Swift_SmtpTransport',
-               #     'host' => 'smtp.gmail.com',
-               #     'username' => 'store.extremstyle@gmail.com',
-               #     'password' => 'Sputnik123',
-                #    'port' => '587',
-                #    'encryption' => 'tls',
-               # ],
+                    'class' => 'yii\swiftmailer\Mailer',
+                    'transport' => [
+                   'class' => 'Swift_SmtpTransport',
+                   'host' => 'smtp.gmail.com',
+                   'username' => 'dockdep@gmail.com',
+                   'password' => 'k0l0b04eg2',
+                   'port' => '587',
+                   'encryption' => 'tls',
+               ],
             ],
 //            'cache' => [
 //                'class' => 'yii\caching\MemCache',

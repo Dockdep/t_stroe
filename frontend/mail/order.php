@@ -44,7 +44,7 @@
         <strong>Заказ №<?php echo $order->id; ?></strong>
         <br>
         <br>
-        На сумму <strong><?php echo $order->total; ?></strong> грн
+        На сумму <strong><?php echo $order->discount_total; ?></strong> грн
       </td>
       <td style="text-align: left; vertical-align: top; font-size: 85%; padding: 20px 15px 15px 20px;">
         <strong>Данные покупателя</strong>
@@ -130,7 +130,7 @@
               <strong>Всего к оплате:</strong>
             </td>
             <td style="background: #eee; vertical-align: top; border-radius: 0 0 4px 0; padding: 10px 30px 20px 10px; border-top: 1px solid #ddd; text-align: right; font-size: 18px;">
-              <strong><?php echo number_format($order->total) ?> грн</strong>
+              <strong><?php echo number_format($order->discount_total) ?> грн</strong>
             </td>
           </tr>
           <tfoot>
