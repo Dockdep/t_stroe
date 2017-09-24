@@ -302,7 +302,7 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                     'Content-Type: application/json',
-                    'Content-Length: ' . strlen($data))
+                    'Content-Length: ' . strlen($order))
             );
 
             $result = json_decode(curl_exec($ch),JSON_UNESCAPED_UNICODE);
