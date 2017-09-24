@@ -89,20 +89,20 @@
                         ]
                     )
                 );
-//                if (!empty( $order->email )) {
-//                    \Yii::$app->mailer->compose(
-//                        [ 'html' => 'order' ],
-//                        [
-//                            'order'          => $order,
-//                            'order_products' => $order_products,
-//                            'models'         => $models,
-//                        ]
-//                    )
-//                                      ->setFrom([ \Yii::$app->params[ 'supportEmail' ] => \Yii::$app->name . ' robot' ])
-//                                      ->setTo($order->email)
-//                                      ->setSubject("Заказ №{$order->id}!")
-//                                      ->send();
-//                }
+                if (!empty( $order->email )) {
+                    \Yii::$app->mailer->compose(
+                        [ 'html' => 'order' ],
+                        [
+                            'order'          => $order,
+                            'order_products' => $order_products,
+                            'models'         => $models,
+                        ]
+                    )
+                                      ->setFrom([ \Yii::$app->params[ 'supportEmail' ] => \Yii::$app->name . ' robot' ])
+                                      ->setTo($order->email)
+                                      ->setSubject("Заказ №{$order->id}!")
+                                      ->send();
+                }
                 /**
                  * @var SmsSender $sender
                  */
@@ -116,7 +116,7 @@
 //                        ]
 //                    )
 //                );
-   //             $order->sync();
+                $order->sync();
                 return $this->redirect([ 'site/index' ]);
             }
             return $this->render(
