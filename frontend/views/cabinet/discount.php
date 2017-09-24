@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
-
+print_r($categories);
 ?>
 <div class="row cabinet-row">
     <div class="hidden-xs col-xs-12 col-sm-3 cabinet-list-wrapper">

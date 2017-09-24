@@ -6,6 +6,7 @@
     use artweb\artbox\components\artboxtree\ArtboxTreeBehavior;
     use artweb\artbox\language\behaviors\LanguageBehavior;
     use artweb\artbox\language\models\Language;
+    use artweb\artbox\models\Customer;
     use Yii;
     use yii\base\InvalidParamException;
     use yii\db\ActiveQuery;
@@ -170,7 +171,19 @@
             return $this->hasMany(Brand::className(), [ 'id' => 'brand_id' ])
                         ->via('products');
         }
-        
+
+        /**
+         * Get all user who has discount on this category
+         *
+         * @return ActiveQuery
+         */
+        public function getUsersDiscount()
+        {
+            return $this->hasMany(Customer::className(), [ 'id' => 'customer_id' ])
+                ->via('customer_category_discount');
+        }
+
+
         /**
          * Get Tax Groups by level
          * * 0 for Product

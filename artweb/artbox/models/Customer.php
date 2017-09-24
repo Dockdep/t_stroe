@@ -2,6 +2,8 @@
     
     namespace artweb\artbox\models;
     
+    use artweb\artbox\ecommerce\models\Category;
+    use common\models\CustomerCategoryDiscount;
     use common\models\User;
     use Yii;
     use yii\web\IdentityInterface;
@@ -233,6 +235,15 @@
 
         }
 
+        /**
+         * Get all user who has discount on this category
+         *
+         * @return \yii\db\ActiveQuery
+         */
+        public function getCategoryDiscount()
+        {
+            return $this->hasMany(CustomerCategoryDiscount::className(), ['id' => 'customer_id']);
+        }
         
         public function getPassword()
         {

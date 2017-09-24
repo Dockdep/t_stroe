@@ -113,9 +113,13 @@ class CabinetController extends Controller
 
 
     public function actionDiscount(){
-
+        /**
+         * @var $user Customer
+         */
+        $user = Yii::$app->user->identity;
+        $data = $user->getCategoryDiscount()->joinWith('category');
         return $this->render('discount',[
-
+            'categories' => $data
         ]);
     }
 
