@@ -310,22 +310,22 @@
             $array = ArrayHelper::toArray($data);
             $array['items'] = ArrayHelper::toArray($data->products);
             $order = json_encode($array,JSON_UNESCAPED_UNICODE);
-            print_r($order);
-            die();
 
-//            $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/InCounterparties');
-//            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-//            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-//            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-//                    'Content-Type: application/json',
-//                    'Content-Length: ' . strlen($data))
-//            );
-//
-//            $result = json_decode(curl_exec($ch));
-//            if(isset($result->remote_id)){
-//                $this->remote_id = $result->remote_id;
-//            }
+
+            $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/InOrders');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Content-Type: application/json',
+                    'Content-Length: ' . strlen($data))
+            );
+
+            $result = json_decode(curl_exec($ch));
+            if(isset($result->id)){
+                $this->remote_id = $result->id;
+                $this->save();
+            }
 
         }
         

@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use artweb\artbox\ecommerce\models\Order;
+use artweb\artbox\ecommerce\models\OrderProduct;
 use common\models\CustomerCategoryDiscount;
 use artweb\artbox\ecommerce\models\Brand;
 use artweb\artbox\ecommerce\models\Category;
@@ -18,22 +20,41 @@ class IntegrationController extends Controller{
     public $result = [];
     public function getItemData(){
       return '[
-{
-"id": 0,
-"YurfizLizso": "Юр. лицо",
-"Code": "000002845",
-"username": "МАЛЕПРИВАТНЕ СІЛЬСЬКОГОСПОДАРСЬКЕ ПІДПРИЄМСТВО СЕРВІС \"АПК\"",
-"Discount": [
-{
-"Group": "000046853",
-"Discount2": 35
-}
-],
-"discount_rate": 25,
-"Phone": "",
-"Email": "vvtb@ukr.net",
-"password": "rdWp8fu"
-}
+  {
+    "id": 32,
+    "nomer": "ШД-17005730",
+    "date": "2017-09-21T22:15:02",
+    "Counterparties": {
+      "id": 0,
+      "YurfizLizso": "Физ. лицо",
+      "Code": "000002924",
+      "FullName": "fgdhdfghdfg hdfgh ",
+      "Discount": [],
+      "discount_rate": 0,
+      "Phones": [
+        "+38 (054) 646-45-64"
+      ],
+      "Email": [
+        "hfdhfgdfh@dfhs.fgd"
+      ]
+    },
+    "ItemS": [
+      {
+        "price": 106.4,
+        "model": "000034328",
+        "amount": 159.6,
+        "quantity": 2,
+        "discount": 25
+      },
+      {
+        "price": 30.78,
+        "model": "000036304",
+        "amount": 23.09,
+        "quantity": 1,
+        "discount": 25
+      }
+    ]
+  }
 ]';
     }
 
@@ -60,6 +81,85 @@ class IntegrationController extends Controller{
         }
     }
 
+    public function actionImportOrders(){
+        try{
+            if($data = \Yii::$app->request->post("data")){
+                // $data = $this->getItemData();
+                $data = json_decode($data);
+                if(is_array($data)){
+                    foreach ($data as $item){
+                        $this->SaveOrders($item);
+                    }
+                } else {
+                    throw new Exception("Данные о пользователях ожидаются в виде массива.");
+                }
+                die(\GuzzleHttp\json_encode($this->result));
+            }else {
+                throw new Exception("Отсутствует data");
+            }
+
+
+        } catch (Exception $e) {
+            echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
+        }
+    }
+
+    private function SaveOrders($data){
+        $order = Order::find()->where(["remote_id" => $data->nomer]);
+        if(!$order instanceof Order){
+            $order = new Order();
+            $order->remote_id = $data->nomer;
+
+        }
+        $date = new \DateTime($data->date);
+        $date->format("Y-m-dTH:i:s");
+        $order->created_at = $date->getTimestamp();
+        if(isset($order->Counterparties)){
+            $order->name = $data->Counterparties->FullName;
+            if(isset($order->Counterparties->Phones)){
+                $order->phone = $order->Counterparties->Phones;
+            }
+            if(isset($order->Counterparties->Email)){
+                $order->email = $order->Counterparties->Email;
+            }
+
+        } else {
+            throw new \Exception("В заказе ". $data->nomer." не указан Counterparties");
+        }
+        $order->save();
+        if(isset($order->ItemS)){
+            OrderProduct::deleteAll(['order_id'=>$order->id]);
+            $total = 0;
+            $discount_total = 0;
+            foreach ($order->ItemS as $item){
+                /**
+                 * @var $product Product
+                 */
+                $product = Product::find()->where(["remote_id" => $item->model])->one();
+                $orderProduct = new OrderProduct();
+                $orderProduct->product_variant_id = $product->id;
+                $orderProduct->name =$product->lang->title;
+                $orderProduct->sku = isset($product->variant->sku) ?$product->variant->sku:$product->lang->title;
+                $orderProduct->price = $item->price;
+                $orderProduct->discount_price = ((100-$item->discount)/100)* $item->price;
+                $orderProduct->discount = $item->discount;
+                $orderProduct->count = $item->quantity;
+                $orderProduct->remote_id = $item->model;
+                $orderProduct->order_id = $order->id;
+                $orderProduct->sum_cost = $orderProduct->discount_price * $orderProduct->count ;
+                $orderProduct->save();
+                $total += $orderProduct->price * $orderProduct->count ;
+                $discount_total += $orderProduct->sum_cost;
+
+            }
+            $order->total = $total;
+            $order->discount_total = $discount_total;
+            $order->save();
+            $this->result[$data->nomer] = $order->id;
+        } else {
+            throw new \Exception("В заказе ". $data->nomer." не указан ItemS");
+        }
+    }
 
     private function SaveCustomers($item){
         $user = Customer::find()->where(["remote_id" => $item->Code])->one();

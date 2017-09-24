@@ -1,62 +1,37 @@
-{
-  "id": 29,
-  "user_id": null,
-  "name": "o[joi[i[i",
-  "phone": "+38(032)423-42-33",
-  "phone2": null,
-  "email": "sdfgsdgds@fdgdfs.gfhf",
-  "adress": "",
-  "body": null,
-  "total": null,
-  "date_time": null,
-  "date_dedline": null,
-  "reserve": null,
-  "status": null,
-  "comment": "",
-  "label": 0,
-  "pay": null,
-  "numbercard": null,
-  "declaration": null,
-  "stock": null,
-  "consignment": null,
-  "payment": "on",
-  "insurance": null,
-  "amount_imposed": null,
-  "shipping_by": null,
-  "city": "",
-  "created_at": 1505844511,
-  "updated_at": null,
-  "deleted_at": null,
-  "deadline": "",
-  "reason": null,
-  "sms": null,
-  "check": null,
-  "manager_id": null,
-  "edit_time": 0,
-  "edit_id": 0,
-  "credit_sum": null,
-  "credit_month": null,
-  "delivery": "on",
-  "remote_id": null,
-  "discount_total": null,
-  "items": [
-    {
-      "id": 57,
-      "order_id": 29,
-      "product_variant_id": 53164,
-      "product_name": "Рем. комплект розвідного механізма S0015",
-      "name": "Рем. комплект розвідного механізма S0015",
-      "sku": "S0015",
-      "price": 425.52,
-      "count": 1,
-      "sum_cost": 425.52,
-      "status": null,
-      "booking": null,
-      "return": null,
-      "removed": null,
-      "discount": 25,
-      "remote_id": "000049444",
-      "discount_price": 319.14
-    }
-  ]
-}
+[
+  {
+    "id": 32,
+    "nomer": "ШД-17005730",
+    "date": "2017-09-21T22:15:02",
+    "Counterparties": {
+      "id": 0,
+      "YurfizLizso": "Физ. лицо",
+      "Code": "000002924",
+      "FullName": "fgdhdfghdfg hdfgh ",
+      "Discount": [],
+      "discount_rate": 0,
+      "Phones": [
+        "+38 (054) 646-45-64"
+      ],
+      "Email": [
+        "hfdhfgdfh@dfhs.fgd"
+      ]
+    },
+    "ItemS": [
+      {
+        "price": 106.4,
+        "model": "000034328",
+        "amount": 159.6,
+        "quantity": 2,
+        "discount": 25
+      },
+      {
+        "price": 30.78,
+        "model": "000036304",
+        "amount": 23.09,
+        "quantity": 1,
+        "discount": 25
+      }
+    ]
+  }
+]

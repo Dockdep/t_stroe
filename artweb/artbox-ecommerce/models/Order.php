@@ -34,9 +34,11 @@
      * @property string         $phone
      * @property string         $phone2
      * @property string         $email
+     * @property string         $remote_id
      * @property string         $adress
      * @property string         $body
      * @property double         $total
+     * @property double         $discount_total
      * @property string         $date_time
      * @property string         $date_dedline
      * @property string         $reserve
@@ -176,7 +178,8 @@
                     'integer',
                 ],
                 [
-                    [ 'total' ],
+                    [ 'total',
+                      'discount_total'],
                     'double',
                 ],
                 [
@@ -189,6 +192,7 @@
                     [
                         'comment',
                         'body',
+                        'remote_id'
                     ],
                     'string',
                 ],
