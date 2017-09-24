@@ -59,11 +59,12 @@
                 ->limit($pages->limit);
             $productProvider =  new ActiveDataProvider([
                 'query' => $data,
-                'pages' => $pages
             ]);
 
             return $this->render('search', [
-                'productProvider' => $productProvider
+                'productProvider' => $productProvider,
+
+                'pages' => $pages
             ]);
         }
 
