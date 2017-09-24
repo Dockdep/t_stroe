@@ -41,17 +41,7 @@ use yii\widgets\ListView;
                         ]
                     ) ?>
 
-                    <!--выводить максимум 6-->
-                    <ul class="pagination">
-                        <li class="prev disabled"><span>«</span></li>
-                        <li class="active"><a href="" data-page="0">1</a></li>
-                        <li><a href="#" data-page="1">2</a></li>
-                        <li><a href="#" data-page="2">3</a></li>
-                        <li><a href="#" data-page="3">4</a></li>
-                        <li><a href="#" data-page="4">5</a></li>
-                        <li><a href="#" data-page="4">6</a></li>
-                        <li class="next"><a href="#" data-page="1">»</a></li>
-                    </ul>
+
                 </div>
             </li>
             <li style="display: none;"><a class="cab-mob-link" href="cabinet-history-payment.html"><span>Платежи</span></a></li>
