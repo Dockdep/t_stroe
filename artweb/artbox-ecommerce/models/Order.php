@@ -58,7 +58,6 @@
      * @property string         $city
      * @property string         $deliveryString
      * @property boolean        $published
-     * @property Label          $orderLabel
      * @property Delivery       $orderDelivery
      * @property OrderPayment   $orderPayment
      * @property OrderLog[]     $logs
@@ -68,15 +67,7 @@
      */
     class Order extends ActiveRecord
     {
-        
-        const SHIPPING_BY = [
-            1 => [
-                'label' => 'Отправитель',
-            ],
-            2 => [
-                'label' => 'Получатель',
-            ],
-        ];
+
         
         const REASONS = [
             1  => 'Нет товара',
@@ -141,10 +132,7 @@
             return [
                 [
                     'class' => TimestampBehavior::className(),
-                ],
-                [
-                    'class' => DefaultLabelBehavior::className(),
-                ],
+                ]
             ];
         }
         
@@ -169,7 +157,6 @@
                         'deleted_at',
                         'payment',
                         'reason',
-                        'label',
                         'manager_id',
                         'edit_time',
                         'edit_id',
@@ -308,7 +295,6 @@
                 'manager_id'     => Yii::t('app', 'Менеджер'),
                 'delivery_cost'  => Yii::t('app', 'Стоимость доставки'),
                 'published'      => Yii::t('app', 'Опубликован'),
-                'label'          => Yii::t('app', 'Метка'),
                 'declaration'    => Yii::t('app', 'Номер декларации'),
                 'delivery'       => Yii::t('app', 'Способ доставки'),
                 'total'          => Yii::t('app', 'Сумма'),
@@ -352,13 +338,7 @@
             return $this->hasOne(Delivery::className(), [ 'id' => 'delivery' ]);
         }
         
-        /**
-         * @return \yii\db\ActiveQuery
-         */
-        public function getOrderLabel()
-        {
-            return $this->hasOne(Label::className(), [ 'id' => 'label' ]);
-        }
+
         
         /**
          * @return \yii\db\ActiveQuery
@@ -368,13 +348,7 @@
             return $this->hasOne(OrderPayment::className(), [ 'id' => 'payment' ]);
         }
         
-        /**
-         * @return \yii\db\ActiveQuery
-         */
-        public function getLabelsHistory()
-        {
-            return $this->hasMany(OrderLabelHistory::className(), [ 'order_id' => 'id' ]);
-        }
+
         
         /**
          * @return string

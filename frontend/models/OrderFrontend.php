@@ -73,18 +73,6 @@
             return 'order';
         }
 
-        public function afterSave($insert, $changedAttributes)
-        {
-            if ($insert) {
-                $history = new OrderLabelHistory();
-    
-                $history->label_id = (integer) $this->label;
-                $history->order_id = (integer) $this->id;
-    
-                $history->save();
-            }
-            parent::afterSave($insert, $changedAttributes);
-        }
     
         public function scenarios()
         {
@@ -106,7 +94,6 @@
                         'delivery',
                         'payment',
                         'confirm',
-                        'label',
                         'credit_sum',
                         'credit_month',
                     ],
@@ -140,10 +127,7 @@
                     'class'              => TimestampBehavior::className(),
                     'createdAtAttribute' => 'created_at',
                     'updatedAtAttribute' => false,
-                ],
-                [
-                    'class' => DefaultLabelBehavior::className(),
-                ],
+                ]
             ];
         }
         
