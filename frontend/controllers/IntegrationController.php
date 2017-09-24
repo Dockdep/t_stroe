@@ -126,6 +126,9 @@ class IntegrationController extends Controller{
         } else {
             throw new \Exception("В заказе ". $data->nomer." не указан Counterparties");
         }
+        if(!$order->validate()){
+            throw new Exception(print_r($order->getErrors()));
+        }
         $order->save();
         if(isset($data->ItemS)){
             OrderProduct::deleteAll(['order_id'=>$order->id]);
