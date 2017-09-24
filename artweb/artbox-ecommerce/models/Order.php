@@ -245,16 +245,7 @@
                 ],
             ];
         }
-        
-        public function afterSave($insert, $changedAttributes)
-        {
-            $data = OrderLogger::generateData($changedAttributes, $this->oldAttributes, $insert);
-            OrderLogger::saveData($data, $this->id);
-            
-            OrderLogger::saveOrderLabelHistory($changedAttributes, $this->label, $this->id);
-            
-            parent::afterSave($insert, $changedAttributes);
-        }
+
         
         /**
          * @inheritdoc
