@@ -45,13 +45,7 @@
             
             parent::afterSave($insert, $changedAttributes);
         }
-        
-        public function beforeSave($insert)
-        {
-            $this->price = $this->productVariant->price;
-            $this->sum_cost = $this->price * $this->count;
-            return parent::beforeSave($insert);
-        }
+
         
         public function rules()
         {
