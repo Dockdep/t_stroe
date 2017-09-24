@@ -20,37 +20,62 @@ class IntegrationController extends Controller{
     public $result = [];
     public function getItemData(){
       return '[
-  {
-    "id": 32,
-    "nomer": "ШД-17005730",
-    "date": "2017-09-21T22:15:02",
-    "Counterparties": {
-      "id": 0,
-      "YurfizLizso": "Физ. лицо",
-      "Code": "000002924",
-      "FullName": "fgdhdfghdfg hdfgh ",
-      "Discount": [],
-      "discount_rate": 0,
-      "phone": "+38(054)646-45-64",
-      "Email": "hfdhfgdfh@dfhs.fgd"
-    },
-    "ItemS": [
-      {
-        "price": 106.4,
-        "model": "000034328",
-        "amount": 159.6,
-        "quantity": 2,
-        "discount": 25
-      },
-      {
-        "price": 30.78,
-        "model": "000036304",
-        "amount": 23.09,
-        "quantity": 1,
-        "discount": 25
-      }
-    ]
-  }
+{
+"id": 32,
+"nomer": "ШД-17005731",
+"date": "2017-09-21T22:04:32",
+"Counterparties": {
+"id": 32,
+"YurfizLizso": "Юр. лицо",
+"Code": "000002845",
+"username": "МАЛЕПРИВАТНЕ СІЛЬСЬКОГОСПОДАРСЬКЕ ПІДПРИЄМСТВО СЕРВІС \"АПК\"",
+"Discount": [
+{
+"Group": "000046853",
+"Discount": 35
+},
+{
+"Group": "000029988",
+"Discount": 30
+},
+{
+"Group": "000029949",
+"Discount": 10
+},
+{
+"Group": "000046730",
+"Discount": 10
+}
+],
+"discount_rate": 25,
+"Phone": "",
+"Email": "vvtb@ukr.net",
+"password": "rdWp8fu"
+},
+"ItemS": [
+{
+"price": 106.4,
+"model": "000034328",
+"amount": 159.6,
+"quantity": 2,
+"discount": 25
+},
+{
+"price": 30.78,
+"model": "000036304",
+"amount": 23.09,
+"quantity": 1,
+"discount": 25
+},
+{
+"price": 10,
+"model": "000047113",
+"amount": 37.5,
+"quantity": 5,
+"discount": 25
+}
+]
+}
 ]';
     }
 
@@ -93,7 +118,6 @@ class IntegrationController extends Controller{
             }else {
                 throw new Exception("Отсутствует data");
             }
-
 
         } catch (Exception $e) {
             echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();

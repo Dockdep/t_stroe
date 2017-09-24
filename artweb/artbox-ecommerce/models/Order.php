@@ -171,12 +171,6 @@
                 ],
                 [
                     [
-                        'phone',
-                    ],
-                    'required',
-                ],
-                [
-                    [
                         'comment',
                         'body',
                         'remote_id'
