@@ -89,7 +89,7 @@ class IntegrationController extends Controller{
                 } else {
                     throw new Exception("Данные о пользователях ожидаются в виде массива.");
                 }
-                die(\GuzzleHttp\json_encode($this->result));
+                die(json_encode($this->result,JSON_UNESCAPED_UNICODE));
 //            }else {
 //                throw new Exception("Отсутствует data");
 //            }

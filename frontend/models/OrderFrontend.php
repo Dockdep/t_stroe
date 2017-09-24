@@ -305,7 +305,7 @@
                     'Content-Length: ' . strlen($data))
             );
 
-            $result = json_decode(curl_exec($ch));
+            $result = json_decode(curl_exec($ch),JSON_UNESCAPED_UNICODE);
             if(isset($result->id)){
                 $this->remote_id = $result->id;
                 $this->save();
