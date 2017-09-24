@@ -1,7 +1,10 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
-print_r($categories);
+
+/**
+ * @var $categories \common\models\CustomerCategoryDiscount
+ */
 ?>
 <div class="row cabinet-row">
     <div class="hidden-xs col-xs-12 col-sm-3 cabinet-list-wrapper">
@@ -49,10 +52,13 @@ print_r($categories);
                     </table>
 
                     <table cellpadding="0" cellspacing="0" border="0" class="cab-tb-discount">
-                        <tr>
-                            <td><a href="#">Пневмосистема</a></td>
-                            <td>-35%</td>
-                        </tr>
+                        <?php foreach ($categories as $category){?>
+                            <tr>
+                                <td><a href="#">Пневмосистема</a></td>
+                                <td>-<?= $category->discount ?>%</td>
+                            </tr>
+                        <?php }?>
+
 
                         <tr>
                             <td><a href="#">Двигатель</a></td>
