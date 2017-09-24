@@ -138,7 +138,7 @@ class IntegrationController extends Controller{
             if(isset($data->Counterparties->phone)){
                 $order->phone = $data->Counterparties->phone;
             }
-            if(isset($order->Counterparties->Email)){
+            if(isset($data->Counterparties->Email)){
                 $order->email = $data->Counterparties->Email;
             }
 
