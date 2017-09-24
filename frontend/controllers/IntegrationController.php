@@ -169,8 +169,6 @@ class IntegrationController extends Controller{
                 $orderProduct->remote_id = $item->model;
                 $orderProduct->order_id = $order->id;
                 $orderProduct->sum_cost = (((100-$item->discount)/100)* $item->price) * $orderProduct->count ;
-                print_r($orderProduct);
-                die();
                 if(!$orderProduct->validate()){
                     throw new Exception(print_r($orderProduct->getErrors()));
                 }
