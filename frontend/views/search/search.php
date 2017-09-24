@@ -26,7 +26,8 @@ use yii\widgets\ListView;
                 <tbody>
                 <?= GridView::widget(
                     [
-                        'dataProvider' => $productProvider,
+                        'ListView' => $productProvider,
+                        'layout'       => "{items}",
                         'itemView'     => '../search/_product_item',
                     ]
                 ) ?>
@@ -37,6 +38,7 @@ use yii\widgets\ListView;
         <?=
          LinkPager::widget([
             'pagination' => $pages,
+             'maxButtonCount' => 5,
         ]);
         ?>
     </div>
