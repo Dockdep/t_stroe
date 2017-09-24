@@ -179,7 +179,7 @@
                 ],
                 [
                     [ 'email' ],
-                    'email',
+                    'string',
                 ],
                 [
                     [
