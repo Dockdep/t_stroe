@@ -124,7 +124,7 @@ class IntegrationController extends Controller{
     }
 
     private function SaveOrders($data){
-        $order = Order::find()->where(["remote_id" => $data->nomer]);
+        $order = Order::find()->where(["remote_id" => $data->nomer])->one();
         if(!$order instanceof Order){
             $order = new Order();
             $order->remote_id = $data->nomer;
@@ -162,13 +162,13 @@ class IntegrationController extends Controller{
                 $orderProduct->product_variant_id = $product->id;
                 $orderProduct->name =$product->lang->title;
                 $orderProduct->sku = isset($product->variant->sku) ?$product->variant->sku:$product->lang->title;
-                $orderProduct->price = $item->price;
+                $orderProduct->price = $item->price*1;
                 $orderProduct->discount_price = ((100-$item->discount)/100)* $item->price;
                 $orderProduct->discount = $item->discount;
                 $orderProduct->count = $item->quantity;
                 $orderProduct->remote_id = $item->model;
                 $orderProduct->order_id = $order->id;
-                $orderProduct->sum_cost = $orderProduct->discount_price * $orderProduct->count ;
+                $orderProduct->sum_cost = (((100-$item->discount)/100)* $item->price) * $orderProduct->count ;
                 if(!$orderProduct->validate()){
                     throw new Exception(print_r($orderProduct->getErrors()));
                 }
