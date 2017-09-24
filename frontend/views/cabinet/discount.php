@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 /**
- * @var $categories \common\models\CustomerCategoryDiscount
+ * @var $categories \common\models\CustomerCategoryDiscount[]
  */
 ?>
 <div class="row cabinet-row">
@@ -54,46 +54,35 @@ use yii\helpers\Url;
                     <table cellpadding="0" cellspacing="0" border="0" class="cab-tb-discount">
                         <?php foreach ($categories as $category){?>
                             <tr>
-                                <td><a href="#">Пневмосистема</a></td>
+                                <td>
+                                    <?php
+                                    $children = $category->category->getChildren()->count();
+
+                                    if($children > 0){
+                                        $url   = [
+
+                                            'category/index',
+                                            'slug' => $category->category->lang->alias,
+
+                                        ];
+                                    } else {
+                                        $url   = [
+                                            'catalog/category',
+                                            'category' => $category->category->lang->alias,
+                                        ];
+                                    }
+
+
+                                    ?>
+                                    <?=
+                                    Html::a(
+                                        $category->category->lang->title,
+                                        $url
+                                    )?>
+                                </td>
                                 <td>-<?= $category->discount ?>%</td>
                             </tr>
                         <?php }?>
-
-
-                        <tr>
-                            <td><a href="#">Двигатель</a></td>
-                            <td>-45%</td>
-                        </tr>
-
-                        <tr>
-                            <td>Тормоза</td>
-                            <td>-28%</td>
-                        </tr>
-
-                        <tr>
-                            <td>Пневмосистема</td>
-                            <td>-35%</td>
-                        </tr>
-
-                        <tr>
-                            <td>Пневмосистема</td>
-                            <td>-35%</td>
-                        </tr>
-
-                        <tr>
-                            <td>Двигатель</td>
-                            <td>-45%</td>
-                        </tr>
-
-                        <tr>
-                            <td>Тормоза</td>
-                            <td>-28%</td>
-                        </tr>
-
-                        <tr>
-                            <td>Пневмосистема</td>
-                            <td>-35%</td>
-                        </tr>
                     </table>
                 </div>
             </li>
