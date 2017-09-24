@@ -317,7 +317,9 @@ $pages = Page::find()
 
 <?php $this->endBody(); ?>
 <?php
-$js = ' $(document).ready(function () {
+
+if(isset( $this->params[ 'isHome' ] )){
+    $js = ' $(document).ready(function () {
         //первый слайдер
         $(".slider-first").owlCarousel({
             responsiveClass: true,
@@ -404,6 +406,96 @@ $js = ' $(document).ready(function () {
         })
 
     })';
+} else {
+    $js = ' $(document).ready(function () {
+        //первый слайдер
+        $(".slider-first").owlCarousel({
+            responsiveClass: true,
+            navSpeed:150,
+            dots:true,
+            nav:false,
+            items:1
+        })
+
+
+        //товары
+        var owlArticles = $(".slider-news");
+        owlArticles.owlCarousel({
+//            loop:true,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    slideBy: 1
+                },
+
+                370: {
+                    items: 1,
+                    slideBy: 1
+                },
+                570: {
+                    items: 2,
+                    slideBy: 1
+                },
+
+
+                768: {
+                    items: 3,
+                    slideBy: 1
+                }
+                
+                <!--если не главная выводить-->
+                ,980: {
+                    items: 4,
+                    slideBy: 1
+                }
+                <!----------------------------->
+            },
+//            navSpeed:150,
+            smartSpeed:150,
+            nav:false,
+            dots:false,
+            onInitialized: function(){
+                owlArticles.next().addClass(\'vis_ lock\');
+                owlArticles.next().next().addClass(\'vis_\');
+            }
+        })
+
+        $(".btn-r_ ").click(function(){
+            if(!($(this).hasClass(\'lock\'))){
+                $(this).parent().find(owlArticles).trigger(\'next.owl.carousel\');
+
+            }
+
+        })
+
+        $(".btn-l_ ").click(function() {
+            if(!($(this).hasClass(\'lock\'))){
+                $(this).parent().find(owlArticles).trigger(\'prev.owl.carousel\');
+            }
+        })
+        owlArticles.on(\'changed.owl.carousel\', function(event) {
+
+            var index = event.item.index;
+            var count = event.item.count;
+            var size = event.page.size;
+            if(index==(count-size)){
+                $(this).parent().find(".btn-r_ ").addClass(\'lock\')
+
+            } else {
+                $(this).parent().find(".btn-r_ ").removeClass(\'lock\')
+            }
+            if (index==0){
+                $(this).parent().find(".btn-l_ ").addClass(\'lock\')
+            } else  {
+                $(this).parent().find(".btn-l_ ").removeClass(\'lock\')
+
+            }
+        })
+
+    })';
+}
+
 
 $this->registerJs($js, View::POS_READY);
 ?>
@@ -419,11 +511,7 @@ $livechat = "(function(){ var widget_id = '01bvplgFpa';var d=document;var w=wind
 //);
 
 ?>
-<?php
-if(isset( $this->params[ 'isHome' ] )){
 
-}
-?>
 
 
 </body>
