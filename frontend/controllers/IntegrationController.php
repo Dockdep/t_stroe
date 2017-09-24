@@ -31,12 +31,8 @@ class IntegrationController extends Controller{
       "FullName": "fgdhdfghdfg hdfgh ",
       "Discount": [],
       "discount_rate": 0,
-      "Phones": [
-        "+38 (054) 646-45-64"
-      ],
-      "Email": [
-        "hfdhfgdfh@dfhs.fgd"
-      ]
+      "phone": "+38 (054) 646-45-64",
+      "Email": "hfdhfgdfh@dfhs.fgd"
     },
     "ItemS": [
       {
