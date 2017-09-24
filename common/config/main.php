@@ -13,7 +13,7 @@
                     'transport' => [
                    'class' => 'Swift_SmtpTransport',
                    'host' => 'smtp.gmail.com',
-                   'username' => 'dockdep@gmail.com',
+                   'username' => 'dockdep',
                    'password' => 'k0l0b04eg2',
                    'port' => '587',
                    'encryption' => 'tls',
