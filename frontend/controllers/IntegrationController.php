@@ -112,8 +112,8 @@ class IntegrationController extends Controller{
         $order->created_at = $date->getTimestamp();
         if(isset($data->Counterparties)){
             $order->name = $data->Counterparties->FullName;
-            if(isset($data->Counterparties->Phones)){
-                $order->phone = $data->Counterparties->Phones;
+            if(isset($data->Counterparties->phone)){
+                $order->phone = $data->Counterparties->phone;
             }
             if(isset($order->Counterparties->Email)){
                 $order->email = $data->Counterparties->Email;
