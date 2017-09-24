@@ -24,9 +24,9 @@ use yii\widgets\ListView;
                 </thead>
 
                 <tbody>
-                <?= GridView::widget(
+                <?= ListView::widget(
                     [
-                        'ListView' => $productProvider,
+                        'dataProvider' => $productProvider,
                         'layout'       => "{items}",
                         'itemView'     => '../search/_product_item',
                     ]
