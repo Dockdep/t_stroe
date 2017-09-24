@@ -134,7 +134,7 @@ class IntegrationController extends Controller{
         $date->format("Y-m-dTH:i:s");
         $order->created_at = $date->getTimestamp();
         if(isset($data->Counterparties)){
-            $order->name = $data->Counterparties->FullName;
+            $order->name = $data->Counterparties->username;
             if(isset($data->Counterparties->phone)){
                 $order->phone = $data->Counterparties->phone;
             }
