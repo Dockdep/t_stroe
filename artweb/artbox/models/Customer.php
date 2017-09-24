@@ -242,7 +242,7 @@
          */
         public function getCategoryDiscount()
         {
-            return $this->hasMany(CustomerCategoryDiscount::className(), ['id' => 'customer_id']);
+            return $this->hasMany(CustomerCategoryDiscount::className(), ['customer_id' => 'id']);
         }
         
         public function getPassword()
