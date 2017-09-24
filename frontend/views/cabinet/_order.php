@@ -16,7 +16,7 @@
     <table cellspacing="0" border="0" cellpadding="0" class="tb-cab-history-title">
         <tr>
             <td>№<?= $model->id ?></td>
-            <td><?= \Yii::$app->formatter->asDatetime($model->created_at) ?></td>
+            <td><?= date('d.m.Y H:i:s',$model->created_at) ?></td>
         </tr>
     </table>
 
