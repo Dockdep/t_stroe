@@ -145,10 +145,7 @@
               width: 100%; margin: 20px 0;">
       <tr>
         <td style="border-top: 1px solid #eee; text-align: right; font-size: 100%; padding: 30px 20px 0 0;">
-          (044) 303-90-10
-          (050) 382-03-00
-          (044) 237-71-06
-          (044) 237-71-09
+
         </td>
         <td style="border-top: 1px solid #eee; text-align: left; font-size: 100%; padding: 30px 0 0 20px;">
           <a href="<?php echo $host; ?>"><?php echo $host; ?></a>
