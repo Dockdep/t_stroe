@@ -156,7 +156,8 @@ use yii\web\View;
                     'comment',
                     [
                         'options' => [
-                            'class' => 'col-xs-12 col-sm-10 col-md-6 input-wr medium-label _area_',
+                            'class' => 'input-wr medium-label _area_',
+                            'style' => 'padding: 0',
                         ],
                     ]
                 )
