@@ -53,8 +53,13 @@
                     break;
             }
 
+            $countQuery = clone $data;
+            $pages = new Pagination(['totalCount' => $countQuery->count()]);
+            $data->offset($pages->offset)
+                ->limit($pages->limit);
             $productProvider =  new ActiveDataProvider([
-                'query' => $data
+                'query' => $data,
+                'pages' => $pages
             ]);
 
             return $this->render('search', [
