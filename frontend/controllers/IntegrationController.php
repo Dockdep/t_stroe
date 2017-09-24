@@ -127,11 +127,11 @@ class IntegrationController extends Controller{
             throw new \Exception("В заказе ". $data->nomer." не указан Counterparties");
         }
         $order->save();
-        if(isset($order->ItemS)){
+        if(isset($data->ItemS)){
             OrderProduct::deleteAll(['order_id'=>$order->id]);
             $total = 0;
             $discount_total = 0;
-            foreach ($order->ItemS as $item){
+            foreach ($data->ItemS as $item){
                 /**
                  * @var $product Product
                  */
