@@ -162,7 +162,7 @@
             
         }
         
-        public function actionProduct($product, $variant = null)
+        public function actionProduct($product)
         {
             /**
              * @var Product          $product
