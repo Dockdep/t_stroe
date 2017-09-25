@@ -162,9 +162,8 @@
             
         }
         
-        public function actionProduct($product, $variant)
+        public function actionProduct($product, $variant = null)
         {
-            die('here');
             /**
              * @var Product          $product
              * @var ProductVariant   $variant
