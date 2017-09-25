@@ -287,7 +287,7 @@ $pages = Page::find()
     <span id="modal_close"></span>
     <div class="style form-title">Обратный звонок</div>
     <?php $form = ActiveForm::begin([
-        "action" =>  Url::to(['site/аeedback'])
+        "action" =>  Url::to(['site/feedback'])
     ]); ?>
         <div class="input-wr">
             <?= $form->field(new \artweb\artbox\models\Feedback(), 'name')->textInput(['autofocus' => true]) ?>

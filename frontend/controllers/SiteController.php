@@ -557,9 +557,7 @@ class SiteController extends Controller
             ];
         }
         \Yii::$app->session->setFlash('error', \Yii::t('app', 'Неправильно введенные данные'));
-        return [
-            'error' => \Yii::t('app', 'Неправильно введенные данные'),
-        ];
+        return $this->goHome();
     }
 
     /**
