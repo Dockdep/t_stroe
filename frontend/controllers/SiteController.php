@@ -552,9 +552,6 @@ class SiteController extends Controller
                     'Спасибо за обращение, мы свяжемся с Вами в ближайшее время'
                 )
             );
-            return [
-                'success' => \Yii::t('app', 'Спасибо за обращение, мы свяжемся с Вами в ближайшее время'),
-            ];
         }
         \Yii::$app->session->setFlash('error', \Yii::t('app', 'Неправильно введенные данные'));
         return $this->goHome();
