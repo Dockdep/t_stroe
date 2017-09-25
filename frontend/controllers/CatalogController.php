@@ -164,6 +164,7 @@
         
         public function actionProduct($product, $variant)
         {
+            die('here');
             /**
              * @var Product          $product
              * @var ProductVariant   $variant
