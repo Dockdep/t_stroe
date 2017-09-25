@@ -295,6 +295,9 @@ $pages = Page::find()
         <div class="input-wr phones_mask">
             <?= $form->field(new \artweb\artbox\models\Feedback(), 'phone')->textInput() ?>
         </div>
+        <div class="input-wr">
+            <?= $form->field(new \artweb\artbox\models\Feedback(), 'comment')->textarea() ?>
+        </div>
         <div class="button-wr">
             <button type="submit">отправить</button>
         </div>
