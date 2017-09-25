@@ -181,7 +181,6 @@
                 $variant = $product->getVariant()
                                    ->with('variantStocks')
                                    ->joinWith('lang')
-                                   ->where([ 'sku' => $variant ])
                                    ->one();
             }
 
