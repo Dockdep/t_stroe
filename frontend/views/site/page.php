@@ -22,20 +22,17 @@
     $this->params[ 'seo' ][ Seo::TITLE ] = $this->title;
     $this->params[ 'seo' ][ Seo::H1 ] = $this->title;
 ?>
-<div class="container">
-    <div class="col-xs-12 col-sm-12">
-        <div class="row">
-            <h1 class="col-xs-12 col-sm-12 title-card"><?php
-                echo Seo::widget([ 'row' => Seo::H1 ]);
-                ?></h1>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 page-view">
-                <?php
-                echo $model->lang->body;
-                ?>
-            </div>
+<div class="col-xs-12 col-sm-12">
+    <div class="row">
+        <h1 class="col-xs-12 col-sm-12 title-card"><?php
+            echo Seo::widget([ 'row' => Seo::H1 ]);
+            ?></h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 page-view">
+            <?php
+            echo $model->lang->body;
+            ?>
         </div>
     </div>
-
 </div>
