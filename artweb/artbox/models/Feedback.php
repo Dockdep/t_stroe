@@ -28,6 +28,27 @@
             return 'feedback';
         }
 
+        /**
+         * @inheritdoc
+         */
+        public function behaviors()
+        {
+            return [
+                [
+                    'class'              => TimestampBehavior::className(),
+                    'updatedAtAttribute' => false,
+                ],
+                [
+                    'class'      => AttributeBehavior::className(),
+                    'attributes' => [
+                        ActiveRecord::EVENT_BEFORE_INSERT => 'ip',
+                    ],
+                    'value'      => function ($event) {
+                        return \Yii::$app->request->userIP;
+                    },
+                ],
+            ];
+        }
         
         /**
          * @inheritdoc
