@@ -400,12 +400,9 @@ $PriceData = $product->discountPrice($discountCategory);
         </div>
 
         <div class="row">
-            <div id="disqus_thread"></div>
-            <script>
-
-
-            </script>
-
+            <div class="col-xs-12 col-sm-12">
+                <div id="disqus_thread"></div>
+            </div>
 
         </div>
         <?php
