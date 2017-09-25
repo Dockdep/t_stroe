@@ -70,13 +70,19 @@ $PriceData = $model->discountPrice($discountCategory);
             </div>
             <!--если есть новая цена добавить для (.cat-price-more) класс cat_new_price-->
             <div class="cat-price-more cat_new_price">
+                <?php
+                if($PriceData['price']>0){?>
 
-                <?php if($PriceData['discount'] > 0){?>
-                    <div class="cat_old_price"><?= round($model->enabledVariants[0]->price) ?><span class="currency"> грн.</span></div>
+                    <?php if($PriceData['discount'] > 0){?>
+                        <div class="cat_old_price"><?= round($model->enabledVariants[0]->price) ?><span class="currency"> грн.</span></div>
+                    <?php } ?>
+                    <div class="cat_price"> <?=  //$model->enabledVariants[0]->price
+                        round($PriceData['price'], 2)
+                        ?><span class="currency"> грн.</span></div>
+                <?php    } else {?>
+                    цену и наличие уточняйте у менеджера
                 <?php } ?>
-                <div class="cat_price"> <?=  //$model->enabledVariants[0]->price
-                    round($PriceData['price'], 2)
-                    ?><span class="currency"> грн.</span></div>
+
                 <div class="btn_buy_basket-fix">
                     <?php
                     echo Html::a(

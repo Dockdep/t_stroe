@@ -134,13 +134,17 @@ $PriceData = $product->discountPrice($discountCategory);
                     <div class="card-quantity">(<?= $product->enabledVariant->quantity ?> <span>шт.)</span></div>
 
                     <div class="cat-price-more cat_new_price item_price">
-
-                        <?php if ($PriceData['discount'] > 0) { ?>
-                            <div class="cat_old_price"><?= round($product->enabledVariant->price, 2) ?><span
-                                    class="currency"> грн.</span></div>
+                        <?php
+                            if($PriceData['price']>0){?>
+                                <?php if ($PriceData['discount'] > 0) { ?>
+                                    <div class="cat_old_price"><?= round($product->enabledVariant->price, 2) ?><span
+                                                class="currency"> грн.</span></div>
+                                <?php } ?>
+                                <div class="cat_price item_price"><?= round($PriceData['price'], 2) ?><span
+                                            class="currency"> грн.</span></div>
+                        <?php    } else {?>
+                                цену и наличие уточняйте у менеджера
                         <?php } ?>
-                        <div class="cat_price item_price"><?= round($PriceData['price'], 2) ?><span
-                                class="currency"> грн.</span></div>
                     </div>
 
                     <div class="style card-buy-wrapper">
@@ -154,7 +158,13 @@ $PriceData = $product->discountPrice($discountCategory);
 
                         <!---если овара нет в наличии добавлять для card-btn-buy класс "disabled"-->
                         <div class="card-btn-buy">
-                            <a class="modal-link item_add btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
+                            <?php
+                            if($PriceData['price']>0){?>
+                                <a class="modal-link item_add btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
+                            <?php    } else {?>
+                                <a class="modal-link"  href="javascript:;"><span>Купить</span></a>
+                            <?php } ?>
+
                         </div>
 
                     </div>
