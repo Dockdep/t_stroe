@@ -24,14 +24,12 @@
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 title_card">
-            <h1><?php
-                    echo Seo::widget([ 'row' => Seo::H1 ]);
-                ?></h1>
-        </div>
+        <h1 class="col-xs-12 col-sm-12 title-card"><?php
+            echo Seo::widget([ 'row' => Seo::H1 ]);
+            ?></h1>
     </div>
     <div class="row">
-        <div class="col-xs-12 col-sm-12 pages-content">
+        <div class="col-xs-12 col-sm-12 page-view">
             <?php
                 echo $model->lang->body;
             ?>
