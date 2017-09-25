@@ -162,7 +162,7 @@ $PriceData = $product->discountPrice($discountCategory);
                             if($PriceData['price']>0){?>
                                 <a class="modal-link item_add btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
                             <?php    } else {?>
-                                <a class="modal-link"  href="javascript:;"><span>Купить</span></a>
+                                <a  href="javascript:;"><span>Купить</span></a>
                             <?php } ?>
 
                         </div>
