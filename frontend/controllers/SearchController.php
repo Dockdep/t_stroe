@@ -26,6 +26,7 @@
                     if(count($data) == 2){
                         die('here');
                     }
+                    die(count($data));
                     break;
                 case 1:
                     $data = Product::find()
