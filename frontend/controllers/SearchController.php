@@ -23,8 +23,9 @@
             switch ($action){
                 case 0:
                     $data = $this->findBySku($word);
-                    print_r($data[0]);
-                    print_r($data[1]);
+                    var_dump($data[0]);
+                    var_dump($data[1]);
+                    var_dump($data);
                     die();
                     break;
                 case 1:
