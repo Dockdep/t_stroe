@@ -126,10 +126,19 @@ $PriceData = $product->discountPrice($discountCategory);
                     </div>
 
                     <!--если овара нет в наличии для card-in-stock добавить класс "no-stock"-->
-                    <div class="style card-in-stock">
-                        <!--нет в наличии-->
-                        <span>есть в наличии</span>
-                    </div>
+                    <?php
+                    if($PriceData['price']>0){?>
+                        <div class="style card-in-stock">
+                            <!--нет в наличии-->
+                            <span>есть в наличии</span>
+                        </div>
+                    <?php    } else {?>
+                        <div class="style card-in-stock no-stock">
+                            <!--нет в наличии-->
+                            <span>цену и наличие уточняйте у менеджера</span>
+                        </div>
+
+                    <?php } ?>
 
                     <div class="card-quantity">(<?= $product->enabledVariant->quantity ?> <span>шт.)</span></div>
 
@@ -149,11 +158,13 @@ $PriceData = $product->discountPrice($discountCategory);
 
                     <div class="style card-buy-wrapper">
                         <!--если овара нет в наличии не выводить-->
+                        <?php if($PriceData['price']>0){?>
                         <div class="card-num-wr">
                             <i class="min"></i>
                             <input type="text" value="1" max="999" class="item_Quantity">
                             <i class="pluse"></i>
                         </div>
+                        <?php} ?>
                         <!----------------------------------------->
 
                         <!---если овара нет в наличии добавлять для card-btn-buy класс "disabled"-->
@@ -162,7 +173,7 @@ $PriceData = $product->discountPrice($discountCategory);
                             if($PriceData['price']>0){?>
                                 <a class="modal-link item_add btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
                             <?php    } else {?>
-                                <a  href="javascript:;"><span>Купить</span></a>
+                                <a  class="modal-link item_add btn_buy_cat disabled" href="javascript:;"><span>Купить</span></a>
                             <?php } ?>
 
                         </div>

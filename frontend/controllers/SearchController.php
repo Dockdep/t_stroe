@@ -78,7 +78,7 @@
             curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
             $out = curl_exec($curl);
             curl_close($curl);
-            return $out;
+            return json_decode($out,JSON_UNESCAPED_UNICODE);
         }
 
     }
