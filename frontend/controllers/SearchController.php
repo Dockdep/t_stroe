@@ -23,9 +23,6 @@
             switch ($action){
                 case 0:
                     $data = $this->findBySku($word);
-                    if(count($data) == 2){
-                        die('here');
-                    }
                     print_r($data[0]);
                     print_r($data[1]);
                     die();
