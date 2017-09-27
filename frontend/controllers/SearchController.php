@@ -26,7 +26,7 @@
                     if(count($data) == 2){
                         die('here');
                     }
-                    var_dump(count($data));
+                    print_r($data);
                     die();
                     break;
                 case 1:
