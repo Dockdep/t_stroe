@@ -22,7 +22,7 @@
             $data=[];
             switch ($action){
                 case 0:
-                    print_r("по номеру товара");
+                    $this->findBySku($word);
                     break;
                 case 1:
                     $data = Product::find()
@@ -66,6 +66,16 @@
 
                 'pages' => $pages
             ]);
+        }
+
+        function findBySku($word){
+
+            $curl = curl_init('http://91.203.25.219:8083/truckpost/hs/InSearchCode?sku=05975');
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
+            $out = curl_exec($curl);
+            curl_close($curl);
+            print_r($out);
+            die();
         }
 
     }
