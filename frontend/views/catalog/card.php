@@ -168,15 +168,20 @@ $PriceData = $product->discountPrice($discountCategory);
                         <!----------------------------------------->
 
                         <!---если овара нет в наличии добавлять для card-btn-buy класс "disabled"-->
-                        <div class="card-btn-buy">
+
                             <?php
                             if($PriceData['price']>0){?>
-                                <a class="modal-link item_add btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
+                                <div class="card-btn-buy">
+                                    <a class="modal-link item_add btn_buy_cat" data-variant="<?= $product->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
+                                </div>
+
                             <?php    } else {?>
-                                <a  class="modal-link item_add btn_buy_cat disabled" href="javascript:;"><span>Купить</span></a>
+                                <div class="card-btn-buy disabled">
+                                    <a  class="modal-link item_add btn_buy_cat" href="javascript:;"><span>Купить</span></a>
+                                </div>
                             <?php } ?>
 
-                        </div>
+
 
                     </div>
 
