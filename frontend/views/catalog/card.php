@@ -164,7 +164,7 @@ $PriceData = $product->discountPrice($discountCategory);
                             <input type="text" value="1" max="999" class="item_Quantity">
                             <i class="pluse"></i>
                         </div>
-                        <?php} ?>
+                        <?php }  ?>
                         <!----------------------------------------->
 
                         <!---если овара нет в наличии добавлять для card-btn-buy класс "disabled"-->
