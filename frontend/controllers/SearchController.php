@@ -22,7 +22,10 @@
             $data=[];
             switch ($action){
                 case 0:
-                    $this->findBySku($word);
+                    $data = $this->findBySku($word);
+                    if(count($data) == 2){
+                        die('here');
+                    }
                     break;
                 case 1:
                     $data = Product::find()
@@ -74,8 +77,7 @@
             curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
             $out = curl_exec($curl);
             curl_close($curl);
-            print_r($out);
-            die();
+            return json_encode($out,JSON_UNESCAPED_UNICODE);
         }
 
     }
