@@ -76,19 +76,9 @@
 
             $url = 'http://91.203.25.219:8083/truckpost/hs/InSearchCode?sku=05975';
 
-            $ch = curl_init();
+            $result = file_get_contents($url);
 
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-            curl_setopt($ch, CURLOPT_URL,$url);
-
-            $result=curl_exec($ch);
-
-            curl_close($ch);
-
-            var_dump(json_decode($result, true));
+            $result = var_dump(json_decode($result, true));
 
             return $result;
         }
