@@ -78,6 +78,8 @@
             curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
             $out = curl_exec($curl);
             curl_close($curl);
+            print_r($out);
+            print_r(json_decode($out));
             return json_decode($out);
         }
 
