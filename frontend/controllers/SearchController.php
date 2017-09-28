@@ -81,9 +81,9 @@
 
             $result = json_decode(curl_exec($curl),JSON_UNESCAPED_UNICODE);
 
-            $out = json_decode($result);
-            var_dump($out);
-            return $out;
+
+            var_dump($result);
+            return $result;
         }
 
     }
