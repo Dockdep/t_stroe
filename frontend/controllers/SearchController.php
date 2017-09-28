@@ -75,11 +75,13 @@
         function findBySku($word){
 
             $curl = curl_init('http://91.203.25.219:8083/truckpost/hs/InSearchCode?sku=05975');
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
-            $out = curl_exec($curl);
-            curl_close($curl);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+                    'Content-Type: application/json'));
 
-            $out = json_decode($out);
+            $result = json_decode(curl_exec($curl),JSON_UNESCAPED_UNICODE);
+
+            $out = json_decode($result);
             var_dump($out);
             return $out;
         }
