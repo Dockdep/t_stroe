@@ -78,6 +78,7 @@
 
             $result = file_get_contents($url);
 
+            $result = json_decode($result, true);
 
             return $result;
         }
