@@ -80,7 +80,7 @@
             curl_close($curl);
 
             $out = json_decode($out);
-            print_r($out);
+            var_dump($out);
             return $out;
         }
 
