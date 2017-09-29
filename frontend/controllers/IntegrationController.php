@@ -264,10 +264,37 @@ class IntegrationController extends Controller{
         }
     }
 
+
+    public  function actionImportCategory(){
+        try{
+            if($data = \Yii::$app->request->post("data")){
+                //$data = $this->getItemData();
+                $data = json_decode($data);
+                if(is_array($data)){
+                    $this->SaveCategories($data);
+                } else {
+                    throw new Exception("Данные о категориях ожидаются в виде массива.");
+                }
+                die(\GuzzleHttp\json_encode($this->result));
+            }else {
+                throw new Exception("Отсутствует data");
+            }
+
+
+        } catch (Exception $e) {
+            echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
+        }
+    }
+
     public function ImportProduct($item){
-        if(isset($item->category)){
-            $item->category_id = $this->SaveCategories($item->category);
-            unset($item->category);
+        if(isset($item->category_id)){
+             $category =  Category::find()->where(['remote_id'=>$item->category_id])->one();
+             if($category instanceof Category){
+                 $item->category_id = $category->id;
+             } else {
+                 throw new Exception("Категории {$item->category_id} указаной у товара {$item->model} не существует");
+             }
+
         } else {
             throw new Exception("У товара {$item->model} не указаны категории");
         }
