@@ -22,10 +22,10 @@
             $data=[];
             switch ($action){
                 case 0:
-                    $data = $this->findBySku($word);
-                    var_dump($data[0]);
-                    var_dump($data[1]);
-                    var_dump($data);
+//                    $data = $this->findBySku($word);
+//                    var_dump($data[0]);
+//                    var_dump($data[1]);
+//                    var_dump($data);
                     die();
                     break;
                 case 1:
@@ -74,11 +74,25 @@
 
         function findBySku($word){
 
+
             $url = 'http://91.203.25.219:8083/truckpost/hs/InSearchCode?sku=05975';
 
-            $result = file_get_contents($url);
+            $ch = curl_init();
 
-            $result = json_decode($result, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            curl_setopt($ch, CURLOPT_URL,$url);
+
+            $result=curl_exec($ch);
+
+            curl_close($ch);
+            var_dump($result);
+            print "\n 111111111 \n";
+            var_dump(json_decode($result));
+            print "\n 111111111 \n";
+            var_dump(json_decode($result, true));
 
             return $result;
         }
