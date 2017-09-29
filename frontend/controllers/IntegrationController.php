@@ -308,7 +308,6 @@ class IntegrationController extends Controller{
     }
 
     private function SaveCategories($categories){
-        $category_id = null;
         foreach ($categories as $category){
             $parent = null;
             if(!empty($category->parent_id)){
@@ -335,9 +334,10 @@ class IntegrationController extends Controller{
 
             $model->save();
             $category_id = $model->id;
+
+            $this->result[$category->category_id] = $category_id;
         }
 
-        return $category_id;
     }
 
     private function SaveBrand($brand){
