@@ -90,9 +90,9 @@
             curl_close($ch);
             var_dump($result);
             print "\n 111111111 \n";
-            var_dump(json_decode($result));
+            var_dump(\GuzzleHttp\json_decode($result));
             print "\n 111111111 \n";
-            var_dump(json_decode($result, true));
+            var_dump(\GuzzleHttp\json_decode($result, true));
         }
 
     }
