@@ -22,7 +22,7 @@
             $data=[];
             switch ($action){
                 case 0:
-//                    $data = $this->findBySku($word);
+                      $this->findBySku($word);
 //                    var_dump($data[0]);
 //                    var_dump($data[1]);
 //                    var_dump($data);
@@ -93,8 +93,6 @@
             var_dump(json_decode($result));
             print "\n 111111111 \n";
             var_dump(json_decode($result, true));
-
-            return $result;
         }
 
     }
