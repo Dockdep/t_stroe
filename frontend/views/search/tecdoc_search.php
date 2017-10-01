@@ -93,62 +93,13 @@ use yii\widgets\ListView;
                         <a href="#" class="modal-link analog_call" data-form="analog-callback"><span>узнать подробней</span></a>
                     </td>
                 </tr>
-
-                <tr>
-                    <td class="img-analogs">
-                        <!--100x100-->
-                        <!--если нет картинки выводить <img src="/images/no-img-80.png" alt="">-->
-                        <img class="gallery-analog" src="/images/img/analog-min-1.png" alt="">
-                    </td>
-                    <td class="title-analog-td">
-                        <p>Аварійне з'єднання тройник пласт.SP10101012</p>
-                        <span>Код: 12345678910</span>
-                    </td>
-                    <td>10 шт.</td>
-                    <td class="analog-price-td">2000 грн.</td>
-                </tr>
-
-                <tr>
-                    <td class="img-analogs">
-                        <!--100x100-->
-                        <!--если нет картинки выводить <img src="/images/no-img-80.png" alt="">-->
-                        <img class="gallery-analog" src="/images/img/analog-min-1.png" alt="">
-                    </td>
-                    <td class="title-analog-td">
-                        <p>Аварійне з'єднання тройник пласт.SP10101012</p>
-                        <span>Код: 12345678910</span>
-                    </td>
-                    <td>10 шт.</td>
-                    <td class="analog-price-td">2000 грн.</td>
-                </tr>
-
-                <tr>
-                    <td class="img-analogs">
-                        <!--100x100-->
-                        <!--если нет картинки выводить <img src="/images/no-img-80.png" alt="">-->
-                        <img class="gallery-analog" src="/images/img/analog-min-1.png" alt="">
-                    </td>
-                    <td class="title-analog-td">
-                        <p>Аварійне з'єднання тройник пласт.SP10101012</p>
-                        <span>Код: 12345678910</span>
-                    </td>
-                    <td>10 шт.</td>
-                    <td class="analog-price-td">2000 грн.</td>
-                </tr>
-
-                <tr>
-                    <td class="img-analogs">
-                        <!--100x100-->
-                        <!--если нет картинки выводить <img src="/images/no-img-80.png" alt="">-->
-                        <img class="gallery-analog" src="/images/img/analog-min-1.png" alt="">
-                    </td>
-                    <td class="title-analog-td">
-                        <p>Аварійне з'єднання тройник пласт.SP10101012</p>
-                        <span>Код: 12345678910</span>
-                    </td>
-                    <td>10 шт.</td>
-                    <td class="analog-price-td">2000 грн.</td>
-                </tr>
+                <?= ListView::widget(
+                    [
+                        'dataProvider' => $basesProvider,
+                        'layout'       => "{items}",
+                        'itemView'     => '../search/tecdoc_product_item',
+                    ]
+                ) ?>
 
                 <tr>
                     <td></td>
