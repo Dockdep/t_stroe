@@ -22,11 +22,34 @@
             $data=[];
             switch ($action){
                 case 0:
-                      $this->findBySku($word);
-//                    var_dump($data[0]);
-//                    var_dump($data[1]);
-//                    var_dump($data);
-                    die();
+                    $bases = [];
+                    $tecdoc = [];
+                    $analogs = $this->findBySku($word);
+
+                    $data = Product::find()
+                        ->joinWith(['lang','variants','variants.lang'])
+                        ->where(['product.status'=>0,'variants.sku' => $word]);
+                    if(isset($analogs->bases)){
+
+                    }
+                    if(isset($analogs->tecdoc)){
+
+                    }
+                    $siteProvider =  new ActiveDataProvider([
+                        'query' => $data,
+                    ]);
+
+                    $basesProvider = new ArrayDataProvider([
+                        'allModels' => $bases,
+                    ]);
+                    $tecdocProvider = new ArrayDataProvider([
+                        'allModels' => $tecdoc,
+                    ]);
+                    return $this->render('search', [
+                        'siteProvider' => $siteProvider,
+                        'basesProvider' => $basesProvider,
+                        'tecdocProvider' => $tecdocProvider
+                    ]);
                     break;
                 case 1:
                     $data = Product::find()
@@ -86,9 +109,8 @@
             if (0 === strpos(bin2hex($checkLogin), 'efbbbf')) {
                 $checkLogin = substr($checkLogin, 3);
             }
-            print_r($checkLogin);
-            $checkLogin = json_decode( $checkLogin );
-           // print_r($checkLogin);
+
+            return json_decode( $checkLogin );
         }
 
     }
