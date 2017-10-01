@@ -28,7 +28,7 @@
 
                     $data = Product::find()
                         ->joinWith(['lang','variants','variants.lang'])
-                        ->where(['product.status'=>0,'variants.sku' => $word]);
+                        ->where(['product.status'=>0,'product_variant.sku' => $word]);
                     if(isset($analogs->bases)){
 
                     }
