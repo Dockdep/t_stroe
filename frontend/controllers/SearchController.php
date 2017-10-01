@@ -78,22 +78,17 @@
             $url = 'http://91.203.25.219:8083/truckpost/hs/InSearchCode?sku=05975';
 
             $checkLogin = file_get_contents($url);
-// This will remove unwanted characters.
-// Check http://www.php.net/chr for details
+
             for ($i = 0; $i <= 31; ++$i) {
                 $checkLogin = str_replace(chr($i), "", $checkLogin);
             }
             $checkLogin = str_replace(chr(127), "", $checkLogin);
-
-// This is the most common part
-// Some file begins with 'efbbbf' to mark the beginning of the file. (binary level)
-// here we detect it and we remove it, basically it's the first 3 characters
             if (0 === strpos(bin2hex($checkLogin), 'efbbbf')) {
                 $checkLogin = substr($checkLogin, 3);
             }
-
-            $checkLogin = json_decode( $checkLogin );
             print_r($checkLogin);
+            $checkLogin = json_decode( $checkLogin );
+           // print_r($checkLogin);
         }
 
     }
