@@ -30,10 +30,10 @@
                         ->joinWith(['lang','variants','variants.lang'])
                         ->where(['product.status'=>0,'product_variant.sku' => $word]);
                     if(isset($analogs->bases)){
-
+                        $bases = $analogs->bases;
                     }
                     if(isset($analogs->tecdoc)){
-
+                        $tecdoc = $analogs->tecdoc;
                     }
                     $siteProvider =  new ActiveDataProvider([
                         'query' => $data,
