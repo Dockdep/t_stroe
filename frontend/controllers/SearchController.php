@@ -48,7 +48,7 @@
                     $tecdocProvider = new ArrayDataProvider([
                         'allModels' => $tecdoc,
                     ]);
-                    die('here');
+
                     return $this->render('tecdoc_search', [
                         'siteProvider' => $siteProvider,
                         'basesProvider' => $basesProvider,
