@@ -46,8 +46,10 @@ var ArtboxBasket = (function () {
             console.error('Basket cannot be init');
         });
     };
-    ArtboxBasket.prototype.add = function (product_variant_id, count) {
-        $.post('/' + this.language + '/basket/add?product_variant_id=' + product_variant_id + '&count=' + count, function (data) {
+    ArtboxBasket.prototype.add = function (product_variant_id, count, data) {
+        if (data === void 0) { data = []; }
+        var additionalData = JSON.stringify(data);
+        $.post('/' + this.language + '/basket/add?product_variant_id=' + product_variant_id + '&count=' + count, { additionalData: additionalData }, function (data) {
             this._items = data.basket;
             this.updateModal(data.modal, data.cart, true);
         }.bind(this), 'json').fail(function (xhr, status, error) {
@@ -190,6 +192,8 @@ $(document)
     .on('keypress', '.quantity-wr input', setControl);
 $(document)
     .on('click', 'a.btn_buy_cat', addBasket);
+$(document)
+    .on('click', 'a.btn_buy_analog_cat', addAnalogToBasket);
 //
 // // Delivery to payment custom manipulation
 // $(document)
@@ -358,5 +362,21 @@ function addBasket(e) {
         count = $item_Quantity.val();
     }
     basket.add(variant, count);
+    showBasket();
+}
+function addAnalogToBasket(e) {
+    e.preventDefault();
+    var count = 1;
+    var variant = $(this)
+        .data('variant');
+    var KOD_TOVARA = $(this)
+        .data('KOD_TOVARA');
+    var priceId = $(this)
+        .data('priceId');
+    var $item_Quantity = $('.card-num-wr input');
+    if ($item_Quantity.val() > 0) {
+        count = $item_Quantity.val();
+    }
+    basket.add(variant, count, [KOD_TOVARA, priceId]);
     showBasket();
 }
