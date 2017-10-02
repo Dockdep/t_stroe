@@ -25,10 +25,12 @@
                     $bases = [];
                     $tecdoc = [];
                     $analogs = $this->findBySku($word);
+                    if($word){
+                        $data = Product::find()
+                            ->joinWith(['lang','variants','variants.lang'])
+                            ->where(['product.status'=>0,'product_variant.sku' => $word]);
+                    }
 
-                    $data = Product::find()
-                        ->joinWith(['lang','variants','variants.lang'])
-                        ->where(['product.status'=>0,'product_variant.sku' => $word]);
                     if(isset($analogs->bases)){
                         $bases = $analogs->bases;
                     }
