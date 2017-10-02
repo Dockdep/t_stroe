@@ -354,10 +354,8 @@ function addBasket(e) {
     var variant = $(this)
         .data('variant');
     var $item_Quantity = $('.card-num-wr input');
-    if ($item_Quantity !== null) {
-        count = $item_Quantity.val();
-    }
-    if ($item_Quantity.val() !== undefined) {
+
+    if ($item_Quantity.val() > 0) {
         count = $item_Quantity.val();
     }
     basket.add(variant, count);
