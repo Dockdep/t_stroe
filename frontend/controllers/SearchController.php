@@ -100,7 +100,7 @@
         function findBySku($word){
 
 
-            $url = 'http://91.203.25.219:8083/truckpost/hs/InSearchCode?sku=05975';
+            $url = "http://91.203.25.219:8083/truckpost/hs/InSearchCode?sku=$word";
 
             $checkLogin = file_get_contents($url);
 
