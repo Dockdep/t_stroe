@@ -41,8 +41,8 @@
                     if(isset($analogs->tecdoc)){
                         $tecdoc = $analogs->tecdoc;
                     }
-                    $siteProvider =  new ArrayDataProvider([
-                        'allModels' => $data,
+                    $siteProvider =  new ActiveDataProvider([
+                        'query' => $data,
                     ]);
 
                     $basesProvider = new ArrayDataProvider([
