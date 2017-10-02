@@ -26,9 +26,9 @@
                     $tecdoc = [];
                     $analogs = $this->findBySku($word);
                     if($word){
-                        $data = Product::find()
+                        $data = ArrayHelper::toArray(Product::find()
                             ->joinWith(['lang','variants','variants.lang'])
-                            ->where(['product.status'=>0,'product_variant.sku' => $word]);
+                            ->where(['product.status'=>0,'product_variant.sku' => $word])->all());
                     }
 
                     if(isset($analogs->bases)){
@@ -37,8 +37,8 @@
                     if(isset($analogs->tecdoc)){
                         $tecdoc = $analogs->tecdoc;
                     }
-                    $siteProvider =  new ActiveDataProvider([
-                        'query' => $data,
+                    $siteProvider =  new ArrayDataProvider([
+                        'allModels' => $data,
                     ]);
 
                     $basesProvider = new ArrayDataProvider([
