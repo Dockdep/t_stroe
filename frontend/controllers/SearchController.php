@@ -20,15 +20,16 @@
         public function actionMain($word,$action)
         {
             $data=[];
+            $word = null;
             switch ($action){
                 case 0:
                     $bases = [];
                     $tecdoc = [];
                     $analogs = $this->findBySku($word);
                     if($word){
-                        $data = ArrayHelper::toArray(Product::find()
+                        $data = Product::find()
                             ->joinWith(['lang','variants','variants.lang'])
-                            ->where(['product.status'=>0,'product_variant.sku' => $word])->all());
+                            ->where(['product.status'=>0,'product_variant.sku' => $word]);
                     }
 
                     if(isset($analogs->bases)){
