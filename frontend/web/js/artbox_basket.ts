@@ -391,6 +391,7 @@ function addAnalogToBasket(e){
     if( $item_Quantity.val() > 0){
         count = $item_Quantity.val();
     }
+    console.log([KOD_TOVARA,priceId]);
     basket.add(variant, count, [KOD_TOVARA,priceId]);
     showBasket();
 }
