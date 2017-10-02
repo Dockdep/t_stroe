@@ -75,7 +75,30 @@
             }
             $this->setData($data);
         }
-        
+
+        public function addAnalogs($additionalData)
+        {
+            $data = $this->getData();
+            $count = 1;
+            $product_variant_id = isset($additionalData[0])?$additionalData[0]:$additionalData[1];
+            if (array_key_exists($product_variant_id, $data)) {
+                if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
+                    $data['analogs'][ $product_variant_id ][ 'count' ] = $count;
+                } else {
+                    $data['analogs'][ $product_variant_id ][ 'count' ] += $count;
+                }
+            } else {
+                if ($this->findModel($product_variant_id)) {
+                    $data['analogs'][ $product_variant_id ] = [
+                        'count' => $count,
+                    ];
+                }
+            }
+            if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
+                unset( $data['analogs'][ $product_variant_id ] );
+            }
+            $this->setData($data);
+        }
         /**
          * Set product variant with $product_variant_id to $count
          *
