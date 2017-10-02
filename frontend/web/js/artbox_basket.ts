@@ -381,17 +381,17 @@ function addAnalogToBasket(e){
 
     var variant = $(this)
         .data('variant');
-    var KOD_TOVARA = $(this)
-        .data('KOD_TOVARA');
-    var priceId = $(this)
-        .data('priceId');
+    var productcode = $(this)
+        .data('productcode');
+    var priceid = $(this)
+        .data('priceid');
     var $item_Quantity = $('.card-num-wr input');
 
 
     if( $item_Quantity.val() > 0){
         count = $item_Quantity.val();
     }
-    console.log([KOD_TOVARA,priceId]);
-    basket.add(variant, count, [KOD_TOVARA,priceId]);
+    console.log([productcode,priceid]);
+    basket.add(variant, count, [productcode,priceid]);
     showBasket();
 }
