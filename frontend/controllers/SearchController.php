@@ -20,7 +20,6 @@
         public function actionMain($word,$action)
         {
             $data=[];
-            $word = null;
             switch ($action){
                 case 0:
                     $bases = [];
@@ -30,6 +29,10 @@
                         $data = Product::find()
                             ->joinWith(['lang','variants','variants.lang'])
                             ->where(['product.status'=>0,'product_variant.sku' => $word]);
+                    } else {
+                        $data = Product::find()
+                            ->joinWith(['lang','variants','variants.lang'])
+                            ->where(['product.status'=>0,'product_variant.sku' => null]);
                     }
 
                     if(isset($analogs->bases)){
