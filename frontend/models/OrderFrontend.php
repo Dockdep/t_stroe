@@ -295,8 +295,8 @@
             $array['items'] = ArrayHelper::toArray($data->products);
             $array['analogs'] = $analogs;
             $order = json_encode($array,JSON_UNESCAPED_UNICODE);
-
-
+            print_r($order);
+            die();
             $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/InOrders');
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             curl_setopt($ch, CURLOPT_POSTFIELDS, $order);
