@@ -48,6 +48,8 @@
 
                 $basket->add($product_variant_id, $count);
             }
+            print_r("here");
+            die();
             $result = [
                 'basket' => $basket->getData(),
                 'modal'  => $this->getModal($basket),
