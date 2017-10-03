@@ -42,8 +42,7 @@
             $basket = \Yii::$app->basket;
 
 
-            if(!empty($additionalData)){
-                die('here');
+            if(!empty($additionalData) && isset($additionalData[0]) && isset($additionalData[1])){
                 $basket->addAnalogs($additionalData);
             } else {
 
