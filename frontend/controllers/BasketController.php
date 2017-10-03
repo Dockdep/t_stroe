@@ -62,7 +62,6 @@
         
         public function actionSet(string $product_variant_id, int $count)
         {
-            print_r($product_variant_id);
             $response = \Yii::$app->response;
             $response->format = Response::FORMAT_JSON;
             /**
@@ -79,7 +78,6 @@
         }
         
         public function actionRemove(string $product_variant_id) {
-            print_r($product_variant_id);
             return $this->actionSet($product_variant_id, 0);
         }
         
