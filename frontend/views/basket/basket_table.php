@@ -11,6 +11,8 @@
     use yii\helpers\ArrayHelper;
     use yii\helpers\Html;
     use yii\web\View;
+    print_r($data);
+    die();
     if(isset($data['analogs'])){
         $analogs = $data['analogs'];
         unset($data['analogs']);
