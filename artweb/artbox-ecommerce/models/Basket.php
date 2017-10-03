@@ -105,9 +105,9 @@
             $data = $this->getData();
             if(isset($data['analogs'])){
                 if (array_key_exists($product_variant_id, $data['analogs'])) {
-                    $data[ $product_variant_id ][ 'count' ] = $count;
-                    if ($data[ $product_variant_id ][ 'count' ] <= 0) {
-                        unset( $data[ $product_variant_id ] );
+                    $data['analogs'][ $product_variant_id ][ 'count' ] = $count;
+                    if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
+                        unset( $data['analogs'][ $product_variant_id ] );
                     }
                 }
             }
