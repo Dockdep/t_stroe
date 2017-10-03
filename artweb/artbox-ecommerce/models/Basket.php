@@ -80,7 +80,9 @@
         {
             $data = $this->getData();
             $count = 1;
-            $product_variant_id = isset($additionalData[0])?$additionalData[0]:$additionalData[1];
+            $product_variant_id = isset($additionalData[1]) && !empty($additionalData[1]) ? $additionalData[1]:$additionalData[0];
+            $name =isset($additionalData[2]) && !empty($additionalData[2]) ? $additionalData[2]:$additionalData[2];
+            $data['analogs'][ $product_variant_id ][ 'name' ] = $name;
             if (array_key_exists($product_variant_id, $data)) {
                 if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
                     $data['analogs'][ $product_variant_id ][ 'count' ] = $count;

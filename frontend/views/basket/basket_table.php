@@ -119,6 +119,43 @@
         }
     ?>
 </table>
+<?php if( isset($data['analogs'])){?>
+    <h2>Товары на уточнение</h2>
+    <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td><?= \Yii::t('app', 'photo') ?></td>
+            <td><?= \Yii::t('app', 'item') ?></td>
+            <td><?= \Yii::t('app', 'price_one') ?></td>
+            <td><?= \Yii::t('app', 'delete') ?></td>
+        </tr>
+        <?php
+        foreach ($data['analogs'] as $itemId => $itemData) {
+            ?>
+            <tr class="variant_tr" data-variant="<?= $itemId ?>">
+                <td>
+                    <img src="/images/no-img-80.png" alt="">
+                </td>
+                <td>
+                    <span class="size"><?= isset($itemData['name']) ? $itemData['name']: $itemData['name'] ?></span>
+                    <span class="code"><?= $itemId ?></span>
+                </td>
+                <td>
+                    <p class="price">цену и наличие уточняйте у менеджера</p>
+                </td>
+                <td>
+                    <span class="remove_ico"></span>
+                    <div class="remove_confirm">
+                        <a class="remove-yes" href="#"><?= \Yii::t('app', 'yes') ?></a>
+                        <span class="lang_sep"></span>
+                        <a class="remove-no" href="#"><?= \Yii::t('app', 'no') ?></a>
+                    </div>
+                </td>
+            </tr>
+            <?php
+        }
+        ?>
+    </table>
+<?php } ?>
 <div class="col-xs-12 col-sm-12 price-total-wr">
     <div class="row">
         <div class="hidden-xs col-sm-6"><span class="total_txt"><?= \Yii::t('app', 'total') ?></span></div>
