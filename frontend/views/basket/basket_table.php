@@ -15,7 +15,8 @@
         $analogs = $data['analogs'];
         unset($data['analogs']);
     }
-
+    print_r($data);
+    die();
 
 ?>
 <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
