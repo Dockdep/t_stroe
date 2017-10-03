@@ -55,7 +55,7 @@
                 'cart'   => $this->getCart($basket),
             ];
             print_r($result);
-            die();
+            die("here");
             return $result;
         }
         
