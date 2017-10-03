@@ -80,7 +80,7 @@
         {
             $data = $this->getData();
             $count = 1;
-            $product_variant_id = (isset($additionalData[1]) && !empty($additionalData[1])) ? $additionalData[1]:$additionalData[0];
+            $product_variant_id = (isset($additionalData[1]) && $additionalData[1] != '') ? $additionalData[1]:$additionalData[0];
             $name =isset($additionalData[2]) && !empty($additionalData[2]) ? $additionalData[2]:$additionalData[2];
 
 
