@@ -78,6 +78,8 @@
 
         public function addAnalogs($additionalData)
         {
+            $additionalData = \GuzzleHttp\json_decode($additionalData);
+            die();
             $data = $this->getData();
             $count = 1;
             $product_variant_id = (isset($additionalData[1]) && $additionalData[1] != '') ? $additionalData[1]:$additionalData[0];
