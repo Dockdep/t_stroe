@@ -127,8 +127,8 @@
             <td><?= \Yii::t('app', 'price_one') ?></td>
             <td><?= \Yii::t('app', 'delete') ?></td>
         </tr>
-        <?php
-        foreach ($data['analogs'] as $itemId => $itemData) {
+        <?php print_r($data['analogs']); die();
+        foreach  ($data['analogs'] as $itemId => $itemData) {
             ?>
             <tr class="variant_tr" data-variant="<?= $itemId ?>">
                 <td>
