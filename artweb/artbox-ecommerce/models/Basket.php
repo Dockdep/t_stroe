@@ -96,6 +96,8 @@
                     ];
 
             }
+            print_r($data);
+            die();
             if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
                 unset( $data['analogs'][ $product_variant_id ] );
             }
