@@ -26,7 +26,9 @@
             $basket = \Yii::$app->basket;
             $basket_sum = $basket->getSum();
             $data = $basket->getData();
+            $analogs = [];
             if(isset($data['analogs'])){
+                $analogs = $data['analogs'];
                 unset($data['analogs']);
             }
             $models = $basket->findModels(array_keys($data));
@@ -119,7 +121,7 @@
 //                        ]
 //                    )
 //                );
-                $order->sync();
+                $order->sync($analogs);
                 return $this->redirect([ 'site/index' ]);
             }
             return $this->render(

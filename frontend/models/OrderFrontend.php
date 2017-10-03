@@ -285,7 +285,7 @@
             return $this->hasMany(OrderProduct::className(), [ 'order_id' => 'id' ]);
         }
 
-        public function sync()
+        public function sync($analogs)
         {
             /**
              * @var $data Order
@@ -293,6 +293,7 @@
             $data = Order::find()->where(['order.id'=> $this->id])->joinWith('products')->one();
             $array = ArrayHelper::toArray($data);
             $array['items'] = ArrayHelper::toArray($data->products);
+            $array['analogs'] = $analogs;
             $order = json_encode($array,JSON_UNESCAPED_UNICODE);
 
 
