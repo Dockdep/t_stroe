@@ -124,6 +124,7 @@
                 $order->sync($analogs);
                 return $this->redirect([ 'site/index' ]);
             }
+            $data = $basket->getData();
             return $this->render(
                 'basket',
                 [
