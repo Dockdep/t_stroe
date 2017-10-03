@@ -125,8 +125,6 @@
                 return $this->redirect([ 'site/index' ]);
             }
             $orderData = $basket->getData();
-            var_dump($orderData);
-            die();
             return $this->render(
                 'basket',
                 [
