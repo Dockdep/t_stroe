@@ -88,7 +88,8 @@
 
             $data['analogs'][ $product_variant_id ][ 'count' ] = $count;
             $data['analogs'][ $product_variant_id ][ 'name' ] = $name;
-
+            $data['analogs'][ $product_variant_id ][ 'KOD_TOVARA' ] = $additionalData[0];
+            $data['analogs'][ $product_variant_id ][ 'ID_Prices' ] = $additionalData[1];
             if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
                 unset( $data['analogs'][ $product_variant_id ] );
             }
