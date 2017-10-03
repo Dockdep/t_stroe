@@ -102,10 +102,11 @@
             $output = '';
             $data = $basket->getData();
             if(isset($data['analogs'])){
+                $analogs = $data['analogs'];
                 unset($data['analogs']);
             }
             $models = $basket->findModels(array_keys($data));
-            if(!empty( $models )) {
+            if(!empty( $models ) || isset($analogs)) {
                 $output = $this->renderPartial('modal_items', [
                     'models' => $models,
                     'basket' => $basket,
