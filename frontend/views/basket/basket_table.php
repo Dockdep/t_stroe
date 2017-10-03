@@ -123,7 +123,7 @@
         }
     ?>
     <?php if( isset($analogs)){?>
-        <tr class="analogs_section">Товары на уточнение</tr>
+        <tr class="analogs_section"><td colspan="6">Товары на уточнение<td></tr>
         <?php
         foreach ($analogs as $itemId => $itemData) {
             ?>
