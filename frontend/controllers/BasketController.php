@@ -43,6 +43,7 @@
 
 
             if(!empty($additionalData)){
+                die('here');
                 $basket->addAnalogs($additionalData);
             } else {
 
