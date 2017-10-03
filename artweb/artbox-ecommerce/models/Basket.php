@@ -97,10 +97,10 @@
         /**
          * Set product variant with $product_variant_id to $count
          *
-         * @param int $product_variant_id
+         * @param string $product_variant_id
          * @param int $count
          */
-        public function set(int $product_variant_id, int $count)
+        public function set(string $product_variant_id, int $count)
         {
             $data = $this->getData();
 
