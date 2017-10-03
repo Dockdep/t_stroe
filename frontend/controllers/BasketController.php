@@ -31,7 +31,7 @@
             return $result;
         }
         
-        public function actionAdd(int $product_variant_id, int $count)
+        public function actionAdd(string $product_variant_id, int $count)
         {
             $additionalData = \Yii::$app->request->post("additionalData");
             $response = \Yii::$app->response;
