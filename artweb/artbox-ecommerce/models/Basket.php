@@ -112,10 +112,7 @@
                     }
                 }
             }
-            var_dump(array_key_exists($product_variant_id, $data['analogs']));
-            var_dump($data['analogs'][ $product_variant_id ]);
-            var_dump($count);
-            print_r($data['analogs']);
+
             if (array_key_exists($product_variant_id, $data)) {
                 $data[ $product_variant_id ][ 'count' ] = $count;
                 if ($data[ $product_variant_id ][ 'count' ] <= 0) {
