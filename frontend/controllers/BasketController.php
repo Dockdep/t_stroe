@@ -34,17 +34,19 @@
         public function actionAdd(int $product_variant_id, int $count)
         {
             $additionalData = \Yii::$app->request->post("additionalData");
-
-
-            $response = \Yii::$app->response;
-            $response->format = Response::FORMAT_JSON;
             /**
              * @var Basket $basket
              */
             $basket = \Yii::$app->basket;
-            $basket->add($product_variant_id, $count);
+
+
             if(!empty($additionalData)){
                 $basket->addAnalogs($additionalData);
+            } else {
+                $response = \Yii::$app->response;
+                $response->format = Response::FORMAT_JSON;
+
+                $basket->add($product_variant_id, $count);
             }
             $result = [
                 'basket' => $basket->getData(),
