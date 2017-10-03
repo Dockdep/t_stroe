@@ -26,6 +26,9 @@
             $basket = \Yii::$app->basket;
             $basket_sum = $basket->getSum();
             $data = $basket->getData();
+            if(isset($data['analogs'])){
+                unset($data['analogs']);
+            }
             $models = $basket->findModels(array_keys($data));
             $order = new OrderFrontend(
                 [
