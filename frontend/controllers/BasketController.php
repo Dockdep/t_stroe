@@ -93,7 +93,9 @@
          */
         public function getModal($basket): string
         {
-
+            if(isset($basket['analogs'])){
+                unset($basket['analogs']);
+            }
             \Yii::$app->getAssetManager()->bundles['yii\web\JqueryAsset']['js'] =[];
             $output = '';
             $data = $basket->getData();
