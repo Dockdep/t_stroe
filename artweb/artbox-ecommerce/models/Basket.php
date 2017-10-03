@@ -198,6 +198,9 @@
         public function getCount(): int
         {
             $data = $this->getData();
+            if(isset($data['analogs'])){
+                unset($data['analogs']);
+            }
             return count($data);
         }
         
