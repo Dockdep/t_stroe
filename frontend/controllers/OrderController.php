@@ -124,12 +124,12 @@
                 $order->sync($analogs);
                 return $this->redirect([ 'site/index' ]);
             }
-            $data = $basket->getData();
+            $orderData = $basket->getData();
             return $this->render(
                 'basket',
                 [
                     'basket'     => $basket,
-                    'data'       => $data,
+                    'data'       => $orderData,
                     'models'     => $models,
                     'order'      => $order
                 ]
