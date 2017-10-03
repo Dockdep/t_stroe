@@ -124,6 +124,7 @@
     ?>
 </table>
 <?php if( isset($analogs)){?>
+    <?php print_r($analogs); die('here'); ?>
     <h2>Товары на уточнение</h2>
     <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
         <tr>
