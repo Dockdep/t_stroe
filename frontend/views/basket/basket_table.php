@@ -11,6 +11,12 @@
     use yii\helpers\ArrayHelper;
     use yii\helpers\Html;
     use yii\web\View;
+    if(isset($data['analogs'])){
+        $analogs = $data['analogs'];
+        unset($data['analogs']);
+    }
+
+
 ?>
 <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
     <tr>
@@ -118,7 +124,7 @@
         }
     ?>
 </table>
-<?php if( isset($data['analogs'])){?>
+<?php if( isset($analogs)){?>
     <h2>Товары на уточнение</h2>
     <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
         <tr>
@@ -128,7 +134,7 @@
             <td><?= \Yii::t('app', 'delete') ?></td>
         </tr>
         <?php
-        foreach  ($data['analogs'] as $itemId => $itemData) {
+        foreach ($analogs as $itemId => $itemData) {
             ?>
             <tr class="variant_tr" data-variant="<?= $itemId ?>">
                 <td>
