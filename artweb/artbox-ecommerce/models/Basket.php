@@ -198,6 +198,9 @@
         public function getSum(): float
         {
             $data = $this->getData();
+            if(isset($data['analogs'])){
+                unset($data['analogs']);
+            }
             $models = $this->findModels(array_keys($data));
             $sum = 0;
             foreach ($models as $model) {
