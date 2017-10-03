@@ -90,11 +90,11 @@
                     $data['analogs'][ $product_variant_id ][ 'count' ] += $count;
                 }
             } else {
-                if ($this->findModel($product_variant_id)) {
+
                     $data['analogs'][ $product_variant_id ] = [
                         'count' => $count,
                     ];
-                }
+
             }
             if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
                 unset( $data['analogs'][ $product_variant_id ] );
