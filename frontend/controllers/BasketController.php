@@ -93,12 +93,13 @@
          */
         public function getModal($basket): string
         {
-            if(isset($basket['analogs'])){
-                unset($basket['analogs']);
-            }
+
             \Yii::$app->getAssetManager()->bundles['yii\web\JqueryAsset']['js'] =[];
             $output = '';
             $data = $basket->getData();
+            if(isset($data['analogs'])){
+                unset($data['analogs']);
+            }
             $models = $basket->findModels(array_keys($data));
             if(!empty( $models )) {
                 $output = $this->renderPartial('modal_items', [

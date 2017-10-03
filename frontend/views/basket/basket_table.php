@@ -11,7 +11,6 @@
     use yii\helpers\ArrayHelper;
     use yii\helpers\Html;
     use yii\web\View;
-    print_r($data);die();
 ?>
 <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
     <tr>
