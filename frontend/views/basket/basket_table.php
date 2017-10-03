@@ -122,17 +122,8 @@
             <?php
         }
     ?>
-</table>
-<?php if( isset($analogs)){?>
-    <?php print_r($analogs); die('here'); ?>
-    <h2>Товары на уточнение</h2>
-    <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
-        <tr>
-            <td><?= \Yii::t('app', 'photo') ?></td>
-            <td><?= \Yii::t('app', 'item') ?></td>
-            <td><?= \Yii::t('app', 'price_one') ?></td>
-            <td><?= \Yii::t('app', 'delete') ?></td>
-        </tr>
+    <?php if( isset($analogs)){?>
+        <tr><h2>Товары на уточнение</h2></tr>
         <?php
         foreach ($analogs as $itemId => $itemData) {
             ?>
@@ -155,12 +146,16 @@
                         <a class="remove-no" href="#"><?= \Yii::t('app', 'no') ?></a>
                     </div>
                 </td>
+                <td></td>
+                <td></td>
             </tr>
             <?php
         }
         ?>
-    </table>
-<?php } ?>
+
+    <?php } ?>
+</table>
+
 <div class="col-xs-12 col-sm-12 price-total-wr">
     <div class="row">
         <div class="hidden-xs col-sm-6"><span class="total_txt"><?= \Yii::t('app', 'total') ?></span></div>
