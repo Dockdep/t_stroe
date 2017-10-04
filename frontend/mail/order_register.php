@@ -28,6 +28,5 @@
         ); ?>">по ссылке</a></p>
 </div>
 <div>
-    <p><strong>Extremstyle</strong></p>
     <p><?php echo date('Y'); ?></p>
 </div>

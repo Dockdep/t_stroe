@@ -123,6 +123,25 @@
               unset($variant);
           }
           ?>
+          <?php foreach ($analogs as $thisItem) {
+              ?>
+              <tr>
+                  <td style="padding: 0; vertical-align: top; line-height: 0; text-align: left; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">
+                      <img src="/images/no-img-80.png" alt="">
+                  </td>
+                  <td style="padding: 65px 10px 20px; vertical-align: top; text-align: left; border-bottom: 1px solid #ddd; font-size: 18px;">
+                      <?php echo $thisItem['name'] ?>
+                  </td>
+                  <td style="padding: 65px 10px 20px; vertical-align: top; text-align: right; border-bottom: 1px solid #ddd; font-size: 18px;">
+                      <small style="margin-right: 1px;">×</small><?php echo $thisItem['count'] ?>
+                  </td>
+                  <td style="padding: 65px 30px 20px 10px; vertical-align: top; text-align: right; border-bottom: 1px solid #ddd; border-right: 1px solid #eee; font-size: 18px;">
+                      <?php echo number_format(($thisItem['count']*$thisItem['price'])) ?> грн
+                  </td>
+              </tr>
+              <?php
+          }
+          ?>
           </tbody>
           <tfoot>
           <tr>

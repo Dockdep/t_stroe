@@ -124,6 +124,7 @@
                             'order'          => $order,
                             'order_products' => $order_products,
                             'models'         => $models,
+                            'analogs'         => $analogs,
                         ]
                     )
                                       ->setFrom([ \Yii::$app->params[ 'supportEmail' ] => \Yii::$app->name . ' robot' ])
