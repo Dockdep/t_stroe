@@ -33,7 +33,7 @@
         
         public function actionAdd(string $product_variant_id, int $count)
         {
-            $additionalData = \Yii::$app->request->post("additionalData");
+            $additionalData = \GuzzleHttp\json_decode(\Yii::$app->request->post("additionalData"));
             $response = \Yii::$app->response;
             $response->format = Response::FORMAT_JSON;
             /**
@@ -43,11 +43,6 @@
 
 
             if(!empty($additionalData) && isset($additionalData[0]) && isset($additionalData[1])){
-                var_dump(empty($additionalData));
-                var_dump(isset($additionalData[1]));
-                print_r($additionalData[1]);
-                print_r($additionalData);
-                die('here');
                 $basket->addAnalogs($additionalData);
             } else {
 
