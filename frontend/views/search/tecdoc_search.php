@@ -56,9 +56,9 @@ use yii\widgets\ListView;
                 <tbody>
                 <?= ListView::widget(
                     [
-                        'dataProvider' => $basesProvider,
+                        'dataProvider' => $stockProvider,
                         'layout'       => "{items}",
-                        'itemView'     => '../search/bases_product_item',
+                        'itemView'     => '../search/stock_product_item',
                     ]
                 ) ?>
 
@@ -95,7 +95,7 @@ use yii\widgets\ListView;
                 </tr>
                 <?= ListView::widget(
                     [
-                        'dataProvider' => $basesProvider,
+                        'dataProvider' => $tecdocProvider,
                         'layout'       => "{items}",
                         'itemView'     => '../search/tecdoc_product_item',
                     ]

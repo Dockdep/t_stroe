@@ -19,24 +19,23 @@
     {
         public function actionMain($word,$action)
         {
-            $data=[];
             switch ($action){
                 case 0:
                     $bases = [];
+                    $stock = [];
                     $tecdoc = [];
                     $analogs = $this->findBySku($word);
-                    if($word){
-                        $data = Product::find()
-                            ->joinWith(['lang','variants','variants.lang'])
-                            ->where(['product.status'=>0,'product_variant.sku' => $word]);
-                    } else {
-                        $data = Product::find()
-                            ->joinWith(['lang','variants','variants.lang'])
-                            ->where(['product.status'=>0,'product_variant.sku' => null]);
-                    }
+
 
                     if(isset($analogs->bases)){
                         $bases = $analogs->bases;
+                    }
+                    $data = Product::find()
+                        ->joinWith(['lang','variants','variants.lang'])
+                        ->where(['product.status'=>0,'product.remote_id' => $bases]);
+
+                    if(isset($analogs->stock)){
+                        $stock = $analogs->stock;
                     }
                     if(isset($analogs->tecdoc)){
                         $tecdoc = $analogs->tecdoc;
@@ -45,8 +44,8 @@
                         'query' => $data,
                     ]);
 
-                    $basesProvider = new ArrayDataProvider([
-                        'allModels' => $bases,
+                    $stockProvider = new ArrayDataProvider([
+                        'allModels' => $stock,
                     ]);
                     $tecdocProvider = new ArrayDataProvider([
                         'allModels' => $tecdoc,
@@ -54,7 +53,7 @@
 
                     return $this->render('tecdoc_search', [
                         'siteProvider' => $siteProvider,
-                        'basesProvider' => $basesProvider,
+                        'stockProvider' => $stockProvider,
                         'tecdocProvider' => $tecdocProvider
                     ]);
                     break;
