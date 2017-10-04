@@ -201,10 +201,12 @@
         public function getCount(): int
         {
             $data = $this->getData();
+            $analogs = [];
             if(isset($data['analogs'])){
+                $analogs = $data['analogs'];
                 unset($data['analogs']);
             }
-            return count($data);
+            return count($data) + count($analogs);
         }
         
         /**
