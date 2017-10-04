@@ -375,10 +375,14 @@ function addAnalogToBasket(e) {
         .data('priceid');
     var name = $(this)
         .data('name');
+    var price = $(this)
+        .data('price');
+    var discount = $(this)
+        .data('discount');
     var $item_Quantity = $('.card-num-wr input');
     if ($item_Quantity.val() > 0) {
         count = $item_Quantity.val();
     }
-    basket.add(variant, count, [productcode, priceid, name]);
+    basket.add(variant, count, [productcode, priceid, name, price, discount]);
     showBasket();
 }
