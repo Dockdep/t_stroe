@@ -150,7 +150,9 @@
                     </div>
                 </td>
                 <td>
-                    <p class="price"><?= $itemData['price'] * $itemData[ 'count' ] ?></p>
+                    <p class="price"><? $sum =$itemData['price'] * $itemData[ 'count' ];
+                        $basket->sum += $sum;
+                    echo $sum ?></p>
                 </td>
                 <td>
                     <span class="remove_ico"></span>
