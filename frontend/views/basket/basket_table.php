@@ -15,7 +15,7 @@
         $analogs = $data['analogs'];
         unset($data['analogs']);
     }
-
+$basket_sum = 0;
 ?>
 <table class="basket-tb" cellspacing="0" cellpadding="0" border="0">
     <tr>
@@ -151,7 +151,7 @@
                 </td>
                 <td>
                     <p class="price"><?php $sum =$itemData['price'] * $itemData[ 'count' ];
-                        $basket->sum += $sum;
+                        $basket_sum += $sum;
                     echo $sum ?></p>
                 </td>
                 <td>
@@ -174,7 +174,7 @@
 <div class="col-xs-12 col-sm-12 price-total-wr">
     <div class="row">
         <div class="hidden-xs col-sm-6"><span class="total_txt"><?= \Yii::t('app', 'total') ?></span></div>
-        <div class="col-sm-12 col-sm-6 price-total"><?php echo $basket->sum; ?><span> <?= \Yii::t(
+        <div class="col-sm-12 col-sm-6 price-total"><?php echo $basket->sum + $basket_sum; ?><span> <?= \Yii::t(
                     'app',
                     'hrn'
                 ) ?></span></div>
