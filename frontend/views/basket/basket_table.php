@@ -123,7 +123,6 @@
         }
     ?>
     <?php if( isset($analogs)){?>
-        <tr class="analogs_section"><td colspan="6">Товары на уточнение<td></tr>
         <?php
         foreach ($analogs as $itemId => $itemData) {
             ?>
@@ -136,7 +135,7 @@
                     <span class="code"><?= $itemId ?></span>
                 </td>
                 <td>
-                    <p class="price">цену и наличие уточняйте у менеджера</p>
+                    <p class="price"><?= $itemData['price'] ?></p>
                 </td>
                 <td>
                     <span class="remove_ico"></span>
