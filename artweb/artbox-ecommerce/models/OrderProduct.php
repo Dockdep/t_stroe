@@ -27,6 +27,7 @@
      * @property Order             $order
      * @property boolean           $removed
      * @property string            $source
+     * @property string            $id_price
      * @property OrderProductLog[] $logs
      * @property ProductVariant    $productVariant
      * @package artweb\artbox\ecommerce\models
@@ -80,7 +81,8 @@
                         'sku',
                         'discount',
                         'remote_id',
-                        'source'
+                        'source',
+                        'id_price'
                     ],
                     'safe',
                 ],

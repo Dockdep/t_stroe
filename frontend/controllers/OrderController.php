@@ -98,6 +98,7 @@
                             'sum_cost'           => $sum_cost,
                             'discount'           => $model['discount'],
                             'remote_id'          => $model['KOD_TOVARA'],
+                            'id_price'           => $model['ID_Prices'],
                             'source'             => 'stock'
                         ]
                     );
