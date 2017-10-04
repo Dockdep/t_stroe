@@ -135,7 +135,22 @@
                     <span class="code"><?= $itemId ?></span>
                 </td>
                 <td>
-                    <p class="price"><?= $itemData['price'] ?></p>
+                    <p class="price"><?php echo round($itemData['price'],2); ?>
+                        <span> грн.</span><span class="hidden-sm hidden-md hidden-lg price-one-item"> (<?php echo \Yii::t(
+                                'app',
+                                'price_1_item'
+                            ); ?>)</span>
+                    </p>
+                </td>
+                <td>
+                    <div class="quantity-wr">
+                        <span class="minus">-</span>
+                        <input type="text" value="<?php echo $itemData[ 'count' ]; ?>" class="prod_count">
+                        <span class="plus">+</span>
+                    </div>
+                </td>
+                <td>
+                    <p class="price"><?= $itemData['price'] * $itemData[ 'count' ] ?></p>
                 </td>
                 <td>
                     <span class="remove_ico"></span>
@@ -145,8 +160,7 @@
                         <a class="remove-no" href="#"><?= \Yii::t('app', 'no') ?></a>
                     </div>
                 </td>
-                <td></td>
-                <td></td>
+
             </tr>
             <?php
         }
