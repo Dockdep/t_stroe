@@ -80,6 +80,29 @@
                     $order_products[] = $order_product;
                     unset( $sum_cost );
                 }
+                foreach ($analogs as $model) {
+                    $sum_cost = $model['price'] * $model[ 'count' ];
+                    $total += $sum_cost;
+                    $discount_total += $model['price'] * $model[ 'count' ];
+                    $order_product = new OrderProduct(
+                        [
+                            'order_id'           => $order->id,
+                            'product_variant_id' => 0,
+                            'name'               => $model[ 'name' ],
+                            'product_name'       => $model[ 'name' ],
+                            'sku'                => $model['KOD_TOVARA'],
+                            'price'              => $model['price'],
+                            'discount_price'     => $model['price'],
+                            'count'              => $model[ 'count' ],
+                            'sum_cost'           => $sum_cost,
+                            'discount'           => $model['discount'],
+                            'remote_id'          => $model['KOD_TOVARA']
+                        ]
+                    );
+                    $order_product->save();
+                    $order_products[] = $order_product;
+                    unset( $sum_cost );
+                }
                 $basket->clear();
 
                 $order->total = $total;
