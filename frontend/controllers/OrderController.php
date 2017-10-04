@@ -73,7 +73,8 @@
                             'count'              => $data[ $model->id ][ 'count' ],
                             'sum_cost'           => $sum_cost,
                             'discount'           => $model->discount,
-                            'remote_id'          => $model->remote_id
+                            'remote_id'          => $model->remote_id,
+                            'source'             =>'bases'
                         ]
                     );
                     $order_product->save();
@@ -83,7 +84,7 @@
                 foreach ($analogs as $model) {
                     $sum_cost = $model['price'] * $model[ 'count' ];
                     $total += $sum_cost;
-                    $discount_total += $model['price'] * $model[ 'count' ];
+                    $discount_total += $model['discount_price'] * $model[ 'count' ];
                     $order_product = new OrderProduct(
                         [
                             'order_id'           => $order->id,
@@ -92,11 +93,12 @@
                             'product_name'       => $model[ 'name' ],
                             'sku'                => $model['KOD_TOVARA'],
                             'price'              => $model['price'],
-                            'discount_price'     => $model['price'],
+                            'discount_price'     => $model['discount_price'],
                             'count'              => $model[ 'count' ],
                             'sum_cost'           => $sum_cost,
                             'discount'           => $model['discount'],
-                            'remote_id'          => $model['KOD_TOVARA']
+                            'remote_id'          => $model['KOD_TOVARA'],
+                            'source'             => 'stock'
                         ]
                     );
                     $order_product->save();
