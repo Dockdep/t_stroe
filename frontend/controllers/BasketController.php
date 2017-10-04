@@ -43,6 +43,9 @@
 
 
             if(!empty($additionalData) && isset($additionalData[0]) && isset($additionalData[1])){
+                var_dump(empty($additionalData));
+                var_dump(isset($additionalData[1]));
+                print_r($additionalData[1]);
                 print_r($additionalData);
                 die('here');
                 $basket->addAnalogs($additionalData);
