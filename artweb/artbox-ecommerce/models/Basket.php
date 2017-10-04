@@ -51,10 +51,10 @@
         /**
          * Increment product variant with $product_variant_id count by 1
          *
-         * @param int $product_variant_id
+         * @param string $product_variant_id
          * @param int $count
          */
-        public function add(int $product_variant_id, int $count)
+        public function add(string $product_variant_id, int $count)
         {
             $data = $this->getData();
             if (array_key_exists($product_variant_id, $data)) {
