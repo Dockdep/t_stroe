@@ -24,7 +24,7 @@
                     $bases = [];
                     $stock = [];
                     $tecdoc = [];
-                    $analogs = $this->findBySku($word);
+                    $analogs = $this->findBySku(urlencode($word));
 
 
                     if(isset($analogs->bases)){
