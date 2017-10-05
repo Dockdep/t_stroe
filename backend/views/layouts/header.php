@@ -29,9 +29,9 @@ $this->registerJs($js, View::POS_READY);
     <!-- Logo -->
     <a href="/admin/" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>BOX</span>
+        <span class="logo-mini"><b>C</b>BOX</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Art</b>BOX</span>
+        <span class="logo-lg"><b>CMS</b>BOX</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top collapsed" role="navigation">

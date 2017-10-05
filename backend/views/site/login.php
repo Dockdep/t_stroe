@@ -18,7 +18,7 @@
             <div class="col-xs-3"></div>
             <div class="col-lg-6 new_admin_form">
                 <div class="artbox_logo-wr">
-                    <div class="artbox_logo">ArtBox</div>
+                    <div class="artbox_logo">CMSBox</div>
                 </div>
                 <div class="artbox_logo_txt">управление интернет магазином</div>
                 <?php $form = ActiveForm::begin([ 'id' => 'login-form' ]); ?>
