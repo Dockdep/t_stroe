@@ -25,6 +25,7 @@
             $categories = Category::find()
                 ->joinWith('lang')
                 ->asArray()
+                ->where(['status' => false])
                 ->indexBy('id')
                 ->orderBy('sort')
                 ->all();
