@@ -12,7 +12,7 @@
         'slider' =>[
             'resize' => [
                 'width'  => 847,
-                'height' => 320,
+                'height' => 245,
                 'master' => Kohana_Image::CROP,
             ],
         ],
