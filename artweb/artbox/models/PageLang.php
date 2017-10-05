@@ -2,6 +2,7 @@
     
     namespace artweb\artbox\models;
     
+    use artweb\artbox\behaviors\Slug;
     use artweb\artbox\language\models\Language;
     use Yii;
     use yii\db\ActiveRecord;
@@ -45,7 +46,7 @@
         {
             return [
                 'slug' => [
-                    'class' => 'artweb\artbox\behaviors\Slug',
+                    'class' => Slug::className(),
                 ],
             ];
         }

@@ -110,7 +110,7 @@
         {
             $model = $this->findModel($id);
             $model->generateLangs();
-            
+            $model->lang->detachBehavior('Slug');
             if($model->load(Yii::$app->request->post())) {
                 $model->loadLangs(\Yii::$app->request);
                 if($model->save() && $model->transactionStatus) {
