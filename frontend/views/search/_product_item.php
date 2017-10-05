@@ -66,7 +66,11 @@ $discountData = $model->discountPrice($discountCategory);
         <td class="analog-price-td">цену и наличие уточняйте у менеджера</td>
     <?php } ?>
     <td>
+        <?php if($discountData['price']> 0) {?>
+            <a class="analogs-buy modal-link btn_buy_cat" data-variant="<?= $model->enabledVariant->id; ?>"  data-form="basket_modal" title="Купить"></a>
+        <?php }else {?>
+            <a class="analogs-buy" title="Купить"></a>
+        <?php } ?>
 
-        <a class="analogs-buy modal-link btn_buy_cat" data-variant="<?= $model->enabledVariant->id; ?>"  data-form="basket_modal" title="Купить"></a>
     </td>
 </tr>
