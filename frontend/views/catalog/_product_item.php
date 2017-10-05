@@ -6,7 +6,7 @@ use artweb\artbox\components\artboximage\ArtboxImageHelper;
 use artweb\artbox\ecommerce\models\Product;
 use yii\bootstrap\Html;
 use yii\helpers\ArrayHelper;
-$PriceData = $model->discountPrice(null);
+$PriceData = $model->discountPrice($discountCategory);
 
 ?>
 <div class="items_wr">
