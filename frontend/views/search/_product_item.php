@@ -60,7 +60,11 @@ $discountData = $model->discountPrice($discountCategory);
         <span>Код: <?= $model->variant->lang->title ?></span>
     </td>
     <td><?= $model->variant->stock ?> шт.</td>
-    <td class="analog-price-td"><?= round($discountData['price'],2) ?> грн.</td>
+    <?php if($discountData['price']> 0) {?>
+        <td class="analog-price-td"><?= round(((100-25)/100) * $discountData['price'],2); ?></td>
+    <?php }else {?>
+        <td class="analog-price-td">цену и наличие уточняйте у менеджера</td>
+    <?php } ?>
     <td>
 
         <a class="analogs-buy modal-link btn_buy_cat" data-variant="<?= $model->enabledVariant->id; ?>"  data-form="basket_modal" title="Купить"></a>
