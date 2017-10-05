@@ -71,6 +71,5 @@ $discountData = $model->discountPrice($discountCategory);
         <?php }else {?>
             <a class="analogs-buy" title="Купить"></a>
         <?php } ?>
-
     </td>
 </tr>
