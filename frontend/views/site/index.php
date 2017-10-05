@@ -250,7 +250,7 @@ use frontend\widgets\Slider;
             </div>
 
             <div  class="row">
-                <?= \artweb\artbox\ecommerce\widgets\specialProducts::widget(['title'=>'Акции'])?>
+                <?= \artweb\artbox\ecommerce\widgets\specialProducts::widget(['title'=>'Акции', 'type' => 'promo'])?>
             </div>
 
             <div class="row">
