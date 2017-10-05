@@ -185,11 +185,17 @@ $pages = Page::find()
                     </div>
                     <div class="style menu-footer">
                         <ul>
-                            <li><a href="#">Продукция и бренды</a></li>
-                            <li><a href="#">О нас</a></li>
-                            <li><a href="#">Оплата и доставка</a></li>
-                            <li><a href="#">Новости</a></li>
-                            <li><a href="#">Контакты</a></li>
+                            <?php
+                            foreach ($pages as $page){
+                                ?>
+                                <li><?= Html::a(
+                                        $page->lang->title,
+                                        [
+                                            'site/page',
+                                            'slug' => $page->lang->alias,
+                                        ]
+                                    ); ?></li>
+                            <?php }?>
                         </ul>
                     </div>
                 </div>
