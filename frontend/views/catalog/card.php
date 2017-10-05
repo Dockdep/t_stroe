@@ -152,7 +152,7 @@ $PriceData = $product->discountPrice($discountCategory);
                                 <div class="cat_price item_price"><?= round($PriceData['price'], 2) ?><span
                                             class="currency"> грн.</span></div>
                         <?php    } else {?>
-                                цену и наличие уточняйте у менеджера
+
                         <?php } ?>
                     </div>
 
