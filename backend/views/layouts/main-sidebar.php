@@ -229,12 +229,6 @@ use yii\widgets\Menu;
             ],
             [
                 'template'=>'<a href="{url}"> <i class="glyphicon glyphicon-comment"></i> <span>{label}</span></a>',
-                'label' => 'Комментарии',
-                'url' => ['/artbox-comments'],
-                'options' => ['class'=>\Yii::$app->user->can('artbox-comments') ? '' :'hide'],
-            ],
-            [
-                'template'=>'<a href="{url}"> <i class="glyphicon glyphicon-comment"></i> <span>{label}</span></a>',
                 'label' => 'Обратная связь',
                 'url' => ['/feedback'],
                 'options' => ['class'=>\Yii::$app->user->can('feedback') ? '' :'hide'],
