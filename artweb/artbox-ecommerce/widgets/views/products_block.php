@@ -1,7 +1,6 @@
 <?php
 if (!empty($products)) {
     ?>
-    <div class="row">
     <div class="col-xs-12 col-sm-12">
         <h3 class="title-blocks-home"><?= $title?></h3>
     </div>
