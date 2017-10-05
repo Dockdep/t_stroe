@@ -9,6 +9,7 @@ use artweb\artbox\behaviors\SaveMultipleFileBehavior;
 use artweb\artbox\event\models\Event;
 use artweb\artbox\language\behaviors\LanguageBehavior;
 use artweb\artbox\models\Customer;
+use common\models\CustomerCategoryDiscount;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\db\ActiveQuery;
@@ -625,6 +626,10 @@ class Product extends ActiveRecord
     }
 
 
+    /**
+     * @param $discountCategory CustomerCategoryDiscount
+     * @return array
+     */
     public function discountPrice($discountCategory){
         $percent = 0;
         /**
