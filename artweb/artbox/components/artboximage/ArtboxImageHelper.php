@@ -102,7 +102,7 @@
                     $matches
                 )
             ) {
-                return $file;
+                return '/storage/noimg.jpg';
             }
             return self::getPresetUrl($filePath, $preset, $preset_alias, $quality);
         }
