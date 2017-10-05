@@ -15,6 +15,7 @@
         
         public function run()
         {
+            print_r(ProductHelper::getLastProducts(true));
             die('here');
             return $this->render(
                 'products_block',
