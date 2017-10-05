@@ -123,13 +123,13 @@
                           ->with('lang')
                           ->joinWith('variants.lang')
                           ->where($data)
-                          ->andWhere(
-                              [
-                                  '!=',
-                                  'productVariant.stock',
-                                  0,
-                              ]
-                          )
+//                          ->andWhere(
+//                              [
+//                                  '!=',
+//                                  'productVariant.stock',
+//                                  0,
+//                              ]
+//                          )
                           ->limit($count)
                           ->all();
         }
