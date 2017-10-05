@@ -15,6 +15,7 @@
         
         public function run()
         {
+            die('here');
             return $this->render(
                 'products_block',
                 [
