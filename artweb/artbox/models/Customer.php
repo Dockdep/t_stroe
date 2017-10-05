@@ -222,8 +222,7 @@
                     'Content-Type: application/json',
                     'Content-Length: ' . strlen($data))
             );
-            print_r($data);
-            die();
+
             $result = json_decode(curl_exec($ch));
             if(isset($result->remote_id)){
                 $this->remote_id = $result->remote_id;
