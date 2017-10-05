@@ -9,6 +9,13 @@
                 'master' => Kohana_Image::CROP,
             ],
         ],
+        'slider' =>[
+            'resize' => [
+                'width'  => 847,
+                'height' => 320,
+                'master' => Kohana_Image::CROP,
+            ],
+        ],
         'event_list' =>[
             'resize' => [
                 'width'  => 263,
