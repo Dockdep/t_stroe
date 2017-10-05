@@ -203,26 +203,31 @@
 
                 $this->convertBirthday();
 
-                $data = \GuzzleHttp\json_encode($this->toArray());
 
-
-                $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/InCounterparties');
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                        'Content-Type: application/json',
-                        'Content-Length: ' . strlen($data))
-                );
-
-                $result = json_decode(curl_exec($ch));
-                if(isset($result->remote_id)){
-                    $this->remote_id = $result->remote_id;
-                }
                 return true;
             }
             return false;
 
+        }
+
+        public function sync(){
+            $data = \GuzzleHttp\json_encode($this->toArray());
+
+
+            $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/InCounterparties');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Content-Type: application/json',
+                    'Content-Length: ' . strlen($data))
+            );
+            print_r($data);
+            die();
+            $result = json_decode(curl_exec($ch));
+            if(isset($result->remote_id)){
+                $this->remote_id = $result->remote_id;
+            }
         }
 
         public function convertBirthday(){

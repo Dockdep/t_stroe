@@ -316,33 +316,33 @@ class SiteController extends Controller
                 if (Yii::$app->getUser()
                     ->login($user)
                 ) {
-
-//                        $email = \Yii::$app->mailer->compose(
-//                            [ 'html' => 'signupConfirmation-html' ],
-//                            [ 'user' => $user ]
-//                        )
-//                                                   ->setTo($user->email)
-//                                                   ->setFrom(
-//                                                       [ \Yii::$app->params[ 'supportEmail' ] => \Yii::$app->name . ' robot' ]
-//                                                   )
-//                                                   ->setSubject('Signup Confirmation')
-//                                                   ->send();
-//                        if ($email) {
-//                            Yii::$app->getSession()
-//                                     ->setFlash(
-//                                         'success',
-//                                         \Yii::t(
-//                                             'app',
-//                                             'Спасибо за регистрацию! Для активации аккаунта, пройдите по ссылке, которая была отправлена Вам на почту.'
-//                                         )
-//                                     );
-//                        } else {
-//                            Yii::$app->getSession()
-//                                     ->setFlash(
-//                                         'warning',
-//                                         \Yii::t('app', 'Ошибка регистрации, свяжитесь с администрацией сайта!')
-//                                     );
-//                        }
+                        $user->sync();
+                        $email = \Yii::$app->mailer->compose(
+                            [ 'html' => 'signupConfirmation-html' ],
+                            [ 'user' => $user ]
+                        )
+                                                   ->setTo($user->email)
+                                                   ->setFrom(
+                                                       [ \Yii::$app->params[ 'supportEmail' ] => \Yii::$app->name . ' robot' ]
+                                                   )
+                                                   ->setSubject('Signup Confirmation')
+                                                   ->send();
+                        if ($email) {
+                            Yii::$app->getSession()
+                                     ->setFlash(
+                                         'success',
+                                         \Yii::t(
+                                             'app',
+                                             'Спасибо за регистрацию! Для активации аккаунта, пройдите по ссылке, которая была отправлена Вам на почту.'
+                                         )
+                                     );
+                        } else {
+                            Yii::$app->getSession()
+                                     ->setFlash(
+                                         'warning',
+                                         \Yii::t('app', 'Ошибка регистрации, свяжитесь с администрацией сайта!')
+                                     );
+                        }
                     return $this->goHome();
                 }
             }
@@ -578,32 +578,6 @@ class SiteController extends Controller
         }
     }
 
-    /**
-     * Build query to find articles by their category ID limited to $max_count
-     *
-     * @param int $category_id
-     * @param int $max_count
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    private function findArticles(int $category_id, int $max_count): ActiveQuery
-    {
-        $query = BlogArticle::find()
-            ->with('lang')
-            ->innerJoin(
-                'blog_article_to_category',
-                'blog_article.id = blog_article_to_category.blog_article_id'
-            )
-            ->where(
-                [
-                    'blog_article.status'                       => true,
-                    'blog_article_to_category.blog_category_id' => $category_id,
-                ]
-            )
-            ->orderBy([ 'created_at' => SORT_DESC ])
-            ->limit($max_count);
-        return $query;
-    }
 
     public function actionError()
     {
