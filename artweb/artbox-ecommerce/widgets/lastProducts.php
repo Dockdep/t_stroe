@@ -18,7 +18,7 @@
             return $this->render(
                 'products_block',
                 [
-                    'title'    => \Yii::t('product', 'Вы недавно просматривали'),
+                    'title'    => 'Недавно просмотренные',
                     'class'    => 'last-products',
                     'products' => ProductHelper::getLastProducts(true),
                 ]
