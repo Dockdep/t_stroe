@@ -82,7 +82,7 @@
                     unset( $sum_cost );
                 }
                 foreach ($analogs as $model) {
-                    $sum_cost = $model['price'] * $model[ 'count' ];
+                    $sum_cost = $model['discount_price'] * $model[ 'count' ];
                     $total += $sum_cost;
                     $discount_total += $model['discount_price'] * $model[ 'count' ];
                     $order_product = new OrderProduct(

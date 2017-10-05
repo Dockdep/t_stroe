@@ -1,13 +1,13 @@
 {
-  "id": 61,
+  "id": 64,
   "user_id": null,
   "name": "NEW USER",
-  "phone": "+38(000)999-99-99",
+  "phone": "+38(000)999-39-49",
   "phone2": null,
   "email": "dockdep@bigmir.net",
-  "adress": "ewrtwert",
+  "adress": "лпрлап",
   "body": null,
-  "total": 295.1172,
+  "total": 359.9172,
   "date_time": null,
   "date_dedline": null,
   "reserve": null,
@@ -22,8 +22,8 @@
   "insurance": null,
   "amount_imposed": null,
   "shipping_by": null,
-  "city": "rewterw",
-  "created_at": 1507142853,
+  "city": "лрлрп",
+  "created_at": 1507144981,
   "updated_at": null,
   "deleted_at": null,
   "deadline": "",
@@ -37,13 +37,13 @@
   "credit_month": null,
   "delivery": "Доставка новой почтой",
   "remote_id": null,
-  "discount_total": 267.3272,
+  "discount_total": 332.1272,
   "published": null,
   "delivery_cost": null,
   "items": [
     {
-      "id": 134,
-      "order_id": 61,
+      "id": 143,
+      "order_id": 64,
       "product_variant_id": 20561,
       "product_name": "Пружина колодки 05975",
       "name": "Пружина колодки 05975",
@@ -58,11 +58,32 @@
       "discount": 25,
       "remote_id": "000003850",
       "discount_price": 110.0952,
-      "source": "bases"
+      "source": "bases",
+      "id_price": null
     },
     {
-      "id": 135,
-      "order_id": 61,
+      "id": 144,
+      "order_id": 64,
+      "product_variant_id": 51056,
+      "product_name": "Пружина гальмівної колодки 12-BP018",
+      "name": "Пружина гальмівної колодки 12-BP018",
+      "sku": "05975",
+      "price": 43.2,
+      "count": 2,
+      "sum_cost": 64.8,
+      "status": null,
+      "booking": null,
+      "return": null,
+      "removed": null,
+      "discount": 25,
+      "remote_id": "000044542",
+      "discount_price": 32.4,
+      "source": "bases",
+      "id_price": null
+    },
+    {
+      "id": 145,
+      "order_id": 64,
       "product_variant_id": 51137,
       "product_name": "Пружина колодки RD18.78.56",
       "name": "Пружина колодки RD18.78.56",
@@ -77,11 +98,12 @@
       "discount": 25,
       "remote_id": "000042293",
       "discount_price": 73.872,
-      "source": "bases"
+      "source": "bases",
+      "id_price": null
     },
     {
-      "id": 136,
-      "order_id": 61,
+      "id": 146,
+      "order_id": 64,
       "product_variant_id": 0,
       "product_name": "Пружина гальмівної колодки",
       "name": "Пружина гальмівної колодки",
@@ -96,7 +118,8 @@
       "discount": 25,
       "remote_id": "000003850",
       "discount_price": 83.36,
-      "source": "stock"
+      "source": "stock",
+      "id_price": "000000076000000012059751540490440550530"
     }
   ]
 }
