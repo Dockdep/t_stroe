@@ -50,8 +50,7 @@
         public static function getLastProducts(bool $as_object = false)
         {
             $last_products = Yii::$app->session->get('last_products', []);
-            print_r($last_products);
-            die();
+
             if ($as_object) {
                 $last_products = Product::find()
                                         ->innerJoinWith(
@@ -66,13 +65,13 @@
                                             ]
                                         )
                                         ->where([ 'product.id' => $last_products ])
-                                        ->andWhere(
-                                            [
-                                                '!=',
-                                                'product_variant.stock',
-                                                0,
-                                            ]
-                                        )
+//                                        ->andWhere(
+//                                            [
+//                                                '!=',
+//                                                'product_variant.stock',
+//                                                0,
+//                                            ]
+//                                        )
                                         ->indexBy('id')
                                         ->all();
             }
