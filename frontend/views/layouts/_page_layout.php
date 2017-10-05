@@ -286,7 +286,7 @@ $this->beginContent('@app/views/layouts/main.php');
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <?php echo BrandWidget::widget(); ?>
+                        <?php /*echo BrandWidget::widget();*/ ?>
                     </div>
                 </div>
             </div>
