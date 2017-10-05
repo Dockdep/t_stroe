@@ -30,6 +30,36 @@ $pages = Page::find()
 </head>
 <body>
 <?php $this->beginBody(); ?>
+<?php if (Yii::$app->session->hasFlash('success')): ?>
+    <div id="success_form">
+        <span id="modal_close"></span>
+        <div class="txt-success"><?= Yii::$app->session->getFlash('success'); ?></div>
+    </div>
+
+
+    <?php
+    $js = "$('#overlay_s').css({display:'block'});
+      setTimeout(function () {
+            $('#success_form').css('display', 'block').animate({opacity: 1}, 700);
+        },400)";
+    $this->registerJS($js, View::POS_READY); ?>
+<?php endif; ?>
+
+<?php if (Yii::$app->session->hasFlash('error')): ?>
+    <div id="success_form">
+        <span id="modal_close"></span>
+        <div class="txt-success"><?= Yii::$app->session->getFlash('error'); ?></div>
+    </div>
+
+
+    <?php
+    $js = "$('#overlay_s').css({display:'block'});
+      setTimeout(function () {
+            $('#success_form').css('display', 'block').animate({opacity: 1}, 700);
+        },400)";
+    $this->registerJS($js, View::POS_READY); ?>
+<?php endif; ?>
+<?php $this->endBody(); ?>
 <div id="header_" class="section-box-header">
     <div class="hidden-xs section-box first_menu">
         <div class="container">
