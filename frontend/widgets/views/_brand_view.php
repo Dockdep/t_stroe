@@ -7,17 +7,17 @@ use artweb\artbox\components\artboximage\ArtboxImageHelper;
 <div class="style slider-brands">
     <?php foreach ($brands as $brand) { ?>
     <div class="brands-img">
-        <?=
-        ArtboxImageHelper::getImage(
-            $brand->imageUrl,
-            'brand_list',
-            [
-                'alt'   => $brand->lang->title,
-                'title' => $brand->lang->title,
-            ],
-            90,
-            true
-        )
+        <?php
+//        ArtboxImageHelper::getImage(
+//            $brand->imageUrl,
+//            'brand_list',
+//            [
+//                'alt'   => $brand->lang->title,
+//                'title' => $brand->lang->title,
+//            ],
+//            90,
+//            true
+//        )
         ?>
     </div>
     <?php } ?>
