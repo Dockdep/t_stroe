@@ -49,7 +49,7 @@
                 ],
             ];
         }
-        
+
         /**
          * Validates the password.
          * This method serves as the inline validation for password.
@@ -103,6 +103,8 @@
         {
             return [
                 'rememberMe' => Yii::t('app', 'rememberMe'),
+                'email' => Yii::t('app', 'E-mail'),
+                'password' => Yii::t('app', 'Пароль'),
             ];
         }
     }
