@@ -68,7 +68,7 @@ use yii\widgets\ListView;
                     <td></td>
                     <td></td>
                     <td class="analog-modal-td">
-                        <a href="#" class="modal-link modal-callback" data-form="callback"><span>узнать подробней</span></a>
+                        <a href="#" class="modal-link analog_call" data-form="callback"><span>узнать подробней</span></a>
                     </td>
                 </tr>
                 <?= ListView::widget(
