@@ -126,7 +126,7 @@ $basket_sum = 0;
         <?php
         foreach ($analogs as $itemId => $itemData) {
             ?>
-            <tr class="variant_tr" data-variant="<?= $itemId ?>">
+            <tr class="variant_tr" data-variant="<?= $itemData['KOD_TOVARA'] ?>">
                 <td>
                     <img src="/images/no-img-80.png" alt="">
                 </td>
