@@ -142,8 +142,8 @@
         {
             return [
                 'id'                   => Yii::t('app', 'id'),
-                'username'             => Yii::t('app', 'Фамилия Имя Очество'),
-                'surname'              => Yii::t('app', 'surname'),
+                'username'             => Yii::t('app', 'Имя'),
+                'surname'              => Yii::t('app', 'Фамилия'),
                 'phone'                => Yii::t('app', 'Мобильный телефон'),
                 'gender'               => Yii::t('app', 'Пол'),
                 'birthday'             => Yii::t('app', 'Дата рождения'),
