@@ -135,7 +135,7 @@ $basket_sum = 0;
                     <span class="code"><?= $itemId ?></span>
                 </td>
                 <td>
-                    <p class="price"><?php echo round($itemData['price'],2); ?>
+                    <p class="price"><?php echo round($itemData['discount_price'],2); ?>
                         <span> грн.</span><span class="hidden-sm hidden-md hidden-lg price-one-item"> (<?php echo \Yii::t(
                                 'app',
                                 'price_1_item'
@@ -150,7 +150,7 @@ $basket_sum = 0;
                     </div>
                 </td>
                 <td>
-                    <p class="price"><?php $sum =$itemData['price'] * $itemData[ 'count' ];
+                    <p class="price"><?php $sum =$itemData['discount_price'] * $itemData[ 'count' ];
                         $basket_sum += $sum;
                     echo $sum ?></p>
                 </td>

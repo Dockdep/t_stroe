@@ -32,7 +32,8 @@
                     }
                     $data = Product::find()
                         ->joinWith(['lang','variants','variants.lang'])
-                        ->where(['product.status'=>0,'product.remote_id' => $bases]);
+                        ->where(['product.status'=>0,'product.remote_id' => $bases])
+                        ->orderBy('product_variant.price');
 
                     if(isset($analogs->stock)){
                         $stock = $analogs->stock;
