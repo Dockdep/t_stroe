@@ -49,7 +49,7 @@ $discountData = $model->discountPrice($discountCategory);
             [
                 'catalog/product',
                 'product' => $model->lang->alias,
-                'variant' => $model->enabledVariants[0]->sku,
+                'variant' => $model->remote_id,
             ],
             [
                 'data-pjax' => 0,
