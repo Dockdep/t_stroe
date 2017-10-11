@@ -21,13 +21,6 @@ use yii\widgets\ActiveForm;
                         <?= $form->field($model, 'username')->textInput() ?>
                     </div>
                 </div>
-
-                <div class="col-xs-12 col-sm-5 col-md-3 input-wr">
-                    <div class="form-group required">
-                        <?= $form->field($model, 'surname')->textInput() ?>
-                    </div>
-                </div>
-
             </div>
 
             <div class="row">

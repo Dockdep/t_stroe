@@ -142,7 +142,7 @@
         {
             return [
                 'id'                   => Yii::t('app', 'id'),
-                'username'             => Yii::t('app', 'Имя'),
+                'username'             => Yii::t('app', 'Ф.И.О'),
                 'surname'              => Yii::t('app', 'Фамилия'),
                 'phone'                => Yii::t('app', 'Мобильный телефон'),
                 'gender'               => Yii::t('app', 'Пол'),
@@ -186,7 +186,7 @@
          */
         public function getName()
         {
-            return $this->username . ' ' . $this->surname;
+            return $this->username;
         }
 
 
