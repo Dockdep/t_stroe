@@ -72,8 +72,7 @@ $this->registerJsFile(
     Pjax::begin(
         [
             'timeout' => 20000,
-            'id'      => 'list-container',
-            'scrollTo' => true
+            'id'      => 'list-container'
         ]
     )
 ?>
