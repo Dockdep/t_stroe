@@ -312,16 +312,11 @@
             if (0 === strpos(bin2hex($result), 'efbbbf')) {
                 $result = substr($result, 3);
             }
-            print_r('before');
-            print_r($result);
             $result = json_decode( $result );
-            print_r('after');
-            print_r($result);
             if(isset($result->id)){
                 $this->remote_id = $result->id;
 
             }
-            die();
             $this->save();
         }
         
