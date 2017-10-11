@@ -227,6 +227,7 @@
             if(isset($result->remote_id)){
                 $this->remote_id = $result->remote_id;
             }
+            $this->save();
         }
 
         public function convertBirthday(){
