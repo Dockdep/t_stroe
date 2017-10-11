@@ -73,7 +73,7 @@ $this->registerJsFile(
         [
             'timeout' => 20000,
             'id'      => 'list-container',
-            'scrollTo' => false
+            'scrollTo' => true
         ]
     )
 ?>
