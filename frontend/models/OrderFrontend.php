@@ -305,16 +305,18 @@
                     'Content-Length: ' . strlen($order))
             );
             $result = curl_exec($ch);
-            print_r($result);
-            $result = json_decode($result,JSON_UNESCAPED_UNICODE);
-            print_r($result);
+            for ($i = 0; $i <= 31; ++$i) {
+                $result = str_replace(chr($i), "", $result);
+            }
+            $result = str_replace(chr(127), "", $result);
+            if (0 === strpos(bin2hex($result), 'efbbbf')) {
+                $result = substr($result, 3);
+            }
+            $result = json_decode( $result,JSON_UNESCAPED_UNICODE );
             if(isset($result->id)){
                 $this->remote_id = $result->id;
 
             }
-            $this->validate();
-            print_r($this->getErrors());
-            die();
             $this->save();
         }
         
