@@ -321,6 +321,7 @@
                 $this->remote_id = $result->id;
 
             }
+            die();
             $this->save();
         }
         
