@@ -33,7 +33,7 @@
                           ->one();
 
             $childrenProvider = new ArrayDataProvider([
-                'allModels' => $model->children,
+                'allModels' => $model->children->orderBy('category_lang.title'),
                 'pagination' => [
                     'pageSize' => 30,
                 ],
