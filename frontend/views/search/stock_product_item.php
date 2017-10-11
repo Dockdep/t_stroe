@@ -4,7 +4,7 @@
     </td>
     <td class="title-analog-td">
         <p><?= $model->GADES; ?></p>
-        <span>Код: <?= $model->KOD_TOVARA ?></span>
+        <span>Код: <?= $model->ArtikulBS ?></span>
     </td>
     <td><?= $model->amount ?> шт.</td>
     <?php if($model->price > 0) {?>
