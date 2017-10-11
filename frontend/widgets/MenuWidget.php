@@ -26,7 +26,7 @@
                 ->joinWith('lang')
                 ->asArray()
                 ->where(['status' => false])
-                ->indexBy('category_lang.title')
+                ->orderBy('category_lang.title')
                 ->all();
 
             switch ($this->type){
