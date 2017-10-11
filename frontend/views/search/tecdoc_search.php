@@ -32,6 +32,24 @@ use yii\widgets\ListView;
                         ]
                     ) ?>
 
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12">
+        <div class="tables_analogs">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                <tr>
+                    <th class="img-analogs-title">Фото</th>
+                    <th class="title-analog-th">Название</th>
+                    <th>Наличие</th>
+                    <th>Цена</th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody>
                     <?= ListView::widget(
                         [
                             'dataProvider' => $stockProvider,
@@ -68,7 +86,7 @@ use yii\widgets\ListView;
                     <td></td>
                     <td></td>
                     <td class="analog-modal-td">
-                        <a href="#" class="modal-link analog_call" data-form="analog-callback"><span>узнать подробней</span></a>
+                        <a href="#" class="modal-link analog_call" data-form="callback"><span>узнать подробней</span></a>
                     </td>
                 </tr>
                 <?= ListView::widget(
@@ -84,7 +102,7 @@ use yii\widgets\ListView;
                     <td></td>
                     <td></td>
                     <td class="analog-modal-td">
-                        <a href="#" class="modal-link analog_call" data-form="analog-callback"><span>узнать подробней</span></a>
+                        <a href="#" class="modal-link analog_call" data-form="callback"><span>узнать подробней</span></a>
                     </td>
                 </tr>
 

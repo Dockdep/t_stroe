@@ -4,7 +4,7 @@
     </td>
     <td class="title-analog-td">
         <p><?= $model->GADES ?></p>
-        <span>Код: <?= $model->ArtikulBS ?></span>
+        <span>Код: <?= $model->KOD_TOVARA ?></span>
     </td>
     <td></td>
     <td class="analog-price-td">цену и наличие уточняйте у менеджера</td>

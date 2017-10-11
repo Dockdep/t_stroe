@@ -64,7 +64,7 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            'username'             => Yii::t('app', 'Имя'),
+            'username'             => Yii::t('app', 'Ф.И.О'),
             'surname'              => Yii::t('app', 'Фамилия'),
             'phone'                => Yii::t('app', 'Ваш мобильный телефон'),
             'group_id'             => Yii::t('app', 'group_id'),

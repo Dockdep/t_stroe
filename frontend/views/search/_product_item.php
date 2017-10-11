@@ -57,11 +57,11 @@ $discountData = $model->discountPrice($discountCategory);
             ]
         );
             ?></p>
-        <span>Код: <?= $model->variant->lang->title ?></span>
+        <span>Код: <?= $model->remote_id ?></span>
     </td>
     <td><?= $model->variant->stock ?> шт.</td>
     <?php if($discountData['price']> 0) {?>
-        <td class="analog-price-td"><?= round(((100-25)/100) * $discountData['price'],2); ?></td>
+        <td class="analog-price-td"><?= round($discountData['price'],2); ?></td>
     <?php }else {?>
         <td class="analog-price-td">цену и наличие уточняйте у менеджера</td>
     <?php } ?>
