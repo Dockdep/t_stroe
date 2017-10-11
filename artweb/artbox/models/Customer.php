@@ -224,8 +224,15 @@
             );
 
             //$result = json_decode(curl_exec($ch));
-            print_r(curl_exec($ch));
-            die();
+            $result = curl_exec($ch);
+            for ($i = 0; $i <= 31; ++$i) {
+                $result = str_replace(chr($i), "", $result);
+            }
+            $result = str_replace(chr(127), "", $result);
+            if (0 === strpos(bin2hex($result), 'efbbbf')) {
+                $result = substr($ch, 3);
+            }
+            $result = json_decode( $result );
             if(isset($result->remote_id)){
                 $this->remote_id = $result->remote_id;
             }
