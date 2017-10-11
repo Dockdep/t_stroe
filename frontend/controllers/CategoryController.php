@@ -29,6 +29,7 @@
                           ->with('children','children.lang','children.children')
                           ->joinWith('lang')
                           ->where([ 'category_lang.alias' => $slug ])
+                          ->orderBy('category_lang.title')
                           ->one();
 
             $childrenProvider = new ArrayDataProvider([
