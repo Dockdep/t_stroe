@@ -49,7 +49,7 @@ $discountData = $model->discountPrice($discountCategory);
             [
                 'catalog/product',
                 'product' => $model->lang->alias,
-                'variant' => $model->remote_id,
+                'variant' => $model->enabledVariants[0]->sku,
             ],
             [
                 'data-pjax' => 0,
@@ -57,7 +57,7 @@ $discountData = $model->discountPrice($discountCategory);
             ]
         );
             ?></p>
-        <span>Код: <?= $model->variant->lang->title ?></span>
+        <span>Код: <?= $model->remote_id ?></span>
     </td>
     <td><?= $model->variant->stock ?> шт.</td>
     <?php if($discountData['price']> 0) {?>
