@@ -393,6 +393,8 @@ function addAnalogToBasket(e){
         .data('discount_price');
     var discount = $(this)
         .data('discount');
+    var sku = $(this)
+        .data('sku');
     var $item_Quantity = $('.card-num-wr input');
 
 

@@ -85,13 +85,14 @@
             $price = (isset($additionalData[3]) && !empty($additionalData[3])) ? $additionalData[3]:"";
             $discount = (isset($additionalData[4]) && !empty($additionalData[4])) ? $additionalData[4]:"";
             $discount_price = (isset($additionalData[5]) && !empty($additionalData[5])) ? $additionalData[5]:"";
-
+            $sku =  (isset($additionalData[6]) && !empty($additionalData[6])) ? $additionalData[6]:"";
             $data['analogs'][ $product_variant_id ][ 'price' ] = $price;
             $data['analogs'][ $product_variant_id ][ 'discount_price' ] = $discount_price;
             $data['analogs'][ $product_variant_id ][ 'count' ] = $count;
             $data['analogs'][ $product_variant_id ][ 'discount' ] = $discount;
             $data['analogs'][ $product_variant_id ][ 'name' ] = $name;
             $data['analogs'][ $product_variant_id ][ 'KOD_TOVARA' ] = $additionalData[0];
+            $data['analogs'][ $product_variant_id ][ 'sku' ] = $sku;
             $data['analogs'][ $product_variant_id ][ 'ID_Prices' ] = $additionalData[1];
             if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
                 unset( $data['analogs'][ $product_variant_id ] );
