@@ -24,7 +24,7 @@
                 'по названию товара'
             ];
             $word = Yii::$app->request->get('word') ?Yii::$app->request->get('word') : 0;
-            $action = Yii::$app->request->get('action') ?Yii::$app->request->get('word') :'';
+            $action = Yii::$app->request->get('action') ?Yii::$app->request->get('action') :'';
             return $this->render(
                 'search',
                 [
