@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
             "action" =>  Url::to(['/site/signup'])
         ]); ?>
             <div class="row">
-                <div class="col-xs-12 col-sm-5 col-md-3 input-wr">
+                <div class="col-xs-24 col-sm-10 col-md-6 input-wr">
                     <div class="form-group required">
                         <?= $form->field($model, 'username')->textInput() ?>
                     </div>
