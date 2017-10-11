@@ -224,6 +224,8 @@
             );
 
             $result = json_decode(curl_exec($ch));
+            print_r($result);
+            die();
             if(isset($result->remote_id)){
                 $this->remote_id = $result->remote_id;
             }
