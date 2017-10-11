@@ -67,6 +67,12 @@ use yii\widgets\ListView;
                 </tbody>
             </table>
         </div>
+        <?=
+        LinkPager::widget([
+            'pagination' => $stock_pages,
+            'maxButtonCount' => 5,
+        ]);
+        ?>
     </div>
 
     <div class="col-xs-12 col-sm-12">

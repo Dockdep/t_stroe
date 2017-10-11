@@ -42,7 +42,11 @@
 
                     if(isset($analogs->stock)){
                         $stock = $analogs->stock;
+                        $stock_pages = new Pagination(['totalCount' => count($analogs->stock)]);
+                    } else {
+                        $stock_pages = new Pagination(['totalCount' => 0]);
                     }
+
                     if(isset($analogs->tecdoc)){
                         $tecdoc = $analogs->tecdoc;
                     }
@@ -61,7 +65,8 @@
                         'siteProvider' => $siteProvider,
                         'stockProvider' => $stockProvider,
                         'tecdocProvider' => $tecdocProvider,
-                        'pages' => $pages
+                        'pages' => $pages,
+                        'stock_pages' => $stock_pages
                     ]);
                     break;
                 case 1:
