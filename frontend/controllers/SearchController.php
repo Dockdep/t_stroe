@@ -34,6 +34,11 @@
                         ->joinWith(['lang','variants','variants.lang'])
                         ->where(['product.status'=>0,'product.remote_id' => $bases])
                         ->orderBy('product_variant.price');
+                    $countQuery = clone $data;
+                    $pages = new Pagination(['totalCount' => $countQuery->count()]);
+                    $data->offset($pages->offset)
+                        ->limit($pages->limit);
+
 
                     if(isset($analogs->stock)){
                         $stock = $analogs->stock;
@@ -55,7 +60,8 @@
                     return $this->render('tecdoc_search', [
                         'siteProvider' => $siteProvider,
                         'stockProvider' => $stockProvider,
-                        'tecdocProvider' => $tecdocProvider
+                        'tecdocProvider' => $tecdocProvider,
+                        'pages' => $pages
                     ]);
                     break;
                 case 1:
