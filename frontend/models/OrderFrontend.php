@@ -304,13 +304,18 @@
                     'Content-Type: application/json',
                     'Content-Length: ' . strlen($order))
             );
-
-            $result = json_decode(curl_exec($ch),JSON_UNESCAPED_UNICODE);
+            $result = curl_exec($ch);
+            print_r($result);
+            $result = json_decode($result,JSON_UNESCAPED_UNICODE);
+            print_r($result);
             if(isset($result->id)){
                 $this->remote_id = $result->id;
-                $this->save();
-            }
 
+            }
+            $this->validate();
+            print_r($this->getErrors());
+            die();
+            $this->save();
         }
         
 
