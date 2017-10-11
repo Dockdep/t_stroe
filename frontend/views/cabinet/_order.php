@@ -39,7 +39,7 @@
                             [
                                 'catalog/product',
                                 'product' => $product->productVariant->product->lang->alias,
-                                'variant' => $product->productVariant->sku,
+                                'variant' => urlencode($product->productVariant->sku),
                             ],
                             [
                                 "width"  => "100",

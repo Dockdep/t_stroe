@@ -111,7 +111,7 @@ if($this->beginCache('_item_list'.$model->id,[
             [
                 'catalog/product',
                 'product' => $model->lang->alias,
-                'variant' => $variant->sku,
+                'variant' => urlencode($variant->sku),
             ],
             [
                 'class'     => 'style title_cat',
@@ -161,7 +161,7 @@ if($this->beginCache('_item_list'.$model->id,[
                     [
                         'catalog/product',
                         'product' => $model->lang->alias,
-                        'variant' => $variant->sku,
+                        'variant' => urlencode($variant->sku),
                     ],
                     [
                         'class'     => 'btn_view_cat',
@@ -193,7 +193,7 @@ if($this->beginCache('_item_list'.$model->id,[
                         [
                             'catalog/product',
                             'product' => $model->lang->alias,
-                            'variant' => $variant->sku,
+                            'variant' => urlencode($variant->sku),
                             '#'       => 'video',
                         ],
                         [

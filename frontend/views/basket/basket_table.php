@@ -50,7 +50,7 @@ $basket_sum = 0;
                             [
                                 'catalog/product',
                                 'product' => $variant->product->lang->alias,
-                                'variant' => $variant->sku,
+                                'variant' => urlencode($variant->sku),
                             ],
                             [
                                 'target' => '_blank',
@@ -64,8 +64,8 @@ $basket_sum = 0;
                             Html::tag('span', $variant->fullname),
                             [
                                 'catalog/product',
-                                'product' => $variant->product->lang->alias,
-                                'variant' => $variant->sku,
+                                'product' => urlencode($variant->product->lang->alias),
+                                'variant' => urlencode($variant->sku),
                             ],
                             [
                                 'class'  => 'title',
