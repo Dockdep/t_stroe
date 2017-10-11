@@ -126,13 +126,13 @@ $basket_sum = 0;
         <?php
         foreach ($analogs as $itemId => $itemData) {
             ?>
-            <tr class="variant_tr" data-variant="<?= $itemData['sku'] ?>">
+            <tr class="variant_tr" data-variant="<?= $itemData['KOD_TOVARA'] ?>">
                 <td>
                     <img src="/images/no-img-80.png" alt="">
                 </td>
                 <td>
                     <span class="size"><?= isset($itemData['name']) ? $itemData['name']: $itemData['name'] ?></span>
-                    <span class="code"><?= $itemId ?></span>
+                    <span class="code"><?= $itemData['sku'] ?></span>
                 </td>
                 <td>
                     <p class="price"><?php echo round($itemData['discount_price'],2); ?>
