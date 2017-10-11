@@ -23,8 +23,8 @@
                 'по бренду',
                 'по названию товара'
             ];
-            $word = Yii::$app->request->get('word') ?Yii::$app->request->get('word') : 0;
-            $action = Yii::$app->request->get('action') ?Yii::$app->request->get('action') :'';
+            $word = Yii::$app->request->get('word') ?Yii::$app->request->get('word') : '';
+            $action = Yii::$app->request->get('action') ?Yii::$app->request->get('action') :0;
             return $this->render(
                 'search',
                 [
