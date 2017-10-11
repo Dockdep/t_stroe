@@ -42,9 +42,9 @@
 
                     if(isset($analogs->stock)){
                         $stock = $analogs->stock;
-                        $stock_pages = new Pagination(['totalCount' => count($analogs->stock)]);
+                        $stock_pages = new Pagination(['totalCount' => count($analogs->stock), 'pageParam' => 'stock-page']);
                     } else {
-                        $stock_pages = new Pagination(['totalCount' => 0]);
+                        $stock_pages = new Pagination(['totalCount' => 0,'pageParam' => 'stock-page']);
                     }
 
                     if(isset($analogs->tecdoc)){
