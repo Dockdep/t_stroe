@@ -174,7 +174,7 @@ $basket_sum = 0;
 <div class="col-xs-12 col-sm-12 price-total-wr">
     <div class="row">
         <div class="hidden-xs col-sm-6"><span class="total_txt"><?= \Yii::t('app', 'total') ?></span></div>
-        <div class="col-sm-12 col-sm-6 price-total"><?php echo $basket->sum + $basket_sum; ?><span> <?= \Yii::t(
+        <div class="col-sm-12 col-sm-6 price-total"><?php echo round(($basket->sum + $basket_sum),2); ?><span> <?= \Yii::t(
                     'app',
                     'hrn'
                 ) ?></span></div>
