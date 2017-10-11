@@ -18,13 +18,19 @@
         
         public function run()
         {
+            $searchParams = [
+                'по номеру товара',
+                'по бренду',
+                'по названию товара'
+            ];
             $word = Yii::$app->request->get('word') ?Yii::$app->request->get('word') : 0;
             $action = Yii::$app->request->get('action') ?Yii::$app->request->get('word') :'';
             return $this->render(
                 'search',
                 [
                     'word' => $word,
-                    'action' => $action
+                    'action' => $action,
+                    'searchParams' => $searchParams
                 ]
             );
                 

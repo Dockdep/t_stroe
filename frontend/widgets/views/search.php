@@ -7,11 +7,11 @@
 
     <button type="submit" value=""></button>
     <div class="search-list">
-        <span>по номеру товара</span>
+        <span><?= $searchParams[$action]?></span>
         <ul class="search-ul">
-            <li><i>по номеру товара</i></li>
-            <li><i>по бренду</i></li>
-            <li><i>по названию товара</i></li>
+            <?php foreach ($searchParams as $searchParam){?>
+                <li><i><?= $searchParam ?></i></li>
+            <?php } ?>
         </ul>
     </div>
 </form>
