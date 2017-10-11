@@ -237,9 +237,6 @@
             if(isset($result->remote_id)){
                 $this->remote_id = $result->remote_id;
             }
-            $this->validate();
-            print_r($this->getErrors());
-            die();
             $this->save();
         }
 
