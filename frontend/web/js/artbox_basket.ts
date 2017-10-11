@@ -401,6 +401,6 @@ function addAnalogToBasket(e){
     if( $item_Quantity.val() > 0){
         count = $item_Quantity.val();
     }
-    basket.add(variant, count, [productcode,priceid,name,price,discount,discount_price]);
+    basket.add(variant, count, [productcode,priceid,name,price,discount,discount_price,sku]);
     showBasket();
 }
