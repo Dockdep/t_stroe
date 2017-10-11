@@ -57,7 +57,7 @@ $discountData = $model->discountPrice($discountCategory);
             ]
         );
             ?></p>
-        <span>Код: <?= $model->remote_id ?></span>
+        <span>Код: <?= $model->variant->sku ?></span>
     </td>
     <td><?= $model->variant->stock ?> шт.</td>
     <?php if($discountData['price']> 0) {?>
