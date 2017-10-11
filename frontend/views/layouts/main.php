@@ -94,7 +94,7 @@ $pages = Page::find()
                                         "title"  => \Yii::t("app", "lcab"),
 
                                     ]
-                                ) . "<span>" . Yii::$app->user->identity->email . "</span>" .
+                                ) . "<span>" . Yii::$app->user->identity->email . "</span>" . "<br>".
                                      "<span>" . Yii::$app->user->identity->username . "</span>",
                                 Url::to([ "cabinet/main" ]),
                                 [
