@@ -20,9 +20,6 @@
         {
             $word = Yii::$app->request->get('word');
             $action = Yii::$app->request->get('action');
-            print_r($word);
-            print_r($action);
-            die();
             return $this->render(
                 'search',
                 [
