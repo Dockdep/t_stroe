@@ -233,7 +233,7 @@
                 $result = substr($result, 3);
             }
             $result = json_decode( $result );
-            print_r($result);
+            print_r($result->remote_id);
             die();
             if(isset($result->remote_id)){
                 $this->remote_id = $result->remote_id;
