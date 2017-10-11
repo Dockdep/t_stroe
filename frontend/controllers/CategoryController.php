@@ -32,8 +32,13 @@
                           ->orderBy('category_lang.title')
                           ->one();
 
+            $children = Category::find()
+                ->joinWith('lang')
+                ->where([ 'category.parent_id' => $model->id ])
+                ->orderBy('category_lang.title')
+                ->all();
             $childrenProvider = new ArrayDataProvider([
-                'allModels' => $model->children->orderBy('category_lang.title'),
+                'allModels' => $children,
                 'pagination' => [
                     'pageSize' => 30,
                 ],
