@@ -230,7 +230,7 @@
             }
             $result = str_replace(chr(127), "", $result);
             if (0 === strpos(bin2hex($result), 'efbbbf')) {
-                $result = substr($ch, 3);
+                $result = substr($result, 3);
             }
             $result = json_decode( $result );
             if(isset($result->remote_id)){
