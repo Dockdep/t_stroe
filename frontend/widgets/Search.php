@@ -18,12 +18,13 @@
         
         public function run()
         {
-            $word = Yii::$app->request->get('word');
-            $action = Yii::$app->request->get('action');
+            $word = Yii::$app->request->get('word') ?Yii::$app->request->get('word') : 0;
+            $action = Yii::$app->request->get('action') ?Yii::$app->request->get('word') :'';
             return $this->render(
                 'search',
                 [
-
+                    'word' => $word,
+                    'action' => $action
                 ]
             );
                 

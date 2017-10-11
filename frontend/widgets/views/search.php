@@ -1,9 +1,9 @@
 <form action="/search/main" method="get">
     <div class="search_input_wr style">
-        <input value="" name="word" type="text">
+        <input value="<?= $word ?>" name="word" type="text">
     </div>
 
-    <input type="hidden"  value="0" name="action">
+    <input type="hidden"  value="<?= $action ?>" name="action">
 
     <button type="submit" value=""></button>
     <div class="search-list">
