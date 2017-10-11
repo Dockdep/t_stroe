@@ -121,23 +121,7 @@ $pages = Page::find()
                     <span class="<?php echo isset( $this->params[ 'isHome' ] ) ? '' : 'arrow-catalog' ?>" >Каталог<i></i><i></i></span>
                 </div>
                 <div class="hidden-xs hidden-sm col-md-9 search-menu">
-                    <form action="/search/main" method="get">
-                        <div class="search_input_wr style">
-                            <input value="" name="word" type="text">
-                        </div>
-
-                        <input type="hidden"  value="0" name="action">
-
-                        <button type="submit" value=""></button>
-                        <div class="search-list">
-                            <span>по номеру товара</span>
-                            <ul class="search-ul">
-                                <li><i>по номеру товара</i></li>
-                                <li><i>по бренду</i></li>
-                                <li><i>по названию товара</i></li>
-                            </ul>
-                        </div>
-                    </form>
+                    <?php echo \frontend\widgets\Search::widget(); ?>
                 </div>
 
                 <div style="display: none;" class="visible-xs visible-sm col-xs-12">

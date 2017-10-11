@@ -96,7 +96,8 @@
 
             return $this->render('search', [
                 'productProvider' => $productProvider,
-
+                'action' => $action,
+                'word' => $word,
                 'pages' => $pages
             ]);
         }

@@ -229,7 +229,8 @@ $PriceData = $product->discountPrice($discountCategory);
 
                     <div class="style delivery-card">
                         <div class="style title-del-card-big">Обмен/возврат</div>
-                        <div class="style title-del-card">Обмен/возврат в течение 14 дней после покупки</div>
+                        <div class="style title-del-card">Обмен/возврат в течение 14 дней после покупки,
+                            при сохранении товарного вида товара/упаковки</div>
                     </div>
                 </div>
             </div>
