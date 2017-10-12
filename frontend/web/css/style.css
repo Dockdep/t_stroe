@@ -1259,7 +1259,8 @@ label {
   right: -11px; }
 
 .help-block {
-  display: none;
+  /*display: none;*/
+  display: block;
   width: 100%;
   float: left;
   font-size: 13px;
