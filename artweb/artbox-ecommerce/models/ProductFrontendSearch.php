@@ -105,6 +105,7 @@ class ProductFrontendSearch extends Product
                         [
                             'product_lang.title',
                             'product_variant.price',
+                            'product_variant.stock',
                             'product.id',
                         ]
                     ),
