@@ -100,7 +100,7 @@ class ProductFrontendSearch extends Product
             [
                 'query'      => $this->getSearchQuery($category, $params, $in_stock)
                     ->with('variant', 'videos','category.lang')
-                    ->orderBy('product_variants.stock')
+                    ->orderBy('product_variant.stock')
                     ->groupBy(
                         [
                             'product_lang.title',
