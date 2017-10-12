@@ -296,10 +296,20 @@ $pages = Page::find()
     ActiveForm::end();
     ?>
 </div>
-<div id="success_form" style="display: none;">
-    <span id="modal_close"></span>
-    <div class="txt-success"><span>Спасибо за Ваш запрос!</span><p>Мы свяжемся с вами в ближайшее время.</p></div>
-</div>
+<?php if (Yii::$app->session->hasFlash('success')): ?>
+    <div id="success_form" style="display: none;">
+        <span id="modal_close"></span>
+        <div class="txt-success"><?= Yii::$app->session->getFlash('success'); ?></div>
+    </div>
+
+
+    <?php
+    $js = "success()";
+    $this->registerJS($js, View::POS_READY); ?>
+<?php endif; ?>
+
+
+
 
 <div id="basket_modal" class="basket_modal" style="display: none;">
 
