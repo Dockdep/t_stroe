@@ -675,7 +675,16 @@ $(document).ready(function(){
 
 
 
-
+    function success() {
+        var pos = ($(window).scrollTop()) + 30;
+        $('.forms_').animate({opacity: 0, top: '0'}, 200,function(){
+            $(this).css('display', 'none');
+        });
+        setTimeout(function () {
+            $('#overlay').fadeIn(400);
+            $('#success_form').css('display', 'block').animate({opacity: 1, top: pos}, 700);
+        },400)
+    }
 
 });
 
