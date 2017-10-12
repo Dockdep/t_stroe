@@ -34,7 +34,7 @@
             if($word && !Yii::$app->user->isGuest){
                 $searchHistory = new SearchHistory();
                 $date = new \DateTime('NOW');
-                $searchHistory->date = $date->getTimestamp();
+                $searchHistory->date = (string)$date->getTimestamp();
                 $searchHistory->word  = $word;
                 $searchHistory->action = $searchParams[$action];
                 $searchHistory->user_id = Yii::$app->user->identity->getId();
