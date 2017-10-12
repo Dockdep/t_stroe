@@ -304,7 +304,6 @@ $pages = Page::find()
 
 
     <?php
-    die('here');
     $js = "success()";
     $this->registerJS($js, View::POS_END); ?>
 <?php endif; ?>
