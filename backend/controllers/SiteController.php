@@ -48,7 +48,7 @@
             $this->layout = '/none';
 
             if (!\Yii::$app->user->isGuest) {
-                return $this->goHome();
+                return $this->redirect([ 'site/index' ]);
             }
             
             $model = new LoginForm();
@@ -67,8 +67,8 @@
         public function actionLogout()
         {
             Yii::$app->user->logout();
-            
-            return $this->goHome();
+
+            return $this->redirect([ 'site/index' ]);
         }
         
     }

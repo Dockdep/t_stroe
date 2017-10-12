@@ -93,7 +93,7 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect([ 'site/index' ]);
         }
         $referer = \Yii::$app->request->get('referer', \Yii::$app->request->referrer);
         if (empty( $referer )) {
@@ -343,7 +343,7 @@ class SiteController extends Controller
                                          \Yii::t('app', 'Ошибка регистрации, свяжитесь с администрацией сайта!')
                                      );
                         }
-                    return $this->goHome();
+                    return $this->redirect([ 'site/index' ]);
                 }
             }
         }
@@ -376,7 +376,7 @@ class SiteController extends Controller
             Yii::$app->getSession()
                 ->setFlash('warning', \Yii::t('app', 'Ошибка при активации акаунта!'));
         }
-        return $this->goHome();
+        return $this->redirect([ 'site/index' ]);
     }
 
     /**
@@ -388,7 +388,7 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->redirect([ 'site/index' ]);
     }
 
     public function actionTest()
@@ -415,7 +415,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
             Yii::$app->session->setFlash('success', \Yii::t('app', 'Новый пароль был успешно сохранен'));
 
-            return $this->goHome();
+            return $this->redirect([ 'site/index' ]);
         }
 
         return $this->render(
@@ -448,7 +448,7 @@ class SiteController extends Controller
                     )
                 );
 
-                return $this->goHome();
+                return $this->redirect([ 'site/index' ]);
             } else {
 
                 Yii::$app->session->setFlash(
@@ -554,7 +554,7 @@ class SiteController extends Controller
             );
         }
         \Yii::$app->session->setFlash('error', \Yii::t('app', 'Неправильно введенные данные'));
-        return $this->goHome();
+        return $this->redirect([ 'site/index' ]);
     }
 
     /**
