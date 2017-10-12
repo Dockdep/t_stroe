@@ -13,7 +13,7 @@ return [
     'controllerNamespace' => 'console\controllers',
     'components' => [
         'urlManager'   => [
-            'baseUrl' => 'https://extremstyle.ua',
+            'baseUrl' => 'https://truckpost.com.ua',
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
 

@@ -18,7 +18,7 @@
     class SiteMapController extends Controller
     {
         
-        private $urlList = [ 'https://extremstyle.ua/ru' ];
+        private $urlList = [ 'https://site' ];
         private $count = 1;
         public $fileName;
         public $handle;
@@ -118,7 +118,7 @@
                     $this->mapNumber++;
                     
                     $this->mainMap .= '<sitemap>'.
-                        '<loc>https://extremstyle.ua/' . $this->fileName . '</loc>'.
+                        '<loc>https://site/' . $this->fileName . '</loc>'.
                         '<lastmod>' . date('Y-m-d') . '</lastmod>'.
                         '</sitemap>';
                     
@@ -139,7 +139,7 @@
             $config = ArrayHelper::merge(
                 require( \Yii::getAlias('@frontend/config/') . 'main.php' ),
                 require( \Yii::getAlias('@common/config/') . 'main.php' ),
-                ['components'=>['urlManager'=>['hostInfo'=>'https://extremstyle.ua']]]
+                ['components'=>['urlManager'=>['hostInfo'=>'https://site']]]
             );
 
             if(isset($config['components']['urlManager']['class'])){
@@ -247,7 +247,7 @@
             fclose($this->handle);
     
             $this->mainMap .= '<sitemap>'.
-                '<loc>'.'https://extremstyle.ua/'. $this->fileName . '</loc>'.
+                '<loc>'.'https://site/'. $this->fileName . '</loc>'.
                 '<lastmod>' . date('Y-m-d') . '</lastmod>'.
                 '</sitemap>'.
                 '</sitemapindex>';

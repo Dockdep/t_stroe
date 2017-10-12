@@ -13,7 +13,7 @@
     class YamlController extends Controller
     {
         public $file;
-        public $domain = 'https://extremstyle.ua/ru';
+        public $domain = 'hhttps://truckpost.com.ua';
         public $count = 0;
         public $xml = '';
         
@@ -165,7 +165,7 @@
                 );
                 $this->xml .= XmlHelper::createElement(
                     'picture',
-                    'https://extremstyle.ua' . htmlspecialchars($variant->imageUrl)
+                    'https://truckpost.com.ua' . htmlspecialchars($variant->imageUrl)
                 );
                 $this->xml .= XmlHelper::createElement('price', $variant->price);
                 $this->xml .= XmlHelper::createElement('currencyId', 'UAH');

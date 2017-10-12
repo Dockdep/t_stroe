@@ -19,10 +19,10 @@ class SmsSender extends Component
         $rate = 1; // скорость отправки сообщений (1 = 1 смс минута). Одиночные СМС сообщения отправляются всегда с максимальной скоростью.
         $lifetime = 4; // срок жизни сообщения 4 часа
 
-        $source = 'extremstyle'; // Alfaname
+        $source = 'site_name'; // Alfaname
         $recipient = $tel;
-        $user = '380674064008';
-        $password = 'smsartweb2012';
+        $user = '380000000';
+        $password = 'password';
 
         $myXML = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
         $myXML .= "<request>";

@@ -12,7 +12,7 @@
     class FeedController extends Controller
     {
         public $file;
-        public $domain = 'https://extremstyle.ua';
+        public $domain = 'https://truckpost.com.ua';
         public $count = 0;
         
         public function actionGo()

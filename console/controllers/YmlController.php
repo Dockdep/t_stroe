@@ -13,7 +13,7 @@
     class YmlController extends Controller
     {
         public $file;
-        public $domain = 'https://extremstyle.ua/ru';
+        public $domain = 'https://truckpost.com.ua';
         public $count = 0;
         public $xml = '';
         
@@ -179,7 +179,7 @@
                 );
                 $this->xml .= XmlHelper::createElement(
                     'image',
-                    'https://extremstyle.ua' . htmlspecialchars($variant->imageUrl)
+                    'https://truckpost.com.ua' . htmlspecialchars($variant->imageUrl)
                 );
                 $this->xml .= XmlHelper::createElement('priceRUAH', $variant->price);
                 if ($variant->price_old != 0) {
