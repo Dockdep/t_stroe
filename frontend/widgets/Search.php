@@ -31,7 +31,7 @@
             if(!isset($searchParams[$action])){
                 throw new NotFoundHttpException();
             }
-            if($word && $action && !Yii::$app->user->isGuest){
+            if($word && !Yii::$app->user->isGuest){
                 $searchHistory = new SearchHistory();
                 $date = new \DateTime('NOW');
                 $searchHistory->date = $date->getTimestamp();
