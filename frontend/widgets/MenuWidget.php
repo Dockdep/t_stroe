@@ -29,7 +29,8 @@
                 ->orderBy('category_lang.title')
                 ->indexBy('id')
                 ->all();
-
+            print_r($categories);
+            die();
             switch ($this->type){
                 case 'full':
                    return $this->renderFull($categories);
