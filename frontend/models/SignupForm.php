@@ -48,7 +48,7 @@ class SignupForm extends Model
                 'pattern' => '/^\+38\(\d{3}\)\d{3}-\d{2}-\d{2}$/'
             ],
             ['password_repeat', 'required'],
-            ['password_repeat', 'compare', 'compareAttribute'=>'password', 'message'=> Yii::t('app', 'message_match_password') ],
+            ['password_repeat', 'compare', 'compareAttribute'=>'password', 'message'=> Yii::t('app', 'Пароли не совпадают') ],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],

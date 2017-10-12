@@ -117,7 +117,7 @@
 
                 ['password', 'validatePasswordCompare', 'on'=>[Customer::SCENARIO_CHANGE]],
 
-                ['password_repeat', 'compare', 'compareAttribute'=>'password', 'message'=> Yii::t('app', 'message_match_password'),'on'=>[Customer::SCENARIO_CHANGE] ],
+                ['password_repeat', 'compare', 'compareAttribute'=>'password', 'message'=> Yii::t('app', 'Пароли не совпадают'),'on'=>[Customer::SCENARIO_CHANGE] ],
 
 
 
@@ -128,7 +128,7 @@
         public function validatePasswordCompare($attribute, $params)
         {
             if(!empty($this->password) && empty($this->password_repeat)){
-                $this->addError('password_repeat', \Yii::t('app', 'message_match_password'));
+                $this->addError('password_repeat', \Yii::t('app', 'Пароли не совпадают'));
             }
         }
 
