@@ -29,8 +29,7 @@
                 ->orderBy('category_lang.title')
                 ->indexBy('id')
                 ->all();
-            print_r(\GuzzleHttp\json_encode($categories,JSON_UNESCAPED_UNICODE));
-            die();
+
             switch ($this->type){
                 case 'full':
                    return $this->renderFull($categories);
@@ -55,7 +54,8 @@
 
 
             }
-
+            print_r(\GuzzleHttp\json_encode($categories,JSON_UNESCAPED_UNICODE));
+            die();
             foreach ($categories as $category) {
 
                 if(!isset($category[ 'parent_id' ])){
