@@ -39,6 +39,9 @@
                 $searchHistory->action = $searchParams[$action];
                 $searchHistory->user_id = Yii::$app->user->identity->getId();
                 $searchHistory->user_remote_id = Yii::$app->user->identity->remote_id;
+                $searchHistory->validate();
+                print_r($searchHistory->getErrors());
+                die();
                 $searchHistory->save();
             }
             return $this->render(
