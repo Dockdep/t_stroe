@@ -328,6 +328,7 @@ class SiteController extends Controller
                                                    ->setSubject('Signup Confirmation')
                                                    ->send();
                         if ($email) {
+                            die('here');
                             Yii::$app->getSession()
                                      ->setFlash(
                                          'success',
