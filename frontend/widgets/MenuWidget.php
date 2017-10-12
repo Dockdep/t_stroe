@@ -54,6 +54,8 @@
 
 
             }
+            print_r($categories);
+            die();
             foreach ($categories as $category) {
                 if ($category[ 'parent_id' ] != 0 && $category['depth'] == 1) {
                     $categories[ $category[ 'parent_id' ] ][ 'children' ][] = $categories[$category[ 'id' ]];
