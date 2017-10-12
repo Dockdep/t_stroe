@@ -29,7 +29,7 @@
                 ->orderBy('category_lang.title')
                 ->indexBy('id')
                 ->all();
-            print_r($categories);
+            print_r(\GuzzleHttp\json_encode($categories));
             die();
             switch ($this->type){
                 case 'full':
