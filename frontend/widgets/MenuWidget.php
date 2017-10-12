@@ -48,22 +48,21 @@
                     unset($categories[ $category[ 'id' ] ]);
                 }
                 if ($category[ 'parent_id' ] != 0 && $category['depth'] == 2) {
-                    $categories[ $category[ 'parent_id' ] ][ 'children' ][] = $categories[$category[ 'id' ]];
+                    if(isset($categories[ $category[ 'parent_id' ] ])){
+                        $categories[ $category[ 'parent_id' ] ][ 'children' ][] = $categories[$category[ 'id' ]];
+                    }
                     unset($categories[ $category[ 'id' ] ]);
                 }
 
 
             }
-            print_r(\GuzzleHttp\json_encode($categories,JSON_UNESCAPED_UNICODE));
-            die();
+
             foreach ($categories as $category) {
 
-                if(!isset($category[ 'parent_id' ])){
-                    print_r($category);
-                    die();
-                }
                 if ($category[ 'parent_id' ] != 0 && $category['depth'] == 1) {
-                    $categories[ $category[ 'parent_id' ] ][ 'children' ][] = $categories[$category[ 'id' ]];
+                    if(isset($categories[ $category[ 'parent_id' ] ])){
+                        $categories[ $category[ 'parent_id' ] ][ 'children' ][] = $categories[$category[ 'id' ]];
+                    }
                     unset($categories[ $category[ 'id' ] ]);
                 }
             }
