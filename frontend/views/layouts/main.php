@@ -514,8 +514,8 @@ $livechat = "(function(){ var widget_id = '01bvplgFpa';var d=document;var w=wind
     }
 
     function initialize() {
-        var startPosLat = '48.379433';
-        var startPosLng = '31.16558';
+        var startPosLat = '50.4605103';
+        var startPosLng = '30.6544418';
         var zooms = 6;
         var start_position  = new google.maps.LatLng(startPosLat, startPosLng);
         var styles = [{
