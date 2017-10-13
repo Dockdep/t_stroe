@@ -1742,6 +1742,7 @@ span.under_stock:before {
   float: right; }
 
 .cat_new_price {
+  min-height: 14px;
   margin-top: 29px;
   margin-bottom: 15px; }
 .cat_new_price .cat_price {
@@ -5739,5 +5740,16 @@ a.artweb-link:before {
   top: -7px;
   box-shadow: 0 0 7px 0 rgba(0,0,0,0.75);
   z-index: 8;
+}
+.dont-price {
+  position: absolute;
+  height: 14px;
+  line-height: 12px;
+  color: #a9adb0;
+  font-size: 11px;
+  width: 100%;
+  padding-right: 70px;
+  left: 0;
+  top: -9px;
 }
 /*# sourceMappingURL=style.css.map */

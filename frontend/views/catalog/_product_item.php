@@ -80,7 +80,7 @@ $PriceData = $model->discountPrice($discountCategory);
                         round($PriceData['price'], 2)
                         ?><span class="currency"> грн.</span></div>
                 <?php    } else {?>
-                    цену и наличие уточняйте у менеджера
+                    <div class="dont-price">цену и наличие уточняйте у менеджера</div>
                 <?php } ?>
 
                 <div class="btn_buy_basket-fix">
