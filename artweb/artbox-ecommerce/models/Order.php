@@ -51,7 +51,7 @@
      * @property string         $declaration
      * @property string         $stock
      * @property string         $consignment
-     * @property string         $payment
+     * @property int         $payment
      * @property string         $insurance
      * @property double         $amount_imposed
      * @property string         $shipping_by
