@@ -148,8 +148,6 @@ class IntegrationController extends Controller{
         if(!$order->validate()){
             throw new Exception(print_r($order->getErrors()));
         }
-        $order->payment = 0;
-        $order->delivery = 0;
         $order->save();
         if(isset($data->ItemS)){
             OrderProduct::deleteAll(['order_id'=>$order->id]);

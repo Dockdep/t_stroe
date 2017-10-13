@@ -47,11 +47,11 @@
      * @property int            $label
      * @property int            $pay
      * @property int            $numbercard
-     * @property int            $delivery
+     * @property string         $delivery
      * @property string         $declaration
      * @property string         $stock
      * @property string         $consignment
-     * @property int         $payment
+     * @property string         $payment
      * @property string         $insurance
      * @property double         $amount_imposed
      * @property string         $shipping_by
@@ -155,12 +155,12 @@
                         'created_at',
                         'updated_at',
                         'deleted_at',
-                        'payment',
+
                         'reason',
                         'manager_id',
                         'edit_time',
                         'edit_id',
-                        'delivery',
+
                     ],
                     'integer',
                 ],
@@ -173,6 +173,8 @@
                     [
                         'comment',
                         'body',
+                        'payment',
+                        'delivery',
                         'remote_id'
                     ],
                     'string',
