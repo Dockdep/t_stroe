@@ -5728,6 +5728,7 @@ a.artweb-link:before {
 .section-box-map {
   height: 380px;
   overflow: hidden;
+  margin-top: 40px;
 }
 .section-box-map:before {
   position: absolute;
