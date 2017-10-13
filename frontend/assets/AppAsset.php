@@ -16,7 +16,7 @@ class AppAsset extends AssetBundle
         "/css/style.css"
     ];
     public $js = [
-        'http://maps.google.com/maps/api/js?key=AIzaSyCgyPQhOmGEwyAdZ0uS6fJLLvnNxgncfy0',
+        'http://maps.google.com/maps/api/js?key=AIzaSyCgyPQhOmGEwyAdZ0uS6fJLLvnNxgncfy0q',
         'js/markerclusterer.js',
         '/js/script.js',
         '/js/artbox_basket.js',
