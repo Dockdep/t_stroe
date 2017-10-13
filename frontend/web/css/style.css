@@ -1351,7 +1351,7 @@ label {
 .button-wr {
   margin-top: 20px; }
 .button-wr button {
-  width: 156px;
+  min-width: 156px;
   margin: 0 auto;
   float: none;
   border: 1px solid #c82319;
@@ -5759,3 +5759,5 @@ a.artweb-link:before {
   margin-top: 50px;
 }
 /*# sourceMappingURL=style.css.map */
+
+
