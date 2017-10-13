@@ -33,11 +33,7 @@
                                  ->textInput([ 'autofocus' => true ]) ?>
                     </div>
                 </div>
-                
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 email-remind-txt"><?= \Yii::t('app', 'forgpass2') ?></div>
-                </div>
-                
+
                 <div class="row">
                     <div class="button-wr">
                         <?= Html::submitButton(\Yii::t('app', 'send')) ?>

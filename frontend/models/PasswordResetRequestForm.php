@@ -66,9 +66,6 @@ class PasswordResetRequestForm extends Model
             return false;
         }
 
-
-        print_r($this->email);
-        die();
         return Yii::$app
             ->mailer
             ->compose(
