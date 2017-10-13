@@ -27,7 +27,7 @@
     
     <div class="row">
         <div class="col-xs-12 col-sm-12">
-            <div class="forms_ form-register">
+            <div class="forms_pages form-restore">
                 <?php $form = ActiveForm::begin([ 'id' => 'reset-password-form' ]); ?>
                 <div class="row">
                     <div class="col-xs-12 col-sm-5 col-md-3 input-wr medium-label">
@@ -39,7 +39,7 @@
                     <div class="col-xs-12 col-sm-12 email-remind-txt"><?= \Yii::t('app', 'enternewpass') ?></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 input-wr">
+                    <div class="col-xs-12 col-sm-12 input-wr button-wr button-left">
                         <?= Html::submitButton(\Yii::t('app', 'send')) ?>
                     </div>
                 </div>
