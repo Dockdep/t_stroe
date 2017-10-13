@@ -102,6 +102,29 @@ class IntegrationController extends Controller{
         }
     }
 
+    public function actionImportOrdersHistory(){
+        try{
+            if($data = \Yii::$app->request->post("data")){
+                // $data = $this->getItemData();
+                $data = json_decode($data);
+                if(is_array($data)){
+//                    foreach ($data as $item){
+//                        $this->SaveCustomers($item);
+//                    }
+                } else {
+                    throw new Exception("Данные о пользователях ожидаются в виде массива.");
+                }
+                die(\GuzzleHttp\json_encode($this->result));
+            }else {
+                throw new Exception("Отсутствует data");
+            }
+
+
+        } catch (Exception $e) {
+            echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
+        }
+    }
+
     public function actionImportOrders(){
         try{
             if($data = \Yii::$app->request->post("data")){
