@@ -21,7 +21,7 @@ class AppAsset extends AssetBundle
         '/js/owl.carousel.min.js',
         '/js/jquery.mask.min.js',
         '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js',
-        'http://maps.google.com/maps/api/js?key=AIzaSyBXSAliyEprv8IkWDANdy8VJiJuJrJ4eNk&sensor=false',
+        'http://maps.google.com/maps/api/js?key=AIzaSyCgyPQhOmGEwyAdZ0uS6fJLLvnNxgncfy0',
         'js/markerclusterer.js',
 
     ];
