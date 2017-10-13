@@ -4346,7 +4346,7 @@ a.banner-img:hover img {
     padding-left: 15px !important; } }
 .section-box-footer {
   background: #c82319;
-  margin-top: 39px;
+  margin-top: 0;
   color: #fff; }
 
 .section-box-footer-menu-wr {
@@ -5728,5 +5728,16 @@ a.artweb-link:before {
 .section-box-map {
   height: 380px;
   overflow: hidden;
+}
+.section-box-map:before {
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  content: '';
+  left: 0;
+  top: -7px;
+  box-shadow: 0 0 7px 0 rgba(0,0,0,0.75);
+  z-index: 8;
+  margin-top: 40px;
 }
 /*# sourceMappingURL=style.css.map */

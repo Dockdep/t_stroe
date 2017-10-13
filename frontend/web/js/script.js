@@ -693,7 +693,7 @@ $(document).ready(function(){
             console.log('start-map')
             var startPosLat = '50.4605103';
             var startPosLng = '30.6544418';
-            var zooms = 6;
+            var zooms = 10;
             var start_position  = new google.maps.LatLng(startPosLat, startPosLng);
             var styles = [{
                 stylers: [
@@ -748,7 +748,7 @@ $(document).ready(function(){
             });
             markers.push(marker);
 
-            
+
 
         }
     }
