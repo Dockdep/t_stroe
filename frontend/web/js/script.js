@@ -748,20 +748,7 @@ $(document).ready(function(){
             });
             markers.push(marker);
 
-            var clusterStyles = [
-                {
-                    url: '/images/markers/clasters.png',
-                    height: 36,
-                    width: 36
-                }
-
-            ];
-            markerClusterer = new MarkerClusterer(map, markers,
-                {
-                    maxZoom: 6,
-                    gridSize: 10,
-                    styles: clusterStyles
-                });
+            
 
         }
     }

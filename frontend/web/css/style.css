@@ -5722,6 +5722,7 @@ a.artweb-link:before {
   /*position: relative !important;*/
   left: 0;
   top: 0;
+  display: block !important;
   /*z-index: 1;*/
 }
 .section-box-map {
