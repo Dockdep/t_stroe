@@ -674,7 +674,18 @@ $(document).ready(function(){
     }
 
 
+    hiddenRadioBasket();
+    function hiddenRadioBasket() {
+        $('.delivery-wrapper input[type="radio"]').on( 'click', function () {
+            if($(this).parents('.self-delivery-radio').hasClass('self-delivery-radio')){
 
+                $('.hidden-radios_').addClass('active-show')
+            } else {
+                $('.hidden-radios_').removeClass('active-show')
+            }
+        });
+
+    }
 
 
 });

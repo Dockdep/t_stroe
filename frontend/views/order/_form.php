@@ -121,9 +121,32 @@ use yii\web\View;
                     <label for="radio-1-2">Доставка по Украине</label>
                 </div>
 
-                <div class="style radio_custom">
-                    <input type="radio" id="radio-1-3" value="Самовывоз" name="OrderFrontend[delivery]">
-                    <label for="radio-1-3">Самовывоз</label>
+                <style>
+                    .self-delivery-radio {}
+                    .hidden-radios_ {
+                        display: none;
+                    }
+                    .hidden-radios_.active-show {
+                        display: block;
+                    }
+                </style>
+
+                <div class="style radio_custom self-delivery-radio">
+                    <div class="style radio-deliv">
+                        <input type="radio" id="radio-1-3" value="Самовывоз" name="OrderFrontend[delivery]">
+                        <label for="radio-1-3">Самовывоз</label>
+                    </div>
+
+                    <div class="style hidden-radios_">
+                        <div class="style radio_custom">
+                            <input type="radio" id="radio-1-4" value="Киев, ул. Гната Хоткевича 22в"  name="name1">
+                            <label for="radio-1-4">Киев, ул. Гната Хоткевича 22в</label>
+                        </div>
+                        <div class="style radio_custom">
+                            <input type="radio" id="radio-1-5" value="Бровары, ул. Лесная 2"  name="name1">
+                            <label for="radio-1-5">Бровары, ул. Лесная 2</label>
+                        </div>
+                    </div>
                 </div>
 
             </div>
