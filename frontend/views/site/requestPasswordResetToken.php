@@ -7,7 +7,7 @@
     use yii\helpers\Html;
     use yii\bootstrap\ActiveForm;
     
-    $this->title = \Yii::t('app', 'restorepass');
+    $this->title = \Yii::t('app', 'Востановление пароля');
     $this->params[ 'breadcrumbs' ][] = [
         'label'    => Html::tag(
             'span',
@@ -36,7 +36,7 @@
 
                 <div class="row">
                     <div class="button-wr">
-                        <?= Html::submitButton(\Yii::t('app', 'send')) ?>
+                        <?= Html::submitButton(\Yii::t('app', 'Отправить')) ?>
                     </div>
                 </div>
                 <?php ActiveForm::end(); ?>
