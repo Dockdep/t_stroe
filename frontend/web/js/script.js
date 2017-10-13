@@ -688,83 +688,84 @@ $(document).ready(function(){
     }
 
     window.onload = function () {
-        initialize()
-    }
-    function initialize() {
-        console.log('start-map')
-        var startPosLat = '50.4605103';
-        var startPosLng = '30.6544418';
-        var zooms = 6;
-        var start_position  = new google.maps.LatLng(startPosLat, startPosLng);
-        var styles = [{
-            stylers: [
-                { saturation: -100 }
-            ]
-        }];
-        var settings = {
-            styles: styles,
-            zoom: zooms,
-            scrollwheel: false,
-            center: start_position,
-            mapTypeControl: true,
-            mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-            navigationControl: false,
-            navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-            scaleControl: true,
-            streetViewControl: true,
-            rotateControl: true,
-            zoomControl: true,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"), settings);
+        initialize();
+        function initialize() {
+            console.log('start-map')
+            var startPosLat = '50.4605103';
+            var startPosLng = '30.6544418';
+            var zooms = 6;
+            var start_position  = new google.maps.LatLng(startPosLat, startPosLng);
+            var styles = [{
+                stylers: [
+                    { saturation: -100 }
+                ]
+            }];
+            var settings = {
+                styles: styles,
+                zoom: zooms,
+                scrollwheel: false,
+                center: start_position,
+                mapTypeControl: true,
+                mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+                navigationControl: false,
+                navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                scaleControl: true,
+                streetViewControl: true,
+                rotateControl: true,
+                zoomControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"), settings);
 
-        var markers = [];
+            var markers = [];
 
-        var image1 = new google.maps.MarkerImage('/images/markers/marker-we-1.png',
-            new google.maps.Size(32, 48),
-            new google.maps.Point(0,0),
-            new google.maps.Point(16, 35)
-        );
+            var image1 = new google.maps.MarkerImage('/images/markers/marker-we-1.png',
+                new google.maps.Size(32, 48),
+                new google.maps.Point(0,0),
+                new google.maps.Point(16, 35)
+            );
 
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(50.451596, 30.6355071),
-            map: map,
-            // title: newName,
-            icon: image1
-        });
-        markers.push(marker);
-
-
-        var image1 = new google.maps.MarkerImage('/images/markers/marker-we-1.png',
-            new google.maps.Size(32, 48),
-            new google.maps.Point(0,0),
-            new google.maps.Point(16, 35)
-        );
-
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(50.5286765, 30.7965036),
-            map: map,
-            // title: newName,
-            icon: image1
-        });
-        markers.push(marker);
-
-        var clusterStyles = [
-            {
-                url: '/images/markers/clasters.png',
-                height: 36,
-                width: 36
-            }
-
-        ];
-        markerClusterer = new MarkerClusterer(map, markers,
-            {
-                maxZoom: 6,
-                gridSize: 10,
-                styles: clusterStyles
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(50.451596, 30.6355071),
+                map: map,
+                // title: newName,
+                icon: image1
             });
+            markers.push(marker);
 
+
+            var image1 = new google.maps.MarkerImage('/images/markers/marker-we-1.png',
+                new google.maps.Size(32, 48),
+                new google.maps.Point(0,0),
+                new google.maps.Point(16, 35)
+            );
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(50.5286765, 30.7965036),
+                map: map,
+                // title: newName,
+                icon: image1
+            });
+            markers.push(marker);
+
+            var clusterStyles = [
+                {
+                    url: '/images/markers/clasters.png',
+                    height: 36,
+                    width: 36
+                }
+
+            ];
+            markerClusterer = new MarkerClusterer(map, markers,
+                {
+                    maxZoom: 6,
+                    gridSize: 10,
+                    styles: clusterStyles
+                });
+
+        }
     }
+
 
 
 });
