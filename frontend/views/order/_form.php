@@ -125,6 +125,7 @@ use yii\web\View;
                     .self-delivery-radio {}
                     .hidden-radios_ {
                         display: none;
+                        padding-left: 32px;
                     }
                     .hidden-radios_.active-show {
                         display: block;

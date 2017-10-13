@@ -157,7 +157,9 @@ $pages = Page::find()
 <div id="content_" class="section-box-content">
 
     <?php echo $content; ?>
-
+    <div class="section-box-map">
+        <div id="map_canvas" style="display: none;"></div>
+    </div>
 </div>
 <div id="footer_" class="section-box-footer">
     <div class="section-box-footer-menu-wr">
@@ -506,7 +508,86 @@ $livechat = "(function(){ var widget_id = '01bvplgFpa';var d=document;var w=wind
 ?>
 
 
+<script>
+    window.onload = function() {
+        initialize()
+    }
 
+    function initialize() {
+        var startPosLat = '48.379433';
+        var startPosLng = '31.16558';
+        var zooms = 6;
+        var start_position  = new google.maps.LatLng(startPosLat, startPosLng);
+        var styles = [{
+            stylers: [
+                { saturation: -100 }
+            ]
+        }];
+        var settings = {
+            styles: styles,
+            zoom: zooms,
+            scrollwheel: false,
+            center: start_position,
+            mapTypeControl: true,
+            mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+            navigationControl: false,
+            navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+            scaleControl: true,
+            streetViewControl: true,
+            rotateControl: true,
+            zoomControl: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), settings);
+
+        var markers = [];
+
+        var image1 = new google.maps.MarkerImage('/images/markers/marker-we-1.png',
+            new google.maps.Size(32, 48),
+            new google.maps.Point(0,0),
+            new google.maps.Point(16, 35)
+        );
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(50.451596, 30.6355071),
+            map: map,
+            // title: newName,
+            icon: image1
+        });
+        markers.push(marker);
+
+
+        var image1 = new google.maps.MarkerImage('/images/markers/marker-we-1.png',
+            new google.maps.Size(32, 48),
+            new google.maps.Point(0,0),
+            new google.maps.Point(16, 35)
+        );
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(50.5286765, 30.7965036),
+            map: map,
+            // title: newName,
+            icon: image1
+        });
+        markers.push(marker);
+
+        var clusterStyles = [
+            {
+                url: '/images/markers/clasters.png',
+                height: 36,
+                width: 36
+            }
+
+        ];
+        markerClusterer = new MarkerClusterer(map, markers,
+            {
+                maxZoom: 6,
+                gridSize: 10,
+                styles: clusterStyles
+            });
+
+    }
+</script>
 </body>
 </html>
 <?php $this->endPage(); ?>
