@@ -687,7 +687,9 @@ $(document).ready(function(){
 
     }
 
-    initialize()
+    window.onload = function () {
+        initialize()
+    }
     function initialize() {
         console.log('start-map')
         var startPosLat = '50.4605103';
