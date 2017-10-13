@@ -5741,6 +5741,7 @@ a.artweb-link:before {
   box-shadow: 0 0 7px 0 rgba(0,0,0,0.75);
   z-index: 8;
 }
+
 .dont-price {
   position: absolute;
   height: 14px;
