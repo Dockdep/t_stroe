@@ -138,7 +138,7 @@ $PriceData = $product->discountPrice($discountCategory);
                     <?php    } else {?>
                         <div class="style card-in-stock no-stock">
                             <!--нет в наличии-->
-                            <span>цену и наличие уточняйте у менеджера</span>
+                            <span>цену и наличие уточняйте <br> у менеджера</span>
                         </div>
 
                     <?php } ?>
