@@ -122,7 +122,9 @@ $PriceData = $product->discountPrice($discountCategory);
 
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 card-code-price-wr">
                     <div class="style code-card-wr">
-                        <div class="code-card"><span>Код: </span><?= $product->enabledVariant->sku ?></div>
+                        <?php if($product->enabledVariant->sku){?>
+                            <div class="code-card"><span>Код: </span><?= $product->enabledVariant->sku ?></div>
+                        <?php } ?>
                     </div>
 
                     <!--если овара нет в наличии для card-in-stock добавить класс "no-stock"-->
