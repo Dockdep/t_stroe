@@ -66,7 +66,9 @@ $PriceData = $model->discountPrice($discountCategory);
 
         <div class="in_stock_wr">
             <div class="title-sku">
-                <span>Код: <?=  urlencode($model->enabledVariants[0]->sku) ?></span>
+                <?php if($model->enabledVariants[0]->sku){?>
+                    <span>Код: <?=  $model->enabledVariants[0]->sku ?></span>
+                <?php } ?>
             </div>
         </div>
         <!--если есть новая цена добавить для (.cat-price-more) класс cat_new_price-->
