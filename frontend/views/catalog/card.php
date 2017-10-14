@@ -129,7 +129,7 @@ $PriceData = $product->discountPrice($discountCategory);
 
                     <!--если овара нет в наличии для card-in-stock добавить класс "no-stock"-->
                     <?php
-                    if($PriceData['price']>0){?>
+                    if($PriceData['price']>0 &&  $product->enabledVariant->quantity > 0 ){?>
                         <div class="style card-in-stock">
                             <!--нет в наличии-->
                             <span>есть в наличии</span>
