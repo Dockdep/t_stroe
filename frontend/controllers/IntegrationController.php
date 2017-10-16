@@ -9896,7 +9896,7 @@ class IntegrationController extends Controller{
                 $customerPaymentHistory->consumption = $row->consumption;
                 $date = new \DateTime($row->date);
                 $date->format("d.m.Y");
-                $customerPaymentHistory->date = $date->getTimestamp();
+                $customerPaymentHistory->date = (string)$date->getTimestamp();
                 if(!$customerPaymentHistory->validate()){
                     throw new Exception(print_r($customerPaymentHistory->getErrors()));
                 }
