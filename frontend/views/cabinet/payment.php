@@ -39,7 +39,7 @@ use yii\helpers\Url;
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,
                        // 'filterModel' => $searchModel,
-                        'tableOptions' => ['class' => 'tb-cab-payment'],
+                        'tableOptions' => ['class' => 'tb-cab-payment tb-cab-payment_new'],
                         'columns' => [
                             [
                                 'attribute'=>'date',
