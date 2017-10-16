@@ -88,7 +88,7 @@ $pages = Page::find()
                             <?= Html::a(
                                 "<div></div>".
                                 "<span>" . Yii::$app->user->identity->email . "</span>" . "<br>".
-                                     "<span>" . Yii::$app->user->identity->username . "</span>",
+                                     "<span style='float:right;'>" . Yii::$app->user->identity->username . "</span>",
                                 Url::to([ "cabinet/main" ]),
                                 [
                                     "class" => "is_logged",
