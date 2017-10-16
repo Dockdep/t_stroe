@@ -38,7 +38,7 @@ use yii\helpers\Url;
                 <div class="style cab-history-payment-wrapp">
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,
-                        'filterModel' => $searchModel,
+                       // 'filterModel' => $searchModel,
                         'tableOptions' => ['class' => 'tb-cab-payment'],
                         'columns' => [
                             'date',
