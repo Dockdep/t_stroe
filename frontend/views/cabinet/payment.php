@@ -41,15 +41,9 @@ use yii\helpers\Url;
                         'filterModel' => $searchModel,
                         'tableOptions' => ['class' => 'tb-cab-payment'],
                         'columns' => [
-                            ['class' => 'yii\grid\SerialColumn'],
-
-                            'id',
-                            'customer_id',
-                            'coming',
-                            'consumption',
                             'date',
-
-                            ['class' => 'yii\grid\ActionColumn'],
+                            'coming',
+                            'consumption'
                         ],
                     ]); ?>
                     <table cellspacing="0" border="0" cellpadding="0" class="tb-cab-payment">
