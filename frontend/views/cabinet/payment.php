@@ -1,4 +1,6 @@
 <?php
+
+use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\helpers\Url;
 ?>
@@ -34,6 +36,21 @@ use yii\helpers\Url;
                 <a class="cab-mob-link" href="cabinet-history-payment.html"><span>Платежи</span></a>
 
                 <div class="style cab-history-payment-wrapp">
+                    <?= GridView::widget([
+                        'dataProvider' => $dataProvider,
+                        'filterModel' => $searchModel,
+                        'columns' => [
+                            ['class' => 'yii\grid\SerialColumn'],
+
+                            'id',
+                            'customer_id',
+                            'coming',
+                            'consumption',
+                            'date',
+
+                            ['class' => 'yii\grid\ActionColumn'],
+                        ],
+                    ]); ?>
                     <table cellspacing="0" border="0" cellpadding="0" class="tb-cab-payment">
                         <tr>
                             <td>Дата</td>

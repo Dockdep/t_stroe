@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 
 
+use app\models\SearchCustomerPaymentHistory;
 use artweb\artbox\ecommerce\helpers\ProductHelper;
 use artweb\artbox\ecommerce\models\Order;
 use artweb\artbox\models\Customer;
@@ -125,8 +126,12 @@ class CabinetController extends Controller
 
     public function actionPayment(){
 
-        return $this->render('payment',[
+        $searchModel = new SearchCustomerPaymentHistory();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        return $this->render('payment', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
