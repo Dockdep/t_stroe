@@ -64,7 +64,7 @@ use yii\helpers\Url;
                         ],
                     ]); ?>
 
-                    <table cellpadding="0" cellspacing="0" border="0" class="td-cab-all-price-payment">
+                    <table cellpadding="0" cellspacing="0" border="0" class="td-cab-all-price td-cab-all-price-payment">
                         <tr>
                             <td align="right">
                                 <div class="style">Отгрузка: <?= round($payment->coming,2) ?> грн.</div>
