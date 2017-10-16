@@ -4086,12 +4086,13 @@ span.remove_ico {
   background: #f3f3f3; }
 .tb-cab-payment tr td, .tb-cab-payment tr th {
   padding: 8px 0 8px 15px;
-  text-align: center;
-  font-weight: 700;
+  text-align: left;
+
   border-bottom: 1px solid #a9adb0; }
 .tb-cab-payment tr th {
   text-align: left;
-  font-weight: normal; }
+  font-weight: 700;
+}
 .tb-cab-payment tr th a {
   color: #333;
   text-decoration: underline;
