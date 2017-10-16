@@ -44,7 +44,7 @@ use yii\helpers\Url;
                             [
                                 'attribute'=>'date',
                                 'content'=>function($data){
-                                    return date ( 'd-m-Y', $data );
+                                    return date ( 'd-m-Y', $data->date );
                                 }
                             ],
                             'coming',
