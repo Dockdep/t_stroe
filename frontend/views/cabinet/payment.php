@@ -41,7 +41,12 @@ use yii\helpers\Url;
                        // 'filterModel' => $searchModel,
                         'tableOptions' => ['class' => 'tb-cab-payment'],
                         'columns' => [
-                            'date',
+                            [
+                                'attribute'=>'date',
+                                'content'=>function($data){
+                                    return date ( 'd-m-Y', $data );
+                                }
+                            ],
                             'coming',
                             'consumption'
                         ],

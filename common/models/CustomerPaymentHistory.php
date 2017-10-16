@@ -38,9 +38,6 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getDate(){
-        return date ( 'd-m-Y', $this->date );
-    }
 
     /**
      * @inheritdoc
