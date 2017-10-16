@@ -3,7 +3,7 @@ namespace frontend\controllers;
 
 
 
-use app\models\SearchCustomerPaymentHistory;
+use common\models\SearchCustomerPaymentHistory;
 use artweb\artbox\ecommerce\helpers\ProductHelper;
 use artweb\artbox\ecommerce\models\Order;
 use artweb\artbox\models\Customer;
