@@ -4084,7 +4084,7 @@ span.remove_ico {
   overflow: hidden; }
 .tb-cab-payment tr:hover {
   background: #f3f3f3; }
-.tb-cab-payment tr td {
+.tb-cab-payment tr td, .tb-cab-payment tr th {
   padding: 8px 0 8px 15px;
   text-align: center;
   font-weight: 700;
