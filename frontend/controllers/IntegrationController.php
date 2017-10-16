@@ -9878,7 +9878,7 @@ class IntegrationController extends Controller{
         $customerPayments->consumption = $item->consumption;
         $customerPayments->coming = $item->coming;
         if(!$customerPayments->validate()){
-            throw new Exception(print_r($order->getErrors()));
+            throw new Exception(print_r($customerPayments->getErrors()));
         }
         $customerPayments->save();
         if(!isset($item->orders)){
@@ -9898,7 +9898,7 @@ class IntegrationController extends Controller{
                 $date->format("d.m.Y");
                 $customerPaymentHistory->date = $date->getTimestamp();
                 if(!$customerPaymentHistory->validate()){
-                    throw new Exception(print_r($order->getErrors()));
+                    throw new Exception(print_r($customerPaymentHistory->getErrors()));
                 }
                 $customerPaymentHistory->save();
             }
