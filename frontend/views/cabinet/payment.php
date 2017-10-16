@@ -73,7 +73,7 @@ use yii\helpers\Url;
                                 <div class="style">Оплата: <?= round($payment->consumption,2) ?> грн.</div>
                             </td>
                             <td align="right">
-                                <div class="style">Итого: <?= round(($payment->coming  - $payment->consumption),2) ?>  грн.</div>
+                                <div class="style">Итого: <?= round(( $payment->consumption - $payment->coming),2) ?>  грн.</div>
                             </td>
                         </tr>
                     </table>
