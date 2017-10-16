@@ -41,7 +41,7 @@ class SearchCustomerPaymentHistory extends CustomerPaymentHistory
      */
     public function search($params)
     {
-        $query = CustomerPaymentHistory::find();
+        $query = CustomerPaymentHistory::find()->where(['customer_id' => Yii::$app->user->identity->id ]);
 
         // add conditions that should always apply here
 

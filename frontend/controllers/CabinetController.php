@@ -129,7 +129,7 @@ class CabinetController extends Controller
 
         $searchModel = new SearchCustomerPaymentHistory();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $payment = CustomerPayment::find()->one();
+        $payment = CustomerPayment::find()->where(['customer_id' => Yii::$app->user->identity->id ])->one();
         return $this->render('payment', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
