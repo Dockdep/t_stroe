@@ -4089,9 +4089,16 @@ span.remove_ico {
   text-align: center;
   font-weight: 700;
   border-bottom: 1px solid #a9adb0; }
-.tb-cab-payment tr td:first-child {
+.tb-cab-payment tr th {
   text-align: left;
   font-weight: normal; }
+.tb-cab-payment tr th a {
+  color: #333;
+  text-decoration: underline;
+}
+.tb-cab-payment tr th a:hover {
+  text-decoration: none;
+}
 .tb-cab-payment tr td.payment-red {
   color: #cc0000; }
 .tb-cab-payment tr td.payment-green {
