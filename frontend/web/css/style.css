@@ -4098,7 +4098,7 @@ span.remove_ico {
   color: #1d9600; }
 .tb-cab-payment tr:first-child {
   background: none !important; }
-.tb-cab-payment tbody tr td {
+.tb-cab-payment thead tr td {
   border-bottom: 0;
   background: #ffdd36;
   font-weight: 700; }
