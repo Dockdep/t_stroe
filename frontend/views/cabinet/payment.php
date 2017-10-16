@@ -39,6 +39,7 @@ use yii\helpers\Url;
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,
                         'filterModel' => $searchModel,
+                        'contentOptions' => ['class' => 'tb-cab-payment'],
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
 
