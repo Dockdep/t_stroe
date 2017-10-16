@@ -495,7 +495,7 @@ a:active {
 .login-wr a.is_logged {
   text-transform: none;
   font-size: 13px; }
-.login-wr a.is_logged:before {
+.login-wr a.is_logged:after {
   height: 100%;
   width: 18px;
   top: 0;
@@ -4084,21 +4084,30 @@ span.remove_ico {
   overflow: hidden; }
 .tb-cab-payment tr:hover {
   background: #f3f3f3; }
-.tb-cab-payment tr td {
+.tb-cab-payment tr td, .tb-cab-payment tr th {
   padding: 8px 0 8px 15px;
   text-align: center;
   font-weight: 700;
   border-bottom: 1px solid #a9adb0; }
-.tb-cab-payment tr td:first-child {
+
+.tb-cab-payment tr th:first-child, .tb-cab-payment tr td:first-child {
   text-align: left;
-  font-weight: normal; }
+  font-weight: normal;
+}
+.tb-cab-payment tr th a {
+  color: #333;
+  text-decoration: underline;
+}
+.tb-cab-payment tr th a:hover {
+  text-decoration: none;
+}
 .tb-cab-payment tr td.payment-red {
   color: #cc0000; }
 .tb-cab-payment tr td.payment-green {
   color: #1d9600; }
 .tb-cab-payment tr:first-child {
   background: none !important; }
-.tb-cab-payment tr:first-child td {
+.tb-cab-payment thead tr th {
   border-bottom: 0;
   background: #ffdd36;
   font-weight: 700; }
@@ -4108,6 +4117,9 @@ span.remove_ico {
 .td-cab-all-price.td-cab-all-price-payment {
   margin-top: 0; }
 
+.td-cab-all-price-payment_new div{
+border:0;
+}
 @media (max-width: 767px) {
   .cabinet-forms-list li {
     display: block !important;
