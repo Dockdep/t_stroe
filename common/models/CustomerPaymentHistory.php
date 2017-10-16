@@ -47,9 +47,9 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'customer_id' => 'Customer ID',
-            'coming' => 'Coming',
-            'consumption' => 'Consumption',
-            'date' => 'Date',
+            'coming' => 'Отгрузка',
+            'consumption' => 'Оплата',
+            'date' => 'Дата',
         ];
     }
 

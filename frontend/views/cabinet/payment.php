@@ -47,37 +47,22 @@ use yii\helpers\Url;
                                     return date ( 'd-m-Y', $data->date );
                                 }
                             ],
-                            'coming',
-                            'consumption'
+                            [
+                                'attribute'=>'coming',
+                                'contentOptions' =>['class' => 'payment-red'],
+                                'content'=>function($data){
+                                    return "-".$data->coming;
+                                }
+                            ],
+                            [
+                                'attribute'=>'consumption',
+                                'contentOptions' =>['class' => 'payment-green'],
+                                'content'=>function($data){
+                                    return "+".$data->consumption;
+                                }
+                            ]
                         ],
                     ]); ?>
-                    <table cellspacing="0" border="0" cellpadding="0" class="tb-cab-payment">
-                        <tr>
-                            <td>Дата</td>
-                            <td>Расход</td>
-                            <td>Приход</td>
-                        </tr>
-                        <tr>
-                            <td>02.09.2017</td>
-                            <td class="payment-red">-1000</td>
-                            <td class="payment-green">+1000</td>
-                        </tr>
-                        <tr>
-                            <td>02.09.2017</td>
-                            <td class="payment-red">-2000</td>
-                            <td class="payment-green">+1000</td>
-                        </tr>
-                        <tr>
-                            <td>02.09.2017</td>
-                            <td class="payment-red"></td>
-                            <td class="payment-green">+1000</td>
-                        </tr>
-                        <tr>
-                            <td>02.09.2017</td>
-                            <td class="payment-red">-500</td>
-                            <td class="payment-green">+7000</td>
-                        </tr>
-                    </table>
 
                     <table cellpadding="0" cellspacing="0" border="0" class="td-cab-all-price td-cab-all-price-payment">
                         <tr>
