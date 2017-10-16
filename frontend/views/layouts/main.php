@@ -86,15 +86,7 @@ $pages = Page::find()
 
                         <?php else: ?>
                             <?= Html::a(
-                                Html::img(
-                                    "/images/ico-all/icologin.png",
-                                    [
-                                        'width'  => '14',
-                                        "height" => "16",
-                                        "title"  => \Yii::t("app", "lcab"),
-
-                                    ]
-                                ) . "<span>" . Yii::$app->user->identity->email . "</span>" . "<br>".
+                                "<span>" . Yii::$app->user->identity->email . "</span>" . "<br>".
                                      "<span>" . Yii::$app->user->identity->username . "</span>",
                                 Url::to([ "cabinet/main" ]),
                                 [
