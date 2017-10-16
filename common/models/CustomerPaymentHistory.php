@@ -1,7 +1,8 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
+use artweb\artbox\models\Customer;
 use Yii;
 
 /**
@@ -9,9 +10,9 @@ use Yii;
  *
  * @property integer $id
  * @property integer $customer_id
- * @property string $date
  * @property double $coming
  * @property double $consumption
+ * @property integer $date
  *
  * @property Customer $customer
  */
@@ -31,8 +32,7 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['customer_id'], 'integer'],
-            [['date'], 'string'],
+            [['customer_id', 'date'], 'integer'],
             [['coming', 'consumption'], 'number'],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['customer_id' => 'id']],
         ];
@@ -46,9 +46,9 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'customer_id' => 'Customer ID',
-            'date' => 'Date',
             'coming' => 'Coming',
             'consumption' => 'Consumption',
+            'date' => 'Date',
         ];
     }
 
