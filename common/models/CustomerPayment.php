@@ -1,7 +1,8 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
+use artweb\artbox\models\Customer;
 use Yii;
 
 /**
