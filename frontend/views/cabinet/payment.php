@@ -51,14 +51,14 @@ use yii\helpers\Url;
                                 'attribute'=>'coming',
                                 'contentOptions' =>['class' => 'payment-red'],
                                 'content'=>function($data){
-                                    return "-".$data->coming;
+                                    return $data->coming > 0 ? "-".$data->coming : 0 ;
                                 }
                             ],
                             [
                                 'attribute'=>'consumption',
                                 'contentOptions' =>['class' => 'payment-green'],
                                 'content'=>function($data){
-                                    return "+".$data->consumption;
+                                    return $data->consumption > 0 ? "+".$data->consumption : 0;
                                 }
                             ]
                         ],
