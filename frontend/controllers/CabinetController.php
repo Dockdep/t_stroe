@@ -133,7 +133,7 @@ class CabinetController extends Controller
         return $this->render('payment', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'payment' => $payment
+            'payment' => $payment instanceof  CustomerPayment ? $payment : new CustomerPayment()
         ]);
     }
 
