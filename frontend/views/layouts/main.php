@@ -86,6 +86,7 @@ $pages = Page::find()
 
                         <?php else: ?>
                             <?= Html::a(
+                                "<div></div>".
                                 "<span>" . Yii::$app->user->identity->email . "</span>" . "<br>".
                                      "<span>" . Yii::$app->user->identity->username . "</span>",
                                 Url::to([ "cabinet/main" ]),
