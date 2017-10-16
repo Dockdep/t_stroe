@@ -36,35 +36,37 @@ use yii\helpers\Url;
                 <a class="cab-mob-link" href="cabinet-history-payment.html"><span>Платежи</span></a>
 
                 <div class="style cab-history-payment-wrapp">
-                    <?= GridView::widget([
-                        'dataProvider' => $dataProvider,
-                       // 'filterModel' => $searchModel,
-                        'tableOptions' => ['class' => 'tb-cab-payment tb-cab-payment_new'],
-                        'columns' => [
-                            [
-                                'attribute'=>'date',
-                                'content'=>function($data){
-                                    return date ( 'd-m-Y', $data->date );
-                                }
+                    <div>
+                        <?= GridView::widget([
+                            'dataProvider' => $dataProvider,
+                            // 'filterModel' => $searchModel,
+                            'tableOptions' => ['class' => 'tb-cab-payment tb-cab-payment_new'],
+                            'columns' => [
+                                [
+                                    'attribute'=>'date',
+                                    'content'=>function($data){
+                                        return date ( 'd-m-Y', $data->date );
+                                    }
+                                ],
+                                [
+                                    'attribute'=>'coming',
+                                    'contentOptions' =>['class' => 'payment-red'],
+                                    'content'=>function($data){
+                                        return $data->coming > 0 ? "-".$data->coming : 0 ;
+                                    }
+                                ],
+                                [
+                                    'attribute'=>'consumption',
+                                    'contentOptions' =>['class' => 'payment-green'],
+                                    'content'=>function($data){
+                                        return $data->consumption > 0 ? "+".$data->consumption : 0;
+                                    }
+                                ]
                             ],
-                            [
-                                'attribute'=>'coming',
-                                'contentOptions' =>['class' => 'payment-red'],
-                                'content'=>function($data){
-                                    return $data->coming > 0 ? "-".$data->coming : 0 ;
-                                }
-                            ],
-                            [
-                                'attribute'=>'consumption',
-                                'contentOptions' =>['class' => 'payment-green'],
-                                'content'=>function($data){
-                                    return $data->consumption > 0 ? "+".$data->consumption : 0;
-                                }
-                            ]
-                        ],
-                    ]); ?>
+                        ]); ?>
+                    </div>
 
-                    <table cellpadding="0" cellspacing="0" border="0" class="td-cab-all-price td-cab-all-price-payment">
+                    <table cellpadding="0" cellspacing="0" border="0" class="td-cab-all-price td-cab-all-price-payment td-cab-all-price-payment_new">
                         <tr>
                             <td align="right">
                                 <div class="style">Отгрузка: <?= round($payment->coming,2) ?> грн.</div>

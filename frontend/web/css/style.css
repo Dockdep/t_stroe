@@ -4117,6 +4117,9 @@ span.remove_ico {
 .td-cab-all-price.td-cab-all-price-payment {
   margin-top: 0; }
 
+.td-cab-all-price-payment_new div{
+border:0;
+}
 @media (max-width: 767px) {
   .cabinet-forms-list li {
     display: block !important;
