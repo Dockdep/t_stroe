@@ -9870,13 +9870,16 @@ class IntegrationController extends Controller{
         if(!isset($item->id)){
             throw new Exception("Не указан id пользователя");
         }
-        $customerPayments = CustomerPayment::find()->where(['customer_id'=> $item->id]);
+        $customerPayments = CustomerPayment::find()->where(['customer_id'=> $item->id])->one();
         if(!$customerPayments instanceof  CustomerPayment){
             $customerPayments = new CustomerPayment();
             $customerPayments->customer_id = $item->id;
         }
         $customerPayments->consumption = $item->consumption;
         $customerPayments->coming = $item->coming;
+        if(!$customerPayments->validate()){
+            throw new Exception(print_r($order->getErrors()));
+        }
         $customerPayments->save();
         if(!isset($item->orders)){
             throw new Exception("Не указан orders пользователя");
@@ -9894,6 +9897,9 @@ class IntegrationController extends Controller{
                 $date = new \DateTime($row->date);
                 $date->format("d.m.Y");
                 $customerPaymentHistory->date = $date->getTimestamp();
+                if(!$customerPaymentHistory->validate()){
+                    throw new Exception(print_r($order->getErrors()));
+                }
                 $customerPaymentHistory->save();
             }
         }
