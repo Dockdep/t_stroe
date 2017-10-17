@@ -545,6 +545,7 @@ class SiteController extends Controller
         $request = \Yii::$app->request;
         $model = new Feedback();
         if ($model->load($request->post()) && $model->save()) {
+            $model->sync();
             \Yii::$app->session->setFlash(
                 'success',
                 \Yii::t(
