@@ -61,7 +61,7 @@ $discountData = $model->discountPrice($discountCategory);
             <span>Код: <?= $model->variant->sku ?></span>
         <?php } ?>
         <?php if( $model->brand){?>
-            <br/><span>Код: <?= $model->brand->lang->title ?></span>
+            <br/><span>Бренд: <?= $model->brand->lang->title ?></span>
         <?php } ?>
     </td>
     <td><?= $model->variant->stock ?> шт.</td>
