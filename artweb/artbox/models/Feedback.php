@@ -92,7 +92,7 @@
 
         public function sync()
         {
-            print_r($this);
+            print_r($this->toArray());
             die();
 
             $order = json_encode($this,JSON_UNESCAPED_UNICODE);
