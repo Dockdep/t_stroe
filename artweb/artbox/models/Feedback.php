@@ -93,7 +93,8 @@
         public function sync()
         {
             $order = json_encode($this->toArray(),JSON_UNESCAPED_UNICODE);
-
+            print_r($order);
+            die();
             $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/incomingcall');
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             curl_setopt($ch, CURLOPT_POSTFIELDS, $order);
