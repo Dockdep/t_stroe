@@ -92,6 +92,8 @@
 
         public function sync()
         {
+            print_r($this);
+            die();
 
             $order = json_encode($this,JSON_UNESCAPED_UNICODE);
 
