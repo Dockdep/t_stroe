@@ -69,6 +69,7 @@ $PriceData = $model->discountPrice($discountCategory);
                         <span>Код: <?=  $model->enabledVariants[0]->sku ?></span>
                     <?php } ?>
                 </div>
+                <br/>
                 <div class="title-sku">
                     <?php if($model->brand ){?>
                         <span>Бренд: <?=  $model->brand->lang->title ?></span>
