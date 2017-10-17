@@ -9985,8 +9985,8 @@ class IntegrationController extends Controller{
             $user->generateAuthKey();
         }
         $user->username = $item->username;
-        $user->email = $item->Email;
-        $user->phone = $item->Phone;
+        $user->email = !empty($item->Email) ? $item->Email : $user->email;
+        $user->phone = !empty($item->Phone) ? $item->Phone : $user->phone;
         $user->discount_rate = $item->discount_rate;
         $user->validate();
         if(!$user->validate()){

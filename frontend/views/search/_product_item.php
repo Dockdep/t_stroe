@@ -60,6 +60,9 @@ $discountData = $model->discountPrice($discountCategory);
         <?php if( $model->variant->sku){?>
             <span>Код: <?= $model->variant->sku ?></span>
         <?php } ?>
+        <?php if( $model->brand){?>
+            <br/><span>Код: <?= $model->brand->lang->title ?></span>
+        <?php } ?>
     </td>
     <td><?= $model->variant->stock ?> шт.</td>
     <?php if($discountData['price']> 0) {?>

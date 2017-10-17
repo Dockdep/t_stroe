@@ -69,6 +69,11 @@ $PriceData = $model->discountPrice($discountCategory);
                         <span>Код: <?=  $model->enabledVariants[0]->sku ?></span>
                     <?php } ?>
                 </div>
+                <div class="title-sku">
+                    <?php if($model->brand ){?>
+                        <span>Бренд: <?=  $model->brand->lang->title ?></span>
+                    <?php } ?>
+                </div>
             </div>
             <!--если есть новая цена добавить для (.cat-price-more) класс cat_new_price-->
             <div class="cat-price-more cat_new_price">
