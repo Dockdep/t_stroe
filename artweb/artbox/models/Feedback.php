@@ -94,7 +94,7 @@
         {
             $order = json_encode($this->toArray(),JSON_UNESCAPED_UNICODE);
 
-            $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/incomingcall');
+            $ch = curl_init('http://91.203.25.219:8083/truckpost/hs/IncomingCall');
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             curl_setopt($ch, CURLOPT_POSTFIELDS, $order);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
