@@ -43,7 +43,7 @@
 
 
             if(!empty($additionalData) && isset($additionalData[0]) && isset($additionalData[1])){
-                if(count($additionalData) == 2 && $additionalData[3] == 'analog'){
+                if(count($additionalData) == 3 && $additionalData[2] == 'analog'){
                     $basket->addChangeAnalogs($additionalData);
                 } else {
                     $basket->addAnalogs($additionalData);
