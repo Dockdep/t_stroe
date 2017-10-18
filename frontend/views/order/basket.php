@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 title-card">Товары в вашей корзина</div>
 
-        <?php if (empty( $models )) {
+        <?php if (empty( $models ) && empty($data)) {
             ?>
             <div class="col-xs-12 col-sm-12 title_empty_basket">
                 <?php echo \Yii::t('app', 'basket_empty'); ?><br/>
