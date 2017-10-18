@@ -104,10 +104,8 @@
         {
             $data = $this->getData();
             $product_variant_id = $additionalData[0];
-            print_r($additionalData);
-            die('here');
             if(isset($data['analogs'][ $product_variant_id ])){
-                $data['analogs'][ $product_variant_id ][ 'count' ] = $additionalData[1];
+                $data['analogs'][ $product_variant_id ][ 'count' ] += $additionalData[1];
                 if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
                     unset( $data['analogs'][ $product_variant_id ] );
                 }
