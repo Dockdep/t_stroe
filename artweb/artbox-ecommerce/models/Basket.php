@@ -99,6 +99,19 @@
             }
             $this->setData($data);
         }
+
+        public function addChangeAnalogs($additionalData)
+        {
+            $data = $this->getData();
+            $product_variant_id = $additionalData[0];
+
+            $data['analogs'][ $product_variant_id ][ 'count' ] = $additionalData[1];
+            if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
+                unset( $data['analogs'][ $product_variant_id ] );
+            }
+            $this->setData($data);
+        }
+
         /**
          * Set product variant with $product_variant_id to $count
          *

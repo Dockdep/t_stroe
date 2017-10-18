@@ -187,6 +187,8 @@ $(document)
 $(document)
     .on('click', '.quantity-wr span', changeBasket);
 $(document)
+    .on('click', '.quantity-wr span.analog', changeBasketAnalog);
+$(document)
     .on('change', '.quantity-wr input', setBasket);
 $(document)
     .on('keypress', '.quantity-wr input', setControl);
@@ -298,6 +300,24 @@ function changeBasket(e) {
     }
     else {
         basket.add(variant, 1);
+    }
+}
+function changeBasketAnalog(e) {
+    var variant = $(this)
+        .parents('tr.variant_tr')
+        .data('variant');
+    var input = $(this)
+        .parent()
+        .find('input');
+    var oldVal = input.val();
+    if ($(this)
+        .hasClass('minus')) {
+        if (oldVal > 1) {
+            basket.add(variant, -1, [variant, -1]);
+        }
+    }
+    else {
+        basket.add(variant, [variant, 1]);
     }
 }
 function removeBasket(e) {

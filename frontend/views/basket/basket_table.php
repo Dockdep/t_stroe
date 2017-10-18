@@ -144,9 +144,9 @@ $basket_sum = 0;
                 </td>
                 <td>
                     <div class="quantity-wr">
-                        <span class="minus">-</span>
+                        <span class="minus analog">-</span>
                         <input type="text" value="<?php echo $itemData[ 'count' ]; ?>" class="prod_count">
-                        <span class="plus">+</span>
+                        <span class="plus analog">+</span>
                     </div>
                 </td>
                 <td>

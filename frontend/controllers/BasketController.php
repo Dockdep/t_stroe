@@ -43,11 +43,12 @@
 
 
             if(!empty($additionalData) && isset($additionalData[0]) && isset($additionalData[1])){
-                $basket->addAnalogs($additionalData);
+                if(count($additionalData) == 2){
+                    $basket->addChangeAnalogs($additionalData);
+                } else {
+                    $basket->addAnalogs($additionalData);
+                }
             } else {
-
-
-
                 $basket->add($product_variant_id, $count);
             }
 
