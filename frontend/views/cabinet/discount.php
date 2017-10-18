@@ -39,10 +39,11 @@ use yii\helpers\Url;
                 <a class="cab-mob-link" href="cabinet-discount.html"><span>Персональные скидки</span></a>
 
                 <div class="style cab-discount-wrapp">
-                    <div class="cab-disc-txt">
-                        Ваша персональная скидка на все категории <?= \Yii::$app->user->identity->discount_rate ?>
-                    </div>
-
+                    <?php if(!empty(\Yii::$app->user->identity->discount_rate)){?>
+                        <div class="cab-disc-txt">
+                            Ваша персональная скидка на все категории <?= \Yii::$app->user->identity->discount_rate ?>
+                        </div>
+                    <?php } ?>
                     <div class="cab-disc-txt">
                         Ваши скидки в категориях
                     </div>
