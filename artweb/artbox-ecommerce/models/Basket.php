@@ -104,12 +104,14 @@
         {
             $data = $this->getData();
             $product_variant_id = $additionalData[0];
-
-            $data['analogs'][ $product_variant_id ][ 'count' ] = $additionalData[1];
-            if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
-                unset( $data['analogs'][ $product_variant_id ] );
+            if(isset($data['analogs'][ $product_variant_id ])){
+                $data['analogs'][ $product_variant_id ][ 'count' ] = $additionalData[1];
+                if ($data['analogs'][ $product_variant_id ][ 'count' ] <= 0) {
+                    unset( $data['analogs'][ $product_variant_id ] );
+                }
+                $this->setData($data);
             }
-            $this->setData($data);
+ 
         }
 
         /**

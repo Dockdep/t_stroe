@@ -34,7 +34,7 @@ $basket_sum = 0;
                 $variant = $models[ $product_variant_id ];
             }
             ?>
-            <tr class="variant_tr" data-variant="<?php echo $variant->id; ?>">
+            <tr class="variant_tr" data-variant="<?php echo $variant->id; ?>" data-type="base">
                 <td>
                     <?php
                         echo Html::a(
@@ -126,7 +126,7 @@ $basket_sum = 0;
         <?php
         foreach ($analogs as $itemId => $itemData) {
             ?>
-            <tr class="variant_tr" data-variant="<?= $itemId ?>">
+            <tr class="variant_tr" data-variant="<?= $itemId ?>" data-type="analog">
                 <td>
                     <img src="/images/no-img-80.png" alt="">
                 </td>
@@ -144,9 +144,9 @@ $basket_sum = 0;
                 </td>
                 <td>
                     <div class="quantity-wr">
-                        <span class="minus analog">-</span>
+                        <span class="minus">-</span>
                         <input type="text" value="<?php echo $itemData[ 'count' ]; ?>" class="prod_count">
-                        <span class="plus analog">+</span>
+                        <span class="plus">+</span>
                     </div>
                 </td>
                 <td>
