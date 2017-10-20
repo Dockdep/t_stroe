@@ -9984,6 +9984,14 @@ class IntegrationController extends Controller{
             $user->setPassword($item->password);
             $user->generateAuthKey();
         }
+
+        if(isset($item->YurfizLizso)){
+            if($item->YurfizLizso == "Юр. лицо"){
+                $user->role = "entity";
+            }else if($item->YurfizLizso == "Физ. лицо"){
+                $user->role = "person";
+            }
+        }
         $user->username = $item->username;
         $user->email = !empty($item->Email) ? $item->Email : $user->email;
         $user->phone = !empty($item->Phone) ? $item->Phone : $user->phone;
