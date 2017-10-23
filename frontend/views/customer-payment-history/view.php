@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\CustomerPaymentHistory */
+/* @var $model app\models\CustomerPaymentHistory */
 
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Customer Payment Histories', 'url' => ['index']];
@@ -30,9 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'customer_id',
-            'coming',
-            'consumption',
+            'order',
+            'remainder',
+            'action_date',
+            'date_of_delay',
+            'days_of_delay',
             'date',
+            'order_remainder',
         ],
     ]) ?>
 

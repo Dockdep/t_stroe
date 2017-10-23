@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model common\models\CustomerPaymentHistory */
+/* @var $model app\models\CustomerPaymentHistory */
 
 $this->title = 'Create Customer Payment History';
 $this->params['breadcrumbs'][] = ['label' => 'Customer Payment Histories', 'url' => ['index']];

@@ -1,8 +1,7 @@
 <?php
 
-namespace common\models;
+namespace app\models;
 
-use artweb\artbox\models\Customer;
 use Yii;
 
 /**
@@ -10,9 +9,13 @@ use Yii;
  *
  * @property integer $id
  * @property integer $customer_id
- * @property double $coming
- * @property double $consumption
+ * @property integer $order
+ * @property double $remainder
+ * @property integer $action_date
+ * @property integer $date_of_delay
+ * @property integer $days_of_delay
  * @property integer $date
+ * @property double $order_remainder
  *
  * @property Customer $customer
  */
@@ -32,12 +35,11 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['customer_id', 'date'], 'integer'],
-            [['coming', 'consumption'], 'number'],
+            [['customer_id', 'order', 'action_date', 'date_of_delay', 'days_of_delay', 'date'], 'integer'],
+            [['remainder', 'order_remainder'], 'number'],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['customer_id' => 'id']],
         ];
     }
-
 
     /**
      * @inheritdoc
@@ -47,9 +49,13 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'customer_id' => 'Customer ID',
-            'coming' => 'Отгрузка',
-            'consumption' => 'Оплата',
-            'date' => 'Дата',
+            'order' => 'Order',
+            'remainder' => 'Remainder',
+            'action_date' => 'Action Date',
+            'date_of_delay' => 'Date Of Delay',
+            'days_of_delay' => 'Days Of Delay',
+            'date' => 'Date',
+            'order_remainder' => 'Order Remainder',
         ];
     }
 

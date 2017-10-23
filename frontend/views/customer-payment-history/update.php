@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\CustomerPaymentHistory */
+/* @var $model app\models\CustomerPaymentHistory */
 
 $this->title = 'Update Customer Payment History: ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Customer Payment Histories', 'url' => ['index']];

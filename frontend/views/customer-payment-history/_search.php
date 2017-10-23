@@ -19,11 +19,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'customer_id') ?>
 
-    <?= $form->field($model, 'coming') ?>
+    <?= $form->field($model, 'order') ?>
 
-    <?= $form->field($model, 'consumption') ?>
+    <?= $form->field($model, 'remainder') ?>
 
-    <?= $form->field($model, 'date') ?>
+    <?= $form->field($model, 'action_date') ?>
+
+    <?php // echo $form->field($model, 'date_of_delay') ?>
+
+    <?php // echo $form->field($model, 'days_of_delay') ?>
+
+    <?php // echo $form->field($model, 'date') ?>
+
+    <?php // echo $form->field($model, 'order_remainder') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

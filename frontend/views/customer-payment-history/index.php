@@ -26,9 +26,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'customer_id',
-            'coming',
-            'consumption',
-            'date',
+            'order',
+            'remainder',
+            'action_date',
+            // 'date_of_delay',
+            // 'days_of_delay',
+            // 'date',
+            // 'order_remainder',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
