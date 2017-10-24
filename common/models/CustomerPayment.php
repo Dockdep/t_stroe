@@ -1,7 +1,8 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
+use artweb\artbox\models\Customer;
 use Yii;
 
 /**
@@ -54,4 +55,6 @@ class CustomerPayment extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Customer::className(), ['id' => 'customer_id']);
     }
+
+
 }

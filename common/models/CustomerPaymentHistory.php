@@ -1,7 +1,9 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
+use artweb\artbox\ecommerce\models\Order;
+use artweb\artbox\models\Customer;
 use Yii;
 
 /**
@@ -9,7 +11,7 @@ use Yii;
  *
  * @property integer $id
  * @property integer $customer_id
- * @property integer $order
+ * @property integer $order_id
  * @property double $remainder
  * @property integer $action_date
  * @property integer $date_of_delay
@@ -35,7 +37,7 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['customer_id', 'order', 'action_date', 'date_of_delay', 'days_of_delay', 'date'], 'integer'],
+            [['customer_id', 'order_id', 'action_date', 'date_of_delay', 'days_of_delay', 'date'], 'integer'],
             [['remainder', 'order_remainder'], 'number'],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['customer_id' => 'id']],
         ];
@@ -49,7 +51,7 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'customer_id' => 'Customer ID',
-            'order' => 'Order',
+            'order_id' => 'Order ID',
             'remainder' => 'Remainder',
             'action_date' => 'Action Date',
             'date_of_delay' => 'Date Of Delay',
@@ -65,5 +67,13 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
     public function getCustomer()
     {
         return $this->hasOne(Customer::className(), ['id' => 'customer_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrder()
+    {
+        return $this->hasOne(Order::className(), ['id' => 'order_id']);
     }
 }

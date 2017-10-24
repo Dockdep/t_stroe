@@ -9875,8 +9875,7 @@ class IntegrationController extends Controller{
             $customerPayments = new CustomerPayment();
             $customerPayments->customer_id = $item->id;
         }
-        $customerPayments->consumption = $item->consumption;
-        $customerPayments->coming = $item->coming;
+        $customerPayments->remainder = $item->remainder;
         if(!$customerPayments->validate()){
             throw new Exception(print_r($customerPayments->getErrors()));
         }
@@ -9889,19 +9888,33 @@ class IntegrationController extends Controller{
             if(!isset($order->indetail)){
                 throw new Exception("Не указан indetail пользователя в заказе " .$order->nom );
             }
-            foreach ($order->indetail as $row){
-                $customerPaymentHistory = new CustomerPaymentHistory();
-                $customerPaymentHistory->customer_id = $item->id;
-                $customerPaymentHistory->coming = $row->coming;
-                $customerPaymentHistory->consumption = $row->consumption;
-                $date = new \DateTime($row->date);
-                $date->format("d.m.Y");
-                $customerPaymentHistory->date = (string)$date->getTimestamp();
-                if(!$customerPaymentHistory->validate()){
-                    throw new Exception(print_r($customerPaymentHistory->getErrors()));
+            $orderData = Order::find()->where(['remote_id'=> $order->nom])->one();
+            if($orderData instanceof Order ){
+                foreach ($order->indetail as $row){
+                    $customerPaymentHistory = new CustomerPaymentHistory();
+                    $customerPaymentHistory->customer_id = $item->id;
+                    $customerPaymentHistory->order_id = $orderData->id;
+                    $customerPaymentHistory->remainder = $row->remainder;
+                    $customerPaymentHistory->order_remainder = $order->remainder;
+                    $customerPaymentHistory->days_of_delay = $row->DaysOfDelay;
+                    $date = new \DateTime($order->date);
+                    $date->format("d.m.Y");
+                    $customerPaymentHistory->date = $date->getTimestamp();
+                    $date = new \DateTime($row->date);
+                    $date->format("d.m.Y");
+                    $customerPaymentHistory->action_date = $date->getTimestamp();
+                    $date = new \DateTime($row->DateOfDelay);
+                    $date->format("d.m.Y");
+                    $customerPaymentHistory->date_of_delay = $date->getTimestamp();
+                    if(!$customerPaymentHistory->validate()){
+                        throw new Exception(print_r($customerPaymentHistory->getErrors()));
+                    }
+                    $customerPaymentHistory->save();
                 }
-                $customerPaymentHistory->save();
+            } else {
+                throw new Exception("На сайте нет заказа с Order.nom " . $order->nom);
             }
+
         }
         $this->result[$item->id] = 'true';
     }
