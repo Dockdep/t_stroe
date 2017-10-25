@@ -478,11 +478,14 @@ class IntegrationController extends Controller{
             $model->generateLangs();
             foreach ($model->modelLangs as $lang) {
                 $lang->title = $item->name;
+                $lang->description =  $item->Description;
             }
         } else {
             $model->lang->title = $item->name;
+            $model->lang->description =  $item->Description;
         }
         $model->status = $item->status;
+
         $model->discount_rate = $item->discount_rate;
         $model->is_discount = $item->discount;
         $model->is_top = $item->top;
