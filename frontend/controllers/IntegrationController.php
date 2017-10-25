@@ -138,8 +138,8 @@ class IntegrationController extends Controller{
 
     public function actionImportOrders(){
         try{
-           // if($data = \Yii::$app->request->post("data")){
-               $data = $this->getItemData();
+            if($data = \Yii::$app->request->post("data")){
+//               $data = $this->getItemData();
                 $data = json_decode($data);
                 if(is_array($data)){
                     foreach ($data as $item){
@@ -149,9 +149,9 @@ class IntegrationController extends Controller{
                     throw new Exception("Данные о пользователях ожидаются в виде массива.");
                 }
                 die(json_encode($this->result,JSON_UNESCAPED_UNICODE));
-//            }else {
-//                throw new Exception("Отсутствует data");
-//            }
+            }else {
+                throw new Exception("Отсутствует data");
+            }
         } catch (Exception $e) {
             echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
         }
@@ -246,10 +246,19 @@ class IntegrationController extends Controller{
                  */
                 $product = Product::find()->where(["remote_id" => $item->model])->one();
                 $orderProduct = new OrderProduct();
-                $orderProduct->product_variant_id = $product->id;
-                $orderProduct->name =$product->lang->title;
-                $orderProduct->sku = isset($product->variant->sku) ?$product->variant->sku:$product->lang->title;
-                $orderProduct->price = $item->price*1;
+                if($product instanceof  Product){
+                    $orderProduct->product_variant_id = $product->id;
+                    $orderProduct->name =$product->lang->title;
+                    $orderProduct->sku = isset($product->variant->sku) ?$product->variant->sku:$product->lang->title;
+
+                }else {
+                    $orderProduct->product_variant_id = $item->model;
+                    $orderProduct->name =$item->model;
+                    $orderProduct->sku = $item->model;
+
+                }
+
+               $orderProduct->price = $item->price*1;
                 $orderProduct->discount_price = ((100-$item->discount)/100)* $item->price;
                 $orderProduct->discount = $item->discount;
                 $orderProduct->count = $item->quantity;
