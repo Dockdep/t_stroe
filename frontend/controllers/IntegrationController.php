@@ -22,148 +22,70 @@ class IntegrationController extends Controller{
     public $result = [];
     public function getItemData(){
       return '[
-  {
-    "id": "81",
-    "remainder": 11365,
-    "orders": [
-      {
-        "nom": "ШД-17005870",
-        "date": "02.10.2017",
-        "remainder": 445,
-        "indetail": [
-          {
-            "date": "11.10.2017",
-            "nom": "ШД-00003611",
-            "remainder": -605,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          },
-          {
-            "date": "02.10.2017",
-            "nom": "ШД-17005870/01",
-            "remainder": 1050,
-            "DateOfDelay": "16.10.2017",
-            "DaysOfDelay": 5,
-            "AmountInOverdue": 1050
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17005964",
-        "date": "03.10.2017",
-        "remainder": 2060,
-        "indetail": [
-          {
-            "date": "03.10.2017",
-            "nom": "ШД-17005964/01",
-            "remainder": 2060,
-            "DateOfDelay": "17.10.2017",
-            "DaysOfDelay": 4,
-            "AmountInOverdue": 2060
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17005995",
-        "date": "04.10.2017",
-        "remainder": 2050,
-        "indetail": [
-          {
-            "date": "04.10.2017",
-            "nom": "ШД-17005995/01",
-            "remainder": 2050,
-            "DateOfDelay": "18.10.2017",
-            "DaysOfDelay": 3,
-            "AmountInOverdue": 2050
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17006009",
-        "date": "04.10.2017",
-        "remainder": 290,
-        "indetail": [
-          {
-            "date": "04.10.2017",
-            "nom": "ШД-17006009/01",
-            "remainder": 290,
-            "DateOfDelay": "18.10.2017",
-            "DaysOfDelay": 3,
-            "AmountInOverdue": 290
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17006078",
-        "date": "09.10.2017",
-        "remainder": 870,
-        "indetail": [
-          {
-            "date": "09.10.2017",
-            "nom": "ШД-17006078/01",
-            "remainder": 540,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          },
-          {
-            "date": "09.10.2017",
-            "nom": "ШД-17006078/02",
-            "remainder": 330,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17006197",
-        "date": "12.10.2017",
-        "remainder": 210,
-        "indetail": [
-          {
-            "date": "12.10.2017",
-            "nom": "ШД-17006197/01",
-            "remainder": 210,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17006311",
-        "date": "18.10.2017",
-        "remainder": 80,
-        "indetail": [
-          {
-            "date": "18.10.2017",
-            "nom": "ШД-17006311/01",
-            "remainder": 80,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17006365",
-        "date": "19.10.2017",
-        "remainder": 5360,
-        "indetail": [
-          {
-            "date": "19.10.2017",
-            "nom": "ШД-17006365/01",
-            "remainder": 5360,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          }
-        ]
-      }
-    ]
-  }
+{
+"id": 0,
+"nomer": "ШД-17006009",
+"date": "2017-10-04T17:52:25",
+"Counterparties": {
+"id": 81,
+"YurfizLizso": "Физ. лицо",
+"Code": "000000302",
+"username": "Андріященко Вячеслав Григорович",
+"Discount": [],
+"discount_rate": 0,
+"Phone": "+38(045)947-92-00",
+"Email": "slava.avg99991@gmail.com",
+"password": "ismcMI1"
+},
+"ItemS": [
+{
+"price": 290,
+"model": "000018777",
+"amount": 290,
+"discount": 0,
+"quantity": 1
+}
+]
+},
+{
+"id": 0,
+"nomer": "ШД-17006078",
+"date": "2017-10-09T16:12:52",
+"Counterparties": {
+"id": 81,
+"YurfizLizso": "Физ. лицо",
+"Code": "000000302",
+"username": "Андріященко Вячеслав Григорович",
+"Discount": [],
+"discount_rate": 0,
+"Phone": "+38(045)947-92-00",
+"Email": "slava.avg99991@gmail.com",
+"password": "ismcMI1"
+},
+"ItemS": [
+{
+"price": 210,
+"model": "000053623",
+"amount": 210,
+"discount": 0,
+"quantity": 1
+},
+{
+"price": 330,
+"model": "000022962",
+"amount": 330,
+"discount": 0,
+"quantity": 1
+},
+{
+"price": 330,
+"model": "000022962",
+"amount": 330,
+"discount": 0,
+"quantity": 1
+}
+]
+}
 ]';
     }
 
@@ -216,8 +138,8 @@ class IntegrationController extends Controller{
 
     public function actionImportOrders(){
         try{
-            if($data = \Yii::$app->request->post("data")){
-//                $data = $this->getItemData();
+           // if($data = \Yii::$app->request->post("data")){
+               $data = $this->getItemData();
                 $data = json_decode($data);
                 if(is_array($data)){
                     foreach ($data as $item){
@@ -227,9 +149,9 @@ class IntegrationController extends Controller{
                     throw new Exception("Данные о пользователях ожидаются в виде массива.");
                 }
                 die(json_encode($this->result,JSON_UNESCAPED_UNICODE));
-            }else {
-                throw new Exception("Отсутствует data");
-            }
+//            }else {
+//                throw new Exception("Отсутствует data");
+//            }
         } catch (Exception $e) {
             echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
         }
