@@ -281,7 +281,7 @@ class IntegrationController extends Controller{
                     $customerPaymentHistory->save();
                 }
             } else {
-                throw new Exception("На сайте нет заказа с Order.nom " . $order->nom);
+                throw new Exception("На сайте нет заказа с Order.nom " . $order->nom . " с датой ".$order->date );
             }
 
         }
