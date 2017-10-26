@@ -51,7 +51,9 @@
                 $order->city = $user->city;
                 $order->adress = $user->address;
             }
-            print_r(!empty( $models )); print_r($order->load(\Yii::$app->request->post())); print_r($order->validate());
+            var_dump(!empty( $models )); var_dump($order->load(\Yii::$app->request->post())); var_dump($order->validate());
+            print_r($order->getErrors());
+            die();
             if (!empty( $models ) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
                die('here');
                 $order->save(false);
