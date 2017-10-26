@@ -196,9 +196,13 @@ class IntegrationController extends Controller{
                     $date = new \DateTime($row->date);
                     $date->format("d.m.Y");
                     $customerPaymentHistory->action_date = $date->getTimestamp();
-                    $date = new \DateTime($row->DateOfDelay);
-                    $date->format("d.m.Y");
-                    $customerPaymentHistory->date_of_delay = $date->getTimestamp();
+                    if(!empty($row->DateOfDelay)){
+                        $date = new \DateTime($row->DateOfDelay);
+                        $date->format("d.m.Y");
+                        $customerPaymentHistory->date_of_delay = $date->getTimestamp();
+                    } else {
+                        $customerPaymentHistory->date_of_delay = 0;
+                    }
                     if(!$customerPaymentHistory->validate()){
                         throw new Exception(print_r($customerPaymentHistory->getErrors()));
                     }
