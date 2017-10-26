@@ -149,7 +149,7 @@
                 'birthday'             => Yii::t('app', 'Дата рождения'),
                 'body'                 => Yii::t('app', 'body'),
                 'group_id'             => Yii::t('app', 'group_id'),
-                'email'                => Yii::t('app', 'Ваш e-mail (Является логином)'),
+                'email'                => Yii::t('app', 'Ваш e-mail (является логином)'),
                 'auth_key'             => Yii::t('app', 'auth_key'),
                 'password_reset_token' => Yii::t('app', 'password_reset_token'),
                 'status'               => Yii::t('app', 'status'),
