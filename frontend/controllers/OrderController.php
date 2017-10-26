@@ -110,6 +110,9 @@
 
                 $order->total = $total;
                 $order->discount_total = $discount_total;
+                print_r($order->validate());
+                print_r($order->getErrors());
+                die();
                 $order->save();
                 \Yii::$app->session->setFlash(
                     'success',
