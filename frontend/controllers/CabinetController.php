@@ -101,8 +101,7 @@ class CabinetController extends Controller
     }
 
     public function actionMyOrders(){
-        $orders = Order::find()->where(['user_id' =>Yii::$app->user->identity->id ])
-                    ->joinWith(["products"]);
+        $orders = Order::find()->where(['user_id' =>Yii::$app->user->identity->id ]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $orders
