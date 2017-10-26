@@ -51,8 +51,9 @@
                 $order->city = $user->city;
                 $order->adress = $user->address;
             }
-            die('here');
+
             if (!empty( $models ) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
+               die('here');
                 $order->save(false);
                 $order_products = [];
                 $total = 0;
