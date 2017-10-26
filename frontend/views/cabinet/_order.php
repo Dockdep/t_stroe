@@ -57,6 +57,19 @@
                         <td class="cab-history-num"><?= $product->count ?> шт.</td>
                         <td class="cab-history-price"><?= round(($product->count * $product->discount_price),2) ?> грн.</td>
                     </tr>
+                    <?php } else {?>
+                    <tr>
+                        <td class="cab-history-img">
+
+                        </td>
+                        <td class="cab-history-name">
+                            <!--название выводить или в "a" или в "<p></p>" если нету ссылки-->
+                            <a href="#"><?= $product->remote_id ?></a>
+                            <span><?= round($product->discount_price,2) ?> грн.</span>
+                        </td>
+                        <td class="cab-history-num"><?= $product->count ?> шт.</td>
+                        <td class="cab-history-price"><?= round(($product->count * $product->discount_price),2) ?> грн.</td>
+                    </tr>
                     <?php } ?>
             <?php } ?>
         </table>
