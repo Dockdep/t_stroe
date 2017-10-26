@@ -52,13 +52,13 @@ use yii\helpers\Url;
                                 [
                                     'attribute'=>'action_date',
                                     'content'=>function($data){
-                                        return date ( 'd-m-Y', $data->date );
+                                        return date ( 'd-m-Y', $data->action_date );
                                     }
                                 ],
                                 [
                                     'attribute'=>'date_of_delay',
                                     'content'=>function($data){
-                                        return date ( 'd-m-Y', $data->date );
+                                        return date ( 'd-m-Y', $data->date_of_delay );
                                     }
                                 ],
                                 'days_of_delay',
