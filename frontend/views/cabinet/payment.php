@@ -79,7 +79,7 @@ use yii\helpers\Url;
                     <table cellpadding="0" cellspacing="0" border="0" class="td-cab-all-price td-cab-all-price-payment td-cab-all-price-payment_new">
                         <tr>
                             <td align="right">
-                                <div class="style">Итого: <?= round(( $payment->remainder - $payment->coming),2) ?>  грн.</div>
+                                <div class="style">Итого: <?= round(( $payment->remainder),2) ?>  грн.</div>
                             </td>
                         </tr>
                     </table>
