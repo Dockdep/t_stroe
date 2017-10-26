@@ -185,9 +185,11 @@ class IntegrationController extends Controller{
                     $customerPaymentHistory = new CustomerPaymentHistory();
                     $customerPaymentHistory->customer_id = $item->id;
                     $customerPaymentHistory->order_id = $orderData->id;
-                    $customerPaymentHistory->remainder = $row->remainder;
+                    $customerPaymentHistory->shipment = $row->remainder > 0 ? $row->remainder: 0 ;
+                    $customerPaymentHistory->payment = $row->remainder < 0 ? $row->remainder: 0;
                     $customerPaymentHistory->order_remainder = $order->remainder;
                     $customerPaymentHistory->days_of_delay = $row->DaysOfDelay;
+                    $customerPaymentHistory->amount = $row->AmountInOverdue;
                     $date = new \DateTime($order->date);
                     $date->format("d.m.Y");
                     $customerPaymentHistory->date = $date->getTimestamp();
@@ -485,7 +487,7 @@ class IntegrationController extends Controller{
             $model->lang->description =  $item->Description;
         }
         $model->status = $item->status;
-
+        $model->unit = $item->Unit;
         $model->discount_rate = $item->discount_rate;
         $model->is_discount = $item->discount;
         $model->is_top = $item->top;

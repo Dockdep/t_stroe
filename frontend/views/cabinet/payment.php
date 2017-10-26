@@ -42,6 +42,7 @@ use yii\helpers\Url;
                             // 'filterModel' => $searchModel,
                             'tableOptions' => ['class' => 'tb-cab-payment tb-cab-payment_new'],
                             'columns' => [
+                                'order_id',
                                 [
                                     'attribute'=>'date',
                                     'content'=>function($data){
@@ -49,19 +50,28 @@ use yii\helpers\Url;
                                     }
                                 ],
                                 [
-                                    'attribute'=>'coming',
-                                    'contentOptions' =>['class' => 'payment-red'],
+                                    'attribute'=>'action_date',
                                     'content'=>function($data){
-                                        return $data->coming > 0 ? "-".$data->coming : 0 ;
+                                        return date ( 'd-m-Y', $data->date );
                                     }
                                 ],
                                 [
-                                    'attribute'=>'consumption',
-                                    'contentOptions' =>['class' => 'payment-green'],
+                                    'attribute'=>'date_of_delay',
                                     'content'=>function($data){
-                                        return $data->consumption > 0 ? "+".$data->consumption : 0;
+                                        return date ( 'd-m-Y', $data->date );
                                     }
-                                ]
+                                ],
+                                'days_of_delay',
+                                [
+                                    'attribute'=>'shipment',
+                                    'contentOptions' =>['class' => 'payment-red'],
+                                ],
+                                [
+                                    'attribute'=>'payment',
+                                    'contentOptions' =>['class' => 'payment-green'],
+                                ],
+                                'amount',
+                                'order_remainder'
                             ],
                         ]); ?>
                     </div>
@@ -69,13 +79,7 @@ use yii\helpers\Url;
                     <table cellpadding="0" cellspacing="0" border="0" class="td-cab-all-price td-cab-all-price-payment td-cab-all-price-payment_new">
                         <tr>
                             <td align="right">
-                                <div class="style">Отгрузка: <?= round($payment->coming,2) ?> грн.</div>
-                            </td>
-                            <td align="right">
-                                <div class="style">Оплата: <?= round($payment->consumption,2) ?> грн.</div>
-                            </td>
-                            <td align="right">
-                                <div class="style">Итого: <?= round(( $payment->consumption - $payment->coming),2) ?>  грн.</div>
+                                <div class="style">Итого: <?= round(( $payment->remainder - $payment->coming),2) ?>  грн.</div>
                             </td>
                         </tr>
                     </table>

@@ -12,7 +12,9 @@ use Yii;
  * @property integer $id
  * @property integer $customer_id
  * @property integer $order_id
- * @property double $remainder
+ * @property double $payment
+ * @property double $shipment
+ * @property double $amount
  * @property integer $action_date
  * @property integer $date_of_delay
  * @property integer $days_of_delay
@@ -38,7 +40,7 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
     {
         return [
             [['customer_id', 'order_id', 'action_date', 'date_of_delay', 'days_of_delay', 'date'], 'integer'],
-            [['remainder', 'order_remainder'], 'number'],
+            [['shipment', 'payment', 'order_remainder','amount'], 'number'],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['customer_id' => 'id']],
         ];
     }
@@ -51,13 +53,15 @@ class CustomerPaymentHistory extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'customer_id' => 'Customer ID',
-            'order_id' => 'Order ID',
-            'remainder' => 'Remainder',
-            'action_date' => 'Action Date',
-            'date_of_delay' => 'Date Of Delay',
-            'days_of_delay' => 'Days Of Delay',
-            'date' => 'Date',
-            'order_remainder' => 'Order Remainder',
+            'order_id' => 'Заказ',
+            'payment' => 'Оплата',
+            'shipment' => 'Отгрузка',
+            'action_date' => 'Дата отгрузки или платежа',
+            'date_of_delay' => 'Дата просрочки',
+            'days_of_delay' => 'Дней просрочки',
+            'date' => 'Дата',
+            'order_remainder' => 'Остаток по заказу',
+            'amount' => 'Сумма просрочки',
         ];
     }
 

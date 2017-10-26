@@ -48,6 +48,7 @@ use yii\web\User;
  * @property ProductVariant[]     $variantsWithFilters
  * @property string               $remote_id
  * @property string               $fullName
+ * @property string               $unit
  * @property float                $variantPrice
  * @property float                $enabledVariantPrice
  * @property array                $categoryNames
@@ -185,7 +186,7 @@ class Product extends ActiveRecord
                 'boolean',
             ],
             [
-                [ 'size_image' ],
+                [ 'size_image','unit' ],
                 'string',
             ],
         ];
