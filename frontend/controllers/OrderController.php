@@ -51,11 +51,8 @@
                 $order->city = $user->city;
                 $order->adress = $user->address;
             }
-            var_dump(!empty( $models )); var_dump($order->load(\Yii::$app->request->post())); var_dump($order->validate());
-            print_r($order->getErrors());
-            die();
-            if (!empty( $models ) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
-               die('here');
+
+            if ((!empty( $models ) || !empty($analogs)) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
                 $order->save(false);
                 $order_products = [];
                 $total = 0;
@@ -113,9 +110,6 @@
 
                 $order->total = $total;
                 $order->discount_total = $discount_total;
-                print_r($order->validate());
-                print_r($order->getErrors());
-                die();
                 $order->save();
                 \Yii::$app->session->setFlash(
                     'success',
