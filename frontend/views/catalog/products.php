@@ -77,7 +77,9 @@ $this->registerJsFile(
     )
 ?>
 <div class="row">
-
+    <div class="filter_mobile_" style="display: none;">
+        <a href="#">фильтр</a>
+    </div>
 
     <div class="col-md-3 col-lg-3 mob_filters_wr">
 
