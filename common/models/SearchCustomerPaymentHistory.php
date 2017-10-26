@@ -18,8 +18,8 @@ class SearchCustomerPaymentHistory extends CustomerPaymentHistory
     public function rules()
     {
         return [
-            [['id', 'customer_id', 'date'], 'integer'],
-            [['coming', 'consumption'], 'number'],
+            [['customer_id', 'order_id', 'action_date', 'date_of_delay', 'days_of_delay', 'date'], 'integer'],
+            [['shipment', 'payment', 'order_remainder','amount'], 'number'],
         ];
     }
 
@@ -61,9 +61,15 @@ class SearchCustomerPaymentHistory extends CustomerPaymentHistory
         $query->andFilterWhere([
             'id' => $this->id,
             'customer_id' => $this->customer_id,
-            'coming' => $this->coming,
-            'consumption' => $this->consumption,
-            'date' => $this->date,
+            'order_id' =>  $this->order_id,
+            'payment' =>  $this->payment,
+            'shipment' =>  $this->shipment,
+            'action_date' =>  $this->action_date,
+            'date_of_delay' =>  $this->date_of_delay,
+            'days_of_delay' => $this->days_of_delay,
+            'date' =>  $this->date,
+            'order_remainder' =>  $this->order_remainder,
+            'amount' =>  $this->amount,
         ]);
 
         return $dataProvider;
