@@ -58,7 +58,12 @@ use yii\helpers\Url;
                                 [
                                     'attribute'=>'date_of_delay',
                                     'content'=>function($data){
-                                        return date ( 'd-m-Y', $data->date_of_delay );
+                                        if($data->date_of_delay > 0) {
+                                            return date ( 'd-m-Y', $data->date_of_delay );
+                                        } else {
+                                            return '';
+                                        }
+
                                     }
                                 ],
                                 'days_of_delay',
