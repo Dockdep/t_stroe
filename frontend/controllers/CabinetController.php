@@ -102,7 +102,7 @@ class CabinetController extends Controller
 
     public function actionMyOrders(){
         $orders = Order::find()->where(['user_id' =>Yii::$app->user->identity->id ])
-                    ->joinWith(["products","products.productVariant"]);
+                    ->joinWith(["products"]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $orders
