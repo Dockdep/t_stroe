@@ -139,7 +139,7 @@ $PriceData = $product->discountPrice($discountCategory);
                             <!--нет в наличии-->
                             <span>есть в наличии</span>
                         </div>
-                        <div class="card-quantity">(<?= $product->enabledVariant->quantity ?> <span>шт.)</span></div>
+                        <div class="card-quantity">(<?= $product->enabledVariant->quantity ?> <span><?=  $product->unit ?>.)</span></div>
                     <?php    } else {?>
                         <div class="style card-in-stock no-stock">
                             <!--нет в наличии-->

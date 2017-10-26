@@ -64,7 +64,7 @@ $discountData = $model->discountPrice($discountCategory);
             <br/><span>Бренд: <?= $model->brand->lang->title ?></span>
         <?php } ?>
     </td>
-    <td><?= $model->variant->stock ?> шт.</td>
+    <td><?= $model->variant->stock ?> <?= $model->unit ?></td>
     <?php if($discountData['price']> 0) {?>
         <td class="analog-price-td"><?= round($discountData['price'],2); ?></td>
     <?php }else {?>
