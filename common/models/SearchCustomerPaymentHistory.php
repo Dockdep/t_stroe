@@ -70,7 +70,7 @@ class SearchCustomerPaymentHistory extends CustomerPaymentHistory
             'date' =>  $this->date,
             'order_remainder' =>  $this->order_remainder,
             'amount' =>  $this->amount,
-        ])->orderBy(['id'=>SORT_DESC, 'date'=>SORT_DESC]);
+        ])->orderBy(['date'=>SORT_ASC, 'id'=>SORT_DESC]);
 
         return $dataProvider;
     }
