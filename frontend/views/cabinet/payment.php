@@ -63,14 +63,13 @@ use yii\helpers\Url;
                                 ],
                                 'days_of_delay',
                                 [
-                                    'attribute'=>'payment',
-                                    'contentOptions' =>['class' => 'payment-green'],
-                                ],
-                                [
                                     'attribute'=>'shipment',
                                     'contentOptions' =>['class' => 'payment-red'],
                                 ],
-
+                                [
+                                    'attribute'=>'payment',
+                                    'contentOptions' =>['class' => 'payment-green'],
+                                ],
                                 'amount',
                                 'order_remainder'
                             ],
