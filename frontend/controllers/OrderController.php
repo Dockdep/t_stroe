@@ -57,7 +57,6 @@
                 print_r($models);
                 print_r('$analogs');
                 print_r($analogs);
-                die();
                 $order->save(false);
                 $order_products = [];
                 $total = 0;
@@ -86,6 +85,7 @@
                     $order_products[] = $order_product;
                     unset( $sum_cost );
                 }
+
                 foreach ($analogs as $model) {
                     $sum_cost = $model['discount_price'] * $model[ 'count' ];
                     $total += $sum_cost;
@@ -107,11 +107,13 @@
                             'source'             => 'stock'
                         ]
                     );
-
+                    print_r($order_product);
+                    die();
                     $order_product->save();
                     $order_products[] = $order_product;
                     unset( $sum_cost );
                 }
+                die();
                 $basket->clear();
 
                 $order->total = $total;
