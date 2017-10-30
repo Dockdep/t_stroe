@@ -343,12 +343,12 @@ $(document).ready(function(){
     }
 
     function filtersShowMobil() {
-        $('.filter_mobile_').click(function () {
+        $('body').on('click','.filter_mobile_',function () {
             $('.mob_filters_wr').animate({left:0,opacity:1},300)
             $('body').addClass('hidden_scroll-y')
         })
 
-        $('.close_mob_filters').click(function () {
+        $('body').on('click','.close_mob_filters',function () {
             $('body').removeClass('hidden_scroll-y')
             $('.mob_filters_wr').animate({left:'-100%',opacity:0},300)
         })
