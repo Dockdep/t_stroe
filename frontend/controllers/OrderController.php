@@ -53,10 +53,6 @@
             }
 
             if ((!empty( $models ) || !empty($analogs)) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
-                print_r('$models');
-                print_r($models);
-                print_r('$analogs');
-                print_r($analogs);
                 $order->save(false);
                 $order_products = [];
                 $total = 0;
@@ -107,18 +103,18 @@
                             'source'             => 'stock'
                         ]
                     );
-                    print_r($order_product);
-                    var_dump($order_product->save());
-                    die();
                     $order_product->save();
                     $order_products[] = $order_product;
                     unset( $sum_cost );
                 }
-                die();
+
                 $basket->clear();
 
                 $order->total = $total;
                 $order->discount_total = $discount_total;
+                print_r($order);
+                var_dump($order->save());
+                die();
                 $order->save();
                 \Yii::$app->session->setFlash(
                     'success',
