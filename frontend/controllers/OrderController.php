@@ -108,6 +108,7 @@
                         ]
                     );
                     print_r($order_product);
+                    var_dump($order_product->save());
                     die();
                     $order_product->save();
                     $order_products[] = $order_product;
