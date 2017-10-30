@@ -102,6 +102,9 @@
                             'source'             => 'stock'
                         ]
                     );
+                    $order_product->validate();
+                    print_r($order_product->getErrors());
+                    die();
                     $order_product->save();
                     $order_products[] = $order_product;
                     unset( $sum_cost );
