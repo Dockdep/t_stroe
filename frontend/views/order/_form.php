@@ -140,11 +140,11 @@ use yii\web\View;
 
                     <div class="style hidden-radios_">
                         <div class="style radio_custom">
-                            <input type="radio" id="radio-1-4" value="Киев, ул. Гната Хоткевича 22в"  name="OrderFrontend[delivery][address]">
+                            <input type="radio" id="radio-1-4" value="Киев, ул. Гната Хоткевича 22в"  name="OrderFrontend[delivery[address]]">
                             <label for="radio-1-4">Киев, ул. Гната Хоткевича 22в</label>
                         </div>
                         <div class="style radio_custom">
-                            <input type="radio" id="radio-1-5" value="Бровары, ул. Лесная 2"  name="OrderFrontend[delivery][address]">
+                            <input type="radio" id="radio-1-5" value="Бровары, ул. Лесная 2"  name="OrderFrontend[delivery[address]]">
                             <label for="radio-1-5">Бровары, ул. Лесная 2</label>
                         </div>
                     </div>
