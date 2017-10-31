@@ -53,8 +53,10 @@
             }
 
             if ((!empty( $models ) || !empty($analogs)) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
-                print_r(\Yii::$app->request->post('OrderFrontend'));
-                die();
+                $orderFrontend = \Yii::$app->request->post('OrderFrontend');
+                if(isset($orderFrontend['delivery_address']) && !empty($orderFrontend['delivery_address'])){
+                    $order->delivery .= ' '.$orderFrontend['delivery_address'];
+                }
                 $order->save(false);
                 $order_products = [];
                 $total = 0;
