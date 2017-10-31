@@ -53,7 +53,7 @@
             }
 
             if ((!empty( $models ) || !empty($analogs)) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
-                print_r(\Yii::$app->request->post());
+                print_r(\Yii::$app->request->post('OrderFrontend'));
                 die();
                 $order->save(false);
                 $order_products = [];
