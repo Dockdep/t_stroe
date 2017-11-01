@@ -757,14 +757,11 @@ $(document).ready(function(){
         var firstCord = $(this).data('magaz-one');
         var secondCord = $(this).data('magaz-two');
 
-        console.log(firstCord)
-        console.log(secondCord)
-
         $('body, html').animate({scrollTop:$('#map_canvas').offset().top}, 500, function () {
 
-            var startPosLat = '50.4605103';
-            var startPosLng = '30.6544418';
-            var zooms = 10;
+            var startPosLat = firstCord;
+            var startPosLng = secondCord;
+            var zooms = 15;
             var start_position  = new google.maps.LatLng(startPosLat, startPosLng);
             var styles = [{
                 stylers: [
@@ -797,9 +794,8 @@ $(document).ready(function(){
             );
 
             var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(50.451596, 30.6355071),
+                position: new google.maps.LatLng(firstCord, secondCord),
                 map: map,
-                // title: newName,
                 icon: image1
             });
             markers.push(marker);
