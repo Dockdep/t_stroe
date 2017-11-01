@@ -1,0 +1,142 @@
+.title_shops {
+  font-weight: 700;
+  font-size: 16px;
+  position: relative;
+  float: left;
+  background: #fff;
+  z-index: 2;
+  padding-right: 20px; }
+
+.shop-wrapp .sort-line {
+  bottom: 3px;
+  top: auto;
+  margin-top: 0; }
+
+.shop-wr {
+  margin-top: 40px; }
+  .shop-wr:before {
+    position: absolute;
+    width: calc(100% - 30px);
+    height: 2px;
+    left: 15px;
+    bottom: -25px;
+    content: '';
+    background: #7862aa; }
+  .shop-wr.no-border:before {
+    display: none; }
+
+.phones_wr-shops {
+  font-size: 15px;
+  font-weight: 700;
+  float: left; }
+  .phones_wr-shops p {
+    margin-top: 6px; }
+    .phones_wr-shops p span {
+      font-weight: normal;
+      font-size: 13px; }
+    .phones_wr-shops p:first-child {
+      margin-top: 0; }
+
+table.tb_net_shop tr td:first-child {
+  width: 257px; }
+table.tb_net_shop .title_graph_shop {
+  margin-top: 0; }
+
+.title_graph_shop {
+  font-weight: 700;
+  font-size: 13px;
+  margin-top: 16px; }
+
+.txt_shops {
+  font-size: 13px; }
+
+.img_shops div {
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  border-radius: 10px; }
+.img_shops img {
+  transition: 0.3s;
+  max-width: 100%;
+  vertical-align: top; }
+
+.adress_shop_anchor {
+  padding-left: 18px; }
+  .adress_shop_anchor a {
+    position: relative; }
+    .adress_shop_anchor a:before {
+      position: absolute;
+      height: 16px;
+      width: 12px;
+      top: 50%;
+      margin-top: -7px;
+      left: -18px;
+      content: '';
+      background: url("../images/pages/marker_shop.png") no-repeat; }
+
+.phone_graph_shops-wr {
+  margin-bottom: 60px; }
+  .phone_graph_shops-wr:last-child {
+    margin-bottom: 0; }
+  .phone_graph_shops-wr:hover .img_shops img {
+    transform: scale(1.2);
+    opacity: 0.9; }
+
+.title_shops_wr {
+  margin-bottom: 20px;
+  position: relative; }
+
+.mail_shops_wr {
+  margin-top: 12px; }
+
+.contacts-page-graph table {
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  border: 2px solid #7862aa;
+  margin-top: 8px;
+  float: left;
+  padding: 0;
+  border-spacing: 0;
+  border-collapse: separate; }
+  .contacts-page-graph table table {
+    width: 100%;
+    margin-top: 0;
+    border: 0;
+    background: 0 0;
+    border-radius: 0; }
+    .contacts-page-graph table table td {
+      border-left: 1px solid #7862aa;
+      vertical-align: middle; }
+      .contacts-page-graph table table td:first-child {
+        border-left: 0; }
+  .contacts-page-graph table tr:first-child table tr:first-child {
+    background: #ffdd36; }
+    .contacts-page-graph table tr:first-child table tr:first-child td {
+      font-weight: 700; }
+  .contacts-page-graph table tr:first-child table tr td {
+    height: 27px;
+    text-align: center;
+    font-size: 13px;
+    color: #333; }
+    .contacts-page-graph table tr:first-child table tr td span {
+      padding: 0 2px; }
+  .contacts-page-graph table tr:first-child table tr:first-child td {
+    border-top: 0; }
+
+@media (max-width: 767px) {
+  table.tb_net_shop tr td:first-child {
+    width: auto; }
+
+  .map_shops_page {
+    min-height: 300px; }
+    .map_shops_page #map_canvas {
+      display: block; }
+
+  .graph-shop-wr {
+    margin-top: 16px; }
+
+  .img_shops img {
+    margin-top: 19px; } }
+
+/*# sourceMappingURL=pages-statick.css.map */
