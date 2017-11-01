@@ -3,6 +3,8 @@
   margin: 0; }
 .html-editor-style table {
   margin: 0; }
+.html-editor-style ul {
+  margin-bottom: 16px; }
 
 .title_shops {
   font-weight: 700;
@@ -132,7 +134,97 @@ table.tb_net_shop .title_graph_shop {
 .contacts-page-graph table tr:first-child table tr:first-child td {
   border-top: 0; }
 
+/*****/
+.about-wrapp {
+  font-size: 16px;
+  margin-top: 20px; }
+.about-wrapp p {
+  line-height: 22px;
+  margin-bottom: 16px; }
+.about-wrapp img {
+  max-width: 100%; }
+
+.dopColorSpan span {
+  color: #7862aa; }
+
+.cars-list {
+  float: left;
+  column-count: 2; }
+.cars-list li {
+  position: relative;
+  color: #898989;
+  padding-left: 15px;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: lowercase; }
+.cars-list li:first-letter {
+  text-transform: uppercase; }
+.cars-list li:before {
+  width: 6px;
+  height: 6px;
+  background: #898989;
+  top: 8px;
+  left: 0;
+  position: absolute;
+  content: '';
+  border-radius: 100%; }
+
+.about-list-2 ul {
+  float: left;
+  width: 75%;
+  padding-right: 30px; }
+.about-list-2 ul li {
+  position: relative;
+  color: #898989;
+  padding-left: 15px;
+  font-size: 14px;
+  line-height: 24px; }
+.about-list-2 ul li span {
+  color: #7862aa; }
+.about-list-2 ul li:before {
+  width: 6px;
+  height: 6px;
+  background: #898989;
+  top: 8px;
+  left: 0;
+  position: absolute;
+  content: '';
+  border-radius: 100%; }
+
+.img-block-about {
+  float: left;
+  padding-right: 30px;
+  margin-top: 7px;
+  width: 25%; }
+.img-block-about img {
+  width: 100%;
+  max-width: 100%; }
+
+.certificates-about {
+  margin-bottom: 16px !important; }
+.certificates-about div {
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 0 15px;
+  width: 283px; }
+.certificates-about div img {
+  width: 100%;
+  max-width: 100%;
+  transition: 0.3s; }
+.certificates-about div:hover img {
+  transform: scale(1.1);
+  opacity: 0.9; }
+.certificates-about td:first-child div {
+  width: 250px; }
+
+/*****/
 @media (max-width: 767px) {
+  .about-wrapp img, .about-wrapp .certificates-about, .about-wrapp .img-block-about {
+    display: none; }
+
+  .about-list-2 ul {
+    width: 100%; }
+
   table.tb_net_shop tr td:first-child {
     width: auto; }
 
