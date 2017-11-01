@@ -1,6 +1,8 @@
-.shop-wrapp p {
+.shtml-editor-style p {
   line-height: normal;
-  margin-bottom: 0; }
+  margin: 0; }
+.shtml-editor-style table {
+  margin: 0; }
 
 .title_shops {
   font-weight: 700;
