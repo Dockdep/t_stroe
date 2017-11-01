@@ -760,9 +760,11 @@ $(document).ready(function(){
         console.log(firstCord)
         console.log(secondCord)
 
+        $('body, html').animate({scrollTop:$('.map_canvas').offset().top}, 500)
+
 
     })
-   
+
 
 
 
