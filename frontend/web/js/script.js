@@ -690,7 +690,6 @@ $(document).ready(function(){
     window.onload = function () {
         initialize();
         function initialize() {
-            console.log('start-map')
             var startPosLat = '50.4605103';
             var startPosLng = '30.6544418';
             var zooms = 10;
@@ -761,7 +760,51 @@ $(document).ready(function(){
         console.log(firstCord)
         console.log(secondCord)
 
-        $('body, html').animate({scrollTop:$('#map_canvas').offset().top}, 500)
+        $('body, html').animate({scrollTop:$('#map_canvas').offset().top}, 500, function () {
+
+            var startPosLat = '50.4605103';
+            var startPosLng = '30.6544418';
+            var zooms = 10;
+            var start_position  = new google.maps.LatLng(startPosLat, startPosLng);
+            var styles = [{
+                stylers: [
+                    { saturation: -100 }
+                ]
+            }];
+            var settings = {
+                styles: styles,
+                zoom: zooms,
+                scrollwheel: false,
+                center: start_position,
+                mapTypeControl: true,
+                mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+                navigationControl: false,
+                navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                scaleControl: true,
+                streetViewControl: true,
+                rotateControl: true,
+                zoomControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"), settings);
+
+            var markers = [];
+
+            var image1 = new google.maps.MarkerImage('/images/markers/marker-we-1.png',
+                new google.maps.Size(32, 48),
+                new google.maps.Point(0,0),
+                new google.maps.Point(16, 35)
+            );
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(50.451596, 30.6355071),
+                map: map,
+                // title: newName,
+                icon: image1
+            });
+            markers.push(marker);
+
+        })
 
 
     })
