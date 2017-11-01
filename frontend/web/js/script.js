@@ -753,6 +753,17 @@ $(document).ready(function(){
         }
     }
 
+    $('.adress_shop_anchor a').click(function () {
+        var firstCord = $(this).data('magaz-one');
+        var secondCord = $(this).data('magaz-two');
+
+        console.log(firstCord)
+        console.log(secondCord)
+
+
+    })
+   
+
 
 
 });
