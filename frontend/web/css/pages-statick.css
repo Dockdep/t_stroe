@@ -13,6 +13,8 @@
   z-index: 2;
   padding-right: 20px; }
 
+.shop-wrapp {
+  margin-top: -40px; }
 .shop-wrapp .sort-line {
   bottom: 3px;
   top: auto;
@@ -142,7 +144,11 @@ table.tb_net_shop .title_graph_shop {
   .graph-shop-wr {
     margin-top: 16px; }
 
+  .img_shops {
+    margin-top: 19px; }
+  .img_shops div {
+    width: auto; }
   .img_shops img {
-    margin-top: 19px; } }
+    transform: scale(1) !important; } }
 
 /*# sourceMappingURL=pages-statick.css.map */
