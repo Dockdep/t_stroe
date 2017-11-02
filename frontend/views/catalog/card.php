@@ -127,7 +127,7 @@ $PriceData = $product->discountPrice($discountCategory);
                         <?php } ?>
                     </div>
 
-                    <div class="style code-card-wr" style="font-size: 13px;color: #969696;">
+                    <div class="style code-card-wr" style="font-size: 13px;color: #969696;margin-top: 4px;">
                         <?php if($product->brand){?>
                             <span style="font-weight: 700;">Бренд: </span><?= $product->brand->lang->title ?>
                         <?php } ?>
