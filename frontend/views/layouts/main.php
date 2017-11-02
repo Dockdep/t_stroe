@@ -25,7 +25,7 @@ $pages = Page::find()
     <title><?= Seo::widget([ 'row' => 'title' ]) ?></title>
     <?= Seo::widget([ 'row' => Seo::DESCRIPTION ]) ?>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-    <link type="image/x-icon" href="./favicon.ico" rel="icon">
+    <link type="image/x-icon" href="/favicon.ico" rel="icon">
     <?php $this->head() ?>
 </head>
 <body>
