@@ -169,19 +169,19 @@ table.tb_net_shop .title_graph_shop {
   content: '';
   border-radius: 100%; }
 
-.about-list-2 ul {
+.about-list-2 ul, .delivery-page-list ul {
   float: left;
   width: 75%;
   padding-right: 30px; }
-.about-list-2 ul li {
+.about-list-2 ul li, .delivery-page-list ul li {
   position: relative;
   color: #898989;
   padding-left: 15px;
   font-size: 14px;
   line-height: 24px; }
-.about-list-2 ul li span {
+.about-list-2 ul li span, .delivery-page-list ul li span {
   color: #7862aa; }
-.about-list-2 ul li:before {
+.about-list-2 ul li:before, .delivery-page-list ul li:before {
   width: 6px;
   height: 6px;
   background: #898989;
@@ -190,6 +190,28 @@ table.tb_net_shop .title_graph_shop {
   position: absolute;
   content: '';
   border-radius: 100%; }
+.about-list-2.delivery-page-list ul, .delivery-page-list.delivery-page-list ul {
+  width: 100%;
+  float: left; }
+.about-list-2.delivery-page-list ul li, .delivery-page-list.delivery-page-list ul li {
+  width: 100%;
+  float: left;
+  margin-top: 30px; }
+.about-list-2.delivery-page-list ul li:first-child, .delivery-page-list.delivery-page-list ul li:first-child {
+  margin-top: 0; }
+.about-list-2.delivery-page-list ul li .del-list-page-title, .delivery-page-list.delivery-page-list ul li .del-list-page-title {
+  float: left;
+  width: 210px; }
+.about-list-2.delivery-page-list .contacts-page-graph, .delivery-page-list.delivery-page-list .contacts-page-graph {
+  width: 359px; }
+.about-list-2.delivery-page-list .contacts-page-graph table, .delivery-page-list.delivery-page-list .contacts-page-graph table {
+  margin-top: 0; }
+.about-list-2.delivery-page-list .contacts-page-graph table span, .delivery-page-list.delivery-page-list .contacts-page-graph table span {
+  color: #333; }
+.about-list-2.delivery-page-list .contacts-page-graph table p, .delivery-page-list.delivery-page-list .contacts-page-graph table p {
+  margin: 0; }
+.about-list-2.delivery-page-list-2 ul li, .delivery-page-list.delivery-page-list-2 ul li {
+  margin-top: 0; }
 
 .img-block-about {
   float: left;
