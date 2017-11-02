@@ -71,6 +71,7 @@ $this->registerJsFile(
 <?php
     Pjax::begin(
         [
+            'timeout' => 500,
             'id'      => 'list-container'
         ]
     )
