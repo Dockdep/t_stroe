@@ -127,9 +127,9 @@ $PriceData = $product->discountPrice($discountCategory);
                         <?php } ?>
                     </div>
 
-                    <div class="style code-card-wr">
+                    <div class="style code-card-wr" style="font-size: 13px;color: #969696;">
                         <?php if($product->brand){?>
-                            <span>Бренд: </span><?= $product->brand->lang->title ?>
+                            <span style="font-weight: 700;">Бренд: </span><?= $product->brand->lang->title ?>
                         <?php } ?>
                     </div>
                     <!--если овара нет в наличии для card-in-stock добавить класс "no-stock"-->
