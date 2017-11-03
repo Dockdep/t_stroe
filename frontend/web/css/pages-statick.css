@@ -6,6 +6,9 @@
 }
 .html-editor-style table {
   margin: 0; }
+.html-editor-style.shop-wrapp table {
+  margin-bottom: 0;
+}
 .html-editor-style ul {
   margin-bottom: 16px; }
 
