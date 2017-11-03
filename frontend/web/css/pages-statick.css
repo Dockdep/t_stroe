@@ -1,6 +1,9 @@
 .html-editor-style p {
   line-height: normal;
   margin: 0; }
+.html-editor-style.shop-wrapp p {
+  margin: 0;
+}
 .html-editor-style table {
   margin: 0; }
 .html-editor-style ul {
