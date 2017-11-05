@@ -21,6 +21,8 @@
     ];
     $this->params[ 'seo' ][ Seo::TITLE ] = $this->title;
     $this->params[ 'seo' ][ Seo::H1 ] = $this->title;
+
+    $this->registerCssFile('/css/pages-statick.css');
 ?>
 <div class="row">
     <h1 class="col-xs-12 col-sm-12 title-card"><?php

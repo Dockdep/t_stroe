@@ -25,7 +25,7 @@ $pages = Page::find()
     <title><?= Seo::widget([ 'row' => 'title' ]) ?></title>
     <?= Seo::widget([ 'row' => Seo::DESCRIPTION ]) ?>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-    <link type="image/x-icon" href="./favicon.ico" rel="icon">
+    <link type="image/x-icon" href="/favicon.ico" rel="icon">
     <?php $this->head() ?>
 </head>
 <body>
@@ -238,13 +238,6 @@ $pages = Page::find()
     <!--<div class="callback-footer modal-link" data-form="callback"><span></span>Обратный звонок</div>-->
     <!--</div>-->
     <div class="call-mobile">
-        <div class="button-call-mob">
-            <a class="button-call_" href="tel:044 303-90-10">
-                <p>Позвонить</p>
-                <div><span></span></div>
-                <span>044 339-92-33</span>
-            </a>
-        </div>
 
         <div class="button-call-mob">
             <a class="button-call_" href="tel:067 440-95-00">
@@ -263,8 +256,8 @@ $pages = Page::find()
         </div>
         <div class="button-call-mob"><a class="call-sms" href="sms:067 440-95-00">Отправить SMS</a>
         </div>
-        <div class="button-call-mob">
-            <a class="call-contact" href="contacts/truckpost.vcf">Добавить в контакты</a>        </div>
+<!--        <div class="button-call-mob">-->
+<!--            <a class="call-contact" href="contacts/truckpost.vcf">Добавить в контакты</a>        </div>-->
     </div>
 </div>
 

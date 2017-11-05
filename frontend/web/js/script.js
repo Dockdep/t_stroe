@@ -343,12 +343,12 @@ $(document).ready(function(){
     }
 
     function filtersShowMobil() {
-        $('.filter_mobile_').click(function () {
+        $('body').on('click','.filter_mobile_',function () {
             $('.mob_filters_wr').animate({left:0,opacity:1},300)
             $('body').addClass('hidden_scroll-y')
         })
 
-        $('.close_mob_filters').click(function () {
+        $('body').on('click','.close_mob_filters',function () {
             $('body').removeClass('hidden_scroll-y')
             $('.mob_filters_wr').animate({left:'-100%',opacity:0},300)
         })
@@ -690,7 +690,6 @@ $(document).ready(function(){
     window.onload = function () {
         initialize();
         function initialize() {
-            console.log('start-map')
             var startPosLat = '50.4605103';
             var startPosLng = '30.6544418';
             var zooms = 10;
@@ -752,6 +751,60 @@ $(document).ready(function(){
 
         }
     }
+
+    $('.adress_shop_anchor a').click(function (e) {
+        e.preventDefault();
+        var firstCord = $(this).data('magaz-one');
+        var secondCord = $(this).data('magaz-two');
+
+        $('body, html').animate({scrollTop:$('#map_canvas').offset().top}, 500, function () {
+
+            var startPosLat = firstCord;
+            var startPosLng = secondCord;
+            var zooms = 15;
+            var start_position  = new google.maps.LatLng(startPosLat, startPosLng);
+            var styles = [{
+                stylers: [
+                    { saturation: -100 }
+                ]
+            }];
+            var settings = {
+                styles: styles,
+                zoom: zooms,
+                scrollwheel: false,
+                center: start_position,
+                mapTypeControl: true,
+                mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+                navigationControl: false,
+                navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                scaleControl: true,
+                streetViewControl: true,
+                rotateControl: true,
+                zoomControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"), settings);
+
+            var markers = [];
+
+            var image1 = new google.maps.MarkerImage('/images/markers/marker-we-1.png',
+                new google.maps.Size(32, 48),
+                new google.maps.Point(0,0),
+                new google.maps.Point(16, 35)
+            );
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(firstCord, secondCord),
+                map: map,
+                icon: image1
+            });
+            markers.push(marker);
+
+        })
+
+
+    })
+
 
 
 

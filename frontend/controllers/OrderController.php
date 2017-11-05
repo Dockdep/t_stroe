@@ -53,6 +53,10 @@
             }
 
             if ((!empty( $models ) || !empty($analogs)) && $order->load(\Yii::$app->request->post()) && $order->validate()) {
+                $orderFrontend = \Yii::$app->request->post('OrderFrontend');
+                if(isset($orderFrontend['delivery_address']) && !empty($orderFrontend['delivery_address'])){
+                    $order->delivery .= ' '.$orderFrontend['delivery_address'];
+                }
                 $order->save(false);
                 $order_products = [];
                 $total = 0;
@@ -81,6 +85,7 @@
                     $order_products[] = $order_product;
                     unset( $sum_cost );
                 }
+
                 foreach ($analogs as $model) {
                     $sum_cost = $model['discount_price'] * $model[ 'count' ];
                     $total += $sum_cost;
@@ -106,6 +111,7 @@
                     $order_products[] = $order_product;
                     unset( $sum_cost );
                 }
+
                 $basket->clear();
 
                 $order->total = $total;
