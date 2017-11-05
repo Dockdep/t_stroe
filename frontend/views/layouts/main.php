@@ -238,7 +238,7 @@ $pages = Page::find()
     <!--<div class="callback-footer modal-link" data-form="callback"><span></span>Обратный звонок</div>-->
     <!--</div>-->
     <div class="call-mobile">
-        
+
         <div class="button-call-mob">
             <a class="button-call_" href="tel:067 440-95-00">
                 <p>Позвонить</p>
@@ -256,8 +256,8 @@ $pages = Page::find()
         </div>
         <div class="button-call-mob"><a class="call-sms" href="sms:067 440-95-00">Отправить SMS</a>
         </div>
-        <div class="button-call-mob">
-            <a class="call-contact" href="contacts/truckpost.vcf">Добавить в контакты</a>        </div>
+<!--        <div class="button-call-mob">-->
+<!--            <a class="call-contact" href="contacts/truckpost.vcf">Добавить в контакты</a>        </div>-->
     </div>
 </div>
 
