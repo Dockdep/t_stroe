@@ -95,7 +95,7 @@ class ProductFrontendSearch extends Product
 
                 ],
                 'defaultOrder' => [
-                    'product_variant.price' => SORT_ASC
+                    'price_asc' => SORT_ASC
                 ]
             ]
         );
