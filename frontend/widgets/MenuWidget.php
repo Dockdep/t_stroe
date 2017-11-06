@@ -92,8 +92,7 @@
                     unset($categories[ $category[ 'id' ] ]);
                 }
             }
-            print_r($categories);
-            die();
+
             return $this->render(
                 '_mobile_menu_view',
                 [
