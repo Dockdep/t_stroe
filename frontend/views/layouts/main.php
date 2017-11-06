@@ -136,7 +136,7 @@ $pages = Page::find()
                         </div>
                         <div class="col-xs-10">
                             <div class="style btn-menu-mob">
-                                <a class="basket-btn-menu-mob" href="#"><span></span></a>
+                                <a class="basket-btn-menu-mob" href="<?php echo Url::to(['order/basket']); ?>"><span></span></a>
                                 <a class="login-btn-menu-mob modal-link" href="#" data-form="login_modal" rel="nofollow"><span></span></a>
                                 <a class="search-btn-menu-mob" href="#"><span></span></a>
                             </div>
