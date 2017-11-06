@@ -4,6 +4,8 @@
      */
 
 use yii\helpers\Html;
+print_r($categories);
+die();
 ?>
 
 <ul>
