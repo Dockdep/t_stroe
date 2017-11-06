@@ -13,6 +13,7 @@ use yii\widgets\ActiveForm;
 AppAsset::register($this);
 $pages = Page::find()
     ->with('lang')
+    ->where(['in_menu'=> true])
     ->indexBy('id')
     ->all();
 ?>
