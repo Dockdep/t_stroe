@@ -78,6 +78,16 @@
         private function renderMobile($categories){
 
             foreach ($categories as $category) {
+
+                if ($category[ 'parent_id' ] != 0 && $category['depth'] == 1) {
+                    if(isset($categories[ $category[ 'parent_id' ] ])){
+                        $categories[ $category[ 'parent_id' ] ][ 'children' ][] = $categories[$category[ 'id' ]];
+                    }
+                    unset($categories[ $category[ 'id' ] ]);
+                }
+            }
+
+            foreach ($categories as $category) {
                 if ($category[ 'parent_id' ] != 0 ) {
                     unset($categories[ $category[ 'id' ] ]);
                 }
