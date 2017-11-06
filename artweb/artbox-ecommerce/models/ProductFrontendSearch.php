@@ -92,7 +92,11 @@ class ProductFrontendSearch extends Product
                         'default' => SORT_DESC,
                         'label'   => 'по цене по уменшению',
                     ],
+
                 ],
+                'defaultOrder' => [
+                    'product_variant.price' => SORT_ASC
+                ]
             ]
         );
 
