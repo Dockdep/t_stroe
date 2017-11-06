@@ -95,7 +95,8 @@ class ProductFrontendSearch extends Product
                 ],
             ]
         );
-
+        print_r($sort);
+        die();
         $dataProvider = new ActiveDataProvider(
             [
                 'query'      => $this->getSearchQuery($category, $params, $in_stock)
