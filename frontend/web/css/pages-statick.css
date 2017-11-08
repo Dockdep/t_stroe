@@ -249,6 +249,9 @@ table.tb_net_shop .title_graph_shop {
 @media (max-width: 767px) {
   .about-wrapp img, .about-wrapp .certificates-about, .about-wrapp .img-block-about {
     display: none; }
+  .deliver-page img {
+    display: block !important;
+  }
 
   .about-list-2 ul {
     width: 100%; }
