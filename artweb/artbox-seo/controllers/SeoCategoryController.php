@@ -109,8 +109,7 @@
                 if ($model->save() && $model->transactionStatus) {
                     return $this->redirect(
                         [
-                            'view',
-                            'id' => $model->id,
+                            'index',
                         ]
                     );
                 }
