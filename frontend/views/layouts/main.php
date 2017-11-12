@@ -151,6 +151,27 @@ $pages = Page::find()
 <div id="content_" class="section-box-content">
 
     <?php echo $content; ?>
+    <?php
+    if (!empty( Seo::widget([ 'row' => Seo::SEO_TEXT ]) )) {
+        ?>
+        <div class="section-box-seo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="style seo_txt-wrapp hidden-seo-txt">
+                            <div class="style seo_txt">
+                                <?= Seo::widget([ 'row' => Seo::SEO_TEXT ]) ?>
+                            </div>
+                            <a data-text-read="<?= \Yii::t('app', 'readfull') ?>" data-text-hide="<?= \Yii::t(
+                                'app',
+                                'hide'
+                            ) ?>" href="#" class="read_more_seo"><?= \Yii::t('app', 'readfull') ?></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
     <div class="section-box-map">
         <div id="map_canvas" style="display: none;"></div>
     </div>
