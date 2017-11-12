@@ -162,10 +162,6 @@ $pages = Page::find()
                             <div class="style seo_txt">
                                 <?= Seo::widget([ 'row' => Seo::SEO_TEXT ]) ?>
                             </div>
-                            <a data-text-read="<?= \Yii::t('app', 'readfull') ?>" data-text-hide="<?= \Yii::t(
-                                'app',
-                                'hide'
-                            ) ?>" href="#" class="read_more_seo"><?= \Yii::t('app', 'readfull') ?></a>
                         </div>
                     </div>
                 </div>
