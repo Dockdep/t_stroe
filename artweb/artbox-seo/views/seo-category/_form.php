@@ -3,7 +3,8 @@
     use artweb\artbox\seo\models\SeoCategory;
     use artweb\artbox\seo\models\SeoCategoryLang;
     use artweb\artbox\language\widgets\LanguageForm;
-    use yii\helpers\Html;
+use kartik\select2\Select2;
+use yii\helpers\Html;
     use yii\web\View;
     use yii\widgets\ActiveForm;
     
@@ -21,10 +22,24 @@
     
     <?= $form->field($model, 'controller')
              ->textInput([ 'maxlength' => true ]) ?>
-    
+
     <?= $form->field($model, 'status')
-             ->textInput() ?>
-    
+        ->widget(
+            Select2::className(),
+            ( [
+                'name'          => 'status',
+                'hideSearch'    => true,
+                'data'          => [
+                    1 => 'Active',
+                    2 => 'Inactive',
+                ],
+                'options'       => [ 'placeholder' => 'Select status...' ],
+                'pluginOptions' => [
+                    'allowClear' => true,
+                ],
+            ] )
+        ) ?>
+
     <?= LanguageForm::widget([
         'modelLangs' => $modelLangs,
         'formView'    => '@artweb/artbox/seo/views/seo-category/_form_language',
