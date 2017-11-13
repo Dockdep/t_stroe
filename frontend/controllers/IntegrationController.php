@@ -396,6 +396,7 @@ class IntegrationController extends Controller{
                 }
             } else {
                 $model->lang->title = $category->name;
+                $model->lang->save();
             }
 
             $model->status    = $category->status;
@@ -423,6 +424,7 @@ class IntegrationController extends Controller{
             }
         } else {
             $model->lang->title = $brand->name;
+            $model->lang->save();
         }
         $model->remote_id = $brand->manufacturer_id;
         $model->image = $brand->image;
@@ -453,6 +455,7 @@ class IntegrationController extends Controller{
 
             $model->lang->title = $item->name;
             $model->lang->description =  $item->Description;
+            $model->lang->save();
         }
 
         $model->status = $item->status;
@@ -529,6 +532,7 @@ class IntegrationController extends Controller{
         } else {
             $variant  = $model->variant;
             $variant->lang->title = $item->name;
+            $variant->lang->save();
         }
         $variant->sku = $item->sku;
         $variant->price = $item->price;
