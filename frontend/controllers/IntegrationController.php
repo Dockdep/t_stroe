@@ -38,7 +38,7 @@ class IntegrationController extends Controller{
 "image": "b5daa3bd-601f-11e4-8c28-20cf30bbce89.jpg",
 "price": "5960.718",
 "ean": "",
-"discount": "",
+"discount": "true",
 "category_id": "000048976",
 "upc": "",
 "model": "000032993",
