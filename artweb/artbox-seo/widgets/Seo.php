@@ -285,9 +285,9 @@ class Seo extends Widget
     protected function findSeoByDynamic()
     {
 
-//        print_r(\Yii::$app->controller->id);
-//        print_r(\Yii::$app->controller->action->id);
-//        die();
+        print_r(\Yii::$app->controller->id);
+        print_r(\Yii::$app->controller->action->id);
+        die();
         if(!empty($this->key)){
 
             $query = SeoDynamic::find()->joinWith('seoCategory')->where(['controller' => \Yii::$app->controller->id, 'action' => \Yii::$app->controller->action->id, 'key' => $this->key]);
