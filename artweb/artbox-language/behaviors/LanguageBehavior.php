@@ -267,7 +267,7 @@
                     $this->transactionStatus = false;
                 }
             } else {
-                die(print_r($this));
+                die(print_r($this->modelLangs));
                 $this->transaction->commit();
                 $this->transactionStatus = true;
             }
