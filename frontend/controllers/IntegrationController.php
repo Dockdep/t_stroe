@@ -23,68 +23,30 @@ class IntegrationController extends Controller{
     public function getItemData(){
       return '[
 {
-"id": 0,
-"nomer": "ШД-17006009",
-"date": "2017-10-04T17:52:25",
-"Counterparties": {
-"id": 81,
-"YurfizLizso": "Физ. лицо",
-"Code": "000000302",
-"username": "Андріященко Вячеслав Григорович",
-"Discount": [],
-"discount_rate": 0,
-"Phone": "+38(045)947-92-00",
-"Email": "slava.avg99991@gmail.com",
-"password": "ismcMI1"
+"product_id": "",
+"status": false,
+"new": "",
+"jan": "",
+"quantity": 1,
+"manufacturer": {
+"manufacturer_id": "000000085",
+"name": "NRF",
+"image": ""
 },
-"ItemS": [
-{
-"price": 290,
-"model": "000018777",
-"amount": 290,
-"discount": 0,
-"quantity": 1
-}
-]
-},
-{
-"id": 0,
-"nomer": "ШД-17006078",
-"date": "2017-10-09T16:12:52",
-"Counterparties": {
-"id": 81,
-"YurfizLizso": "Физ. лицо",
-"Code": "000000302",
-"username": "Андріященко Вячеслав Григорович",
-"Discount": [],
-"discount_rate": 0,
-"Phone": "+38(045)947-92-00",
-"Email": "slava.avg99991@gmail.com",
-"password": "ismcMI1"
-},
-"ItemS": [
-{
-"price": 210,
-"model": "000053623",
-"amount": 210,
-"discount": 0,
-"quantity": 1
-},
-{
-"price": 330,
-"model": "000022962",
-"amount": 330,
-"discount": 0,
-"quantity": 1
-},
-{
-"price": 330,
-"model": "000022962",
-"amount": 330,
-"discount": 0,
-"quantity": 1
-}
-]
+"sku": "6.35209",
+"Unit": "шт",
+"image": "b5daa3bd-601f-11e4-8c28-20cf30bbce89.jpg",
+"price": "5960.718",
+"ean": "",
+"discount": "",
+"category_id": "000048976",
+"upc": "",
+"model": "000032993",
+"storage_prices": "",
+"Description": "",
+"name": "Радіатор кондиціонера Man MNV069",
+"discount_rate": 25,
+"top": false
 }
 ]';
     }
@@ -354,8 +316,8 @@ class IntegrationController extends Controller{
 
     public  function actionImportProducts(){
         try{
-            if($data = \Yii::$app->request->post("data")){
-                //$data = $this->getItemData();
+//            if($data = \Yii::$app->request->post("data")){
+                $data = $this->getItemData();
                 $data = json_decode($data);
                 if(is_array($data)){
                     foreach ($data as $item){
@@ -365,9 +327,9 @@ class IntegrationController extends Controller{
                     throw new Exception("Данные о товарах ожидаются в виде массива.");
                 }
                 die(\GuzzleHttp\json_encode($this->result));
-            }else {
-                throw new Exception("Отсутствует data");
-            }
+//            }else {
+//                throw new Exception("Отсутствует data");
+//            }
 
 
         } catch (Exception $e) {
