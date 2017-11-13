@@ -34,7 +34,7 @@ class IntegrationController extends Controller{
 "image": ""
 },
 "sku": "6.35209",
-"Unit": "штo",
+"Unit": "шт",
 "image": "b5daa3bd-601f-11e4-8c28-20cf30bbce89.jpg",
 "price": "5960.718",
 "ean": "",
