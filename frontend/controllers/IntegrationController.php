@@ -450,6 +450,8 @@ class IntegrationController extends Controller{
                 $lang->description =  $item->Description;
             }
         } else {
+            print_r($model->lang);
+            die();
             $model->lang->title = $item->name;
             $model->lang->description =  $item->Description;
         }

@@ -154,9 +154,6 @@
             $objectLang = $this->objectLang;
             $table_name = $objectLang::getTableSchema()->name;
             $owner = $this->owner;
-            print_r($owner->hasOne($objectLang::className(), [ $this->getLangKey() => $this->getOwnerKey() ])
-                ->where([ $table_name . '.language_id' => $language_id ]));
-            die();
             return $owner->hasOne($objectLang::className(), [ $this->getLangKey() => $this->getOwnerKey() ])
                          ->where([ $table_name . '.language_id' => $language_id ]);
         }
@@ -270,7 +267,6 @@
                     $this->transactionStatus = false;
                 }
             } else {
-                die(print_r($this->modelLangs));
                 $this->transaction->commit();
                 $this->transactionStatus = true;
             }
