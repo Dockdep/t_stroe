@@ -34,7 +34,7 @@ class IntegrationController extends Controller{
 "image": ""
 },
 "sku": "6.35209",
-"Unit": "шт",
+"Unit": "штo",
 "image": "b5daa3bd-601f-11e4-8c28-20cf30bbce89.jpg",
 "price": "5960.718",
 "ean": "",
@@ -454,9 +454,7 @@ class IntegrationController extends Controller{
             $model->lang->title = $item->name;
             $model->lang->description =  $item->Description;
         }
-        print_r($model->lang->save());
-        print_r($model->lang);
-        die();
+
         $model->status = $item->status;
         $model->unit = $item->Unit;
         $model->discount_rate = $item->discount_rate;
