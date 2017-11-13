@@ -454,6 +454,7 @@ class IntegrationController extends Controller{
             $model->lang->title = $item->name;
             $model->lang->description =  $item->Description;
         }
+        print_r($model->lang->save());
         print_r($model->lang);
         die();
         $model->status = $item->status;
