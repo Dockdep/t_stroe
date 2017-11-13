@@ -259,6 +259,7 @@
         public function afterSave($event)
         {
             if(!empty( $this->modelLangs )) {
+                die('will roll back');
                 if($this->linkLangs() && $this->saveLangs()) {
                     $this->transaction->commit();
                     $this->transactionStatus = true;
@@ -267,6 +268,7 @@
                     $this->transactionStatus = false;
                 }
             } else {
+                die('will save');
                 $this->transaction->commit();
                 $this->transactionStatus = true;
             }
