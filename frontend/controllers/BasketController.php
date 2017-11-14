@@ -40,9 +40,13 @@
              * @var Basket $basket
              */
             $basket = \Yii::$app->basket;
-            print_r($additionalData);
-            die();
-            if(!empty($additionalData) && isset($additionalData[0]) && isset($additionalData[1])){
+
+            if(!empty($additionalData)
+                && isset($additionalData[0])
+                && isset($additionalData[1])
+                && isset($additionalData[2])
+                && $additionalData[2] == 'analog'
+            ){
                 if(count($additionalData) == 3 && $additionalData[2] == 'analog'){
                     $basket->addChangeAnalogs($additionalData);
                 } else {
