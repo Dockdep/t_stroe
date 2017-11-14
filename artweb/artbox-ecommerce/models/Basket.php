@@ -252,7 +252,7 @@
          * @return \artweb\artbox\ecommerce\models\ProductVariant
          * @throws \yii\web\NotFoundHttpException
          */
-        public function findModel(int $product_variant_id): ProductVariant
+        public function findModel( $product_variant_id): ProductVariant
         {
             /**
              * @var ProductVariant $model
