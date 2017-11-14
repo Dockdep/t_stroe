@@ -655,17 +655,16 @@ class Product extends ActiveRecord
                 }
 
                 if($discountCategory != null){
-                    $percent = $this->discount_rate > $discountCategory->discount ? $this->discount_rate : $discountCategory->discount;
+                    $percent = $percent > $discountCategory->discount ? $percent : $discountCategory->discount;
                 }
 
             }
-            print_r($percent);
+
             if($percent > 0){
                 $this->variant->price = ((100-$percent)/100) * $this->variant->price;
             }
         }
-        print_r($percent);
-        die();
+
 
         return ['price'=>$this->variant->price, 'discount' => $percent];
 
