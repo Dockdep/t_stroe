@@ -40,17 +40,15 @@
              * @var Basket $basket
              */
             $basket = \Yii::$app->basket;
-
-
+            print_r($additionalData);
+            die();
             if(!empty($additionalData) && isset($additionalData[0]) && isset($additionalData[1])){
-                die('here');
                 if(count($additionalData) == 3 && $additionalData[2] == 'analog'){
                     $basket->addChangeAnalogs($additionalData);
                 } else {
                     $basket->addAnalogs($additionalData);
                 }
             } else {
-                die('here2');
                 $basket->add($product_variant_id, $count);
             }
 
