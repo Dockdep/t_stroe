@@ -96,7 +96,7 @@ $PriceData = $product->discountPrice($discountCategory);
                             <!--в data-size выводить оригинальный размер картинки-->
                             <figure class="help_class">
                                 <a style="display: none;" href="<?= $product->imageUrl ?>" itemprop="contentUrl"
-                                   data-size="1080x1080">
+                                   data-size="720x720">
                                     <!--420x350-->
                                     <?=
                                     ArtboxImageHelper::getImage(
