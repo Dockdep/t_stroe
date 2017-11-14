@@ -316,10 +316,13 @@
                     }
 
                 }
+
             } else {
                 $discountCategory = null;
             }
 
+            print_r($discountCategory);
+            die();
             return $this->render(
                 'card',
                 [

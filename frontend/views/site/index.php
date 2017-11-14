@@ -27,6 +27,9 @@ use frontend\widgets\Slider;
                 <?= \artweb\artbox\ecommerce\widgets\specialProducts::widget(['title'=>'Акции', 'type' => 'promo'])?>
             </div>
 
+            <div  class="row">
+                <?= \artweb\artbox\ecommerce\widgets\specialProducts::widget(['title'=>'Топ товары', 'type' => 'top'])?>
+            </div>
             <div class="row">
                 <?= \artweb\artbox\ecommerce\widgets\lastProducts::widget()?>
             </div>

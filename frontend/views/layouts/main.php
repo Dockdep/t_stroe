@@ -31,6 +31,16 @@ $pages = Page::find()
 </head>
 <body>
 <?php $this->beginBody(); ?>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107354966-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-107354966-1');
+</script>
+
 <div id="header_" class="section-box-header">
     <div class="hidden-xs section-box first_menu">
         <div class="container">
@@ -227,9 +237,8 @@ $pages = Page::find()
                         <p class="title_seti">Мы в соцсетях</p>
                         <p class="join-seti">Присоединяйтесь к нам в соц. сетях.</p>
                         <div class="style">
-                            <a target="_blank" class="seti-link fb" href=""></a>
-                            <a target="_blank" class="seti-link you" href=""></a>
-                            <a target="_blank" class="seti-link gpluse" href=""></a>
+                            <a target="_blank" class="seti-link fb" href="https://www.facebook.com/Truckpost-маркет-запчастин-376686836117861/"></a>
+                            <a target="_blank" class="seti-link you" href="https://www.youtube.com/channel/UC5K7rnByCWNDnJQ-RP1d-VA?view_as=subscriber"></a>
                         </div>
                     </div>
                 </div>
