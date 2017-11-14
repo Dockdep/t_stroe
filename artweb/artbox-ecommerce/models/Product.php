@@ -659,7 +659,7 @@ class Product extends ActiveRecord
                 }
 
             }
-
+            print_r($percent);
             if($percent > 0){
                 $this->variant->price = ((100-$percent)/100) * $this->variant->price;
             }
