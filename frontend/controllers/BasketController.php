@@ -44,11 +44,11 @@
             if(!empty($additionalData)
                 && isset($additionalData[0])
                 && isset($additionalData[1])
-                && isset($additionalData[2])
-                && $additionalData[2] == 'analog'
             ){
                 if(count($additionalData) == 3 && $additionalData[2] == 'analog'){
                     $basket->addChangeAnalogs($additionalData);
+                } else if($additionalData[2] == 'base') {
+                    $basket->add($product_variant_id, $count);
                 } else {
                     $basket->addAnalogs($additionalData);
                 }
