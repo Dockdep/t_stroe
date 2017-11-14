@@ -649,12 +649,12 @@ class Product extends ActiveRecord
                  * @var $identity Customer
                  */
                 $identity = $user->identity;
-                print_r($identity->discount_rate);
-                die();
+
                 if(!empty($identity->discount_rate)){
                     $percent = $identity->discount_rate > $this->discount_rate ? $identity->discount_rate : $this->discount_rate;
                 }
-
+                print_r($percent);
+                die();
 
                 if($discountCategory != null){
                     $percent = $this->discount_rate > $discountCategory->discount ? $this->discount_rate : $discountCategory->discount;
