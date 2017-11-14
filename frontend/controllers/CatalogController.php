@@ -144,8 +144,8 @@
             } else {
                 $discountCategory = null;
             }
-
-
+//            print_r($discountCategory);
+//            die();
             return $this->render(
                 'products',
                 [
@@ -321,8 +321,8 @@
                 $discountCategory = null;
             }
 
-            print_r($discountCategory);
-            die();
+//            print_r($discountCategory);
+//            die();
             return $this->render(
                 'card',
                 [
