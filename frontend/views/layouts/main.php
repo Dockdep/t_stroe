@@ -342,7 +342,7 @@ if(isset( $this->params[ 'isHome' ] )){
             responsiveClass: true,
             navSpeed:150,
             dots:true,
-            autoPlay: true,
+            autoplay: true,
             nav:false,
             items:1
         })
@@ -425,7 +425,7 @@ if(isset( $this->params[ 'isHome' ] )){
             navSpeed:150,
             dots:true,
             nav:false,
-            autoPlay: true,
+            autoplay: true,
             items:1
         })
 
