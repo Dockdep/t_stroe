@@ -146,7 +146,6 @@
         {
             $query = Product::find();
             $query->innerJoinWith('variants')
-                  ->joinWith('categories')
                   ->where(
                       [
                           '!=',
@@ -176,18 +175,18 @@
             );
 
 
-            $query->andWhere([
-                '>=',
-                ProductVariant::tableName() . '.price',
-                ($product->variant->price * 0.8),
-            ]);
-
-
-            $query->andWhere([
-                '<=',
-                ProductVariant::tableName() . '.price',
-                ($product->variant->price * 1.2),
-            ]);
+//            $query->andWhere([
+//                '>=',
+//                ProductVariant::tableName() . '.price',
+//                ($product->variant->price * 0.8),
+//            ]);
+//
+//
+//            $query->andWhere([
+//                '<=',
+//                ProductVariant::tableName() . '.price',
+//                ($product->variant->price * 1.2),
+//            ]);
 
 
 
