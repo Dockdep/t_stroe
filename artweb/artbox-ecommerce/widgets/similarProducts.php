@@ -22,7 +22,12 @@
         
         public function run()
         {
-            $products = ProductHelper::getSimilarProducts($this->product, $this->count)->all();
+            if(count(explode(',', $this->product->skus))){
+                $products = ProductHelper::getSimilarProducts($this->product, $this->count)->all();
+            } else {
+                $products = [];
+            }
+
 
 
             if (!$this->title) {
