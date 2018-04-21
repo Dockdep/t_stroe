@@ -457,7 +457,7 @@ class IntegrationController extends Controller{
             $model->lang->description =  $item->Description;
             $model->lang->save();
         }
-
+        $model->skus = $item->skus ? implode(",",$item->skus) : '';
         $model->status = $item->status;
         $model->unit = $item->Unit;
         $model->discount_rate = $item->discount_rate;

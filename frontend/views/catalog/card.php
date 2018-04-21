@@ -277,6 +277,8 @@ $PriceData = $product->discountPrice($discountCategory);
     </div>
 </div>
 
+<?php echo \artweb\artbox\ecommerce\widgets\similarProducts::widget(['product'=>$product]); ?>
+
 <!-----------------gallery------------------>
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

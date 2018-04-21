@@ -33,7 +33,7 @@
             return $this->render(
                 'products_block',
                 [
-                    'title'    => $this->title,
+                    'title'    => 'Похожие товары',
                     'class'    => 'similar-products',
                     'products' => $products,
                 ]

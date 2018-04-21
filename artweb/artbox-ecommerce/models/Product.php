@@ -49,6 +49,7 @@ use yii\web\User;
  * @property string               $remote_id
  * @property string               $fullName
  * @property string               $unit
+ * @property string               $skus
  * @property float                $variantPrice
  * @property float                $enabledVariantPrice
  * @property array                $categoryNames
@@ -186,7 +187,7 @@ class Product extends ActiveRecord
                 'boolean',
             ],
             [
-                [ 'size_image','unit' ],
+                [ 'size_image','unit','skus' ],
                 'string',
             ],
         ];
@@ -203,6 +204,7 @@ class Product extends ActiveRecord
             'categories'  => Yii::t('product', 'Categories'),
             'category'    => Yii::t('product', 'Category'),
             'image'       => Yii::t('product', 'Image'),
+            'skus'        => Yii::t('product', 'Skus'),
             'images'      => Yii::t('product', 'Images'),
             'video'       => Yii::t('product', 'Video embeded'),
             'variants'    => Yii::t('product', 'Variants'),

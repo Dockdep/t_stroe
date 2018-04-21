@@ -1,144 +1,39 @@
 [
   {
-    "id": "81",
-    "remainder": 11365,
-    "orders": [
-      {
-        "nom": "ШД-17005870",
-        "date": "02.10.2017",
-        "remainder": 445,
-        "indetail": [
-          {
-            "date": "11.10.2017",
-            "nom": "ШД-00003611",
-            "remainder": -605,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          },
-          {
-            "date": "02.10.2017",
-            "nom": "ШД-17005870/01",
-            "remainder": 1050,
-            "DateOfDelay": "16.10.2017",
-            "DaysOfDelay": 5,
-            "AmountInOverdue": 1050
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17005964",
-        "date": "03.10.2017",
-        "remainder": 2060,
-        "indetail": [
-          {
-            "date": "03.10.2017",
-            "nom": "ШД-17005964/01",
-            "remainder": 2060,
-            "DateOfDelay": "17.10.2017",
-            "DaysOfDelay": 4,
-            "AmountInOverdue": 2060
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17005995",
-        "date": "04.10.2017",
-        "remainder": 2050,
-        "indetail": [
-          {
-            "date": "04.10.2017",
-            "nom": "ШД-17005995/01",
-            "remainder": 2050,
-            "DateOfDelay": "18.10.2017",
-            "DaysOfDelay": 3,
-            "AmountInOverdue": 2050
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17006009",
-        "date": "04.10.2017",
-        "remainder": 290,
-        "indetail": [
-          {
-            "date": "04.10.2017",
-            "nom": "ШД-17006009/01",
-            "remainder": 290,
-            "DateOfDelay": "18.10.2017",
-            "DaysOfDelay": 3,
-            "AmountInOverdue": 290
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17006078",
-        "date": "09.10.2017",
-        "remainder": 870,
-        "indetail": [
-          {
-            "date": "09.10.2017",
-            "nom": "ШД-17006078/01",
-            "remainder": 540,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          },
-          {
-            "date": "09.10.2017",
-            "nom": "ШД-17006078/02",
-            "remainder": 330,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17006197",
-        "date": "12.10.2017",
-        "remainder": 210,
-        "indetail": [
-          {
-            "date": "12.10.2017",
-            "nom": "ШД-17006197/01",
-            "remainder": 210,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17006311",
-        "date": "18.10.2017",
-        "remainder": 80,
-        "indetail": [
-          {
-            "date": "18.10.2017",
-            "nom": "ШД-17006311/01",
-            "remainder": 80,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          }
-        ]
-      },
-      {
-        "nom": "ШД-17006365",
-        "date": "19.10.2017",
-        "remainder": 5360,
-        "indetail": [
-          {
-            "date": "19.10.2017",
-            "nom": "ШД-17006365/01",
-            "remainder": 5360,
-            "DateOfDelay": "",
-            "DaysOfDelay": 0,
-            "AmountInOverdue": 0
-          }
-        ]
-      }
-    ]
+    "product_id": "",
+    "status": false,
+    "new": false,
+    "skus": [
+      "040 390 264 616-01",
+      "2.61232",
+      "227011",
+      "3173613",
+      "3987354",
+      "534 035 0001/HD",
+      "AUG10819",
+      "JTS0006",
+      "VL-DL-8412"
+    ],
+    "jan": "",
+    "quantity": -2,
+    "manufacturer": {
+      "manufacturer_id": "000000060",
+      "name": "STR",
+      "image": ""
+    },
+    "sku": "27009",
+    "Unit": "шт",
+    "image": "17915799-8742-11e7-8092-305a3a578d98.jpg",
+    "price": "",
+    "ean": "",
+    "discount": "",
+    "category_id": "000053831",
+    "upc": "",
+    "model": "000052732",
+    "storage_prices": "",
+    "Description": "",
+    "name": "Тяга стабілізатора STR-90703",
+    "discount_rate": 35,
+    "top": false
   }
 ]

@@ -145,10 +145,6 @@
         public static function getSimilarProducts(Product $product, $count = 10): ActiveQuery
         {
             $query = Product::find();
-            if (empty( $product->properties )) {
-                $query->where('0 = 1');
-                return $query;
-            }
             $query->innerJoinWith('variants')
                   ->joinWith('categories')
                   ->where(
@@ -159,7 +155,7 @@
                       ]
                   )
                   ->andWhere(
-                      [ 'product_category.category_id' => ArrayHelper::getColumn($product->categories, 'id') ]
+                      [ 'product_variant.sku' => explode(',', $product->skus)]
                   );
             $options = [];
             foreach ($product->properties as $group) {
@@ -170,9 +166,6 @@
             if (!empty( $options )) {
                 $query->innerJoinWith('options')
                       ->andWhere([ 'product_option.option_id' => $options ]);
-            } else {
-                $query->where('0 = 1');
-                return $query;
             }
             $query->andWhere(
                 [
