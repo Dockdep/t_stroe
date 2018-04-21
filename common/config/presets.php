@@ -35,6 +35,13 @@
                 'master' => null,
             ],
         ],
+        'product_full'        => [
+            'resize' => [
+                'width'  => 720,
+                'height' => 720,
+                'master' => null,
+            ],
+        ],
         'list'           => [
             'resize' => [
                 'width'  => 228,

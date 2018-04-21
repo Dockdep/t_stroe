@@ -22,7 +22,12 @@
         
         public function run()
         {
-            $products = ProductHelper::getSimilarProducts($this->product, $this->count)->all();
+            if($this->product->skus != ''){
+                $products = ProductHelper::getSimilarProducts($this->product, $this->count)->all();
+            } else {
+                $products = [];
+            }
+
 
 
             if (!$this->title) {
@@ -33,7 +38,7 @@
             return $this->render(
                 'products_block',
                 [
-                    'title'    => $this->title,
+                    'title'    => 'Похожие товары',
                     'class'    => 'similar-products',
                     'products' => $products,
                 ]
