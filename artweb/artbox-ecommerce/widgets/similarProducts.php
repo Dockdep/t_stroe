@@ -22,7 +22,7 @@
         
         public function run()
         {
-            if(count(explode(',', $this->product->skus))){
+            if($this->product->skus != ''){
                 $products = ProductHelper::getSimilarProducts($this->product, $this->count)->all();
             } else {
                 $products = [];
