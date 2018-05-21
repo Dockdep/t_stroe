@@ -249,7 +249,7 @@ $pages = Page::find()
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
-                    <div class="style copyright-txt">© <?= date("Y");?> <a class="vglnk" href="http://truckpost.com" rel="nofollow"><span>truckpost</span><span>.</span><span>com</span><span>.</span><span>ua</span></a> - интернет магазин запчастей для грузовых и легковых авто </div>
+                    <div class="style copyright-txt">© <?= date("Y");?> <a class="vglnk" href="http://truckpost.com.ua" rel="nofollow"><span>truckpost</span><span>.</span><span>com</span><span>.</span><span>ua</span></a> - интернет магазин запчастей для грузовых и легковых авто </div>
                 </div>
 
             </div>
