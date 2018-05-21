@@ -1,6 +1,7 @@
 <?php
 /**
- * @var Product           $product
+ * @var Product    $product
+ * @var Product[]  $sproducts
  * @var View       $this
  * @var Category   $category
  */
@@ -120,37 +121,38 @@ $PriceData = $product->discountPrice($discountCategory);
                     </div>
                 </div>
 
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 card-code-price-wr">
-                    <div class="style code-card-wr">
-                        <?php if($product->enabledVariant->sku){?>
-                            <div class="code-card"><span>Код: </span><?= $product->enabledVariant->sku ?></div>
-                        <?php } ?>
-                    </div>
-
-                    <div class="style code-card-wr" style="font-size: 13px;color: #969696;margin-top: 4px;">
-                        <?php if($product->brand){?>
-                            <span style="font-weight: 700;">Бренд: </span><?= $product->brand->lang->title ?>
-                        <?php } ?>
-                    </div>
-                    <!--если овара нет в наличии для card-in-stock добавить класс "no-stock"-->
-                    <?php
-                    if($PriceData['price']>0 &&  $product->enabledVariant->quantity > 0 ){?>
-                        <div class="style card-in-stock">
-                            <!--нет в наличии-->
-                            <span>есть в наличии</span>
-                        </div>
-                        <div class="card-quantity">(<?= $product->enabledVariant->stock ?> <span><?=  $product->unit ?>.)</span></div>
-                    <?php    } else {?>
-                        <div class="style card-in-stock no-stock">
-                            <!--нет в наличии-->
-                            <span>цену и наличие уточняйте <br> у менеджера</span>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 ">
+                    <div class="card-code-price-wr clearfix" style="padding: 15px">
+                        <div class="style code-card-wr">
+                            <?php if($product->enabledVariant->sku){?>
+                                <div class="code-card"><span>Код: </span><?= $product->enabledVariant->sku ?></div>
+                            <?php } ?>
                         </div>
 
-                    <?php } ?>
-
-
-                    <div class="cat-price-more cat_new_price item_price">
+                        <div class="style code-card-wr" style="font-size: 13px;color: #969696;margin-top: 4px;">
+                            <?php if($product->brand){?>
+                                <span style="font-weight: 700;">Бренд: </span><?= $product->brand->lang->title ?>
+                            <?php } ?>
+                        </div>
+                        <!--если овара нет в наличии для card-in-stock добавить класс "no-stock"-->
                         <?php
+                        if($PriceData['price']>0 &&  $product->enabledVariant->quantity > 0 ){?>
+                            <div class="style card-in-stock">
+                                <!--нет в наличии-->
+                                <span>есть в наличии</span>
+                            </div>
+                            <div class="card-quantity">(<?= $product->enabledVariant->stock ?> <span><?=  $product->unit ?>.)</span></div>
+                        <?php    } else {?>
+                            <div class="style card-in-stock no-stock">
+                                <!--нет в наличии-->
+                                <span>цену и наличие уточняйте <br> у менеджера</span>
+                            </div>
+
+                        <?php } ?>
+
+
+                        <div class="cat-price-more cat_new_price item_price">
+                            <?php
                             if($PriceData['price']>0){?>
                                 <?php if ($PriceData['discount'] > 0) { ?>
                                     <div class="cat_old_price"><?= round($product->enabledVariant->price, 2) ?><span
@@ -158,23 +160,23 @@ $PriceData = $product->discountPrice($discountCategory);
                                 <?php } ?>
                                 <div class="cat_price item_price"><?= round($PriceData['price'], 2) ?><span
                                             class="currency"> грн.</span></div>
-                        <?php    } else {?>
+                            <?php    } else {?>
 
-                        <?php } ?>
-                    </div>
-
-                    <div class="style card-buy-wrapper">
-                        <!--если овара нет в наличии не выводить-->
-                        <?php if($PriceData['price']>0){?>
-                        <div class="card-num-wr">
-                            <i class="min"></i>
-                            <input type="text" value="1" max="999" class="item_Quantity">
-                            <i class="pluse"></i>
+                            <?php } ?>
                         </div>
-                        <?php }  ?>
-                        <!----------------------------------------->
 
-                        <!---если овара нет в наличии добавлять для card-btn-buy класс "disabled"-->
+                        <div class="style card-buy-wrapper">
+                            <!--если овара нет в наличии не выводить-->
+                            <?php if($PriceData['price']>0){?>
+                                <div class="card-num-wr">
+                                    <i class="min"></i>
+                                    <input type="text" value="1" max="999" class="item_Quantity">
+                                    <i class="pluse"></i>
+                                </div>
+                            <?php }  ?>
+                            <!----------------------------------------->
+
+                            <!---если овара нет в наличии добавлять для card-btn-buy класс "disabled"-->
 
                             <?php
                             if($PriceData['price']>0){?>
@@ -190,8 +192,17 @@ $PriceData = $product->discountPrice($discountCategory);
 
 
 
+                        </div>
                     </div>
 
+                    <div style="padding: 15px;">
+                        <h3>Аналог для:</h3>
+                        <ul>
+                            <?php foreach ($sproducts as $sproduct){?>
+                            <li><?= $sproduct ?></li>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-3 col-lg-4 card_sale-bl-wr">

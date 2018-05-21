@@ -321,6 +321,13 @@
                 $discountCategory = null;
             }
 
+            if($product->skus != ''){
+                $sproducts = explode(',', $product->skus);
+            } else {
+                $sproducts = [];
+            }
+
+
 //            print_r($discountCategory);
 //            die();
             return $this->render(
@@ -332,7 +339,8 @@
                     'colorVariants'   => $colorVariants,
                     'tabVariants'     => $tabVariants,
                     'listVariants'    => $listVariants,
-                    'discountCategory' => $discountCategory
+                    'discountCategory' => $discountCategory,
+                    'sproducts' => $sproducts
 
                 ]
             );
