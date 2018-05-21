@@ -322,7 +322,7 @@
             }
 
             if($product->skus != ''){
-                $sproducts = ProductHelper::getSimilarProducts($product, 10)->all();
+                $sproducts = explode(',', $product->skus);
             } else {
                 $sproducts = [];
             }

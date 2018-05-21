@@ -197,11 +197,9 @@ $PriceData = $product->discountPrice($discountCategory);
 
                     <div style="padding: 15px;">
                         <ul>
-                            <li>test 1</li>
-                            <li>test 2</li>
-                            <li>test 3</li>
-                            <li>test 4</li>
-                            <li>test 5</li>
+                            <?php foreach ($sproducts as $sproduct){?>
+                            <li><?= $sproduct ?></li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
