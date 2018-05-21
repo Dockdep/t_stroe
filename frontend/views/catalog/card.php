@@ -196,7 +196,7 @@ $PriceData = $product->discountPrice($discountCategory);
                     </div>
 
                     <div style="padding: 15px;">
-                        <h2>Аналог для:</h2>
+                        <h3>Аналог для:</h3>
                         <ul>
                             <?php foreach ($sproducts as $sproduct){?>
                             <li><?= $sproduct ?></li>
