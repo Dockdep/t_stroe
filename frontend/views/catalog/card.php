@@ -122,7 +122,7 @@ $PriceData = $product->discountPrice($discountCategory);
                 </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 ">
-                    <div class="card-code-price-wr clearfix">
+                    <div class="card-code-price-wr clearfix" style="padding: 15px">
                         <div class="style code-card-wr">
                             <?php if($product->enabledVariant->sku){?>
                                 <div class="code-card"><span>Код: </span><?= $product->enabledVariant->sku ?></div>
@@ -195,7 +195,7 @@ $PriceData = $product->discountPrice($discountCategory);
                         </div>
                     </div>
 
-                    <div>
+                    <div style="padding: 15px;">
                         <ul>
                             <li>test 1</li>
                             <li>test 2</li>
