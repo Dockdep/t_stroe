@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-12">
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 title-card">Товары в вашей корзина</div>
+        <div class="col-xs-12 col-sm-12 title-card">Товары в вашей корзинe</div>
 
         <?php if (empty( $models ) && empty($data)) {
             ?>
