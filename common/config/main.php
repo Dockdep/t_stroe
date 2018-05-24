@@ -14,7 +14,7 @@
                    'class' => 'Swift_SmtpTransport',
                    'host' => 'smtp.gmail.com',
                    'username' => 'truckpost8@gmail.com',
-                   'password' => '0672267705',
+                   'password' => 'rtgqilqvtzkufofp',
                    'port' => '587',
                    'encryption' => 'tls',
                ],
