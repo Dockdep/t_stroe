@@ -304,6 +304,7 @@ $pages = Page::find()
         <div class="input-wr">
             <?= $form->field(new \artweb\artbox\models\Feedback(), 'comment')->textarea() ?>
         </div>
+        <input style="height: 0px; width: 0px; margin: 0; padding: 0" id="contact" name="contact-input" type="text" value="">
         <div class="button-wr">
             <button type="submit">отправить</button>
         </div>
