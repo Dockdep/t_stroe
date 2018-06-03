@@ -543,19 +543,22 @@ class SiteController extends Controller
     public function actionFeedback()
     {
         $request = \Yii::$app->request;
-        $model = new Feedback();
-        if ($model->load($request->post()) && $model->save()) {
-            $model->sync();
-            \Yii::$app->session->setFlash(
-                'success',
-                \Yii::t(
-                    'app',
-                    'Спасибо за обращение, мы свяжемся с Вами в ближайшее время'
-                )
-            );
+        if(empty($request->post('contact-input'))){
+            $model = new Feedback();
+            if ($model->load($request->post()) && $model->save()) {
+                $model->sync();
+                \Yii::$app->session->setFlash(
+                    'success',
+                    \Yii::t(
+                        'app',
+                        'Спасибо за обращение, мы свяжемся с Вами в ближайшее время'
+                    )
+                );
+            }
+            \Yii::$app->session->setFlash('error', \Yii::t('app', 'Неправильно введенные данные'));
+            return $this->redirect([ 'site/index' ]);
         }
-        \Yii::$app->session->setFlash('error', \Yii::t('app', 'Неправильно введенные данные'));
-        return $this->redirect([ 'site/index' ]);
+
     }
 
     /**
