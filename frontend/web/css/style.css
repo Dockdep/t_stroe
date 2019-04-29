@@ -3144,7 +3144,7 @@ ul.pagination li:active.prev.disabled:before, ul.pagination li:active.next.disab
   background: #c82319;
   border: 1px solid #c82319;
   color: #fff;
-  width: 100%;
+  width: 105px;
   height: 40px;
   display: block;
   line-height: 40px;
