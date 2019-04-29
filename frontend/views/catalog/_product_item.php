@@ -93,19 +93,30 @@ $PriceData = $model->discountPrice($discountCategory);
 
                 <div class="btn_buy_basket-fix">
                     <?php
-                    echo Html::a(
-                        "подробнее",
-                        [
-                            'catalog/product',
-                            'product' => $model->lang->alias,
-                            'variant' => urlencode($model->enabledVariants[0]->sku),
-                        ],
-                        [
-                            'class'     => 'read_more_card',
-                            'data-pjax' => 0
-                        ]
-                    );
+                    // echo Html::a(
+                    //     "подробнее",
+                    //     [
+                    //         'catalog/product',
+                    //         'product' => $model->lang->alias,
+                    //         'variant' => urlencode($model->enabledVariants[0]->sku),
+                    //     ],
+                    //     [
+                    //         'class'     => 'read_more_card',
+                    //         'data-pjax' => 0
+                    //     ]
+                    // );
                     ?>
+                    <?php
+                    if($PriceData['price']>0){?>
+                        <div class="card-btn-buy">
+                            <a class="modal-link item_add btn_buy_cat" data-variant="<?= $model->enabledVariant->id; ?>"  data-form="basket_modal" href="javascript:;"><span>Купить</span></a>
+                        </div>
+
+                    <?php    } else {?>
+                        <div class="card-btn-buy disabled">
+                            <a  class="modal-link item_add btn_buy_cat" href="javascript:;"><span>Купить</span></a>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
