@@ -308,7 +308,7 @@ $pages = Page::find()
         <div class="input-wr">
             <?= $form->field(new \artweb\artbox\models\Feedback(), 'comment')->textarea() ?>
         </div>
-        <div class="g-recaptcha" id="rcaptcha" style="margin-left: 90px;" data-sitekey="6LcH6qIUAAAAAHtEPQKTUWLOVWBDW-fv8jnqO1gw"></div>
+        <div class="g-recaptcha" id="rcaptcha" style="margin-left: 90px;" data-sitekey="6LfZ6qIUAAAAAJJfWJqfxHGAdRw_Ox52sGgnFqo2"></div>
         <div class="button-wr">
             <button type="submit">отправить</button>
         </div>
