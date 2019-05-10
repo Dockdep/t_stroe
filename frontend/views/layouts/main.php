@@ -319,10 +319,8 @@ $pages = Page::find()
             var v = grecaptcha.getResponse();
             if(v.length == 0)
             {
-                console.log("capcha");
                 event.preventDefault();
             } else {
-                console.log("true");
                 return true;
             }
         }
