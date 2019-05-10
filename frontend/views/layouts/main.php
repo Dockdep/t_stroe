@@ -296,7 +296,7 @@ $pages = Page::find()
     <?php $form = ActiveForm::begin([
         "action" =>  Url::to(['site/feedback']),
         'options' => [
-            'onsubmit' => 'submit(event);'
+            'onsubmit' => 'checkGrecaptcha(event);'
         ]
     ]); ?>
         <div class="input-wr">
@@ -313,7 +313,7 @@ $pages = Page::find()
             <button type="submit">отправить</button>
         </div>
         <script>
-        function submit(event) 
+        function checkGrecaptcha(event) 
         {
             console.log("capcha");
             var v = grecaptcha.getResponse();
