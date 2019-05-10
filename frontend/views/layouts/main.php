@@ -41,7 +41,7 @@ $pages = Page::find()
 
     gtag('config', 'UA-107354966-1');
 </script>
-<script src="https://www.google.com/recaptcha/api.js?render=6LcH6qIUAAAAAHtEPQKTUWLOVWBDW-fv8jnqO1gw"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <div id="header_" class="section-box-header">
     <div class="hidden-xs section-box first_menu">
         <div class="container">
@@ -308,7 +308,6 @@ $pages = Page::find()
         <div class="input-wr">
             <?= $form->field(new \artweb\artbox\models\Feedback(), 'comment')->textarea() ?>
         </div>
-        <input style="height: 0px; width: 0px; margin: 0; padding: 0" id="contact" name="contact-input" type="text" value="">
         <div class="g-recaptcha" id="rcaptcha" style="margin-left: 90px;" data-sitekey="6LcH6qIUAAAAAHtEPQKTUWLOVWBDW-fv8jnqO1gw"></div>
         <div class="button-wr">
             <button type="submit">отправить</button>
