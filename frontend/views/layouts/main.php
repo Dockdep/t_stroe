@@ -41,7 +41,7 @@ $pages = Page::find()
 
     gtag('config', 'UA-107354966-1');
 </script>
-
+<script src="https://www.google.com/recaptcha/api.js?render=6LcH6qIUAAAAAHtEPQKTUWLOVWBDW-fv8jnqO1gw"></script>
 <div id="header_" class="section-box-header">
     <div class="hidden-xs section-box first_menu">
         <div class="container">
@@ -294,7 +294,10 @@ $pages = Page::find()
     <span id="modal_close"></span>
     <div class="style form-title">Обратный звонок</div>
     <?php $form = ActiveForm::begin([
-        "action" =>  Url::to(['site/feedback'])
+        "action" =>  Url::to(['site/feedback']),
+        'options' => [
+            'onsubmit' => 'submit(event);return false;'
+        ]
     ]); ?>
         <div class="input-wr">
             <?= $form->field(new \artweb\artbox\models\Feedback(), 'name')->textInput(['autofocus' => true]) ?>
@@ -309,6 +312,16 @@ $pages = Page::find()
         <div class="button-wr">
             <button type="submit">отправить</button>
         </div>
+        <?php
+        $js = 'function submit(event) 
+        {
+            var v = grecaptcha.getResponse();
+            if(v.length == 0)
+            {
+                event.preventDefault();
+            }
+        }';
+        $this->registerJS($js, View::POS_END); ?>
     <?php
     ActiveForm::end();
     ?>
