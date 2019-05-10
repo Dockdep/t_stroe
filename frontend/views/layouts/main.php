@@ -296,7 +296,7 @@ $pages = Page::find()
     <?php $form = ActiveForm::begin([
         "action" =>  Url::to(['site/feedback']),
         'options' => [
-            'onsubmit' => 'submit(event);return false;'
+            'onsubmit' => 'submit(event);'
         ]
     ]); ?>
         <div class="input-wr">
@@ -308,13 +308,14 @@ $pages = Page::find()
         <div class="input-wr">
             <?= $form->field(new \artweb\artbox\models\Feedback(), 'comment')->textarea() ?>
         </div>
-        <div class="g-recaptcha" id="rcaptcha" style="margin-left: 90px;" data-sitekey="6LfZ6qIUAAAAAJJfWJqfxHGAdRw_Ox52sGgnFqo2"></div>
+        <div class="g-recaptcha" id="rcaptcha" style="flat:left; margin: 30px 90px;" data-sitekey="6LfZ6qIUAAAAAJJfWJqfxHGAdRw_Ox52sGgnFqo2"></div>
         <div class="button-wr">
             <button type="submit">отправить</button>
         </div>
         <?php
         $js = 'function submit(event) 
         {
+            console.log("capcha");
             var v = grecaptcha.getResponse();
             if(v.length == 0)
             {
