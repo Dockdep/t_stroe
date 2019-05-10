@@ -315,13 +315,17 @@ $pages = Page::find()
         <script>
         function checkGrecaptcha(event) 
         {
-            console.log("capcha");
+
             var v = grecaptcha.getResponse();
             if(v.length == 0)
             {
+                console.log("capcha");
                 event.preventDefault();
+            } else {
+                console.log("true");
+                return true;
             }
-            }
+        }
         </script>
     <?php
     ActiveForm::end();
