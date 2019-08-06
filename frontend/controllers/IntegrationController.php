@@ -70,7 +70,7 @@ class IntegrationController extends Controller{
 
 
         } catch (Exception $e) {
-            echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
+            die( 'Выброшено исключение: ' . $e->getMessage() . "\n".'в файле '.$e->getFile() . "\n".' на строке '.$e->getLine(). "\n"." ". $e->getTraceAsString());
         }
     }
 
@@ -94,7 +94,7 @@ class IntegrationController extends Controller{
 
 
         } catch (Exception $e) {
-            echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
+            die(  'Выброшено исключение: ' . $e->getMessage() . "\n" . 'в файле ' . $e->getFile() . "\n" . ' на строке ' . $e->getLine() . "\n" . " " . $e->getTraceAsString());
         }
     }
 
@@ -115,7 +115,7 @@ class IntegrationController extends Controller{
                 throw new Exception("Отсутствует data");
             }
         } catch (Exception $e) {
-            echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
+            die( 'Выброшено исключение: ' . $e->getMessage() . "\n".'в файле '.$e->getFile() . "\n".' на строке '.$e->getLine(). "\n"." ". $e->getTraceAsString());
         }
     }
 
@@ -256,6 +256,8 @@ class IntegrationController extends Controller{
 
     private function SaveCustomers($item){
         $user = Customer::find()->where(["remote_id" => $item->Code])->one();
+
+
         if(!$user instanceof Customer){
             $user = new Customer();
             $user->remote_id = $item->Code;
@@ -275,8 +277,22 @@ class IntegrationController extends Controller{
             }
         }
         $user->username = $item->username;
-        $user->email = !empty($item->Email) ? $item->Email : $user->email;
-        $user->phone = !empty($item->Phone) ? $item->Phone : $user->phone;
+
+        if(!empty($item->Email)){
+            $emailCheck = Customer::find()->where(["email" => $item->Email])->one();
+            if(!$emailCheck instanceof Customer){
+                $user->email = $item->Email ;
+            }
+        }
+
+
+        if(!empty($item->Phone)){
+            $phoneCheck = Customer::find()->where(["phone" => $item->Phone])->one();
+            if(!$phoneCheck instanceof Customer){
+                $user->Phone = $item->Phone ;
+            }
+        }
+
         $user->discount_rate = $item->discount_rate;
         $user->validate();
         if(!$user->validate()){
@@ -355,7 +371,7 @@ class IntegrationController extends Controller{
 
 
         } catch (Exception $e) {
-            echo 'Выброшено исключение: ',  $e->getMessage(), "\n", 'в файле ', $e->getFile() , "\n",' на строке ', $e->getLine(), "\n"," ", $e->getTraceAsString();
+            die( 'Выброшено исключение: ' . $e->getMessage() . "\n".'в файле '.$e->getFile() . "\n".' на строке '.$e->getLine(). "\n"." ". $e->getTraceAsString());
         }
     }
 
