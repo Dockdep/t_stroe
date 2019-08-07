@@ -289,7 +289,7 @@ class IntegrationController extends Controller{
         if(!empty($item->Phone)){
             $phoneCheck = Customer::find()->where(["phone" => $item->Phone])->one();
             if(!$phoneCheck instanceof Customer){
-                $user->Phone = $item->Phone ;
+                $user->phone = $item->Phone ;
             }
         }
 
