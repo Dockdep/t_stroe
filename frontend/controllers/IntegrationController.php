@@ -136,7 +136,7 @@ class IntegrationController extends Controller{
         if(!isset($item->orders)){
             throw new Exception("Не указан orders пользователя");
         }
-        CustomerPaymentHistory::deleteAll(['customer_id'=> $item->id]);
+//        CustomerPaymentHistory::deleteAll(['customer_id'=> $item->id]);
         foreach ($item->orders as $order){
             if(!isset($order->indetail)){
                 throw new Exception("Не указан indetail пользователя в заказе " .$order->nom );
@@ -206,7 +206,7 @@ class IntegrationController extends Controller{
         }
         $order->save();
         if(isset($data->ItemS)){
-            OrderProduct::deleteAll(['order_id'=>$order->id]);
+//            OrderProduct::deleteAll(['order_id'=>$order->id]);
             $total = 0;
             $discount_total = 0;
             foreach ($data->ItemS as $item){
@@ -298,7 +298,7 @@ class IntegrationController extends Controller{
         if(!$user->validate()){
             throw new Exception(print_r($user->getErrors()));
         }
-        $user->save();
+//        $user->save();
         if(isset($item->Discount) && !empty($item->Discount)){
             $this->SaveDiscount($item->Discount, $user);
         }
@@ -312,7 +312,7 @@ class IntegrationController extends Controller{
     }
 
     private function SaveDiscount($discounts, $customer){
-        CustomerCategoryDiscount::deleteAll(['customer_id'=>$customer->id]);
+//        CustomerCategoryDiscount::deleteAll(['customer_id'=>$customer->id]);
         foreach ($discounts as $discount){
             $category = Category::find()->where(['remote_id'=>$discount->Group])->one();
             if($category instanceof Category){
@@ -320,7 +320,7 @@ class IntegrationController extends Controller{
                 $discountModel->category_id = $category->id;
                 $discountModel->customer_id = $customer->id;
                 $discountModel->discount = $discount->Discount;
-                $discountModel->save();
+//                $discountModel->save();
             } else {
                 throw new \Exception("Категории ".$discount->Group." указаной в Discount у пользователя ".$customer->remote_id." нет в базе");
             }
@@ -412,7 +412,7 @@ class IntegrationController extends Controller{
                 }
             } else {
                 $model->lang->title = $category->name;
-                $model->lang->save();
+//                $model->lang->save();
             }
 
             $model->status    = $category->status;
@@ -422,7 +422,7 @@ class IntegrationController extends Controller{
                 throw new Exception(print_r($model->getErrors()));
             }
 
-            $model->save();
+//            $model->save();
             $category_id = $model->id;
 
             $this->result[$category->category_id] = $category_id;
@@ -440,14 +440,14 @@ class IntegrationController extends Controller{
             }
         } else {
             $model->lang->title = $brand->name;
-            $model->lang->save();
+//            $model->lang->save();
         }
         $model->remote_id = $brand->manufacturer_id;
         $model->image = $brand->image;
         if(!$model->validate()){
             throw new Exception(print_r($model->getErrors()));
         }
-        $model->save();
+//        $model->save();
 
         return $model->id;
     }
@@ -471,7 +471,7 @@ class IntegrationController extends Controller{
 
             $model->lang->title = $item->name;
             $model->lang->description =  $item->Description;
-            $model->lang->save();
+//            $model->lang->save();
         }
         $model->skus = $item->skus ? implode(",",$item->skus) : '';
         $model->status = $item->status;
@@ -487,7 +487,7 @@ class IntegrationController extends Controller{
         if(!$model->validate()){
             throw new Exception(print_r($model->getErrors()));
         }
-        $model->save();
+//        $model->save();
 
 
 
@@ -510,7 +510,7 @@ class IntegrationController extends Controller{
                     "category_id"=>$item->category_id])
                 ->one();
             if($data instanceof ProductCategory){
-                $data->delete();
+//                $data->delete();
             }
         }
         $category = new ProductCategory();
@@ -519,7 +519,7 @@ class IntegrationController extends Controller{
         if(!$category->validate()){
             throw new Exception(print_r($category->getErrors()));
         }
-        $category->save();
+//        $category->save();
     }
 
     private function SaveProductImage($new_product,$model,$item,$variant_id ){
@@ -534,7 +534,7 @@ class IntegrationController extends Controller{
         if(!$image->validate()){
             throw new Exception(print_r($image->getErrors()));
         }
-        $image->save();
+//        $image->save();
     }
 
     private function SaveItemVariant($new_product, $model, $item){
@@ -548,7 +548,7 @@ class IntegrationController extends Controller{
         } else {
             $variant  = $model->variant;
             $variant->lang->title = $item->name;
-            $variant->lang->save();
+//            $variant->lang->save();
         }
         $variant->sku = $item->sku;
         $variant->price = $item->price;
@@ -565,7 +565,7 @@ class IntegrationController extends Controller{
         if(!$variant->validate()){
             throw new Exception(print_r($variant->getErrors()));
         }
-        $variant->save();
+//        $variant->save();
         return $variant->id;
     }
 }
